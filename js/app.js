@@ -40,6 +40,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+  
+  .state('app.exploreRegions', {
+    url: '/exploreRegions',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/exploreRegions.html'
+      }
+    }
+  })
 
   .state('app.browse', {
       url: '/browse',
