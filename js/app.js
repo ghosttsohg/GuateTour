@@ -50,6 +50,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+    .state('app.deptos', {
+    url: '/deptos',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/deptos.html'
+      }
+    }
+  })
+
   .state('app.browse', {
       url: '/browse',
       views: {
@@ -68,6 +77,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
+  .state('app.toursList', {
+    url: '/tours/toursList',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tours/toursList.html'
+      }
+    }
+  })
+	
   .state('app.single', {
     url: '/playlists/:playlistId',
     views: {
