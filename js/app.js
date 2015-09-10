@@ -67,6 +67,34 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+
+  .state('app.toursList', {
+		url: '/tours/toursList',
+		views: {
+		  'menuContent': {
+			templateUrl: 'templates/tours/toursList.html'
+		  }
+		}
+	  })
+  
+  .state('app.moreActions', {
+		url: '/moreActions/moreActions',
+		views: {
+		  'menuContent': {
+			templateUrl: 'templates/moreActions/moreActions.html'
+		  }
+		}
+	})
+	
+  .state('app.help', {
+		url: '/moreActions/help',
+		views: {
+		  'menuContent': {
+			templateUrl: 'templates/moreActions/help.html'
+		  }
+		}
+	})
+	  
     .state('app.playlists', {
       url: '/playlists',
       views: {
@@ -76,15 +104,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-
-  .state('app.toursList', {
-    url: '/tours/toursList',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/tours/toursList.html'
-      }
-    }
-  })
 	
   .state('app.single', {
     url: '/playlists/:playlistId',
