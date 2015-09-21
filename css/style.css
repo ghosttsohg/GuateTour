@@ -16,3 +16,9 @@
 	background-size: cover;
 	margin: auto;
 }
+
+.searchBackgnd{
+	background: url('../templates/images/ionic.jpg') no-repeat center;
+	background-size: cover;
+	margin: auto;
+}
