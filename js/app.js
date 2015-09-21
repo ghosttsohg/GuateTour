@@ -69,10 +69,10 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
     .state('app.deptos', {
-    url: '/deptos',
+    url: '/explore/metropolitan/deptos',
     views: {
       'menuContent': {
-        templateUrl: 'templates/metropolitan/deptos.html'
+        templateUrl: 'templates/explore/metropolitan/deptos.html'
       }
     }
   })
