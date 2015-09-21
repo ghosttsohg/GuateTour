@@ -1,6 +1,14 @@
 <ion-view view-title="Explora!">
   <ion-content>
-    <ion-list>
+    
+    <ion-list ng-controller="exploreRegionCtrl">
+      <ion-item ng-repeat="item in region" 
+           align="center">
+      	{{item.name}}
+      </ion-item>
+    </ion-list>
+    
+    <!--ion-list>
 	  <ion-item href="#/app/deptos">
 		Metropolitana
 	  </ion-item>
@@ -25,6 +33,6 @@
 	  <ion-item>
 		Sur-Oriental
 	  </ion-item>
-	</ion-list>
+	</ion-list-->
   </ion-content>
 </ion-view>

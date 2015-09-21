@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
+/*.controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Guatemala', id: 1 },
     { title: 'Antigua Guatemala', id: 2 },
@@ -53,4 +53,15 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+})*/
+
+.controller('exploreRegionCtrl', function($scope) {
+	$scope.region = [];
+	app.getRow("region","*","1=1","",
+		function(result) {
+			$scope.region = result;
+		}
+	);
+})
+
+;
