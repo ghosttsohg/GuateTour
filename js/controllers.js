@@ -50,10 +50,10 @@ angular.module('starter.controllers', [])
     { title: 'Rio Dulce', id: 5 },
     { title: 'Semuc Champey', id: 6 }
   ];
-})
+})*/
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-})*/
+})
 
 .controller('exploreRegionCtrl', function($scope) {
 	$scope.region = [];
