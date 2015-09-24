@@ -22,3 +22,17 @@
 	background-size: cover;
 	margin: auto;
 }
+
+.menu.menu-left{
+  width:100%;
+  background-color:#444;
+}
+
+.menu-left .item{
+  background-color:#444;
+  color: white;
+}
+
+.item-complex .item-content, .item-radio .item-content{
+background-color:#444;
+}
