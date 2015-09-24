@@ -50,16 +50,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
-
-  // .state('app.deptos', {
-    // url: '/deptos',
-    // views: {
-      // 'menuContent': {
-        // templateUrl: 'templates/metropolitan/deptos.html'
-      // }
-    // }
-  // })
-
+  
+  .state('app.deptos', {
+    url: '/explore/metropolitan/deptos',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/explore/metropolitan/deptos.html'
+      }
+    }
+  })
+  
   .state('app.browse', {
       url: '/browse',
       views: {

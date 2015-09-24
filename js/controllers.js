@@ -39,27 +39,12 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+  
   console.log("INICIANDO BD");
   DataBaseService.doInit();
   console.log("databaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
   //var db = DataBaseService.getDbModel();
-  DataBaseService.doDropTable("region");
-  DataBaseService.doCreateTable("region", "regionId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT");
-  
-  var itRegionValues = 
-  	[
-		["Metropolitana",	"Info region metropolitana"],
-		["Central", 		"Info region Central"],
-		["Sur-Occidente", 	"Info region sur-occidente"],
-		["Nor-Occidente", 	"Info region nor-occidente"],
-		["Peten", 			"Info region peten"],
-		["Norte", 			"Info region norte"],
-		["Nor-Oriental", 	"Info region nor-oriental"],
-		["Sur-Oriental", 	"Info region sur-oriental"]
-	];
-  
-  DataBaseService.doInsertTable("region", "name, information", itRegionValues);
-  
+  // DataBaseService.doDropTable("region");
 })
 
 .service('DataBaseService', function () {
@@ -109,8 +94,34 @@ angular.module('starter.controllers', [])
 			        	"", //none version 
 			        	current_version,
 	                    function(tx) {
-	                        tx.executeSql('CREATE TABLE IF NOT EXISTS'+
-	                                      ' configuracion (descripcion TEXT PRIMARY KEY, valor TEXT)');
+	                    	// create and fill table region
+	                    	DataBaseService.doCreateTable("region", "regionId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT");
+							var itRegionValues = 
+								[
+									["Metropolitana",	"Info region metropolitana"],
+									["Central", 		"Info region Central"],
+									["Sur-Occidente", 	"Info region sur-occidente"],
+									["Nor-Occidente", 	"Info region nor-occidente"],
+									["Peten", 			"Info region peten"],
+									["Norte", 			"Info region norte"],
+									["Nor-Oriental", 	"Info region nor-oriental"],
+									["Sur-Oriental", 	"Info region sur-oriental"]
+								];
+							DataBaseService.doInsertTable("region", "name, information", itRegionValues);
+							// create and fill table departament
+							DataBaseService.doCreateTable("departament", "departamentId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT");
+							var itDepartamentValues = 
+								[
+									["Metropolitana",	"Info region metropolitana"],
+									["Central", 		"Info region Central"],
+									["Sur-Occidente", 	"Info region sur-occidente"],
+									["Nor-Occidente", 	"Info region nor-occidente"],
+									["Peten", 			"Info region peten"],
+									["Norte", 			"Info region norte"],
+									["Nor-Oriental", 	"Info region nor-oriental"],
+									["Sur-Oriental", 	"Info region sur-oriental"]
+								];
+							DataBaseService.doInsertTable("departament", "name, information", itDepartamentValues);
 	                    },
 	                    successCDB,
 	                    errorCDB
