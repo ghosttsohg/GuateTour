@@ -19,23 +19,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-    
-    var itRegionValues = [
-		"('Metropolitana', 'Info region metropolitana')",
-		"('Central', 'Info region Central')",
-		"('Sur-Occidente', 'Info region sur-occidente')",
-		"('Nor-Occidente', 'Info region nor-occidente')",
-		"('Peten', 'Info region peten')",
-		"('Norte', 'Info region norte')",
-		"('Nor-Oriental', 'Info region nor-oriental')",
-		"('Sur-Oriental', 'Info region sur-oriental')"
-	];
-
-    app.openDb();
-    app.dropTable();
-    app.createTable("region", "regionId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT");
-    app.insertRow("region", "(name, information)", itRegionValues);
-
   });
 })
 
@@ -68,14 +51,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-    .state('app.deptos', {
-    url: '/deptos',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/metropolitan/deptos.html'
-      }
-    }
-  })
+  // .state('app.deptos', {
+    // url: '/deptos',
+    // views: {
+      // 'menuContent': {
+        // templateUrl: 'templates/metropolitan/deptos.html'
+      // }
+    // }
+  // })
 
   .state('app.browse', {
       url: '/browse',

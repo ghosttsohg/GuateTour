@@ -1,38 +1,13 @@
-<ion-view view-title="Explora!">
+<ion-view  view-title="Explora!">
   <ion-content>
     
     <ion-list ng-controller="exploreRegionCtrl">
-      <ion-item ng-repeat="item in region" 
-           align="center">
-      	{{item.name}}
+      <ion-item  
+        ng-repeat="region in regionModel"
+        align="center">
+        {{region.name}}
       </ion-item>
     </ion-list>
     
-    <!--ion-list>
-	  <ion-item href="#/app/deptos">
-		Metropolitana
-	  </ion-item>
-	  <ion-item>
-		Central
-	  </ion-item>
-	  <ion-item>
-		Sur-Occidente
-	  </ion-item>
-	  <ion-item>
-		Nor-Occidente
-	  </ion-item>
-	  <ion-item>
-		Pet&eacute;n
-	  </ion-item>
-	  <ion-item>
-		Norte
-	  </ion-item>
-	  <ion-item>
-		Nor-Oriental
-	  </ion-item>
-	  <ion-item>
-		Sur-Oriental
-	  </ion-item>
-	</ion-list-->
   </ion-content>
 </ion-view>
