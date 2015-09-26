@@ -36,3 +36,8 @@
 .item-complex .item-content, .item-radio .item-content{
 background-color:#444;
 }
+
+.list-item{
+  background-color:#444;
+  color: white;
+}

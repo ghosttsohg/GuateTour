@@ -44,7 +44,37 @@ angular.module('starter.controllers', [])
   DataBaseService.doInit();
   console.log("databaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
   //var db = DataBaseService.getDbModel();
-  // DataBaseService.doDropTable("region");
+  DataBaseService.doDropTable("region");
+  DataBaseService.doDropTable("departament");
+  
+  // create and fill table region
+	DataBaseService.doCreateTable("region", "regionId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT");
+	var itRegionValues = 
+		[
+			["Metropolitana",	"Info region metropolitana"],
+			["Central", 		"Info region Central"],
+			["Sur-Occidente", 	"Info region sur-occidente"],
+			["Nor-Occidente", 	"Info region nor-occidente"],
+			["Peten", 			"Info region peten"],
+			["Norte", 			"Info region norte"],
+			["Nor-Oriental", 	"Info region nor-oriental"],
+			["Sur-Oriental", 	"Info region sur-oriental"]
+		];
+	DataBaseService.doInsertTable("region", "name, information", itRegionValues);
+	// create and fill table departament
+	DataBaseService.doCreateTable("departament", "departamentId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT");
+	var itDepartamentValues = 
+		[
+			["Guatemala",	"Info region metropolitana"],
+			["Villa Nueva", 		"Info region Central"],
+			["San Miguel Petapa", 	"Info region sur-occidente"],
+			["Mixco", 	"Info region nor-occidente"],
+			["Amatitlan", 			"Info region peten"],
+			["Villa Canales", 			"Info region norte"],
+			["Chinautla", 	"Info region nor-oriental"]
+		];
+	DataBaseService.doInsertTable("departament", "name, information", itDepartamentValues);
+  
 })
 
 .service('DataBaseService', function () {
@@ -67,7 +97,7 @@ angular.module('starter.controllers', [])
             return readyRsModel;
         },
         setReadyRsModel: function (value) {
-            return readyRsModel = value;
+            readyRsModel = value;
         },
     	doInit: function() {
     		dbModel = window.openDatabase("guateTourDB", "1.1", "guateTourDB", 500000);
@@ -94,34 +124,7 @@ angular.module('starter.controllers', [])
 			        	"", //none version 
 			        	current_version,
 	                    function(tx) {
-	                    	// create and fill table region
-	                    	DataBaseService.doCreateTable("region", "regionId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT");
-							var itRegionValues = 
-								[
-									["Metropolitana",	"Info region metropolitana"],
-									["Central", 		"Info region Central"],
-									["Sur-Occidente", 	"Info region sur-occidente"],
-									["Nor-Occidente", 	"Info region nor-occidente"],
-									["Peten", 			"Info region peten"],
-									["Norte", 			"Info region norte"],
-									["Nor-Oriental", 	"Info region nor-oriental"],
-									["Sur-Oriental", 	"Info region sur-oriental"]
-								];
-							DataBaseService.doInsertTable("region", "name, information", itRegionValues);
-							// create and fill table departament
-							DataBaseService.doCreateTable("departament", "departamentId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT");
-							var itDepartamentValues = 
-								[
-									["Metropolitana",	"Info region metropolitana"],
-									["Central", 		"Info region Central"],
-									["Sur-Occidente", 	"Info region sur-occidente"],
-									["Nor-Occidente", 	"Info region nor-occidente"],
-									["Peten", 			"Info region peten"],
-									["Norte", 			"Info region norte"],
-									["Nor-Oriental", 	"Info region nor-oriental"],
-									["Sur-Oriental", 	"Info region sur-oriental"]
-								];
-							DataBaseService.doInsertTable("departament", "name, information", itDepartamentValues);
+	                    	
 	                    },
 	                    successCDB,
 	                    errorCDB
@@ -227,7 +230,7 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('PlaylistCtrl', function($scope, $stateParams, $txtPattern) {
 })
 
 .controller('exploreRegionCtrl', function($scope, DataBaseService) {
@@ -242,8 +245,69 @@ angular.module('starter.controllers', [])
 	  		for (var i=0; i<rs.length; i++) {
 				$scope.regionModel.push(rs.item(i));
 			}
+			console.log("exploreRegionCtrl :"+JSON.stringify($scope.regionModel));
 	  	}
 	  },100);
+})
+
+.controller('exploreDepartamentCtrl', function($scope, DataBaseService) {
+	$scope.departamentModel = [];
+	DataBaseService.getSelectRsTable("departament","departamentId, name, information","1=1","");
+	var interv = setInterval(function(){
+  		if (DataBaseService.getReadyRsModel()) {
+	  		clearInterval(interv);
+	  		DataBaseService.setReadyRsModel(false);
+	  		var rs = DataBaseService.getRsModel();
+	  		for (var i=0; i<rs.length; i++) {
+				$scope.departamentModel.push(rs.item(i));
+			}
+			console.log("exploreDepartamentCtrl :"+JSON.stringify($scope.departamentModel));
+	  	}
+	  },100);
+})
+
+.controller('SearchCtrl', function($scope, $state, DataBaseService) {
+	console.log("SearchCtrl");
+	$scope.searchDataModel = {};
+	$scope.goTo = function(txtPattern){
+		console.log("$scope.goTo");
+		console.log("txtPattern:"+txtPattern);
+		$state.go('app.search', {txtPattern: txtPattern});		  
+   };
+})
+
+.controller('SearchResultCtrl', function($scope, $stateParams, DataBaseService) {
+	console.log("SearchResultCtrl");
+	console.log("$stateParams.txtPattern:"+$stateParams.txtPattern);
+	$scope.searchResultModel = [];
+	DataBaseService.setReadyRsModel(false);
+	DataBaseService.getSelectRsTable("region","regionId as id, name","lower(name) like lower('%"+$stateParams.txtPattern+"%')","");
+	var interv = 
+	setInterval(function(){
+  		if (DataBaseService.getReadyRsModel()) {
+	  		clearInterval(interv);
+	  		DataBaseService.setReadyRsModel(false);
+	  		var rs = DataBaseService.getRsModel();
+	  		for (var i=0; i<rs.length; i++) {
+				$scope.searchResultModel.push(rs.item(i));
+			}
+			DataBaseService.getSelectRsTable("departament","departamentId as id, name","lower(name) like lower('%"+$stateParams.txtPattern+"%')","");
+			var interv2 = 
+			setInterval(function(){
+		  		if (DataBaseService.getReadyRsModel()) {
+			  		clearInterval(interv2);
+			  		DataBaseService.setReadyRsModel(false);
+			  		var rs2 = DataBaseService.getRsModel();
+			  		for (var i=0; i<rs2.length; i++) {
+						$scope.searchResultModel.push(rs2.item(i));
+					}
+					if ($scope.searchResultModel==null || $scope.searchResultModel.length<=0) {
+						$scope.searchResultModel.push({name:'No se encontraron coincidencias'});
+					}
+			  	}
+			},100);
+	    }
+	},100);
 })
 
 ;

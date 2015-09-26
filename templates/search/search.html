@@ -1,32 +1,31 @@
-<ion-view view-title="Buscar" class="searchBackgnd">
-  <ion-header-bar>
-   
-  </ion-header-bar>
+<ion-view view-title="Buscar" class="searchBackgnd" ng-controller="SearchResultCtrl">
   <ion-content>
    <style>
-<!--  h1{
-	color:black;
-	font-family:MV Boli; 
-	font-size:150%;
-	text-align:center; 
-  } -->
+	h1{
+		color:black;
+		font-family:MV Boli; 
+		font-size:150%;
+		text-align:center; 
+    }
   </style>
-    <form>
-      <div class="list" align="center" style="background: url('../templates/images/ionic.jpg') no-repeat center;">
-        <label class="item item-input">
-          <span class="input-label">
-			<h1>Y hoy, ¿Cúal es tu destino?</h1>
-		  </span>
-        </label>
-		<label class="item item-input">
-           <i class="icon ion-search placeholder-icon"></i>
-		   <input type="search" placeholder="Buscar">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Buscar</button>
-        </label>
-      </div>
-    </form>
+  <!--div class="list" align="center" style="background: url('../templates/images/ionic.jpg') no-repeat center;">
+    <label class="item item-input">
+      <span class="input-label">
+		<h1>Y hoy, ¿Cúal es tu destino?</h1>
+	  </span>
+    </label>
+  </div-->
+    
+    <ion-list>
+      <ion-item  
+        align="center"
+        ng-repeat="item in searchResultModel"
+        href="#"
+        class="list-item">
+        {{item.name}}
+      </ion-item>
+    </ion-list>
+    
   </ion-content>
 </ion-view>
 
