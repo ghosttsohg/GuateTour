@@ -21,26 +21,42 @@
 			
 			<ion-content>
 			  <ion-list >
-				<ion-item menu-close class="item" href="#/app/welcome" >
-				 <i class="ion-chevron-left"></i> Home
-				</ion-item>
 				<ion-item ng-controller="SearchCtrl">
 				  <input type="search" placeholder="Buscar" ng-model="searchDataModel.email">
 				  <button class="button button-block button-positive" ng-click="goTo(searchDataModel.email);" menu-close>Buscar</button>
 				</ion-item>
-				<ion-item menu-close href="#/app/explore/exploreRegions">
-				  Explorar Regiones
-				</ion-item>
-				<ion-item menu-close href="#/app/tours/toursList">
-				  Tours
-				</ion-item>
-				<ion-item menu-close href="#/app/moreActions/moreActions">
-				  M&aacute;s acciones
-				</ion-item>
-				<ion-item menu-close >
-				  Salir
-				</ion-item>
-			  </ion-list>
+			</ion-list>
+			  
+			  <div class="list">
+				<a class="item item-icon-left item-button-right"  ng-controller="SearchCtrl" >
+					<i class="icon ion-search"></i>
+					<input type="search" placeholder="Buscar" ng-model="searchDataModel.email">
+					<button class="button button-positive" ng-click="goTo(searchDataModel.email);" menu-close>Ir</button>
+					
+				</a>
+				<a class="item item-icon-left" href="#/app/welcome" menu-close>
+					<i class="icon ion-home"></i>
+					INICIO
+				</a>
+				<a class="item item-icon-left" href="#/app/explore/exploreRegions" menu-close>
+					<i class="icon ion-map"></i>
+					EXPLORAR REGIONES
+				</a>
+				<a class="item item-icon-left" href="#/app/tours/toursList" menu-close>
+					<i class="icon ion-briefcase"></i>
+					TOURS
+				</a>
+				<a class="item item-icon-left" href="#/app/moreActions/moreActions" menu-close>
+					<i class="icon ion-gear-a"></i>
+					M&Aacute;S ACCIONES
+				</a>
+				<a class="item item-icon-left">
+					<i class="icon ion-log-out"></i>
+					SALIR
+				</a>
+
+			  </div>
+			  
 			</ion-content>
 		  </ion-side-menu>
 		</ion-side-menus>
