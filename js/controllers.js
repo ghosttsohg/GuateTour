@@ -48,19 +48,19 @@ angular.module('starter.controllers', [])
   DataBaseService.doDropTable("departament");
   
   // create and fill table region
-	DataBaseService.doCreateTable("region", "regionId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT");
+	DataBaseService.doCreateTable("region", "regionId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT, previsualization TEXT");
 	var itRegionValues = 
 		[
-			["Metropolitana",	"Info region metropolitana"],
-			["Central", 		"Info region Central"],
-			["Sur-Occidente", 	"Info region sur-occidente"],
-			["Nor-Occidente", 	"Info region nor-occidente"],
-			["Peten", 			"Info region peten"],
-			["Norte", 			"Info region norte"],
-			["Nor-Oriental", 	"Info region nor-oriental"],
-			["Sur-Oriental", 	"Info region sur-oriental"]
+			["Metropolitana",	"Info region metropolitana", "toronto.jpg"],
+			["Central", 		"Info region Central", "scotland.jpg"],
+			["Sur-Occidente", 	"Info region sur-occidente", "kyoto.jpg"],
+			["Nor-Occidente", 	"Info region nor-occidente", "new-zealand.jpg"],
+			["Peten", 			"Info region peten", "hawaii.jpg"],
+			["Norte", 			"Info region norte", "toronto.jpg"],
+			["Nor-Oriental", 	"Info region nor-oriental", "scotland.jpg"],
+			["Sur-Oriental", 	"Info region sur-oriental", "kyoto.jpg"]
 		];
-	DataBaseService.doInsertTable("region", "name, information", itRegionValues);
+	DataBaseService.doInsertTable("region", "name, information, previsualization", itRegionValues);
 	// create and fill table departament
 	DataBaseService.doCreateTable("departament", "departamentId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT");
 	var itDepartamentValues = 
@@ -235,7 +235,7 @@ angular.module('starter.controllers', [])
 
 .controller('exploreRegionCtrl', function($scope, DataBaseService) {
 	$scope.regionModel = [];
-	DataBaseService.getSelectRsTable("region","regionId, name, information","1=1","");
+	DataBaseService.getSelectRsTable("region","regionId, name, information, previsualization","1=1","");
 	var interv = setInterval(function(){
   		if (DataBaseService.getReadyRsModel()) {
 	  		clearInterval(interv);
@@ -248,6 +248,16 @@ angular.module('starter.controllers', [])
 			console.log("exploreRegionCtrl :"+JSON.stringify($scope.regionModel));
 	  	}
 	  },100);
+	//$scope.$on("$ionicView.afterEnter", function() {
+	setTimeout(function(){
+	    Waves.displayEffect();
+	    setTimeout(function() {
+	        Mi.motion.blindsDown({
+	            selector: '.card'
+	        });
+	    }, 1500);
+	}, 500);
+	//});
 })
 
 .controller('exploreDepartamentCtrl', function($scope, DataBaseService) {

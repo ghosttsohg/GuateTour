@@ -1,15 +1,17 @@
 <ion-view  view-title="Explora!">
-  <ion-content>
-    
-    <ion-list ng-controller="exploreRegionCtrl">
-      <ion-item  
-        align="center"
-        ng-repeat="region in regionModel"
-        href="#/app/explore/metropolitan/deptos"
-        class="list-item">
-        {{region.name}}
-      </ion-item>
-    </ion-list>
-	
-  </ion-content>
+	<ion-content ng-controller="exploreRegionCtrl">
+        <div class="ionic">
+            <div class="list condensed-space no-padding animate-blinds">
+                <div class="card" ng-repeat="region in regionModel">
+                    <a class="item clear-bg item-bg-image waves-effect waves-button waves-light has-mask-reverse" 
+                       href="#/app/explore/metropolitan/deptos">
+                        <h2>{{region.name}}</h2>
+                        <p>{{region.information}}</p>
+                        <img src="templates/images/{{region.previsualization}}">
+                    </a>
+                </div>
+            </div>
+        </div>
+		</div>
+	</ion-content>
 </ion-view>
