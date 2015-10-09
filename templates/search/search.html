@@ -20,7 +20,7 @@
       <ion-item  
         align="center"
         ng-repeat="item in searchResultModel"
-        href="#"
+        ng-click="goTo(item.id);"
         class="list-item">
         {{item.name}}
       </ion-item>

@@ -20,14 +20,9 @@
 			  </ion-header-bar>
 			
 			<ion-content>
-			  <ion-list >
-				<ion-item ng-controller="SearchCtrl">
-				  <input type="search" placeholder="Buscar" ng-model="searchDataModel.email">
-				  <button class="button button-block button-positive" ng-click="goTo(searchDataModel.email);" menu-close>Buscar</button>
-				</ion-item>
-			</ion-list>
 			  
 			  <div class="list">
+			  	<a class="item item-icon-left item-button-right"></a>
 				<a class="item item-icon-left item-button-right"  ng-controller="SearchCtrl" >
 					<i class="icon ion-search"></i>
 					<input type="search" placeholder="Buscar" ng-model="searchDataModel.email">

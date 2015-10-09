@@ -51,7 +51,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
   
   .state('app.deptos', {
-    url: '/explore/metropolitan/deptos',
+    url: '/explore/metropolitan/deptos?txtRegionId',
     views: {
       'menuContent': {
         templateUrl: 'templates/explore/metropolitan/deptos.html'

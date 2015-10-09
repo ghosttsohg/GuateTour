@@ -62,18 +62,33 @@ angular.module('starter.controllers', [])
 		];
 	DataBaseService.doInsertTable("region", "name, information, previsualization", itRegionValues);
 	// create and fill table departament
-	DataBaseService.doCreateTable("departament", "departamentId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT");
+	DataBaseService.doCreateTable("departament", "departamentId INTEGER PRIMARY KEY ASC, regionId INTEGER, region, name TEXT, information TEXT, previsualization TEXT, FOREIGN KEY(regionId) REFERENCES region(regionId)");
 	var itDepartamentValues = 
 		[
-			["Guatemala",	"Info region metropolitana"],
-			["Villa Nueva", 		"Info region Central"],
-			["San Miguel Petapa", 	"Info region sur-occidente"],
-			["Mixco", 	"Info region nor-occidente"],
-			["Amatitlan", 			"Info region peten"],
-			["Villa Canales", 			"Info region norte"],
-			["Chinautla", 	"Info region nor-oriental"]
+			[1, "Guatemala", "Info Guatemala", "toronto.jpg"],
+			[2, "Alta Verapaz", "Info Alta Verapaz", "scotland.jpg"],
+			[2, "Baja Verapaz", "Info Baja Verapaz", "kyoto.jpg"],
+			[3, "Chiquimula", "Info Chiquimula", "new-zealand.jpg"],
+			[3, "El Progreso", "Info El Progreso", "hawaii.jpg"],
+			[3, "Izabal", "Info Izabal", "toronto.jpg"],
+			[3, "Zacapa", "Info Zacapa", "scotland.jpg"],
+			[4, "Jutiapa", "Info Jutiapa", "kyoto.jpg"],
+			[4, "Jalapa", "Info Jalapa", "new-zealand.jpg"],
+			[4, "Santa Rosa", "Info Santa Rosa", "hawaii.jpg"],
+			[5, "Chimaltenango", "Info Chimaltenango", "toronto.jpg"],
+			[5, "Sacatepequez", "Info Sacatepequez", "scotland.jpg"],
+			[5, "Escuintla", "Info Escuintla", "kyoto.jpg"],
+			[6, "Quetzaltenango", "Info Quetzaltenango", "new-zealand.jpg"],
+			[6, "Retalhuleu", "Info Retalhuleu", "hawaii.jpg"],
+			[6, "San Marcos", "Info San Marcos", "toronto.jpg"],
+			[6, "Suchitepequez", "Info Suchitepequez", "scotland.jpg"],
+			[6, "Solola", "Info Solola", "kyoto.jpg"],
+			[6, "Totonicapan", "Info Totonicapan", "new-zealand.jpg"],
+			[7, "Huhuetenango", "Info Huhuetenango", "hawaii.jpg"],
+			[7, "Quiche", "Info Quiche", "toronto.jpg"],
+			[8, "Peten", "Info Peten", "scotland.jpg"]
 		];
-	DataBaseService.doInsertTable("departament", "name, information", itDepartamentValues);
+	DataBaseService.doInsertTable("departament", "regionId, name, information, previsualization", itDepartamentValues);
   
 })
 
@@ -233,7 +248,7 @@ angular.module('starter.controllers', [])
 .controller('PlaylistCtrl', function($scope, $stateParams, $txtPattern) {
 })
 
-.controller('exploreRegionCtrl', function($scope, DataBaseService) {
+.controller('RegionCtrl', function($scope, $state, DataBaseService) {
 	$scope.regionModel = [];
 	DataBaseService.getSelectRsTable("region","regionId, name, information, previsualization","1=1","");
 	var interv = setInterval(function(){
@@ -258,11 +273,17 @@ angular.module('starter.controllers', [])
 	    }, 1500);
 	}, 500);
 	//});
+	$scope.goTo = function(regionId){
+		console.log("$scope.goTo");
+		console.log("txtRegionId:"+regionId);
+		$state.go('app.deptos', {txtRegionId: regionId});		  
+   };
 })
 
-.controller('exploreDepartamentCtrl', function($scope, DataBaseService) {
+.controller('DepartamentCtrl', function($scope, $stateParams, DataBaseService) {
+	console.log("$stateParams.regionId:"+$stateParams.txtRegionId);
 	$scope.departamentModel = [];
-	DataBaseService.getSelectRsTable("departament","departamentId, name, information","1=1","");
+	DataBaseService.getSelectRsTable("departament","departamentId, regionId, name, information, previsualization","regionId = "+$stateParams.txtRegionId,"");
 	var interv = setInterval(function(){
   		if (DataBaseService.getReadyRsModel()) {
 	  		clearInterval(interv);
@@ -286,7 +307,7 @@ angular.module('starter.controllers', [])
    };
 })
 
-.controller('SearchResultCtrl', function($scope, $stateParams, DataBaseService) {
+.controller('SearchResultCtrl', function($scope, $state, $stateParams, DataBaseService) {
 	console.log("SearchResultCtrl");
 	console.log("$stateParams.txtPattern:"+$stateParams.txtPattern);
 	$scope.searchResultModel = [];
@@ -318,6 +339,11 @@ angular.module('starter.controllers', [])
 			},100);
 	    }
 	},100);
+	$scope.goTo = function(regionId){
+		console.log("$scope.goTo");
+		console.log("txtRegionId:"+regionId);
+		$state.go('app.deptos', {txtRegionId: regionId});		  
+   };
 })
 
 ;

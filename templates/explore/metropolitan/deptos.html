@@ -1,22 +1,20 @@
-<ion-view view-title="Explorar Regiones">
-  <ion-content ng-controller="exploreDepartamentCtrl">
-    
-    <!--ion-slide-box on-slide-changed="slideHasChanged($index)" ng-repeat="departament in departamentModel">
-	  <ion-slide >
-		<div class="box blue"><h1>{{departament.name}}</h1></div>
-	  </ion-slide>
-	</ion-slide-box-->
-	<center>
-	<img src="/templates/images/guatemala1.jpg" width="240"/>
-	</center>
-	<ion-list>
-      <ion-item  
-        align="center"
-        class="list-item"
-        ng-repeat="departament in departamentModel">
-        {{departament.name}}
-      </ion-item>
-    </ion-list>
-	
-  </ion-content>
+<ion-view view-title="Visita Departamentos">
+  <ion-content ng-controller="DepartamentCtrl">
+        <div class="ionic">
+        	<div ng-repeat="depto in departamentModel">
+	            <div class="hero has-mask " style="background-image: url(&#39;../templates/images/{{depto.previsualization}}&#39;);">
+		            <div class="content">
+		                <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-heart pull-right text-white"></button>
+		                <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-images pull-right text-white"></button>
+		                <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-map pull-right text-white"></button>
+		            </div>
+		        </div>
+		        <div class="mid-bar dark-bg z1 padding">
+		            <h3>{{depto.name}}</h3>
+		            <p>{{depto.information}}</p>
+		        </div>
+	        </div>
+        </div>
+	</ion-content>
+  
 </ion-view>
