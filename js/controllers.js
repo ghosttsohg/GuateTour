@@ -261,18 +261,18 @@ angular.module('starter.controllers', [])
 				$scope.regionModel.push(rs.item(i));
 			}
 			console.log("exploreRegionCtrl :"+JSON.stringify($scope.regionModel));
+			//$scope.$on("$ionicView.afterEnter", function() {
+			//setTimeout(function(){
+			    Waves.displayEffect();
+			    setTimeout(function() {
+			        Mi.motion.blindsDown({
+			            selector: '.card'
+			        });
+			    }, 100);
+			//}, 100);
+			//});
 	  	}
 	  },100);
-	//$scope.$on("$ionicView.afterEnter", function() {
-	setTimeout(function(){
-	    Waves.displayEffect();
-	    setTimeout(function() {
-	        Mi.motion.blindsDown({
-	            selector: '.card'
-	        });
-	    }, 1500);
-	}, 500);
-	//});
 	$scope.goTo = function(regionId){
 		console.log("$scope.goTo");
 		console.log("txtRegionId:"+regionId);

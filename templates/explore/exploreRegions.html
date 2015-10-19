@@ -1,12 +1,15 @@
-<ion-view  view-title="Explora!">
+<ion-view view-title="Explora!" style="background-color:#444;">
 	<ion-content ng-controller="RegionCtrl">
         <div class="ionic">
             <div class="list condensed-space no-padding animate-blinds">
                 <div class="card" ng-repeat="region in regionModel">
                     <a class="item clear-bg item-bg-image waves-effect waves-button waves-light has-mask-reverse" 
                        ng-click="goTo(region.regionId);">
-                        <h2>{{region.name}}</h2>
-                        <p>{{region.information}}</p>
+                        <h2>
+                        	{{region.name}}
+                        	<p style="font-weight:normal;">{{region.information}}</p>
+                        </h2>
+                        
                         <br/>
                         <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-ios-information-outline pull-right text-white"></button>
                         <img src="templates/images/{{region.previsualization}}"/>
