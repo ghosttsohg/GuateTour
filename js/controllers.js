@@ -263,12 +263,12 @@ angular.module('starter.controllers', [])
 			console.log("exploreRegionCtrl :"+JSON.stringify($scope.regionModel));
 			//$scope.$on("$ionicView.afterEnter", function() {
 			//setTimeout(function(){
-			    Waves.displayEffect();
+			    //Waves.displayEffect();
 			    setTimeout(function() {
 			        Mi.motion.blindsDown({
 			            selector: '.card'
 			        });
-			    }, 100);
+			    }, 500);
 			//}, 100);
 			//});
 	  	}
