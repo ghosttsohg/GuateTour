@@ -48,17 +48,21 @@ angular.module('starter.controllers', [])
   DataBaseService.doDropTable("departament");
   
   // create and fill table region
+  // Next Regions are temporaly unavailable:
+  // ["Central", 		"Chimaltenango, Escuitla, Sacatepequez", "scotland.jpg"],
+  // ["Nor-Occidente", 	"Quiche, Huehuetenango", "new-zealand.jpg"],
+  // ["Norte", 			"Alta Verapaz, Baja Verapaz", "toronto.jpg"],
+  // ["Sur-Oriental", 	"Jalapa, Jutiapa, Santa Rosa", "kyoto.jpg"]
+  
+			
 	DataBaseService.doCreateTable("region", "regionId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT, previsualization TEXT");
 	var itRegionValues = 
 		[
 			["Metropolitana",	"Guatemala", "toronto.jpg"],
-			["Central", 		"Chimaltenango, Escuitla, Sacatep&ecutequez", "scotland.jpg"],
-			["Sur-Occidente", 	"Quetzaltenango, Retalhuleu, San Marcos, Solol&acute, Suchitep&ecutequez, Totonicap&acuten", "kyoto.jpg"],
-			["Nor-Occidente", 	"Quich&ecute, Huehuetenango", "new-zealand.jpg"],
-			["Peten", 			"Pet&ecuten", "hawaii.jpg"],
-			["Norte", 			"Alta Verapaz, Baja Verapaz", "toronto.jpg"],
+			["Sur-Occidente", 	"Quetzaltenango, Retalhuleu, San Marcos, Solola, Suchitepequez, Totonicapan", "kyoto.jpg"],
+			["Peten", 			"Peten", "hawaii.jpg"],
 			["Nor-Oriental", 	"Chiquimula, El Progreso, Izabal, Zacapa", "scotland.jpg"],
-			["Sur-Oriental", 	"Jalapa, Jutiapa, Santa Rosa", "kyoto.jpg"]
+			
 		];
 	DataBaseService.doInsertTable("region", "name, information, previsualization", itRegionValues);
 	// create and fill table departament
