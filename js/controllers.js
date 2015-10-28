@@ -47,6 +47,7 @@ angular.module('starter.controllers', [])
   DataBaseService.doDropTable("region");
   //DataBaseService.doDropTable("departament");
   
+<<<<<<< HEAD
   jQuery.get('/data/dataXML.xml', 
     function(xml){
       var json = jQuery.xml2json(xml); 
@@ -75,6 +76,24 @@ angular.module('starter.controllers', [])
 			["Sur-Occidente", 	"Quetzaltenango, Retalhuleu, San Marcos, Solol&aacute;, Suchitep&eacute;quez, Totonicap&aacute;n", "kyoto.jpg"],
 			["Nor-Occidente", 	"Quich&eacute;, Huehuetenango", "new-zealand.jpg"],
 			["Peten", 			"Pet&eacute;n", "hawaii.jpg"]
+=======
+  // create and fill table region
+  // Next Regions are temporaly unavailable:
+  // ["Central", 		"Chimaltenango, Escuitla, Sacatepequez", "scotland.jpg"],
+  // ["Nor-Occidente", 	"Quiche, Huehuetenango", "new-zealand.jpg"],
+  // ["Norte", 			"Alta Verapaz, Baja Verapaz", "toronto.jpg"],
+  // ["Sur-Oriental", 	"Jalapa, Jutiapa, Santa Rosa", "kyoto.jpg"]
+  
+			
+	DataBaseService.doCreateTable("region", "regionId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT, previsualization TEXT");
+	var itRegionValues = 
+		[
+			["Metropolitana",	"Guatemala", "toronto.jpg"],
+			["Sur-Occidente", 	"Quetzaltenango, Retalhuleu, San Marcos, Solola, Suchitepequez, Totonicapan", "kyoto.jpg"],
+			["Peten", 			"Peten", "hawaii.jpg"],
+			["Nor-Oriental", 	"Chiquimula, El Progreso, Izabal, Zacapa", "scotland.jpg"],
+			
+>>>>>>> origin/master
 		];
 	DataBaseService.doInsertTable("region", "name, information, previsualization", itRegionValues);
 	// create and fill table departament
