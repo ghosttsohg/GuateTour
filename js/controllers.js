@@ -45,24 +45,40 @@ angular.module('starter.controllers', [])
   console.log("databaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
   //var db = DataBaseService.getDbModel();
   DataBaseService.doDropTable("region");
-  DataBaseService.doDropTable("departament");
+  //DataBaseService.doDropTable("departament");
   
-  // create and fill table region
-	DataBaseService.doCreateTable("region", "regionId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT, previsualization TEXT");
-	var itRegionValues = 
+  jQuery.get('/data/dataXML.xml', 
+    function(xml){
+      var json = jQuery.xml2json(xml); 
+      //console.log(JSON.stringify(json));
+      
+      // create and fill table region
+      DataBaseService.doCreateTable("region", "name TEXT, introduction TEXT, information TEXT, previsualization TEXT");
+      if (json.regions.region.length==null) {
+      	alert(json.regions.region.name);
+      } else { 
+        for (i = 0; i < json.regions.region.length; i++) {
+      	  alert(json.regions.region[i].name);
+      	  //DataBaseService.doInsertTable("region", "name, information, previsualization", itRegionValues);
+        }
+      }
+	}
+  );
+	
+	/*var itRegionValues = 
 		[
 			["Metropolitana",	"Guatemala", "toronto.jpg"],
-			["Central", 		"Chimaltenango, Escuitla, Sacatep&ecutequez", "scotland.jpg"],
-			["Sur-Occidente", 	"Quetzaltenango, Retalhuleu, San Marcos, Solol&acute, Suchitep&ecutequez, Totonicap&acuten", "kyoto.jpg"],
-			["Nor-Occidente", 	"Quich&ecute, Huehuetenango", "new-zealand.jpg"],
-			["Peten", 			"Pet&ecuten", "hawaii.jpg"],
-			["Norte", 			"Alta Verapaz, Baja Verapaz", "toronto.jpg"],
+			["Norte", 	"Alta Verapaz, Baja Verapaz", "new-zealand.jpg"],
 			["Nor-Oriental", 	"Chiquimula, El Progreso, Izabal, Zacapa", "scotland.jpg"],
-			["Sur-Oriental", 	"Jalapa, Jutiapa, Santa Rosa", "kyoto.jpg"]
+			["Sur-Oriental", 	"Jalapa, Jutiapa, Santa Rosa", "kyoto.jpg"],
+			["Central", 		"Chimaltenango, Escuitla, Sacatep&eacute;quez", "scotland.jpg"],
+			["Sur-Occidente", 	"Quetzaltenango, Retalhuleu, San Marcos, Solol&aacute;, Suchitep&eacute;quez, Totonicap&aacute;n", "kyoto.jpg"],
+			["Nor-Occidente", 	"Quich&eacute;, Huehuetenango", "new-zealand.jpg"],
+			["Peten", 			"Pet&eacute;n", "hawaii.jpg"]
 		];
 	DataBaseService.doInsertTable("region", "name, information, previsualization", itRegionValues);
 	// create and fill table departament
-	DataBaseService.doCreateTable("departament", "departamentId INTEGER PRIMARY KEY ASC, regionId INTEGER, region, name TEXT, information TEXT, previsualization TEXT, FOREIGN KEY(regionId) REFERENCES region(regionId)");
+	/*DataBaseService.doCreateTable("departament", "departamentId INTEGER PRIMARY KEY ASC, regionId INTEGER, region, name TEXT, information TEXT, previsualization TEXT, FOREIGN KEY(regionId) REFERENCES region(regionId)");
 	var itDepartamentValues = 
 		[
 			[1, "Guatemala", "Info Guatemala", "toronto.jpg"],
@@ -89,7 +105,7 @@ angular.module('starter.controllers', [])
 			[8, "Peten", "Info Peten", "scotland.jpg"]
 		];
 	DataBaseService.doInsertTable("departament", "regionId, name, information, previsualization", itDepartamentValues);
-  
+  */
 })
 
 .service('DataBaseService', function () {
@@ -250,7 +266,7 @@ angular.module('starter.controllers', [])
 
 .controller('RegionCtrl', function($scope, $state, DataBaseService) {
 	$scope.regionModel = [];
-	DataBaseService.getSelectRsTable("region","regionId, name, information, previsualization","1=1","");
+	DataBaseService.getSelectRsTable("region","regionId, name, information, previsualization","1=1","order by regionId asc");
 	var interv = setInterval(function(){
   		if (DataBaseService.getReadyRsModel()) {
 	  		clearInterval(interv);
@@ -259,8 +275,9 @@ angular.module('starter.controllers', [])
 	  		var rows = [];
 	  		for (var i=0; i<rs.length; i++) {
 				$scope.regionModel.push(rs.item(i));
+				console.log("Region:"+rs.item(i).name);
 			}
-			console.log("exploreRegionCtrl :"+JSON.stringify($scope.regionModel));
+			//console.log("exploreRegionCtrl :"+JSON.stringify($scope.regionModel));
 			//$scope.$on("$ionicView.afterEnter", function() {
 			//setTimeout(function(){
 			    //Waves.displayEffect();
@@ -268,7 +285,7 @@ angular.module('starter.controllers', [])
 			        Mi.motion.blindsDown({
 			            selector: '.card'
 			        });
-			    }, 500);
+			    }, 1500);
 			//}, 100);
 			//});
 	  	}
