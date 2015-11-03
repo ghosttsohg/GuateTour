@@ -40,105 +40,31 @@ angular.module('starter.controllers', [])
     }, 1000);
   };
   
-  console.log("INICIANDO BD");
-  DataBaseService.doInit();
-  console.log("databaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
-  //var db = DataBaseService.getDbModel();
-  DataBaseService.doDropTable("region");
-  //DataBaseService.doDropTable("departament");
+  // INICIANDO BD  
+  DataBaseService.doOpenDB();
+  if (appOptions.dbCreate) {
+  	console.log("CREANDO DB");
+  	fillDB(DataBaseService);
+  } else {
+  	console.log("NO Crear BD");
+  }
   
-<<<<<<< HEAD
-  jQuery.get('/data/dataXML.xml', 
-    function(xml){
-      var json = jQuery.xml2json(xml); 
-      //console.log(JSON.stringify(json));
-      
-      // create and fill table region
-      DataBaseService.doCreateTable("region", "name TEXT, introduction TEXT, information TEXT, previsualization TEXT");
-      if (json.regions.region.length==null) {
-      	alert(json.regions.region.name);
-      } else { 
-        for (i = 0; i < json.regions.region.length; i++) {
-      	  alert(json.regions.region[i].name);
-      	  //DataBaseService.doInsertTable("region", "name, information, previsualization", itRegionValues);
-        }
-      }
-	}
-  );
-	
-	/*var itRegionValues = 
-		[
-			["Metropolitana",	"Guatemala", "toronto.jpg"],
-			["Norte", 	"Alta Verapaz, Baja Verapaz", "new-zealand.jpg"],
-			["Nor-Oriental", 	"Chiquimula, El Progreso, Izabal, Zacapa", "scotland.jpg"],
-			["Sur-Oriental", 	"Jalapa, Jutiapa, Santa Rosa", "kyoto.jpg"],
-			["Central", 		"Chimaltenango, Escuitla, Sacatep&eacute;quez", "scotland.jpg"],
-			["Sur-Occidente", 	"Quetzaltenango, Retalhuleu, San Marcos, Solol&aacute;, Suchitep&eacute;quez, Totonicap&aacute;n", "kyoto.jpg"],
-			["Nor-Occidente", 	"Quich&eacute;, Huehuetenango", "new-zealand.jpg"],
-			["Peten", 			"Pet&eacute;n", "hawaii.jpg"]
-=======
-  // create and fill table region
-  // Next Regions are temporaly unavailable:
-  // ["Central", 		"Chimaltenango, Escuitla, Sacatepequez", "scotland.jpg"],
-  // ["Nor-Occidente", 	"Quiche, Huehuetenango", "new-zealand.jpg"],
-  // ["Norte", 			"Alta Verapaz, Baja Verapaz", "toronto.jpg"],
-  // ["Sur-Oriental", 	"Jalapa, Jutiapa, Santa Rosa", "kyoto.jpg"]
-  
-			
-	DataBaseService.doCreateTable("region", "regionId INTEGER PRIMARY KEY ASC, name TEXT, information TEXT, previsualization TEXT");
-	var itRegionValues = 
-		[
-			["Metropolitana",	"Guatemala", "toronto.jpg"],
-			["Sur-Occidente", 	"Quetzaltenango, Retalhuleu, San Marcos, Solola, Suchitepequez, Totonicapan", "kyoto.jpg"],
-			["Peten", 			"Peten", "hawaii.jpg"],
-			["Nor-Oriental", 	"Chiquimula, El Progreso, Izabal, Zacapa", "scotland.jpg"],
-			
->>>>>>> origin/master
-		];
-	DataBaseService.doInsertTable("region", "name, information, previsualization", itRegionValues);
-	// create and fill table departament
-	/*DataBaseService.doCreateTable("departament", "departamentId INTEGER PRIMARY KEY ASC, regionId INTEGER, region, name TEXT, information TEXT, previsualization TEXT, FOREIGN KEY(regionId) REFERENCES region(regionId)");
-	var itDepartamentValues = 
-		[
-			[1, "Guatemala", "Info Guatemala", "toronto.jpg"],
-			[2, "Alta Verapaz", "Info Alta Verapaz", "scotland.jpg"],
-			[2, "Baja Verapaz", "Info Baja Verapaz", "kyoto.jpg"],
-			[3, "Chiquimula", "Info Chiquimula", "new-zealand.jpg"],
-			[3, "El Progreso", "Info El Progreso", "hawaii.jpg"],
-			[3, "Izabal", "Info Izabal", "toronto.jpg"],
-			[3, "Zacapa", "Info Zacapa", "scotland.jpg"],
-			[4, "Jutiapa", "Info Jutiapa", "kyoto.jpg"],
-			[4, "Jalapa", "Info Jalapa", "new-zealand.jpg"],
-			[4, "Santa Rosa", "Info Santa Rosa", "hawaii.jpg"],
-			[5, "Chimaltenango", "Info Chimaltenango", "toronto.jpg"],
-			[5, "Sacatepequez", "Info Sacatepequez", "scotland.jpg"],
-			[5, "Escuintla", "Info Escuintla", "kyoto.jpg"],
-			[6, "Quetzaltenango", "Info Quetzaltenango", "new-zealand.jpg"],
-			[6, "Retalhuleu", "Info Retalhuleu", "hawaii.jpg"],
-			[6, "San Marcos", "Info San Marcos", "toronto.jpg"],
-			[6, "Suchitepequez", "Info Suchitepequez", "scotland.jpg"],
-			[6, "Solola", "Info Solola", "kyoto.jpg"],
-			[6, "Totonicapan", "Info Totonicapan", "new-zealand.jpg"],
-			[7, "Huhuetenango", "Info Huhuetenango", "hawaii.jpg"],
-			[7, "Quiche", "Info Quiche", "toronto.jpg"],
-			[8, "Peten", "Info Peten", "scotland.jpg"]
-		];
-	DataBaseService.doInsertTable("departament", "regionId, name, information, previsualization", itDepartamentValues);
-  */
 })
 
 .service('DataBaseService', function () {
-    //var property = 'First';
 	var dbModel, 
 	    databaseReadyModel = false,
-	    rsModel = [],
-	    readyRsModel = false;
+	    readyRsModel = false,
+	    rsModel = [];
     return {
     	getDbModel: function () {
             return dbModel;
         },
         getDataBaseReadyModel: function() {
         	return databaseReadyModel;
+        },
+        setDataBaseReadyModel: function(value) {
+        	databaseReadyModel = value;
         },
         getRsModel: function() {
         	return rsModel; 
@@ -149,23 +75,51 @@ angular.module('starter.controllers', [])
         setReadyRsModel: function (value) {
             readyRsModel = value;
         },
+        doOpenDB: function() {
+        	console.log("DataBaseService.doOpenDB");
+        	dbModel = window.openDatabase("guateTourDB", "1.1", "guateTourDB", 500000);
+        },
+        doVerifyDB: function() {
+        	console.log("DataBaseService.doVerifyDB");
+			dbModel.transaction(
+				function(tx) {
+					tx.executeSql(
+						"SELECT 1 FROM geographicDistribution",
+						[],
+						function(tx, result) {
+							console.log("Select On Table geographicDistribution OK");
+							console.log("	VerifyDB is created");
+							databaseReadyModel = true;
+						}, 
+						function(tx, result) {
+							console.log("Select On Table geographicDistribution ERROR");
+							console.log("	VerifyDB is not created");
+							databaseReadyModel = false;
+						}
+					);
+				}
+			);
+    	},
+        
     	doInit: function() {
-    		dbModel = window.openDatabase("guateTourDB", "1.1", "guateTourDB", 500000);
-			this.databaseReadyModel = false;
+    		console.log("DataBaseService.doInit");
+    		//dbModel = window.openDatabase("guateTourDB", "1.1", "guateTourDB", 500000);
+			databaseReadyModel = false;
 			this.doInitDatabase();
     	},
-        doInitDatabase: function() {
+    	doInitDatabase: function() {
+    		console.log("DataBaseService.doInitDatabase");
         	var current_version = "1.1";
-			function errorCDB(err) {
-			    console.log('Error creating database',err);
-			    console.log('error in db.changeVersion to "'+current_version+'"');
-			    console.log(JSON.stringify(err));
-			}
-			function successCDB() {
+        	function successCDB() {
 			    console.log('Database created');
 			    console.log('success on db.changeVersion to "'+current_version+'"');
 			    console.log(controller.db.version);
 			    databaseReadyModel = true;
+			}
+			function errorCDB(err) {
+			    console.log('Error creating database',err);
+			    console.log('error in db.changeVersion to "'+current_version+'"');
+			    console.log(JSON.stringify(err));
 			}
 			switch(dbModel.version){
 			    case "":
@@ -186,12 +140,13 @@ angular.module('starter.controllers', [])
 		        	break;
 			}
         },
+    	
         doCreateTable: function(tableName, tableColumn) {
 			function successDB(t, r) {
-				console.log("Create Table OK");
+				console.log("Create Table "+tableName+" OK");
 			}
 			function errorDB(t, e) {
-				console.log("Create Table Error:"+e.message);
+				console.log("Create Table "+tableName+" Error:"+e.message);
 			}
 			if (tableName != null) {
 				dbModel.transaction(
@@ -207,30 +162,22 @@ angular.module('starter.controllers', [])
 			}
 		},
 		doDropTable: function(tableName) {
-			function successDB(t, r) {
-				console.log("Drop Table OK");
-			}
-			function errorDB(t, e) {
-				console.log("Drop Table Error:"+e.message);
-			}
 			dbModel.transaction(
 				function(tx) {
 					tx.executeSql(
 						"DROP TABLE "+tableName,
 						[], 
-						successDB,
-                    	errorDB
+						function(tx, result) {
+							console.log("Drop Table "+tableName+" OK");
+						}, 
+						function(tx, result) {
+							console.log("Drop Table "+tableName+" Error:"+result.message);
+						}
 					);
 				}
 			);
 		},
 		doInsertTable: function(tableName, tableColumn, tableValue) {
-			function successDB(t, r) {
-				console.log("Insert On Table OK");
-			}
-			function errorDB(t, e) {
-				console.log("Insert On Table Error:"+e.message);
-			}
 			dbModel.transaction(
 				function(tx) {
 					var columns = tableColumn.split(",");
@@ -241,38 +188,40 @@ angular.module('starter.controllers', [])
 							params+=",";
 					}
 					var query = "INSERT INTO "+tableName+" ("+tableColumn+") values ("+params+")";
-					console.log(query);
+					// console.log(query);
+					// console.log(JSON.stringify(tableValue));
+					// console.log("tableValue.length:"+tableValue.length);
 					for (var i=0; i<tableValue.length; i++) {
 						tx.executeSql(
 							query,
 							tableValue[i], 
-							successDB, 
-							errorDB
+							function(tx, result) {
+								console.log("Insert On Table "+tableName+" OK");
+							}, 
+							function(tx, result) {
+								console.log("Insert On Table Error:"+result.message);
+							}
 						);
 					}
 				}
 			);
 		},
 		getSelectRsTable: function(tableName, tableColumn, whereValue, orderValue) {
-			function successDB(t, r) {
-				console.log("Select On Table OK");
-			}
-			function errorDB(t, e) {
-				console.log("Select On Table Error:"+e.message);
-			}
 			dbModel.transaction(
 				function(tx) {
 					tx.executeSql(
 						"SELECT "+tableColumn+" FROM "+tableName+" WHERE "+whereValue+" "+orderValue,
 						[],
 						function(tx, result) {
-							console.log("Select On Table OK");
+							console.log("Select On Table "+tableName+" OK");
 							//console.log("executeSql rows:"+result.rows.length);
 							//console.log("executeSql stringify result:"+JSON.stringify(result.rows));
 							rsModel = result.rows;
 							readyRsModel = true;
 						}, 
-						errorDB
+						function(tx, result) {
+							console.log("Select On Table "+tableName+" Error:"+result.message);
+						}
 					);
 				}
 			);
@@ -280,12 +229,27 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams, $txtPattern) {
+.controller('MenuCtrl', function($scope, $state, DataBaseService) {
+	$scope.searchDataModel = {};
+	$scope.goTo = function(txtState){
+		console.log("$scope.goTo");
+		console.log("txtState:"+txtState);
+		$state.go(txtState);		  
+    };
+	$scope.goSearch = function(txtPattern){
+		console.log("$scope.goTo");
+		console.log("txtPattern:"+txtPattern);
+		$state.go('app.search', {txtPattern: txtPattern});		  
+    };
 })
 
+
 .controller('RegionCtrl', function($scope, $state, DataBaseService) {
+	console.log("RegionCtrl");
+	console.log("RegionCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
 	$scope.regionModel = [];
-	DataBaseService.getSelectRsTable("region","regionId, name, information, previsualization","1=1","order by regionId asc");
+	DataBaseService.getSelectRsTable("geographicDistribution","*","categoryType = 1 and fatherId = 0","order by name asc");
+	//"fatherId, categoryType, name, introduction, information, previsualization", itemValues);
 	var interv = setInterval(function(){
   		if (DataBaseService.getReadyRsModel()) {
 	  		clearInterval(interv);
@@ -293,62 +257,138 @@ angular.module('starter.controllers', [])
 	  		var rs = DataBaseService.getRsModel();
 	  		var rows = [];
 	  		for (var i=0; i<rs.length; i++) {
+	  			console.log("Region:"+rs.item(i).name);
 				$scope.regionModel.push(rs.item(i));
-				console.log("Region:"+rs.item(i).name);
 			}
 			//console.log("exploreRegionCtrl :"+JSON.stringify($scope.regionModel));
 			//$scope.$on("$ionicView.afterEnter", function() {
-			//setTimeout(function(){
-			    //Waves.displayEffect();
 			    setTimeout(function() {
 			        Mi.motion.blindsDown({
 			            selector: '.card'
 			        });
-			    }, 1500);
-			//}, 100);
+			        Waves.displayEffect();
+			    }, 1000);
 			//});
 	  	}
-	  },100);
-	$scope.goTo = function(regionId){
+	},100);
+	$scope.goTo = function(txtState, regionId){
 		console.log("$scope.goTo");
+		console.log("txtState:"+txtState);
 		console.log("txtRegionId:"+regionId);
-		$state.go('app.deptos', {txtRegionId: regionId});		  
-   };
+		$state.go(txtState, {txtRegionId: regionId});		  
+    };
 })
 
-.controller('DepartamentCtrl', function($scope, $stateParams, DataBaseService) {
+.controller('DepartmentCtrl', function($scope, $state, DataBaseService, $stateParams) {
+	console.log("DepartmentCtrl");
+	console.log("DepartmentCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
 	console.log("$stateParams.regionId:"+$stateParams.txtRegionId);
 	$scope.departamentModel = [];
-	DataBaseService.getSelectRsTable("departament","departamentId, regionId, name, information, previsualization","regionId = "+$stateParams.txtRegionId,"");
+	DataBaseService.getSelectRsTable("geographicDistribution","*","categoryType = 2 and fatherId = "+$stateParams.txtRegionId,"order by name asc");
 	var interv = setInterval(function(){
   		if (DataBaseService.getReadyRsModel()) {
 	  		clearInterval(interv);
 	  		DataBaseService.setReadyRsModel(false);
 	  		var rs = DataBaseService.getRsModel();
+	  		console.log("rs:"+rs.length);
 	  		for (var i=0; i<rs.length; i++) {
+	  			console.log("Department:"+rs.item(i).name);
 				$scope.departamentModel.push(rs.item(i));
 			}
-			console.log("exploreDepartamentCtrl :"+JSON.stringify($scope.departamentModel));
+			setTimeout(function() {
+	            // Mi.motion.slideUp('.slide-up');
+	            Waves.displayEffect();
+	        }, 1000);
 	  	}
-	  },100);
-})
-
-.controller('SearchCtrl', function($scope, $state, DataBaseService) {
-	console.log("SearchCtrl");
-	$scope.searchDataModel = {};
-	$scope.goTo = function(txtPattern){
+    },500);
+    $scope.goTo = function(txtState, departmentId){
 		console.log("$scope.goTo");
-		console.log("txtPattern:"+txtPattern);
-		$state.go('app.search', {txtPattern: txtPattern});		  
-   };
+		console.log("txtState:"+txtState);
+		console.log("txtDepartmentId:"+departmentId);
+		$state.go(txtState, {txtDepartmentId: departmentId});		  
+    };
 })
 
-.controller('SearchResultCtrl', function($scope, $state, $stateParams, DataBaseService) {
+.controller('SiteCtrl', function($scope, $state, DataBaseService, $stateParams) {
+	console.log("siteCtrl");
+	console.log("siteCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
+	console.log("$stateParams.departmentId:"+$stateParams.txtDepartmentId);
+	$scope.siteModel = [];
+	DataBaseService.getSelectRsTable("geographicDistribution","*","categoryType = 3 and fatherId = "+$stateParams.txtDepartmentId,"order by name asc");
+	var interv = setInterval(function(){
+  		if (DataBaseService.getReadyRsModel()) {
+	  		clearInterval(interv);
+	  		DataBaseService.setReadyRsModel(false);
+	  		var rs = DataBaseService.getRsModel();
+	  		console.log("rs:"+rs.length);
+	  		for (var i=0; i<rs.length; i++) {
+	  			console.log("Site:"+rs.item(i).name);
+				$scope.siteModel.push(rs.item(i));
+			}
+			setTimeout(function() {
+	            // Mi.motion.slideUp('.slide-up');
+	            Waves.displayEffect();
+	        }, 1000);
+	  	}
+    },500);
+    $scope.goTo = function(txtState, siteId){
+		console.log("$scope.goTo");
+		console.log("txtState:"+txtState);
+		console.log("txtSiteId:"+siteId);
+		$state.go(txtState, {txtSiteId: siteId});		  
+    };
+})
+
+
+.controller('SiteProfileCtrl', function($scope, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
+	console.log("SiteProfileCtrl");
+	console.log("SiteProfileCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
+	console.log("$stateParams.txtSiteId:"+$stateParams.txtSiteId);
+	$scope.siteProfileModel = [];
+	DataBaseService.getSelectRsTable("geographicDistribution","*","categoryType = 3 and id = "+$stateParams.txtSiteId,"");
+	var interv = setInterval(function(){
+  		if (DataBaseService.getReadyRsModel()) {
+	  		clearInterval(interv);
+	  		DataBaseService.setReadyRsModel(false);
+	  		var rs = DataBaseService.getRsModel();
+	  		console.log("rs:"+rs.length);
+	  		console.log("rs:"+JSON.stringify(rs));
+	  		for (var i=0; i<rs.length; i++) {
+	  			console.log("Site:"+rs.item(i).name);
+				$scope.siteProfileModel.push(rs.item(i));
+			}
+			setTimeout(function() {
+		        Mi.motion.slideUp({
+		            selector: '.slide-up'
+		        });
+		        Mi.motion.fadeSlideInRight({
+		            selector: '.animate-fade-slide-in-right > *',
+		            startVelocity: 3000
+		        });
+		        Mi.motion.pushDown({
+		            selector: '.push-down'
+		        });
+		        Mi.motion.fadeSlideInRight({
+		            selector: '.animate-fade-slide-in > *'
+		        });
+		    }, 1000);
+	  	}
+    },500);
+    $scope.selectTab = function(index){
+		console.log("$ionicTabsDelegate.selectTab");
+		console.log("index:"+index);
+		$ionicTabsDelegate.select(index);		  
+    };
+})
+
+
+.controller('SearchResultCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	console.log("SearchResultCtrl");
+	console.log("SearchResultCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
 	console.log("$stateParams.txtPattern:"+$stateParams.txtPattern);
 	$scope.searchResultModel = [];
 	DataBaseService.setReadyRsModel(false);
-	DataBaseService.getSelectRsTable("region","regionId as id, name","lower(name) like lower('%"+$stateParams.txtPattern+"%')","");
+	DataBaseService.getSelectRsTable("region","id, name","lower(name) like lower('%"+$stateParams.txtPattern+"%')","");
 	var interv = 
 	setInterval(function(){
   		if (DataBaseService.getReadyRsModel()) {
@@ -358,7 +398,7 @@ angular.module('starter.controllers', [])
 	  		for (var i=0; i<rs.length; i++) {
 				$scope.searchResultModel.push(rs.item(i));
 			}
-			DataBaseService.getSelectRsTable("departament","departamentId as id, name","lower(name) like lower('%"+$stateParams.txtPattern+"%')","");
+			DataBaseService.getSelectRsTable("departament","id, name","lower(name) like lower('%"+$stateParams.txtPattern+"%')","");
 			var interv2 = 
 			setInterval(function(){
 		  		if (DataBaseService.getReadyRsModel()) {
@@ -381,5 +421,66 @@ angular.module('starter.controllers', [])
 		$state.go('app.deptos', {txtRegionId: regionId});		  
    };
 })
+
+.controller('TourTypeCtrl', function($scope, $state, DataBaseService) {
+	console.log("TourTypeCtrl");
+	console.log("TourTypeCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
+	$scope.tourTypeModel = [];
+	DataBaseService.getSelectRsTable("tourDistribution","*","categoryType = 1 and fatherId = 0","order by name asc");
+	var interv = setInterval(function(){
+  		if (DataBaseService.getReadyRsModel()) {
+	  		clearInterval(interv);
+	  		DataBaseService.setReadyRsModel(false);
+	  		var rs = DataBaseService.getRsModel();
+	  		var rows = [];
+	  		for (var i=0; i<rs.length; i++) {
+	  			console.log("Type:"+rs.item(i).name);
+				$scope.tourTypeModel.push(rs.item(i));
+			}
+		    setTimeout(function() {
+		        Mi.motion.blindsDown({
+		            selector: '.card'
+		        });
+		        Waves.displayEffect();
+		    }, 1000);
+	  	}
+	},100);
+	$scope.goTo = function(txtState, typeId){
+		console.log("$scope.goTo");
+		console.log("txtState:"+txtState);
+		console.log("txtTypeId:"+typeId);
+		$state.go(txtState, {txtTypeId: typeId});		  
+    };
+})
+
+.controller('TourCtrl', function($scope, $state, DataBaseService, $stateParams) {
+	console.log("TourCtrl");
+	console.log("TourCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
+	console.log("$stateParams.typeId:"+$stateParams.txtTypeId);
+	$scope.tourModel = [];
+	DataBaseService.getSelectRsTable("tourDistribution","*","categoryType = 2 and fatherId = "+$stateParams.txtTypeId,"order by name asc");
+	var interv = setInterval(function(){
+  		if (DataBaseService.getReadyRsModel()) {
+	  		clearInterval(interv);
+	  		DataBaseService.setReadyRsModel(false);
+	  		var rs = DataBaseService.getRsModel();
+	  		for (var i=0; i<rs.length; i++) {
+	  			console.log("Tour:"+rs.item(i).name);
+				$scope.tourModel.push(rs.item(i));
+			}
+			setTimeout(function() {
+	            // Mi.motion.slideUp('.slide-up');
+	            Waves.displayEffect();
+	        }, 1000);
+	  	}
+    },500);
+    $scope.goTo = function(txtState, tourId){
+		console.log("$scope.goTo");
+		console.log("txtState:"+txtState);
+		console.log("txtTourId:"+tourId);
+		$state.go(txtState, {txtTourId: tourId});		  
+    };
+})
+
 
 ;

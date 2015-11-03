@@ -44,17 +44,35 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/explore/exploreRegions',
     views: {
       'menuContent': {
-        templateUrl: 'templates/explore/exploreRegions.html'
+        templateUrl: 'templates/explore/exploreRegion.html'
         //controller: 'exploreRegionCtrl'
       }
     }
   })
   
   .state('app.deptos', {
-    url: '/explore/metropolitan/deptos?txtRegionId',
+    url: '/explore/exploreDepto?txtRegionId',
     views: {
       'menuContent': {
-        templateUrl: 'templates/explore/metropolitan/deptos.html'
+        templateUrl: 'templates/explore/exploreDepto.html'
+      }
+    }
+  })
+  
+  .state('app.sites', {
+    url: '/explore/exploreSites?txtDepartmentId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/explore/exploreSites.html'
+      }
+    }
+  })
+  
+  .state('app.siteProfile', {
+    url: '/explore/exploreSiteProfile?txtSiteId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/explore/exploreSiteProfile.html'
       }
     }
   })
@@ -68,15 +86,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-  .state('app.toursList', {
-		url: '/tours/toursList',
+  .state('app.tourTypeList', {
+		url: '/tour/tourTypeList',
 		views: {
 		  'menuContent': {
-			templateUrl: 'templates/tours/toursList.html'
+			templateUrl: 'templates/tour/exploreTourType.html'
 		  }
 		}
 	  })
   
+  .state('app.tourList', {
+		url: '/tour/tourList?txtTypeId',
+		views: {
+		  'menuContent': {
+			templateUrl: 'templates/tour/exploreTour.html'
+		  }
+		}
+	  })
+	  
   .state('app.moreActions', {
 		url: '/moreActions/moreActions',
 		views: {
@@ -104,25 +131,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 	
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-	
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  });
+  ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/welcome');
 });

@@ -1,0 +1,21 @@
+<ion-view view-title="Tipo de Tour" style="background-color:#444;">
+	<ion-content ng-controller="TourTypeCtrl">
+		
+		<div class="ionic">
+            <div class="list condensed-space no-padding animate-blinds">
+                <div class="card" ng-repeat="type in tourTypeModel">
+                    <div class="item dark-bg item-bg-image waves-effect waves-button waves-light">
+                        <h2>{{type.name}}</h2>
+                        <p style="font-weight:normal; text-align:left;">{{type.introduction}}</p>
+                        <br/>
+		                <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-map pull-right text-white"
+		                        ng-click="goTo('app.tourList', {{type.id}});">
+		                </button>
+                        <img src="./templates/images/{{type.previsualization}}"/>
+                    </div>
+                </div>				
+            </div>
+        </div>
+        
+	</ion-content>
+</ion-view>
