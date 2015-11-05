@@ -12,9 +12,9 @@
 }
 
 .welcomeBackgnd {
-	background: url('../templates/images/welcome/w1.jpg') no-repeat center;
-	background-size: cover;
-	margin: auto;
+	background: url('../templates/images/welcome/w1.jpg') no-repeat center !important;
+	background-size: cover !important;
+	margin: auto !important;
 }
 
 .searchBackgnd{

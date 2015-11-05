@@ -1,5 +1,5 @@
 appOptions = {
-	dbCreate: true,
+	dbCreate: false,
 	dbName: 'guateTourDB',
 	dbVersion: '1.1',
 	dbSize: 500000

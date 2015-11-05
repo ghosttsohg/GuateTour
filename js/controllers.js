@@ -371,6 +371,7 @@ angular.module('starter.controllers', [])
 		        Mi.motion.fadeSlideInRight({
 		            selector: '.animate-fade-slide-in > *'
 		        });
+		        Waves.displayEffect();
 		    }, 1000);
 	  	}
     },500);
