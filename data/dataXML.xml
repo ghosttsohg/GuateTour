@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<geographicDistribution>
+		<!-- REGIONES -->
+		<register>
+			<fatherId>0</fatherId>
+			<categoryType>1</categoryType>
+			<name>Metropolitana</name>
+			<introduction>Region compuesta por el departamento de Guatemala.</introduction>
+			<information>Informacion de la region Metropolitana...</information>
+			<previsualization>thumb_palaciogt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>0</fatherId>
+			<categoryType>1</categoryType>
+			<name>Nor-Oriental</name>
+			<introduction>Region compuesta por los departamentos de Chiquimula, El Progreso, Izabal y Zacapa.</introduction>
+			<information>Informacion de la region Nor-Oriental...</information>
+			<previsualization>thumb_castilloSanFelipeGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>0</fatherId>
+			<categoryType>1</categoryType>
+			<name>Central</name>
+			<introduction>Region compuesta por los departamentos de Chimaltenango, Escuintla y Sacatepequez.</introduction>
+			<information>Informacion de la region Central...</information>
+			<previsualization>thumb_muelleGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>0</fatherId>
+			<categoryType>1</categoryType>
+			<name>Sur-Occidente</name>
+			<introduction>Region compuesta por los departamentos de Quetzaltenango, Retalhuleu, San Marcos, Solola, Suchitepequez y Totonicapan</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_irtraReuGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>0</fatherId>
+			<categoryType>1</categoryType>
+			<name>Peten</name>
+			<introduction>Region compuesta por el departamentos de Peten.</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_petenGt1.jpg</previsualization>
+		</register>
+		<!-- DEPARTAMENTOS -->
+		<register>
+			<fatherId>1</fatherId>
+			<categoryType>2</categoryType>
+			<name>Guatemala</name>
+			<introduction>Guatemala es un departamento al sur de la Republica de Guatemala</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_banerCollageGT1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>2</fatherId>
+			<categoryType>2</categoryType>
+			<name>Chiquimula</name>
+			<introduction>Departamento de Chiquimula...</introduction>
+			<information>Informacion...</information>
+			<previsualization>new-zealand.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>2</fatherId>
+			<categoryType>2</categoryType>
+			<name>El Progreso</name>
+			<introduction>Departamento de El Progreso...</introduction>
+			<information>Informacion...</information>
+			<previsualization>hawaii.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>2</fatherId>
+			<categoryType>2</categoryType>
+			<name>Izabal</name>
+			<introduction>Departamento de Izabal...</introduction>
+			<information>Informacion...</information>
+			<previsualization>toronto.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>2</fatherId>
+			<categoryType>2</categoryType>
+			<name>Zacapa</name>
+			<introduction>Departamento de Zacapa...</introduction>
+			<information>Informacion...</information>
+			<previsualization>scotland.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<categoryType>2</categoryType>
+			<name>Chimaltenango</name>
+			<introduction>Departamento de Chimaltenango...</introduction>
+			<information>Informacion...</information>
+			<previsualization>kyoto.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<categoryType>2</categoryType>
+			<name>Sacatepequez</name>
+			<introduction>Departamento de Sacatepequez...</introduction>
+			<information>Informacion...</information>
+			<previsualization>scotland.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<categoryType>2</categoryType>
+			<name>Escuintla</name>
+			<introduction>Departamento de Escuintla...</introduction>
+			<information>Informacion...</information>
+			<previsualization>new-zealand.jpg</previsualization>
+		</register> 
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Quetzaltenango</name>
+			<introduction>Departamento de Quetzaltenango...</introduction>
+			<information>Informacion...</information>
+			<previsualization>kyoto.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Retalhuleu</name>
+			<introduction>Departamento de Retalhuleu...</introduction>
+			<information>Informacion...</information>
+			<previsualization>hawaii.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>San Marcos</name>
+			<introduction>Departamento de San Marcos...</introduction>
+			<information>Informacion...</information>
+			<previsualization>scotland.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Solola</name>
+			<introduction>Departamento de Solola...</introduction>
+			<information>Informacion...</information>
+			<previsualization>toronto.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Suchitepequez</name>
+			<introduction>Departamento de Suchitepequez...</introduction>
+			<information>Informacion...</information>
+			<previsualization>hawaii.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Totonicapan</name>
+			<introduction>Departamento de Totonicapan...</introduction>
+			<information>Informacion...</information>
+			<previsualization>new-zealand.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<categoryType>2</categoryType>
+			<name>Peten</name>
+			<introduction>Departamento de Peten...</introduction>
+			<information>Informacion...</information>
+			<previsualization>kyoto.jpg</previsualization>
+		</register>
+		<!-- LUGARES, SITIOS -->
+		<register>
+			<fatherId>6</fatherId>
+			<categoryType>3</categoryType>
+			<name>Museo Popol Vuh</name>
+			<introduction>El Museo Popol Vuh ofrece un recorrido único por la historia de Guatemala</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_MuseoPopolVuhGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>6</fatherId>
+			<categoryType>3</categoryType>
+			<name>Palacio Nacional de la Cultura</name>
+			<introduction>El Palacio Nacional de la República de Guatemala, hoy denominado “Palacio Nacional de la Cultura”</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_palaciogt2.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>6</fatherId>
+			<categoryType>3</categoryType>
+			<name>Parque Zoologico Nacional La Aurora</name>
+			<introduction>El Zoológico La Aurora es un zoológico situado en la zona 13 de la ciudad de Guatemala</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_parqueLaAuroraGt1.jpg</previsualization>
+		</register>
+	</geographicDistribution>
+	<tourDistribution>
+		<!-- TIPOS DE TOUR -->
+		<register>
+			<fatherId>0</fatherId>
+			<categoryType>1</categoryType>
+			<name>Tour Cultural</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_teatroNacionalGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>0</fatherId>
+			<categoryType>1</categoryType>
+			<name>Tour Religioso</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_IglesiaSantaDelfinaGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>0</fatherId>
+			<categoryType>1</categoryType>
+			<name>Tour Aventura</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_PetenGt2.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>0</fatherId>
+			<categoryType>1</categoryType>
+			<name>Tour Naturaleza</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_RaftingGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>0</fatherId>
+			<categoryType>1</categoryType>
+			<name>Tour Tropical</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_PlayaBlancaGt1.jpg</previsualization>
+		</register>
+		<!-- TOURS -->
+		<register>
+			<fatherId>1</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Museos</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_RIPTAII.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>1</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Teatros</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_TeatroAbrilGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>2</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Inglesias</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_EsquipulasGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Maya</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_PetenGt02.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Extremo</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_CanopyGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Rios</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_SemucChampeyGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Volcanes</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_VolcanLagunaIpalaGt1.jpeg</previsualization>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Playas Atlantico</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_PlayDoradaGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Playas Pacifico</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion CAMBIO PRUEBA...</information>
+			<previsualization>thumb_PlayDoradaGt1.jpg</previsualization>
+		</register>
+	</tourDistribution>
+</application>
