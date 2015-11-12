@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, DataBaseService) {
 
@@ -253,10 +253,16 @@ angular.module('starter.controllers', [])
 		$state.go(txtState);		  
     };
 	$scope.goSearch = function(txtPattern){
-		console.log("$scope.goTo");
+		console.log("$scope.goSearch");
 		console.log("txtPattern:"+txtPattern);
 		$state.go('app.search', {txtPattern: txtPattern});		  
     };
+	
+	$scope.exit = function(){
+		console.log("$scope.exit");
+		ionic.Platform.exitApp(); // stops the app
+		console.log("$scope.exit here");
+	};
 })
 
 
@@ -521,22 +527,26 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('LoginCtrl', function($scope, $state, DataBaseService, $stateParams) {
-	console.log("LoginCtrl");
+.controller('LoginCtrl', function($scope) {
+	console.log("-- LoginCtrl Inicio --");
 	
-	setTimeout(function() {
-        Waves.displayEffect();
-        // Mi.motion.panInLeft({
-            // selector: '.animate-pan-in-left'
-        // });
-    }, 1500);
-  	
-    $scope.goTo = function(txtState, tourId){
-		console.log("$scope.goTo");
-		console.log("txtState:"+txtState);
-		console.log("txtTourId:"+tourId);
-		$state.go(txtState, {txtTourId: tourId});		  
-    };
+	$scope.showChanged = function(user){
+		$scope.user = user;
+		console.log("-- user:"+$scope.user +" --");
+	};
+	
+	$scope.showChanged1 = function(pass){
+		$scope.pass = pass;
+		console.log("-- pass:"+$scope.pass +" --");
+	};
+	
+	
+	
+	
+  	$scope.login = function(){
+	};
+ 	
+	console.log("-- LoginCtrl Fin --");
 })
 
 // COPY OF "LoginCtrl"
