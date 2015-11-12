@@ -231,7 +231,7 @@
 					</h5>
 					<center>
 						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
-							<img src="./templates/images/thumb_amatitlan7.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+							<img src="./templates/images/thumb_amatitlan7.JPG" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
 						</div>
 					</center>
 					<h5 class="text-h5" style="text-align:justify;">
@@ -262,7 +262,7 @@
 					</h5>
 					<center>
 						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
-							<img src="./templates/images/thumb_amatitlan7.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+							<img src="./templates/images/thumb_amatitlan7.JPG" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
 						</div>
 					</center>
 					<br/>
@@ -349,6 +349,165 @@
 				]]>
 			</location>
 			<previsualization>thumb_amatitlan2.jpg</previsualization>
+		</register>
+		
+		<register>
+			<fatherId>2</fatherId>
+			<categoryType>3</categoryType>
+			<name>Parque Zoologico Nacional La Aurora</name>
+			<introduction>El Zoológico La Aurora es el mejor zoológico de America Central</introduction>
+			<information>
+				<![CDATA[
+					<center>
+						<h3 class="text-h3">Parque Zoologico Nacional La Aurora</h3>
+					</center>
+					<h5 class="text-h5" style="text-align:justify;">
+						El zoológico fue inaugurado el 25 de diciembre de 1924, durante el gobierno del presidente José María Orellana.
+						<br/><br/>
+						En 1963 el zoológico La Aurora se encontraba en una situación de abandono, por lo cual el gobierno de turno 
+						entregó la administración a la Asociación Guatemalteca de Historia Natural (A.G.H.N.) por Decreto Ley No. 93.
+					</h5>
+					<br/>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_parqueLaAuroraGt1.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+						</div>
+					</center>
+					<br/>
+					<h5 class="text-h5" style="text-align:justify;">
+						A partir del año 1991 hasta la fecha se han realizado varias remodelaciones que han dado como resultado el 
+						Zoológico que encontrarás en la actualidad y que lo sitúa como uno de los mejores zoológicos de Centro América.
+					</h5>
+					<br/>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_parqueLaAuroraGt3.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+						</div>
+					</center>
+					<br/>
+					<h5 class="text-h5" style="text-align:justify;">
+						Actualmente cuenta con 16 manzanas de terreno bellamente jardinizado, lo que hace del zoológico uno de los 
+						más grandes pulmones de la ciudad de Guatemala.
+					</h5>
+					<br/><br/><br/>
+				]]>
+			</information>
+			<services>
+				<![CDATA[
+					<center>
+						<h2 class="text-h3">Servicios</h2>
+					</center>
+					<h4 class="text-h4"><strong>Horario al Público</strong></h4>
+					<h5 class="text-h5" align="justify">
+						El zoológico está abierto de martes a domingo 
+						<br/>
+						de 9:00 a.m. a 5:00 p.m.
+						<br/>
+						Cerrado los días lunes.
+						<br/><br/>
+						<strong>Tarifas:</strong>
+						<br/><br/>
+						<ul type = "disk">
+							<li style="padding-left:10px;">&bull; Niños de 2 a 12 años de edad Q12.00</li>
+							<li style="padding-left:10px;">&bull; Jóvenes y adultos Q 30.00</li>
+							<li style="padding-left:10px;">&bull; Vehículos Q 30.00</li>
+							<li style="padding-left:10px;">&bull; Buses Q. 40.00 (tarifa única)</li>
+							<li style="padding-left:10px;">&bull; Motos Q.10.00</li>
+						</ul>
+					</h5>
+					<br/>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_parqueLaAuroraGt4.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+							<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
+								Mapa del Zoológico.
+							</h6>
+						</div>
+					</center>
+					<br/>
+					<h4 class="text-h4"><strong>Colaboraciones</strong></h4>
+					<h5 class="text-h5" align="justify">
+						El zoológico cuenta con programas como:
+						<br/><br/>
+						<ul type = "disk">
+							<li style="padding-left:10px;">&bull; Apadrinamiento de animales.</li>
+							<li style="padding-left:10px;">&bull; Recepción de donativos.</li>
+						</ul>
+					</h5>
+					<br/>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_parqueLaAuroraGt6.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+							<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
+								Cria de leopardo.
+							</h6>
+						</div>
+					</center>
+					<br/>
+					<h4 class="text-h4"><strong>Eventos</strong></h4>
+					<h5 class="text-h5" align="justify">
+						El zoológico cuenta con áreas especiales para:
+						<br/><br/>
+						<ul type = "disk">
+							<li style="padding-left:10px;">&bull; Eventos culturales.</li>
+							<li style="padding-left:10px;">&bull; Eventos sociales (piñatas).</li>
+							<li style="padding-left:10px;">&bull; Arrendamiento Casa de Té, área verde, teatro y área de picnic.
+						</ul>
+					</h5>
+					<br/>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_parqueLaAuroraGt7.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+							<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
+								Cria de leopardo.
+							</h6>
+						</div>
+					</center>
+					<br/>
+					<h4 class="text-h4"><strong>Otros</strong></h4>
+					<h5 class="text-h5" align="justify">
+						El zoológico también cuenta con área de restaurantes, cajero automatico, 
+						telefonos y servicios sanitarios publicos, tienda de recuerdos.
+						Alquiler de carruajes para bebes costo: Q 5.00 la hora.
+					</h5>
+					<br/>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_parqueLaAuroraGt5.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+							<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
+								Tienda de recuerdos.
+							</h6>
+						</div>
+					</center>
+					<br/>
+				]]>
+			</services>
+			<location>
+				<![CDATA[
+					<center>
+						<h2 class="text-h3">Localizaci&oacute;n</h2>
+					</center>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_parqueLaAuroraGt8.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+						</div>
+					</center>
+					<br/>
+					<h5 class="text-h5">
+						El zoológico se encuentra ubicado en Finca La Aurora, 5A Calle, Guatemala 01013.
+						<br/><br/>
+						Se puede llegar por cualquiera de las siguientes vias:
+						<br/><br/>
+						<ul type = "disk">
+							<li style="padding-left:10px;">Boulevar Liberación</li>
+							<li style="padding-left:10px;">Avenida Petapa y Boulevar Liberación</li>
+							<li style="padding-left:10px;">Calz. Atanasio Tzul y Boulevar Liberación</li>
+						</ul>
+					</h5>
+					<br/><br/><br/>
+				]]>
+			</location>
+			<previsualization>thumb_parqueLaAuroraGt2.jpg</previsualization>
 		</register>
 		
 		<!--register>
