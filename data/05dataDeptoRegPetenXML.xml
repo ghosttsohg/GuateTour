@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<geographicDistribution>
+		<!-- REGION NORTE PETEN - DEPARTAMENTOS -->
+		<register>
+			<fatherId>5</fatherId>
+			<categoryType>2</categoryType>
+			<name>Peten</name>
+			<introduction>Departamento de Peten...</introduction>
+			<information>Informacion...</information>
+			<previsualization>kyoto.jpg</previsualization>
+		</register>
+	</geographicDistribution>
+</application>

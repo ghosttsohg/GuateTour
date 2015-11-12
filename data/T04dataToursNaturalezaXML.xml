@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<tourDistribution>
+		<!-- TOURS - NATURALEZA -->
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Rios</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_SemucChampeyGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Volcanes</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_VolcanLagunaIpalaGt1.jpeg</previsualization>
+		</register>
+	</tourDistribution>
+</application>

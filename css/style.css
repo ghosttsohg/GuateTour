@@ -41,3 +41,10 @@ background-color:#444;
   background-color:#444;
   color: white;
 }
+
+.text-h1,.text-h2,.text-h3,.text-h4{
+  color:#9D7C4F;
+}
+.text-h1,.text-h2,.text-h3,.text-h4,.text-h5,.text-h6{
+  color:#674226;
+}

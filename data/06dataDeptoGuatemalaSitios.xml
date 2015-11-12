@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<geographicDistribution>
+		<!-- LUGARES, SITIOS -->
+		<register>
+			<fatherId>2</fatherId>
+			<categoryType>3</categoryType>
+			<name>Palacio Nacional de la Cultura</name>
+			<introduction>El Palacio Nacional de la República de Guatemala, símbolo de la ciudad de Guatemala y del País.</introduction>
+			<information>
+				<![CDATA[
+					<br/>
+					<center>
+						<h3 class="text-h3">Palacio Nacional de la Cultura</h3>
+					</center>
+					<br/>
+					<h5 class="text-h5" style="text-align:justify;">
+						El Palacio Nacional de la Cultura está localizado en el Centro Histórico de la ciudad de Guatemala 
+						en la 6ta avenida y 6ta calle de la zona 1. 
+						<br/><br/>
+						<center>
+							<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+								<img src="./templates/images/thumb_palaciogt10.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">Centro Histórico de la Ciudad de Guatemala</h6>
+							</div>
+						</center>
+						<br/>
+						Es un espacio dedicado para diversas actividades artísticas y exposiciones temporales, 
+						además de alojar colecciones de pintura y escultura. Como antigua sede del gobierno guatemalteco, 
+						fue declarado Monumento Histórico y Artístico el 7 de noviembre de 1980 y el 11 de junio de 2001 pasó 
+						a formar parte del Ministerio de Cultura y Deportes de Guatemala.
+						<br/><br/>
+						El edificio, construido de concreto con ladrillo revestido de piedra tornado con un color verde, 
+						contiene los murales del artista Alfredo Gálvez Suárez que muestran una reseña histórica del país 
+						desde la época colonial hasta la independencia. La estructura está diseñada a partir de un cuerpo 
+						central del cual se prolongan dos cuerpos laterales, cada uno de estos con tres niveles y un patio central.
+						En el salón de recepciones —ubicado en el segundo nivel y uno de los espacios más atractivos del inmueble—, 
+						se encuentran un dibujo en forma de estrella que marca el kilómetro cero del país y una lámpara de cristal 
+						de dos toneladas de la que cuelgan cuatro figuras de quetzales bañados en oro. 
+						<br/><br/>
+						<center>
+							<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+								<img src="./templates/images/thumb_palaciogt14.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
+								Salón de Recepciones donde se aprecia la imponente lámpara coronada por cuatro quetzales bañados en oro.
+								</h6>
+							</div>
+						</center>
+						<br/>
+						En uno de los patios del palacio fue celebrada la firma de la paz que dio fin a la Guerra civil de Guatemala. 
+						<br/>
+						El 4 de febrero de 1976 soportó el terremoto de 7.5 grados en la escala Richter, que destruyó gran parte del país.
+						<br/><br/>
+						<center>
+							<h3 class="text-h3">Historia del Palacio</h3>
+						</center>
+						<br/>
+						Desde los inicios del régimen español, fue inminente la necesidad de contar con una sede de gobierno, 
+						de esa suerte en 1528 se construyó la primera Casa de Gobierno en Santiago de Guatemala, ordenada su construcción 
+						por Jorge de Alvarado en el Valle de Almolonga.
+						<br/><br/>
+						En 1549 el Presidente Alonso López de Cerrato traslada la sede de la Audiencia de los Confines, 
+						desde Gracias a Dios en Nicaragua a Santiago de Guatemala, ubicada en el Valle de Panchoy.
+						<br/><br/>
+						En 1761 el Presidente Alonso Fernández de Heredia, inició la construcción de una nueva sede, 
+						bajo la dirección del Capitán e Ingeniero Español, Luis Diez de Navarro.
+						<br/><br/>
+						<center>
+							<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+								<img src="./templates/images/thumb_palaciogt3.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">Trabajos de la construcción</h6>
+							</div>
+						</center>
+						<br/>
+						En 1919 el Presidente Manuel Estrada Cabrera, con motivo del primer centenario de la declaración de la independencia, 
+						colocó la primera piedra del Palacio a un lado de la Plaza de la Constitución, el encargado del diseño fue el 
+						Arquitecto italiano Guido Albani, pero este proyecto no prosperó por la caída del gobierno.
+						<br/><br/>
+						En 1921, el Presidente Carlos Herrera, contando con muy pocos recursos y con el Centenario de la Independencia tan cerca, 
+						construyo en el término de tres meses el Palacio del Centenario, que popularmente se conoció como el Palacio de Cartón, 
+						el cual fue consumido por las llamas en 1925.
+						<br/><br/>
+						<center>
+							<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+								<img src="./templates/images/thumb_palaciogt11.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">Palacio del Centenario</h6>
+							</div>
+						</center>
+						<br/>
+						Durante el Gobierno de Lázaro Chacón, en 1927, se abrió un certamen de dibujo para la propuesta del palacio Nacional, 
+						concurso que fuera ganado por el Maestro Agustín Iriarte, pero no se realizó.
+						<br/><br/>
+						En 1932, el General Jorge Ubico manda publicar las bases para el diseño y construcción del palacio, 
+						y el 4 de Julio de 1937 estaba colocando la primera piedra; la construcción se realizó entre enero de 1939 
+						y el 10 de noviembre de 1943, fecha en la que fuera inaugurado.
+						<br/><br/>
+						<center>
+							<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+								<img src="./templates/images/thumb_palaciogt7.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
+								Vista del Palacio Nacional a los pocos meses de su inaguración.
+								</h6>
+							</div>
+							<br/>
+							<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+								<img src="./templates/images/thumb_palaciogt16.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
+								El magnifico techo en estilo mudéjar y laminado en oro del salón de Banquetes, realizado por el artista Carlos Rigalt.
+								</h6>
+							</div>
+							<br/>
+							<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+								<img src="./templates/images/thumb_palaciogt15.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
+								Detalle de uno de los murales pintados por Alfredo Gálvez Suárez.
+								</h6>
+							</div>
+							<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+								<img src="./templates/images/thumb_palaciogt13.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
+								El Palacio Nacional de la Cultura como luce en la actualidad.
+								</h6>
+							</div>
+						</center>
+						<br/>
+					</h5>
+					<br/><br/><br/>
+				]]>
+			</information>
+			<services>
+				<![CDATA[
+					<center>
+						<h2 class="text-h3">Servicios</h2>
+					</center>
+					<h3 class="text-h3">Recorridos Guiados</h3>
+					<h5 class="text-h5" style="text-align:justify;">
+						Recorridos Guiados dentro del Palacio Nacional de la Cultura, 
+						dirigido a Turistas Nacionales, Extranjeros y estudiantes.
+						<br/>
+						<strong>Sin costo</strong>
+						<br/><br/>
+						<center>
+							<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+								<img src="./templates/images/thumb_palaciogt17.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+							</div>
+						</center>
+					</h5>
+					<h3 class="text-h3">Actividades Protocolarias</h3>
+					<h5 class="text-h5" style="text-align:justify;">
+						Actividades Protocolarias, Culturales, de Gobierno, Ministerios, Dependencias del Estado.
+						<br/>
+						<strong>Costo reservado</strong>
+						<br/><br/>
+						<center>
+							<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+								<img src="./templates/images/thumb_palaciogt18.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+							</div>
+						</center>
+					</h5>
+					<h3 class="text-h3">Exposiciones</h3>
+					<h5 class="text-h5" style="text-align:justify;">
+						Exposiciones de artistas guatemaltecos.
+						<br/>
+						<strong>Costo variable</strong>
+						<br/><br/>
+						<center>
+							<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+								<img src="./templates/images/thumb_palaciogt19.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+							</div>
+						</center>
+					</h5>
+					<br/><br/><br/>
+				]]>
+			</services>
+			<location>
+				<![CDATA[
+					<center>
+						<h2 class="text-h3">Localización</h2>
+					</center>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_palacionacionalmap1.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+						</div>
+					</center>
+					<h5 class="text-h5">
+						El Palacio Nacional de la Cultura se encuentra ubicado en la 6ta. avenida y 6ta. calle de la zona 1, 
+						en la Ciudad de Guatemala, y dentro de su estructura se marca el kilómetro cero del país.
+					</h5>
+					<br/><br/><br/>
+				]]>
+			</location>
+			<previsualization>thumb_palaciogt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>2</fatherId>
+			<categoryType>3</categoryType>
+			<name>Amatitlan</name>
+			<introduction>El lago de Amatitlan es el punto de encuentro para muchos guatemaltecos.</introduction>
+			<information>
+				<![CDATA[
+					<br/>
+					<center>
+						<h3 class="text-h3">Lago de Amatitlan</h3>
+					</center>
+					<br/>
+					<h5 class="text-h5" style="text-align:justify;">
+						El lago de Amatitlan es un lago de crater situado en Guatemala.
+						<br/>
+						Se encuentra a 25 km de la Ciudad de Guatemala, a una altitud de 1186 msnm. 
+						Tiene 12 km de largo, 3 km de ancho, y una supeficie de 15.2 km². 
+						Su profundidad maxima es de 33m y su profundidad media es 18 m.
+					</h5>
+					<br/>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_amatitlan10.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+						</div>
+					</center>
+					<br/>
+					<h5 class="text-h5" style="text-align:justify;">
+						El significado de la palabra Amatitlan, deriva etimologicamente de la lengua nahuatl, 
+						es un toponimo aglutinado que se estructura en la siguiente forma:
+						<br/><br/>
+						Amatl = "Amate" o "Amatle"
+						<br/>
+						Titlan = "entre" o "rodeado" 
+						<br/><br/>
+						La palabra Amatl = "amate", pierde su terminacion "tl" para unirse con la palabra 
+						titlan = "entre" o "rodeado", por lo tanto, la palabra Amatitlan se traduce como: 
+						"Entre amates" o "Rodeado de amates". 
+					</h5>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_amatitlan7.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+						</div>
+					</center>
+					<h5 class="text-h5" style="text-align:justify;">
+						El lago de Amatitlan tiene su origen en la Era Cuaternaria y su formacion se debe a los movimientos 
+						tecto-volcanicos ocurridos en el area y provocados por los volcanes de Pacaya, Agua, Fuego y Acatenango. 
+						<br/><br/>
+						Durante esa epoca, su extension era de aproximadamente 80km², ocupando la superficie de los municipios 
+						de Amatitlan, Villa Nueva y Villa Canales ya que se han encontrado fosiles de caracoles y pequeños 
+						esqueletos de peces durante excavaciones realizadas en esos lugares a principios
+						de siglo. 
+						<br/><br/>
+						Durante la epoca precolombina, el lago fue la fuente principal de abastecimiento de agua y de alimento 
+						para las tribus Pocomam asentadas a su alrededor.
+					</h5>
+					<br/><br/><br/>
+				]]>
+			</information>
+			<services>
+				<![CDATA[
+					<center>
+						<h2 class="text-h3">Servicios</h2>
+					</center>
+					<h4 class="text-h4"><strong>Mirador Carretera San Salvador</strong></h4>
+					<h5 class="text-h5">
+						El mirador queda en las cercanías de Santa Elena Barillas a pocos minutos de Fraijanes, Carretera al Salvador.
+						<br/>
+						<strong>Libre acceso.</strong>
+					</h5>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_amatitlan7.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+						</div>
+					</center>
+					<br/>
+					<h4 class="text-h4"><strong>Lanchas Lago de Amatitlan</strong></h4>
+					<h5 class="text-h5">
+						Las lanchas del lago de Amatitlan ofrecen un recorrido unico a travez del lago.
+						<br/>
+						<strong>Costo desde Q20</strong>
+					</h5>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_amatitlan4.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+						</div>
+					</center>
+					<br/>
+					<h4 class="text-h4"><strong>El Teleferico de Amatitlan</strong></h4>
+					<h5 class="text-h5">
+						Sube y aprecia el Lago de Amatitlán desde lo alto. La vista es preciosa y no importa si hace calor o no, desde el mirador el clima es siempre fresco. 
+						<br/>
+						<strong>Costo de Q20</strong>
+					</h5>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_amatitlan6.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+						</div>
+					</center>
+					<br/>
+					<h4 class="text-h4"><strong>Parque Naciones Unidas junto al Lago de Amatitlan</strong></h4>
+					<h5 class="text-h5">
+						Su cercanía al Lago de Amatitlan lo provee de una magnífica vista panoramica que incluye, a lo lejos, al volcan de Pacaya. 
+						El parque abre sus instalaciones todos los días de la semana de 8:00 a 17:00 
+						<br/>
+						<strong>Costo de Q10</strong>
+					</h5>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_amatitlan13.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+						</div>
+					</center>
+					<br/>
+					<h4 class="text-h4"><strong>Baños Termales Santa Teresita</strong></h4>
+					<h5 class="text-h5">
+						Santa Teresita, un autentico Spa de aguas termales en Guatemala. 
+						Servicios de Piscinas, Circuito Termal, Baños de Vapor, Masajes y Tratamientos.
+						<br/>
+						<strong>Costo desde Q60</strong>
+					</h5>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_amatitlan14.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+						</div>
+					</center>
+					<br/>
+					<h4 class="text-h4"><strong>Kawilal Hotel  Spa</strong></h4>
+					<h5 class="text-h5">
+						Kawilal Hotel llego para convertir a Santa Teresita en un autentico Spa Termal de Destino.
+						<br/>
+						<strong>Costos variados</strong>
+					</h5>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_amatitlan15.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+						</div>
+					</center>
+					<br/><br/><br/>
+				]]>
+			</services>
+			<location>
+				<![CDATA[
+					<center>
+						<h2 class="text-h3">Localizaci&oacute;n</h2>
+					</center>
+					<center>
+						<div style="border:3px solid #AD945E; width:90%; padding:8px 3px 0px 3px;">
+							<img src="./templates/images/thumb_amatitlan11.jpg" style="padding:0; margin:0; border:1px solid #AD945E;" width="98%"/>
+						</div>
+					</center>
+					<h5 class="text-h5">
+						Desde ciudad de Guatemala tomar la salida al pacifico por la carretera CA-09 hasta el kilometro 32,
+						tiempo aproximado de 50 minutos de viaje en automovil. 
+						En bus publico es un tiempo aproximado de  80 minutos a un costo de Q10
+					</h5>
+					<br/><br/><br/>
+				]]>
+			</location>
+			<previsualization>thumb_amatitlan2.jpg</previsualization>
+		</register>
+		
+		<!--register>
+			<fatherId>6</fatherId>
+			<categoryType>3</categoryType>
+			<name>Museo Popol Vuh</name>
+			<introduction>El Museo Popol Vuh ofrece un recorrido único por la historia de Guatemala</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_MuseoPopolVuhGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>6</fatherId>
+			<categoryType>3</categoryType>
+			<name>Parque Zoologico Nacional La Aurora</name>
+			<introduction>El Zoológico La Aurora es un zoológico situado en la zona 13 de la ciudad de Guatemala</introduction>
+			<information>Informacion...</information>
+			<previsualization>thum_selfieMonkey1.jpg</previsualization>
+		</register-->
+	</geographicDistribution>
+</application>

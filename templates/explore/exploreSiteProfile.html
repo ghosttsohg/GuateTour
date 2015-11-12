@@ -1,17 +1,24 @@
 <ion-view view-title="Disfruta de Guatemala" ng-controller="SiteProfileCtrl">
+	
 	<ion-content>
 
 		<div class="ionic">
-			<!--button class="button button-fab button-fab-bottom-right button-assertive icon ion-chatbubbles waves-effect waves-button waves-light"></button-->
-			<div class="content" ng-repeat="profile in siteProfileModel">
-				<div class="hero waves-effect waves-light" style="background-image: url(&#39;./templates/images/{{profile.previsualization}}&#39;);">
+
+			<div
+				 ng-repeat="profile in siteProfileModel" 
+				 style="width:100%; height:auto; display:block;">
+				
+				
+				<div class="hero waves-effect waves-light" 
+					 style="background-image: url(&#39;./templates/images/{{profile.previsualization}}&#39;);">
 					<div class="content">
-						<!--div class="avatar" style="background-image: url(&#39;../img/lil-jon.jpg&#39;);"></div-->
+						<!--div class="avatar" style="background-image: url(&#39;../img/lil-jon.jpg&#39;);"></div>
 						<h3><a class="light">{{profile.name}}</a></h3>
-						<h4>{{profile.introduction}}</h4>
+						<h4>{{profile.introduction}}</h4-->
 					</div>
 				</div>
-				<div class="button-bar">
+				
+				<!--div class="button-bar">
 					<button class="button button-dark waves-effect waves-button waves-classic icon ion-information"
 							ng-click="selectTab(0)"></button>
 					<button class="button button-dark waves-effect waves-button waves-classic icon ion-plus-round"
@@ -20,114 +27,21 @@
 							ng-click="selectTab(2)"></button>
 					<button class="button button-dark waves-effect waves-button waves-classic icon ion-images"
 							ng-click="selectTab(3)"></button>
-				</div>
+				</div-->
+					
+				<div class="animate-fade-slide-in-right"
+		 			 style="width:100%; height:100%; border:5px solid #844B30; border-top:10px solid #844B30;">
+		 			<div style="background:linear-gradient(#EEDAAF, #CFAF6D); padding:10px;"
+						 ng-bind-html="siteProfileContent">
+					</div>    		 			 
+		 		</div>
+		 		
+		 		
 			</div>
+
 		</div>
-
+		
+		
 	</ion-content>
-
-	<ion-tabs class="tabs" style="height:63%; border:10px solid #444;" ng-repeat="profile in siteProfileModel">
-		<ion-tab class="tab-item">
-			<div style="background-image: url(&#39;./templates/images/old_scroll_texture_iii_by_isthar_art.jpg&#39;);">
-				<h1>TAB 1</h1>
-				<h2>TAB 1</h2>
-				<h3>TAB 1</h3>
-				<h4>TAB 1</h4>
-				<h5>TAB 1</h5>
-				<h6>TAB 1</h6>
-				<h6>{{profile.information}}</h6>
-			</div>
-		</ion-tab>
-		<ion-tab class="tab-item">
-			<div style="background-image: url(&#39;./templates/images/old_scroll_texture_iii_by_isthar_art.jpg&#39;);">
-				<h1 style="color:#FFF;">TAB 2</h1>
-				<h2 style="color:#FFF;">TAB 2</h2>
-				<h3 style="color:#FFF;">TAB 2</h3>
-				<h4 style="color:#FFF;">TAB 2</h4>
-				<h5 style="color:#FFF;">TAB 2</h5>
-				<h6 style="color:#FFF;">TAB 2</h6>
-				<h6 style="color:#FFF;">GALLERY</h6>
-			</div>
-		</ion-tab>
-		<ion-tab class="tab-item">
-			<!--h1 style="">TAB 3</h1>
-			<h2>TAB 3</h2>
-			<h3>TAB 3</h3>
-			<h4>TAB 3</h4>
-			<h5>TAB 3</h5>
-			<h6>TAB 3</h6-->
-			<div class="ionic">
-				<ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="true"
-      				zooming="true" style="width: 100%; height: 100%" 
-      				on-scroll="updateSlideStatus(activeSlide)" 
-      				on-release="updateSlideStatus(activeSlide)">
-      
-				<div class="content has-subheader animate-fade-slide-in">
-		            <div class="list half in done" style="transition-delay: 0.13s;">
-		                <div class="card card-gallery item item-text-wrap dark-bg waves-effect waves-light">
-		                    <div class="waves-effect waves-block waves-dark">
-		                        <h2>Fedorable Mr. Kitty</h2>
-		                        <img class="full-image" src="templates/images/fedora-cat.jpg">
-		                    </div>
-		                    <!--div class="item tabs tabs-secondary tabs-icon-left subdued">
-		                        <a class="tab-item waves-effect waves-block waves-dark light-bg">
-		                            <i class="icon ion-heart assertive"></i> 8
-		                        </a>
-		                        <a class="tab-item waves-effect waves-block waves-dark light-bg">
-		                            <i class="icon ion-chatbubbles positive"></i> 2
-		                        </a>
-		                    </div-->
-		                </div>
-		                <div class="card card-gallery item item-text-wrap dark-bg waves-effect waves-light">
-		                    <div class="waves-effect waves-block waves-dark">
-		                        <h2>Nic Cage as Thumper</h2>
-		                        <img class="full-image" src="templates/images/nic-cage.jpg">
-		                    </div>
-		                    <!--div class="item tabs tabs-secondary tabs-icon-left">
-		                        <a class="tab-item waves-effect waves-block waves-dark light-bg">
-		                            <i class="icon ion-heart assertive"></i> 8
-		                        </a>
-		                        <a class="tab-item waves-effect waves-block waves-dark light-bg">
-		                            <i class="icon ion-chatbubbles positive"></i> 3
-		                        </a>
-		                    </div-->
-		                </div>
-		            </div>
-		            <div class="list half in" style="transition-delay: 0.6s;">
-		                <div class="card card-gallery item item-text-wrap dark-bg waves-effect waves-light">
-		                    <div class="waves-effect waves-block waves-dark">
-		                        <h2>Bronies</h2>
-		                        <img class="full-image" src="templates/images/hoodrat.jpg">
-		                    </div>
-		                    <!--div class="item tabs tabs-secondary tabs-icon-left subdued">
-		                        <a class="tab-item waves-effect waves-block waves-dark light-bg">
-		                            <i class="icon ion-heart assertive"></i> 4
-		                        </a>
-		                        <a class="tab-item waves-effect waves-block waves-dark light-bg">
-		                            <i class="icon ion-chatbubbles positive"></i> 2
-		                        </a>
-		                    </div-->
-		                </div>
-		                <div class="card card-gallery item item-text-wrap dark-bg waves-effect waves-light">
-		                    <div class="waves-effect waves-block waves-dark">
-		                        <h2>Bronies</h2>
-		                        <img class="full-image" src="templates/images/thumb_irtraReuGt1.jpg">
-		                    </div>
-		                    <!--div class="item tabs tabs-secondary tabs-icon-left subdued">
-		                        <a class="tab-item waves-effect waves-block waves-dark light-bg">
-		                            <i class="icon ion-heart assertive"></i> 4
-		                        </a>
-		                        <a class="tab-item waves-effect waves-block waves-dark light-bg">
-		                            <i class="icon ion-chatbubbles positive"></i> 2
-		                        </a>
-		                    </div-->
-		                </div>
-		                
-		            </div>
-		        </div>
-		        </ion-scroll>
-	        </div>
-		</ion-tab>
-	</ion-tabs>
-
+	
 </ion-view>

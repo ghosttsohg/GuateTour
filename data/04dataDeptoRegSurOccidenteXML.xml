@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<geographicDistribution>
+		<!-- REGION SUR-OCCIDENTE - DEPARTAMENTOS -->
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Quetzaltenango</name>
+			<introduction>Departamento de Quetzaltenango...</introduction>
+			<information>Informacion...</information>
+			<previsualization>kyoto.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Retalhuleu</name>
+			<introduction>Departamento de Retalhuleu...</introduction>
+			<information>Informacion...</information>
+			<previsualization>hawaii.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>San Marcos</name>
+			<introduction>Departamento de San Marcos...</introduction>
+			<information>Informacion...</information>
+			<previsualization>scotland.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Solola</name>
+			<introduction>Departamento de Solola...</introduction>
+			<information>Informacion...</information>
+			<previsualization>toronto.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Suchitepequez</name>
+			<introduction>Departamento de Suchitepequez...</introduction>
+			<information>Informacion...</information>
+			<previsualization>hawaii.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<categoryType>2</categoryType>
+			<name>Totonicapan</name>
+			<introduction>Departamento de Totonicapan...</introduction>
+			<information>Informacion...</information>
+			<previsualization>new-zealand.jpg</previsualization>
+		</register>
+	</geographicDistribution>
+</application>

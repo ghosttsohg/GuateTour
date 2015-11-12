@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<geographicDistribution>
+		<!-- REGION NOR-ORIENTAL - DEPARTAMENTOS -->
+		<register>
+			<fatherId>2</fatherId>
+			<categoryType>2</categoryType>
+			<name>Chiquimula</name>
+			<introduction>Departamento de Chiquimula...</introduction>
+			<information>Informacion...</information>
+			<previsualization>new-zealand.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>2</fatherId>
+			<categoryType>2</categoryType>
+			<name>El Progreso</name>
+			<introduction>Departamento de El Progreso...</introduction>
+			<information>Informacion...</information>
+			<previsualization>hawaii.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>2</fatherId>
+			<categoryType>2</categoryType>
+			<name>Izabal</name>
+			<introduction>Departamento de Izabal...</introduction>
+			<information>Informacion...</information>
+			<previsualization>toronto.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>2</fatherId>
+			<categoryType>2</categoryType>
+			<name>Zacapa</name>
+			<introduction>Departamento de Zacapa...</introduction>
+			<information>Informacion...</information>
+			<previsualization>scotland.jpg</previsualization>
+		</register>
+	</geographicDistribution>
+</application>

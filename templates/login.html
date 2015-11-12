@@ -1,25 +1,29 @@
-<ion-modal-view>
-  <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
-  </ion-header-bar>
-  <ion-content>
-    <form ng-submit="doLogin()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
-        </label>
-      </div>
-    </form>
-  </ion-content>
-</ion-modal-view>
+<ion-view view-title="LOGIN">
+
+	<ion-content ng-controller="LoginCtrl">
+
+		<div class="ionic login " style="background-image: url(&#39;./templates/images/mountains.jpg&#39;); width:100%; height:700px;">
+	        <div class="hero no-header flat">
+	            <div class="content">
+	                <i class="ion-map icon hero-icon royal-bg"></i>
+	                <h1 style="color: rgb(255, 255, 255); letter-spacing: 0.15rem; font-family: 'Roboto', sans-serif; margin:0; padding:20px 0px 0px 0px; font-size:40px;">
+	                	GuateTour
+	                </h1>
+	            </div>
+	        </div>
+	        <div class="list">
+	            <label class="item item-input item-md-label" placeholder="Username" highlight-color="balanced" type="text"><input type="text"><span class="input-label">Username</span><div class="highlight highlight-balanced"></div></label>
+	            <label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="password"><input type="password"><span class="input-label">Password</span><div class="highlight highlight-energized"></div></label>
+	        </div>
+	        <div class="padding">
+	            <button class="button button-block button-positive waves-effect waves-button waves-light">Login</button>
+	        </div>
+	        <div class="button-bar">
+	            <button class="button button-small button-outline button-assertive light-bg icon-left ion-social-google waves-effect waves-button waves-light">Google+</button>
+	            <button class="button button-small button-outline button-positive light-bg icon-left ion-social-facebook waves-effect waves-button waves-light">Facebook</button>
+	        </div>
+	    </div>
+
+	</ion-content>
+	
+</ion-view>

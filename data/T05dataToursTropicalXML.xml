@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<tourDistribution>
+		<!-- TOURS - TROPICAL -->
+		<register>
+			<fatherId>5</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Playas Atlantico</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_PlayDoradaGt1.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Playas Pacifico</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion CAMBIO PRUEBA...</information>
+			<previsualization>thumb_PlayDoradaGt1.jpg</previsualization>
+		</register>
+	</tourDistribution>
+</application>

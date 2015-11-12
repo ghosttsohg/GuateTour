@@ -45,10 +45,13 @@ angular.module('starter.controllers', [])
   if (appOptions.dbCreate) {
   	console.log("CREANDO DB");
   	fillDB(DataBaseService);
+  	appOptions.dbCreate = false;
   } else {
   	console.log("NO Crear BD");
   }
   
+  testTable('GeographicDistribution', DataBaseService);
+    
 })
 
 .service('DataBaseService', function () {
@@ -191,7 +194,20 @@ angular.module('starter.controllers', [])
 					// console.log(query);
 					// console.log(JSON.stringify(tableValue));
 					// console.log("tableValue.length:"+tableValue.length);
-					for (var i=0; i<tableValue.length; i++) {
+					if (tableValue.length!=null && tableValue.length>0) {
+						for (var i=0; i<tableValue.length; i++) {
+							tx.executeSql(
+								query,
+								tableValue[i], 
+								function(tx, result) {
+									console.log("Insert On Table "+tableName+" OK");
+								}, 
+								function(tx, result) {
+									console.log("Insert On Table Error:"+result.message);
+								}
+							);
+						}
+					} else {
 						tx.executeSql(
 							query,
 							tableValue[i], 
@@ -331,55 +347,77 @@ angular.module('starter.controllers', [])
 	        }, 1000);
 	  	}
     },500);
-    $scope.goTo = function(txtState, siteId){
+    $scope.goTo = function(txtState, txtSiteId, txtTabId){
 		console.log("$scope.goTo");
 		console.log("txtState:"+txtState);
+		console.log("txtSiteId:"+txtSiteId);
+		console.log("txtTabId:"+txtTabId);
+		$state.go(txtState, {txtSiteId: txtSiteId, txtTabId: txtTabId});		  
+    };
+    $scope.goToGallerySite = function(siteId){
+		console.log("$scope.goTo");
+		console.log("txtState:app.siteProfile");
 		console.log("txtSiteId:"+siteId);
-		$state.go(txtState, {txtSiteId: siteId});		  
+		$state.go('app.siteGallery', {txtSiteId: siteId, txtTabId: 'gallery'});		  
     };
 })
 
 
-.controller('SiteProfileCtrl', function($scope, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
+.controller('SiteProfileCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
 	console.log("SiteProfileCtrl");
 	console.log("SiteProfileCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
 	console.log("$stateParams.txtSiteId:"+$stateParams.txtSiteId);
+	console.log("$stateParams.txtTabId:"+$stateParams.txtTabId);
 	$scope.siteProfileModel = [];
+	$scope.siteProfileContent = '';
 	DataBaseService.getSelectRsTable("geographicDistribution","*","categoryType = 3 and id = "+$stateParams.txtSiteId,"");
 	var interv = setInterval(function(){
   		if (DataBaseService.getReadyRsModel()) {
 	  		clearInterval(interv);
 	  		DataBaseService.setReadyRsModel(false);
 	  		var rs = DataBaseService.getRsModel();
-	  		console.log("rs:"+rs.length);
-	  		console.log("rs:"+JSON.stringify(rs));
 	  		for (var i=0; i<rs.length; i++) {
 	  			console.log("Site:"+rs.item(i).name);
 				$scope.siteProfileModel.push(rs.item(i));
+				if ($stateParams.txtTabId == 'services') {
+					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).services);
+				} else if ($stateParams.txtTabId == 'location') {
+					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).location);
+				} else {
+					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).information);
+				}
 			}
 			setTimeout(function() {
-		        Mi.motion.slideUp({
-		            selector: '.slide-up'
-		        });
 		        Mi.motion.fadeSlideInRight({
-		            selector: '.animate-fade-slide-in-right > *',
-		            startVelocity: 3000
-		        });
-		        Mi.motion.pushDown({
-		            selector: '.push-down'
-		        });
-		        Mi.motion.fadeSlideInRight({
-		            selector: '.animate-fade-slide-in > *'
+		            selector: '.animate-fade-slide-in-right > *'
 		        });
 		        Waves.displayEffect();
 		    }, 1000);
 	  	}
     },500);
-    $scope.selectTab = function(index){
-		console.log("$ionicTabsDelegate.selectTab");
-		console.log("index:"+index);
-		$ionicTabsDelegate.select(index);		  
-    };
+    var arrayImages = [
+    	'./templates/images/ionic.jpg',
+    	'./templates/images/hawaii.jpg',
+    	'./templates/images/thum_selfieMonkey1.jpg',
+    	'./templates/images/thumb_banerCollageGT1.jpg',
+    	'./templates/images/thumb_castilloSanFelipeGt1.jpg',
+    	'./templates/images/thumb_IglesiaSantaDelfinaGt1.jpg',
+    	'./templates/images/thumb_irtraReuGt1.jpg',
+    	'./templates/images/thumb_MuseoPopolVuhGt1.jpg',
+    	'./templates/images/thumb_parqueLaAuroraGt1.jpg',
+    	'./templates/images/thumb_petenGt1.jpg',
+    	'./templates/images/thumb_PlayDoradaGt1.jpg',
+    	'./templates/images/thumb_RaftingGt1.jpg',
+    	'./templates/images/thumb_SemucChampeyGt1.jpg',
+    	'./templates/images/thumb_TeatroAbrilGt1.jpg',
+    	'./templates/images/thumb_teatroNacionalGt1.jpg'
+    ]
+    $scope.images = [];
+    $scope.loadImages = function() {
+        for(var i = 0; i < arrayImages.length; i++) {
+            $scope.images.push({id: i, src: arrayImages[i]});
+        }
+    }
 })
 
 
@@ -483,5 +521,22 @@ angular.module('starter.controllers', [])
     };
 })
 
+.controller('LoginCtrl', function($scope, $state, DataBaseService, $stateParams) {
+	console.log("LoginCtrl");
+	
+	setTimeout(function() {
+        Waves.displayEffect();
+        // Mi.motion.panInLeft({
+            // selector: '.animate-pan-in-left'
+        // });
+    }, 1500);
+  	
+    $scope.goTo = function(txtState, tourId){
+		console.log("$scope.goTo");
+		console.log("txtState:"+txtState);
+		console.log("txtTourId:"+tourId);
+		$state.go(txtState, {txtTourId: tourId});		  
+    };
+})
 
 ;

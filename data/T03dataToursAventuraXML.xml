@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<tourDistribution>
+		<!-- TOURS - AVENTURA -->
+		<register>
+			<fatherId>3</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Maya</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_PetenGt02.jpg</previsualization>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Extremo</name>
+			<introduction>Introduccion...</introduction>
+			<information>Informacion...</information>
+			<previsualization>thumb_CanopyGt1.jpg</previsualization>
+		</register>
+	</tourDistribution>
+</application>
