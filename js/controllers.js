@@ -539,4 +539,23 @@ angular.module('starter.controllers', [])
     };
 })
 
+// COPY OF "LoginCtrl"
+//.controller('LoginCtrl', function($scope, $state, DataBaseService, $stateParams) {
+//	console.log("LoginCtrl");
+//	
+//	setTimeout(function() {
+//        Waves.displayEffect();
+//        // Mi.motion.panInLeft({
+//            // selector: '.animate-pan-in-left'
+//        // });
+//    }, 1500);
+//  	
+//    $scope.goTo = function(txtState, tourId){
+//		console.log("$scope.goTo");
+//		console.log("txtState:"+txtState);
+//		console.log("txtTourId:"+tourId);
+//		$state.go(txtState, {txtTourId: tourId});		  
+//    };
+//})
+
 ;
