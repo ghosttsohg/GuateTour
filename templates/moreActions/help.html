@@ -1,5 +1,44 @@
-<ion-view view-title="Necesitas Ayuda?">
-  	<ion-content>
-			<h1>Ayuda</h1>
-	</ion-content> 
+<ion-view view-title="AYUDA" ng-app="">
+	<ion-content style="background: url(/templates/images/help/helpScreen1.png) center; background-size: cover;">
+	<style>
+			h2{
+				color:#0066FF; 
+				font-family:Times New Roman; 
+				font-size:500%; 
+				text-align:center;
+				padding-top: 35%;
+				font-weight: bold;
+  			}
+			p{
+				color:white;
+				font-family:MV Boli; 
+				font-size:100%;
+				text-align:center; 
+				text-decoration: overline;
+			}
+		</style>
+		<div class="ionic help " >
+			<br />
+	        <div class="hero no-header flat">
+	            <div class="content">
+	                <i class="icon hero-icon balanced-bg" >?</i>
+	                <h2 style="color: rgb(255, 255, 255); letter-spacing: 0.15rem; font-family: 'Roboto', sans-serif; margin:0; 
+						padding:20px 0px 0px 0px; font-size:40px;">
+	                	AYUDA
+	                </h2>
+					<p>
+					Destinos Guatemala
+					</p>
+	            </div>
+	        </div>
+	        <div class="list">
+				<br />
+				<label class="item item-input item-md-label" placeholder="Username" highlight-color="balanced" type="text">
+					<input type="text" class="used" ng-model="username" ng-change="showChanged(username)">
+						<span class="input-label">Usuario</span>
+				</label>
+	        </div>
+	       
+	    </div>
+	</ion-content>
 </ion-view>

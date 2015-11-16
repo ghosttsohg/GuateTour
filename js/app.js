@@ -149,7 +149,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    
+	  
+	.state('app.signin', {
+		url: '/moreActions/signin',
+		views: {
+		  'menuContent': {
+			templateUrl: 'templates/moreActions/signin.html'
+		  }
+		}
+	})
+        
   ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/welcome');

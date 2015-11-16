@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic'])
+angular.module('starter.controllers', ['ionic','ngResource'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, DataBaseService) {
 
@@ -527,45 +527,48 @@ angular.module('starter.controllers', ['ionic'])
     };
 })
 
-.controller('LoginCtrl', function($scope) {
+.controller('LoginCtrl', ['$scope', '$http', function($scope, $http) {
 	console.log("-- LoginCtrl Inicio --");
+	//Nombre de bienvenida
+	$scope.welcomeName = "";
+	$scope.errorMsg = "";
 	
-	$scope.showChanged = function(user){
-		$scope.user = user;
-		console.log("-- user:"+$scope.user +" --");
+	//Arreglo que contendrá los datos de usuario que devuelve el WS
+	$scope.user = {};
+	
+	//Variable para armar el WS con el user y pass
+	$scope.urlWS = "";
+	
+	//Función que ejecuta el login
+	$scope.login = function(user) {
+		console.log("--- login()- user.username:"+$scope.user.username +" - user.pass:"+$scope.user.pass +" ---");	
+		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login?user="+$scope.user.username +"&pass="+$scope.user.pass +""; //localhost-192.168.1.6
+	
+		//$http.get('http://localhost:8080/DestinosGT/Services/login?user=woody&pass=abc').then(function(resp) { -- cambiar por 192.168.15.6
+		$http.get($scope.urlWS).then(function(resp) {
+		
+			 console.log("-- OK :) --" + resp.data.id);
+		 	$scope.welcomeName = resp.data.username;
+			$scope.errorMsg = resp.data.message;
+		
+		  }, function(err) {
+			console.error('ERR', err);
+			 console.log("-- ERROR:"+err.status) // err.status will contain the status code
+		  })
 	};
 	
-	$scope.showChanged1 = function(pass){
-		$scope.pass = pass;
-		console.log("-- pass:"+$scope.pass +" --");
-	};
-	
-	
-	
-	
-  	$scope.login = function(){
-	};
- 	
 	console.log("-- LoginCtrl Fin --");
-})
+}])
 
-// COPY OF "LoginCtrl"
-//.controller('LoginCtrl', function($scope, $state, DataBaseService, $stateParams) {
-//	console.log("LoginCtrl");
+//REGISTRO
+//	$scope.showChanged = function(username){
+//		$scope.username = username;
+//		console.log("-- username:"+$scope.username +" --");
+//	};
 //	
-//	setTimeout(function() {
-//        Waves.displayEffect();
-//        // Mi.motion.panInLeft({
-//            // selector: '.animate-pan-in-left'
-//        // });
-//    }, 1500);
-//  	
-//    $scope.goTo = function(txtState, tourId){
-//		console.log("$scope.goTo");
-//		console.log("txtState:"+txtState);
-//		console.log("txtTourId:"+tourId);
-//		$state.go(txtState, {txtTourId: tourId});		  
-//    };
-//})
+//	$scope.showChanged1 = function(pass){
+//		$scope.pass = pass;
+//		console.log("-- pass:"+$scope.pass +" --");
+//	};
 
 ;

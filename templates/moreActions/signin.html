@@ -1,0 +1,51 @@
+<ion-view view-title="REGISTRO" ng-app="">
+	<ion-content style="background: url(/templates/images/help/helpScreen1.png) center; background-size: cover; background-color:rgb(255,0,0,0.5);">
+		<div class="ionic login " ng-controller="LoginCtrl" ng-submit="login()">
+	        <div class="hero no-header flat">
+	            <div class="content">
+	                <i class="ion-compose icon hero-icon calm-bg" ></i>
+	                <h1 style="color: rgb(255, 255, 255); letter-spacing: 0.15rem; font-family: 'Roboto', sans-serif; margin:0; 
+						padding:20px 0px 0px 0px; font-size:40px;">
+	                	REGISTRO
+	                </h1>
+	            </div>
+	        </div>
+	        <div class="list">
+				<br />
+				<label class="item item-input item-md-label" placeholder="Username" highlight-color="balanced" type="text">
+					<input type="text" class="used" ng-model="reg.name" ng-change="showChanged(reg.name)">
+						<span class="input-label">*Nombre</span>
+						<div class="highlight highlight-balanced"></div>
+				</label>
+	
+	            <label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="password">
+					<input type="text" class="used" ng-model="reg.surename" ng-change="showChanged1(reg.surename)">
+						<span class="input-label">*Apellido</span>
+						<div class="highlight highlight-energized"></div>
+				</label>
+				
+				<label class="item item-input item-md-label" placeholder="Username" highlight-color="balanced" type="text">
+					<input type="email" class="used" ng-model="reg.email" ng-change="showChanged(reg.email)">
+						<span class="input-label">*E-mail</span>
+						<div class="highlight highlight-balanced"></div>
+				</label>
+	
+	            <label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="password">
+					<input type="text" class="used" ng-model="reg.user" ng-change="showChanged1(reg.user)">
+						<span class="input-label">*Usuario</span>
+						<div class="highlight highlight-energized"></div>
+				</label>
+					
+	            <label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="password">
+					<input type="password" class="used" ng-model="reg.pass" ng-change="showChanged1(reg.pass)">
+						<span class="input-label">*Password</span>
+						<div class="highlight highlight-energized"></div>
+				</label>
+	        </div>
+			<h6 style="color: rgb(255, 255, 255);">*Campos requeridos</h6>
+	        <div class="padding">
+	            <button type="submit" class="button button-block button-assertive waves-effect waves-button waves-light" ng-click='sayHello()'>Registrarme</button>
+	        </div>
+	    </div>
+	</ion-content>
+</ion-view>
