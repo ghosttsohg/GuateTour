@@ -2,7 +2,7 @@
   <ion-content ng-controller="DepartmentCtrl">
         <div class="ionic">
         	<div class="slide-up" ng-repeat="depto in departamentModel">
-	            <div class="hero has-mask waves-effect waves-light" style="background-image: url(&#39;./templates/images/{{depto.previsualization}}&#39;);">
+	            <div class="hero has-mask waves-effect waves-light" style="background-image: url(&#39;./templates/images/thumbnails/{{depto.previsualization}}&#39;);">
 		            <div class="content">
 		                <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-map pull-right text-white"
 		                ng-click="goTo('app.sites', {{depto.id}});">

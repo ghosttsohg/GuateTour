@@ -45,12 +45,13 @@ angular.module('starter.controllers', ['ionic','ngResource'])
   if (appOptions.dbCreate) {
   	console.log("CREANDO DB");
   	fillDB(DataBaseService);
-  	appOptions.dbCreate = false;
+  	//appOptions.dbCreate = false;
   } else {
   	console.log("NO Crear BD");
   }
   
   testTable('GeographicDistribution', DataBaseService);
+  //testTable('Gallery', DataBaseService);
     
 })
 
@@ -401,28 +402,41 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 		    }, 1000);
 	  	}
     },500);
-    var arrayImages = [
-    	'./templates/images/ionic.jpg',
-    	'./templates/images/hawaii.jpg',
-    	'./templates/images/thum_selfieMonkey1.jpg',
-    	'./templates/images/thumb_banerCollageGT1.jpg',
-    	'./templates/images/thumb_castilloSanFelipeGt1.jpg',
-    	'./templates/images/thumb_IglesiaSantaDelfinaGt1.jpg',
-    	'./templates/images/thumb_irtraReuGt1.jpg',
-    	'./templates/images/thumb_MuseoPopolVuhGt1.jpg',
-    	'./templates/images/thumb_parqueLaAuroraGt1.jpg',
-    	'./templates/images/thumb_petenGt1.jpg',
-    	'./templates/images/thumb_PlayDoradaGt1.jpg',
-    	'./templates/images/thumb_RaftingGt1.jpg',
-    	'./templates/images/thumb_SemucChampeyGt1.jpg',
-    	'./templates/images/thumb_TeatroAbrilGt1.jpg',
-    	'./templates/images/thumb_teatroNacionalGt1.jpg'
-    ]
+    // var arrayImages = [
+    	// './templates/images/ionic.jpg',
+    	// './templates/images/hawaii.jpg',
+    	// './templates/images/thum_selfieMonkey1.jpg',
+    	// './templates/images/thumb_banerCollageGT1.jpg',
+    	// './templates/images/thumb_castilloSanFelipeGt1.jpg',
+    	// './templates/images/thumb_IglesiaSantaDelfinaGt1.jpg',
+    	// './templates/images/thumb_irtraReuGt1.jpg',
+    	// './templates/images/thumb_MuseoPopolVuhGt1.jpg',
+    	// './templates/images/thumb_parqueLaAuroraGt1.jpg',
+    	// './templates/images/thumb_petenGt1.jpg',
+    	// './templates/images/thumb_PlayDoradaGt1.jpg',
+    	// './templates/images/thumb_RaftingGt1.jpg',
+    	// './templates/images/thumb_SemucChampeyGt1.jpg',
+    	// './templates/images/thumb_TeatroAbrilGt1.jpg',
+    	// './templates/images/thumb_teatroNacionalGt1.jpg'
+    // ]
     $scope.images = [];
     $scope.loadImages = function() {
-        for(var i = 0; i < arrayImages.length; i++) {
-            $scope.images.push({id: i, src: arrayImages[i]});
-        }
+        // for(var i = 0; i < arrayImages.length; i++) {
+            // $scope.images.push({id: i, src: arrayImages[i]});
+        // }
+        DataBaseService.getSelectRsTable("Gallery","*","fatherId = "+$stateParams.txtSiteId,"");
+		var interv = setInterval(function(){
+	  		if (DataBaseService.getReadyRsModel()) {
+		  		clearInterval(interv);
+		  		DataBaseService.setReadyRsModel(false);
+		  		var rs = DataBaseService.getRsModel();
+		  		for (var i=0; i<rs.length; i++) {
+		  			console.log("source:"+rs.item(i).source);
+		  			$scope.images.push({id: rs.item(i).id, src: rs.item(i).source});
+					
+				}
+		  	}
+	    },500);
     }
 })
 
@@ -533,13 +547,13 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 	$scope.welcomeName = "";
 	$scope.errorMsg = "";
 	
-	//Arreglo que contendrá los datos de usuario que devuelve el WS
+	//Arreglo que contendrï¿½ los datos de usuario que devuelve el WS
 	$scope.user = {};
 	
 	//Variable para armar el WS con el user y pass
 	$scope.urlWS = "";
 	
-	//Función que ejecuta el login
+	//Funciï¿½n que ejecuta el login
 	$scope.login = function(user) {
 		console.log("--- login()- user.username:"+$scope.user.username +" - user.pass:"+$scope.user.pass +" ---");	
 		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login?user="+$scope.user.username +"&pass="+$scope.user.pass +""; //localhost-192.168.1.6

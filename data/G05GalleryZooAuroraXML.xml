@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<gallery>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Zoo La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt1.jpg</source>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Zoo La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt2.jpg</source>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Zoo La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt3.jpg</source>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Zoo La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt4.jpg</source>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Zoo La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt5.jpg</source>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Zoo La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt6.jpg</source>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Zoo La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt7.jpg</source>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Zoo La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt8.jpg</source>
+		</register>
+	</gallery>
+</application>

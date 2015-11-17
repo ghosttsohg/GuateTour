@@ -2,7 +2,7 @@
   <ion-content ng-controller="SiteCtrl">
         <div class="ionic">
         	<div class="slide-up" ng-repeat="site in siteModel">
-	            <div class="hero has-mask waves-effect waves-light" style="background-image: url(&#39;./templates/images/{{site.previsualization}}&#39;);">
+	            <div class="hero has-mask waves-effect waves-light" style="background-image: url(&#39;./templates/images/thumbnails/{{site.previsualization}}&#39;);">
 		            <div class="content">
 		            	<button class="button button-medium button-clear flat waves-effect waves-button waves-light icon ion-images pull-right text-white"
 	                ng-click="goToGallerySite({{site.id}});"></button>

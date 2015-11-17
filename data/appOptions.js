@@ -6,7 +6,9 @@ function fillDB(dbService) {
 	console.log("POBLANDO DB");
   	
 	dbService.doDropTable("GeographicDistribution");
+	dbService.doDropTable("Gallery");
 	dbService.doDropTable("TourDistribution");
+	
 	
 	var xmlGeoDistributionFiles = [
 		'00dataRegionesXML.xml', 
@@ -26,6 +28,22 @@ function fillDB(dbService) {
 	// fill GeographicDistribution
 	for (i=0; i<xmlGeoDistributionFiles.length; i++) {
 		fillGeographicDistribution(xmlGeoDistributionFiles[i], dbService);
+	}
+	
+	var xmlGalleryFiles = [
+		'G03GalleryPalacioNacionalXML.xml',
+		'G04GalleryAmatitlanXML.xml',
+		'G05GalleryZooAuroraXML.xml'
+	];
+	
+	// create Gallery
+	dbService.doCreateTable(
+		"Gallery", 
+		"id INTEGER PRIMARY KEY ASC, fatherId INTEGER, information TEXT, source TEXT"
+	);
+	// fill Gallery
+	for (i=0; i<xmlGalleryFiles.length; i++) {
+		fillGallery(xmlGalleryFiles[i], dbService);
 	}
 	
 	/*
@@ -91,6 +109,36 @@ function fillGeographicDistribution(file, dbService) {
 	);
 }
 
+function fillGallery(file, dbService) {
+	jQuery.get('./data/'+file, 
+		function(xml){
+			console.log("file:"+file);
+			var json = jQuery.xml2json(xml); 
+	  		var registerImageValue = [];
+	      	if (json.gallery.register.length==null) {
+				registerImageValue[0] = [
+		      		json.gallery.register.fatherId,
+		      		json.gallery.register.information,
+		      		json.gallery.register.source
+		      	];
+	      	} else {
+	      		for (i = 0; i < json.gallery.register.length; i++) {
+	      			registerImageValue[i] = [
+			      	  	json.gallery.register[i].fatherId,
+			      	  	json.gallery.register[i].information,
+			      	  	json.gallery.register[i].source
+		      	  	];
+		        }
+	      	}
+	      	dbService.doInsertTable(
+	      		"Gallery", 
+	      		"fatherId, information, source", 
+	      		registerImageValue
+	      	);
+		}
+	);
+}
+
 function fillTourDistribution(file, dbService) {
 	jQuery.get('./data/'+file, 
 		function(xml){
@@ -138,6 +186,7 @@ function testTable(tableName, dbService) {
 				console.log("rs:"+rs.length);
 				for (var i=0; i<rs.length; i++) {
 					console.log("tableName:"+tableName+", id:"+rs.item(i).id+", fatherId:"+rs.item(i).fatherId+", name:"+rs.item(i).name);
+					//console.log("tableName:"+tableName+", id:"+rs.item(i).id+", fatherId:"+rs.item(i).fatherId+", source:"+rs.item(i).source);
 				}
 			}
 		},500)

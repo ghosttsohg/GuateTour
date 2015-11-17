@@ -10,32 +10,29 @@
 				
 				
 				<div class="hero waves-effect waves-light" 
-					 style="background-image: url(&#39;./templates/images/{{profile.previsualization}}&#39;);">
+					 style="background-image: url(&#39;./templates/images/thumbnails/{{profile.previsualization}}&#39;);">
 					<div class="content">
 						<h3><a class="light">{{profile.name}}</a></h3>
 						<h4>{{profile.introduction}}</h4>
 					</div>
 				</div>
 				
-				<div class=""
-		 			 style="width:100%; height:1000px;">
-		 			 
-		 			<ion-content ng-init="loadImages()">
-						<ion-scroll zooming="true" direction="y" style="width: 100%; height: 1000px;">
-		                <div class="row" ng-repeat="image in images" ng-if="$index % 3 === 0">
-					        <div class="col col-34" ng-if="$index < images.length">
-					            <img ng-src="{{images[$index].src}}" width="100%" />
+				<div class="animate-fade-slide-in-right"
+		 			 style="width:100%; height:100%;">
+		 			
+					<div ng-init="loadImages()">
+						
+		                <div class="row" ng-repeat="image in images" ng-if="$index % 2 === 0">
+					        <div class="col col-43" ng-if="$index < images.length">
+					            <img ng-src="{{images[$index].src}}" width="100%" style="border:3px solid gray;" />
 					        </div>
-					        <div class="col col-33" ng-if="$index + 1 < images.length">
-					            <img ng-src="{{images[$index + 1].src}}" width="100%" />
-					        </div>
-					        <div class="col col-33" ng-if="$index + 2 < images.length">
-					            <img ng-src="{{images[$index + 2].src}}" width="100%" />
+					        <div class="col col-43" ng-if="$index + 1 < images.length">
+					            <img ng-src="{{images[$index + 1].src}}" width="100%" style="border:3px solid gray;" />
 					        </div>
 					    </div>
-					    </ion-scroll>
-		            </ion-content>
-    		 			 
+					    
+		            </div>
+		            
 		 		</div>
 		 		
 			</div>
