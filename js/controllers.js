@@ -579,10 +579,41 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 //		$scope.username = username;
 //		console.log("-- username:"+$scope.username +" --");
 //	};
-//	
-//	$scope.showChanged1 = function(pass){
-//		$scope.pass = pass;
-//		console.log("-- pass:"+$scope.pass +" --");
-//	};
+.controller('SigninCtrl', ['$scope', '$http', function($scope, $http) {
+	console.log("-- SigninCtrl Inicio --");
+	$scope.errorMsg = "";
+	$scope.id = "";
+	
+	//Arreglo que contendrá los datos del usuario
+	$scope.reg = {};
+	
+	//Variable para armar el la URL que irá al WS con los datos del usuario
+	$scope.urlWS = "";
+	
+	//Función que ejecuta la creación del nuevo usuario
+	$scope.signin = function(reg) {
+		console.log("--- signin()- user.name:"+ $scope.reg.name +" - user.surname:"+ $scope.reg.surname +" ---");	
+		console.log("--- signin()- user.email:"+ $scope.reg.email +" ---");	
+		console.log("--- signin()- user.username:"+ $scope.reg.username +" - user.pass:"+ $scope.reg.pass +" ---");	
+
+		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
+			+"&email="+$scope.reg.email +"&user="+$scope.reg.username +"&pass="+$scope.reg.pass;
+
+//		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login/registro?nombre=Prueba5&apellido=Perez5&email=aaa5@prueba.com&user=prueba5&pass=123";
+	
+		$http.get($scope.urlWS).then(function(resp) {
+		
+			$scope.errorMsg = resp.data.message;
+			$scope.id = resp.data.id;
+			
+			console.log("-- OK :) --" +$scope.id);
+		
+		  }, function(err) {
+			console.error('ERR', err);
+			 console.log("-- ERROR:"+err.status) // err.status will contain the status code
+		  })
+	};
+	console.log("-- SigninCtrl Fin --");
+}])
 
 ;
