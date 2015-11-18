@@ -11,13 +11,13 @@ function fillDB(dbService) {
 	
 	
 	var xmlGeoDistributionFiles = [
-		'00dataRegionesXML.xml', 
-		'01dataDeptoRegMetroXML.xml', 
-		//'02dataDeptoRegNorOrientalXML.xml',
-		//'03dataDeptoRegCentralXML.xml', 
-		//'04dataDeptoRegSurOccidenteXML.xml', 
-		//'05dataDeptoRegPetenXML.xml',
-		'06dataDeptoGuatemalaSitios.xml'
+		'GD00dataRegionesXML.xml', 
+		'GD01dataDeptoRegMetroXML.xml', 
+		//'GD02dataDeptoRegNorOrientalXML.xml',
+		//'GD03dataDeptoRegCentralXML.xml', 
+		//'GD04dataDeptoRegSurOccidenteXML.xml', 
+		//'GD05dataDeptoRegPetenXML.xml',
+		'GD06dataDeptoGuatemalaSitios.xml'
 	];
 	
 	// create GeographicDistribution
@@ -46,23 +46,23 @@ function fillDB(dbService) {
 		fillGallery(xmlGalleryFiles[i], dbService);
 	}
 	
-	/*
+	
 	var xmlTourDistributionFiles = [
-		'T00dataToursTypesXML.xml', 'T01dataToursCulturalXML.xml', 'T02dataToursReligiosoXML.xml',
-		'T03dataToursAventuraXML.xml', 'T04dataToursNaturalezaXML.xml', 'T05dataToursTropicalXML.xml',
+		'TD00dataToursTypesXML.xml' 
+		// 'TD01dataToursCulturalXML.xml', 'TD02dataToursReligiosoXML.xml',
+		// 'TD03dataToursAventuraXML.xml', 'TD04dataToursNaturalezaXML.xml', 'TD05dataToursTropicalXML.xml',
 	];
 	
 	// create tourDistribution
 	dbService.doCreateTable(
 		"TourDistribution", 
-		"id INTEGER PRIMARY KEY ASC, fatherId INTEGER, categoryType INTEGER, name TEXT, introduction TEXT, information TEXT, previsualization TEXT"
+		"id INTEGER PRIMARY KEY ASC, fatherId INTEGER, categoryType INTEGER, name TEXT, introduction TEXT, information TEXT, services TEXT, location TEXT, previsualization TEXT"
 	);
   	
   	// fill tourDistribution
 	for (i=0; i<xmlTourDistributionFiles.length; i++) {
 		fillTourDistribution(xmlTourDistributionFiles[i], dbService);
 	}
-	*/
 	
 	//testTable('GeographicDistribution', dbService);
 	
@@ -147,11 +147,13 @@ function fillTourDistribution(file, dbService) {
 	      	var registerTourValue = [];	      	
 	      	if (json.tourDistribution.register.length==null) {
 				registerTourValue[0] = [
-		      		json.tourDistribution.register.fatherId,
+					json.tourDistribution.register.fatherId,
 		      		json.tourDistribution.register.categoryType,
 		      		json.tourDistribution.register.name, 
 		      		json.tourDistribution.register.introduction, 
-		      		json.tourDistribution.register.information, 
+		      		json.tourDistribution.register.information,
+		      		json.tourDistribution.register.services,
+		      		json.tourDistribution.register.location,
 		      		json.tourDistribution.register.previsualization
 		      	];
 	      	} else {
@@ -161,14 +163,16 @@ function fillTourDistribution(file, dbService) {
 			      	  	json.tourDistribution.register[i].categoryType,
 			      	  	json.tourDistribution.register[i].name, 
 			      	  	json.tourDistribution.register[i].introduction, 
-			      	  	json.tourDistribution.register[i].information, 
+			      	  	json.tourDistribution.register[i].information,
+			      	  	json.tourDistribution.register[i].services,
+		      			json.tourDistribution.register[i].location,
 			      	  	json.tourDistribution.register[i].previsualization
 		      	  	];
 		        }
 	      	}
 	      	dbService.doInsertTable(
 	      		"TourDistribution", 
-	      		"fatherId, categoryType, name, introduction, information, previsualization", 
+	      		"fatherId, categoryType, name, introduction, information, services, location, previsualization", 
 	      		registerTourValue
 	      	);
       	}
@@ -189,6 +193,6 @@ function testTable(tableName, dbService) {
 					//console.log("tableName:"+tableName+", id:"+rs.item(i).id+", fatherId:"+rs.item(i).fatherId+", source:"+rs.item(i).source);
 				}
 			}
-		},500)
+		},500);
 	},3000);
 }

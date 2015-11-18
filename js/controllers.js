@@ -50,8 +50,9 @@ angular.module('starter.controllers', ['ionic','ngResource'])
   	console.log("NO Crear BD");
   }
   
-  testTable('GeographicDistribution', DataBaseService);
+  //testTable('GeographicDistribution', DataBaseService);
   //testTable('Gallery', DataBaseService);
+  testTable('TourDistribution', DataBaseService);
     
 })
 

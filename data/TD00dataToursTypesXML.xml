@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<tourDistribution>
+		<!-- TIPOS DE TOUR -->
+		<register>
+			<fatherId>0</fatherId>
+			<categoryType>1</categoryType>
+			<name>Tour Metro</name>
+			<introduction>Ciudad de Guatemala</introduction>
+			<information></information>
+			<services></services>
+			<location></location>
+			<previsualization></previsualization>
+		</register>
+		<register>
+			<fatherId>0</fatherId>
+			<categoryType>1</categoryType>
+			<name>Tour HueHue</name>
+			<introduction>Huehuetenango</introduction>
+			<information></information>
+			<services></services>
+			<location></location>
+			<previsualization></previsualization>
+		</register>
+		<register>
+			<fatherId>0</fatherId>
+			<categoryType>1</categoryType>
+			<name>Tour Rio Dulce</name>
+			<introduction>Izabal</introduction>
+			<information></information>
+			<services></services>
+			<location></location>
+			<previsualization></previsualization>
+		</register>
+	</tourDistribution>
+</application>
