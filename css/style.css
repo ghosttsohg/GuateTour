@@ -56,3 +56,14 @@ background-color:#444;
 .text-h1,.text-h2,.text-h3,.text-h4,.text-h5,.text-h6{
   color:#674226;
 }
+
+.titlePopup{
+  font-weight: bold;
+  text-align:center;
+  background-color:none;
+}
+
+.templatePopup{
+  text-align:center;
+  background-color:none;
+}

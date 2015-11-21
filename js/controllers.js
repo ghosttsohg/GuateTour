@@ -542,13 +542,16 @@ angular.module('starter.controllers', ['ionic','ngResource'])
     };
 })
 
-.controller('LoginCtrl', ['$scope', '$http', function($scope, $http) {
+.controller('LoginCtrl', ['$scope', '$http', '$ionicPopup', '$ionicSideMenuDelegate','$state', function($scope, $http, $ionicPopup, $ionicSideMenuDelegate,$state) {
 	console.log("-- LoginCtrl Inicio --");
-	//Nombre de bienvenida
-	$scope.welcomeName = "";
-	$scope.errorMsg = "";
 	
-	//Arreglo que contendr� los datos de usuario que devuelve el WS
+	$scope.welcomeName = "";
+	$scope.logTitleMsg = "";
+	$scope.msg = "";
+	$scope.errorMsg = "";
+	$scope.btn = "";
+		
+	//Arreglo que contendra los datos de usuario que devuelve el WS
 	$scope.user = {};
 	
 	//Variable para armar el WS con el user y pass
@@ -562,17 +565,42 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user="+$scope.user.username +"&pass="+$scope.user.pass +""; //localhost-192.168.1.6
 		
 		$http.get($scope.urlWS).then(function(resp) {
-		
-			console.log("-- OK :) --" + resp.data.id);
-		 	$scope.welcomeName = resp.data.username;
 			$scope.errorMsg = resp.data.message;
-		
+			
+			if(resp.data.id == '0'){
+				console.log("-- ERROR :( --" + resp.data.id);
+				$scope.logTitleMsg = "Error";
+				$scope.msg = $scope.errorMsg;
+				$scope.btn = "assertive";
+			}else if(resp.data.id == '1'){
+				console.log("-- OK :) --" + resp.data.id);
+				$scope.welcomeName = resp.data.username;
+				$scope.logTitleMsg = "Te damos la bienvenida";
+				$scope.msg = $scope.welcomeName;
+				$scope.btn = "positive";
+			}
+			
+			var alertPopup = $ionicPopup.alert({
+				title: '<div class="titlePopup">'+$scope.logTitleMsg+'</div>',
+				template: '<div class="templatePopup">'+$scope.msg+'</div>',
+				okType: 'button-'+$scope.btn,
+			});	
+			
+			alertPopup.then(function(res) {
+				console.log('Thank you:' +res);
+				if(res && resp.data.id == '1'){
+					$state.go('app.welcome');
+					$ionicSideMenuDelegate.toggleLeft();
+				}
+			});
+					
 		  }, function(err) {
 			console.error('ERR', err);
 			 console.log("-- ERROR:"+err.status) // err.status will contain the status code
 		  })
+
 	};
-	
+	  
 	console.log("-- LoginCtrl Fin --");
 }])
 
@@ -620,5 +648,4 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 	};
 	console.log("-- SigninCtrl Fin --");
 }])
-
 ;
