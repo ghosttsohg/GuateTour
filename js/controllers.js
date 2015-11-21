@@ -554,15 +554,16 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 	//Variable para armar el WS con el user y pass
 	$scope.urlWS = "";
 	
-	//Funci�n que ejecuta el login
+	//Funcion que ejecuta el login
 	$scope.login = function(user) {
 		console.log("--- login()- user.username:"+$scope.user.username +" - user.pass:"+$scope.user.pass +" ---");	
-		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login?user="+$scope.user.username +"&pass="+$scope.user.pass +""; //localhost-192.168.1.6
 	
-		//$http.get('http://localhost:8080/DestinosGT/Services/login?user=woody&pass=abc').then(function(resp) { -- cambiar por 192.168.15.6
+	//$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login?user="+$scope.user.username +"&pass="+$scope.user.pass +""; //localhost-192.168.1.6
+		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user="+$scope.user.username +"&pass="+$scope.user.pass +""; //localhost-192.168.1.6
+		
 		$http.get($scope.urlWS).then(function(resp) {
 		
-			 console.log("-- OK :) --" + resp.data.id);
+			console.log("-- OK :) --" + resp.data.id);
 		 	$scope.welcomeName = resp.data.username;
 			$scope.errorMsg = resp.data.message;
 		
@@ -585,23 +586,25 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 	$scope.errorMsg = "";
 	$scope.id = "";
 	
-	//Arreglo que contendrá los datos del usuario
+	//Arreglo para datos del usuario
 	$scope.reg = {};
 	
-	//Variable para armar el la URL que irá al WS con los datos del usuario
+	//Variable para almacenar URL del servicio web
 	$scope.urlWS = "";
 	
-	//Función que ejecuta la creación del nuevo usuario
+	//Función para creación del nuevo usuario
 	$scope.signin = function(reg) {
 		console.log("--- signin()- user.name:"+ $scope.reg.name +" - user.surname:"+ $scope.reg.surname +" ---");	
 		console.log("--- signin()- user.email:"+ $scope.reg.email +" ---");	
 		console.log("--- signin()- user.username:"+ $scope.reg.username +" - user.pass:"+ $scope.reg.pass +" ---");	
 
-		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
+//		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
+//			+"&email="+$scope.reg.email +"&user="+$scope.reg.username +"&pass="+$scope.reg.pass;
+			
+		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
 			+"&email="+$scope.reg.email +"&user="+$scope.reg.username +"&pass="+$scope.reg.pass;
 
-//		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login/registro?nombre=Prueba5&apellido=Perez5&email=aaa5@prueba.com&user=prueba5&pass=123";
-	
+
 		$http.get($scope.urlWS).then(function(resp) {
 		
 			$scope.errorMsg = resp.data.message;
@@ -611,7 +614,8 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 		
 		  }, function(err) {
 			console.error('ERR', err);
-			 console.log("-- ERROR:"+err.status) // err.status will contain the status code
+			// err.status will contain the status code
+			console.log("-- ERROR:"+err.status) 
 		  })
 	};
 	console.log("-- SigninCtrl Fin --");
