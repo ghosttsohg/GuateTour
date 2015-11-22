@@ -86,3 +86,15 @@ background-color:#444;
 	line-height:44px;
 	color: white;
 }
+
+div.transbox {
+    margin: 30px;
+    background-color: #ffffff;
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+div.transbox p {
+    margin: 5%;
+    color: #000000;
+}
