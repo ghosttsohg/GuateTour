@@ -247,23 +247,50 @@ angular.module('starter.controllers', ['ionic','ngResource'])
     };
 })
 
-.controller('MenuCtrl', function($scope, $state, DataBaseService) {
+.controller('MenuCtrl', function($scope, $state, DataBaseService, $rootScope,$ionicPopup,$ionicSideMenuDelegate) {
+	$rootScope.logged = ''; //Valor inicial debe ser ''
 	$scope.searchDataModel = {};
 	$scope.goTo = function(txtState){
 		console.log("$scope.goTo");
 		console.log("txtState:"+txtState);
 		$state.go(txtState);		  
     };
+	
+	$scope.goToMenu = function(){
+		console.log("$scope.goToMenu");
+		$ionicSideMenuDelegate.toggleLeft();
+	};
+	
 	$scope.goSearch = function(txtPattern){
 		console.log("$scope.goSearch");
 		console.log("txtPattern:"+txtPattern);
 		$state.go('app.search', {txtPattern: txtPattern});		  
     };
 	
+	// Function to stop the app
 	$scope.exit = function(){
 		console.log("$scope.exit");
-		ionic.Platform.exitApp(); // stops the app
+		ionic.Platform.exitApp(); 
 		console.log("$scope.exit here");
+	};
+
+	// Function to logout from app
+	$scope.logout = function(){
+		console.log("$scope.logout");
+		
+		var confirmPopup = $ionicPopup.confirm({
+				title: '<div class="titlePopup">LOGOUT</div>',
+				template: '<div class="templatePopup">¿Estás seguro que cerrar tu sesión?</div>'
+			});	
+			
+			confirmPopup.then(function(res) {
+				console.log('--- Logout? ' +res);
+				if(res){
+					$rootScope.logged = '';
+				}
+				$state.go('app.welcome');
+				$ionicSideMenuDelegate.toggleLeft();
+			});
 	};
 })
 
@@ -632,76 +659,151 @@ angular.module('starter.controllers', ['ionic','ngResource'])
     };
 })
 
-.controller('LoginCtrl', ['$scope', '$http', function($scope, $http) {
-	console.log("-- LoginCtrl Inicio --");
-	//Nombre de bienvenida
-	$scope.welcomeName = "";
-	$scope.errorMsg = "";
+//Controlador Login
+.controller('LoginCtrl', ['$scope', '$http', '$ionicPopup', '$ionicSideMenuDelegate','$state', '$rootScope', 
+	function($scope, $http, $ionicPopup, $ionicSideMenuDelegate,$state,$rootScope) {
+	console.log("-- LoginCtrl --");
+
 	
-	//Arreglo que contendr� los datos de usuario que devuelve el WS
+	$scope.welcomeName = "";
+	$scope.logTitleMsg = "";
+	$scope.msg = "";
+	$scope.errorMsg = "";
+
+	$scope.btn = "";
+		
+	//Arreglo que contendra los datos de usuario que devuelve el WS
 	$scope.user = {};
 	
 	//Variable para armar el WS con el user y pass
 	$scope.urlWS = "";
 	
-	//Funci�n que ejecuta el login
+	//Funcion que ejecuta el login
 	$scope.login = function(user) {
-		console.log("--- login()- user.username:"+$scope.user.username +" - user.pass:"+$scope.user.pass +" ---");	
-		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login?user="+$scope.user.username +"&pass="+$scope.user.pass +""; //localhost-192.168.1.6
+		console.log("--- user.username:"+$scope.user.username +" - user.pass:"+$scope.user.pass +" ---");	
+
 	
-		//$http.get('http://localhost:8080/DestinosGT/Services/login?user=woody&pass=abc').then(function(resp) { -- cambiar por 192.168.15.6
+
+
+		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user="+$scope.user.username +"&pass="+$scope.user.pass +""; 
+		
+
+
 		$http.get($scope.urlWS).then(function(resp) {
-		
-			 console.log("-- OK :) --" + resp.data.id);
-		 	$scope.welcomeName = resp.data.username;
 			$scope.errorMsg = resp.data.message;
-		
+
+			
+			if(resp.data.id == '0'){
+				console.log("-- ERROR --" + resp.data.id);
+				$scope.logTitleMsg = "Error";
+				$scope.msg = $scope.errorMsg;
+				$scope.btn = "assertive";
+			}else if(resp.data.id == '1'){
+				console.log("-- OK --" + resp.data.id);
+				$scope.welcomeName = resp.data.username;
+				$scope.logTitleMsg = "Te damos la bienvenida";
+				$scope.msg = $scope.welcomeName;
+				$scope.btn = "positive";
+				$rootScope.logged = resp.data.username;//'1';
+			}
+			
+			var alertPopup = $ionicPopup.alert({
+				title: '<div class="titlePopup">'+$scope.logTitleMsg+'</div>',
+				template: '<div class="templatePopup">'+$scope.msg+'</div>',
+				okType: 'button-'+$scope.btn,
+			});	
+			
+			alertPopup.then(function(res) {
+				console.log('Thank you:' +res);
+				if(res && resp.data.id == '1'){
+					$state.go('app.welcome');
+					$ionicSideMenuDelegate.toggleLeft();
+				}
+			});
+					
 		  }, function(err) {
 			console.error('ERR', err);
-			 console.log("-- ERROR:"+err.status) // err.status will contain the status code
+			 console.log("-- ERROR:"+err.status)
 		  })
+
 	};
-	
-	console.log("-- LoginCtrl Fin --");
+
+
 }])
 
-//REGISTRO
-//	$scope.showChanged = function(username){
-//		$scope.username = username;
-//		console.log("-- username:"+$scope.username +" --");
-//	};
-.controller('SigninCtrl', ['$scope', '$http', function($scope, $http) {
-	console.log("-- SigninCtrl Inicio --");
-	$scope.errorMsg = "";
+
+
+
+
+
+//Controlador Registro
+.controller('SigninCtrl', ['$scope', '$http', '$ionicPopup', '$ionicSideMenuDelegate','$state', '$rootScope',
+	function($scope, $http, $ionicPopup, $ionicSideMenuDelegate,$state,$rootScope) {
+	console.log("-- SigninCtrl --");
+	//Variables
 	$scope.id = "";
+	$scope.welcomeName = "";
+	$scope.logTitleMsg = "";
+	$scope.msg = "";
+	$scope.errorMsg = "";
+	$scope.btn = "";
 	
-	//Arreglo que contendrá los datos del usuario
+	//Arreglo para datos del usuario
 	$scope.reg = {};
 	
-	//Variable para armar el la URL que irá al WS con los datos del usuario
+
+	//Variable para almacenar URL del servicio web
 	$scope.urlWS = "";
 	
-	//Función que ejecuta la creación del nuevo usuario
+	//Función para creación del nuevo usuario
 	$scope.signin = function(reg) {
 		console.log("--- signin()- user.name:"+ $scope.reg.name +" - user.surname:"+ $scope.reg.surname +" ---");	
 		console.log("--- signin()- user.email:"+ $scope.reg.email +" ---");	
 		console.log("--- signin()- user.username:"+ $scope.reg.username +" - user.pass:"+ $scope.reg.pass +" ---");	
 
-		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
+//		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
+//			+"&email="+$scope.reg.email +"&user="+$scope.reg.username +"&pass="+$scope.reg.pass;
+			
+		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
 			+"&email="+$scope.reg.email +"&user="+$scope.reg.username +"&pass="+$scope.reg.pass;
 
-//		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login/registro?nombre=Prueba5&apellido=Perez5&email=aaa5@prueba.com&user=prueba5&pass=123";
-	
 		$http.get($scope.urlWS).then(function(resp) {
-		
 			$scope.errorMsg = resp.data.message;
 			$scope.id = resp.data.id;
 			
-			console.log("-- OK :) --" +$scope.id);
-		
+			console.log("-- OK --" +$scope.id);
+			if(resp.data.id == '1'){
+				console.log("-- OK --" + resp.data.id);
+				$scope.welcomeName = resp.data.username;
+				$scope.logTitleMsg = "Te damos la bienvenida";
+				$scope.msg = $scope.welcomeName;
+				$scope.btn = "positive";
+				$rootScope.logged = resp.data.username;//'1';
+			}else{
+				console.log("-- ERROR --" + resp.data.id);
+				$scope.logTitleMsg = "Error";
+				$scope.msg = $scope.errorMsg;
+				$scope.btn = "assertive";
+			}
+			
+			var alertPopup = $ionicPopup.alert({
+				title: '<div class="titlePopup">'+$scope.logTitleMsg+'</div>',
+				template: '<div class="templatePopup">'+$scope.msg+'</div>',
+				okType: 'button-'+$scope.btn,
+			});	
+			
+			alertPopup.then(function(res) {
+				console.log('Thank you:' +res);
+				if(res && resp.data.id == '1'){
+					$state.go('app.welcome');
+					$ionicSideMenuDelegate.toggleLeft();
+				}
+			});
+					
 		  }, function(err) {
 			console.error('ERR', err);
-			 console.log("-- ERROR:"+err.status) // err.status will contain the status code
+			// err.status will contain the status code
+			console.log("-- ERROR:"+err.status) 
 		  })
 	};
 	console.log("-- SigninCtrl Fin --");

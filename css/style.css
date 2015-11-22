@@ -20,7 +20,7 @@
 }
 
 .welcomeBackgnd {
-	background: url('../templates/images/welcome/w1.jpg') no-repeat center !important;
+	background: url('../templates/images/welcome/welcome.jpg') no-repeat center !important;
 	background-size: cover !important;
 	margin: auto !important;
 }
@@ -66,4 +66,23 @@ background-color:#444;
 .templatePopup{
   text-align:center;
   background-color:none;
+}
+
+.bar .titleH2{
+	position:absolute;
+	top:0;
+	right:0;
+	left:0;
+	z-index:0;
+	overflow:hidden;
+	margin:0 10px;
+	min-width:30px;
+	height:43px;
+	text-align:center;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	font-size:19px;
+	font-weight:500;
+	line-height:44px;
+	color: white;
 }

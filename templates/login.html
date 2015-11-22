@@ -1,5 +1,5 @@
 <ion-view view-title="LOGIN" >
-	<ion-content style="background: url(&#39;./templates/images/welcome/loginScreen.jpg&#39;) center; background-size: cover;">
+	<ion-content style="background: url(/templates/images/welcome/loginScreen.jpg) center; background-size: cover;">
 		<div class="ionic login" ng-controller="LoginCtrl" ng-submit="login()"><br />
 	        <div class="hero no-header flat">
 				<div class="content">
@@ -12,9 +12,10 @@
 	        </div>
 	        <div class="list">
 				<label class="item item-input item-md-label" placeholder="Username" highlight-color="balanced" type="text">
-					<input type="text" class="used" ng-model="user.username"  >
+					<input type="text" class="used" ng-model="user.username">
 						<span class="input-label ">Usuario</span>
 						<div class="highlight highlight-balanced"></div>
+						 <span ng-show="$error.required">Username is required.</span>
 				</label>
 	
 	            <label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="password">
@@ -25,16 +26,10 @@
 	        </div>
 	        <div class="padding">
 	            <button type="submit" class="button button-block button-positive waves-effect waves-button waves-light" ng-click='login(user)'>Login</button>
-				 
-				 <h1 class="left">
-					 <span ng-if="welcomeName !== ''">
-					   Resultado: OK :) {{welcomeName}} 
-					 </span>
-					 <span ng-if="welcomeName === ''">
-					   Resultado: {{errorMsg}}
-					 </span>
-				 </h1>
-				 
+				<div class="button-bar" ng-controller="MenuCtrl">
+					<button type="submit" class="button button-small button-assertive waves-effect waves-button waves-light" ng-click="goTo('app.signin');">Registrarme</button>
+					<button type="submit" class="button button-small button-balanced waves-effect waves-button waves-light" ng-click="goToMenu();">No, gracias</button>
+				</div>		 
 	        </div>
 	    </div>
 	</ion-content>
