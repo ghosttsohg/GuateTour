@@ -10,9 +10,10 @@
 			<information></information>
 			<services></services>
 			<location></location>
-			<previsualization></previsualization>
+			<previsualization>thumbnail_tourMetro1.jpg</previsualization>
+			<map></map>
 		</register>
-		<register>
+		<!--register>
 			<fatherId>0</fatherId>
 			<categoryType>1</categoryType>
 			<name>Tour HueHue</name>
@@ -20,7 +21,7 @@
 			<information></information>
 			<services></services>
 			<location></location>
-			<previsualization></previsualization>
+			<previsualization>thumbnail_tourHueHue1.jpg</previsualization>
 		</register>
 		<register>
 			<fatherId>0</fatherId>
@@ -30,7 +31,7 @@
 			<information></information>
 			<services></services>
 			<location></location>
-			<previsualization></previsualization>
-		</register>
+			<previsualization>thumbnail_tourRioDulce1.jpg</previsualization>
+		</register-->
 	</tourDistribution>
 </application>

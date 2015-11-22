@@ -51,8 +51,10 @@ background-color:#444;
 }
 
 .text-h1,.text-h2,.text-h3,.text-h4{
-  color:#9D7C4F;
+  /*color:#9D7C4F;*/
+ color:#CFCFCF;
 }
-.text-h1,.text-h2,.text-h3,.text-h4,.text-h5,.text-h6{
-  color:#674226;
+.text-h5,.text-h6{
+  /*color:#674226;*/
+ color:#8A8A8A;
 }

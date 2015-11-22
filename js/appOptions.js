@@ -8,7 +8,7 @@ function fillDB(dbService) {
 	dbService.doDropTable("GeographicDistribution");
 	dbService.doDropTable("Gallery");
 	dbService.doDropTable("TourDistribution");
-	
+	dbService.doDropTable("TourSiteRoute");
 	
 	var xmlGeoDistributionFiles = [
 		'GD00dataRegionesXML.xml', 
@@ -46,26 +46,38 @@ function fillDB(dbService) {
 		fillGallery(xmlGalleryFiles[i], dbService);
 	}
 	
-	
 	var xmlTourDistributionFiles = [
-		'TD00dataToursTypesXML.xml' 
-		// 'TD01dataToursCulturalXML.xml', 'TD02dataToursReligiosoXML.xml',
-		// 'TD03dataToursAventuraXML.xml', 'TD04dataToursNaturalezaXML.xml', 'TD05dataToursTropicalXML.xml',
+		'TD00dataToursTypesXML.xml', 
+		'TD01dataToursMetroXML.xml'
 	];
 	
-	// create tourDistribution
+	// create TourDistribution
 	dbService.doCreateTable(
 		"TourDistribution", 
-		"id INTEGER PRIMARY KEY ASC, fatherId INTEGER, categoryType INTEGER, name TEXT, introduction TEXT, information TEXT, services TEXT, location TEXT, previsualization TEXT"
+		"id INTEGER PRIMARY KEY ASC, fatherId INTEGER, categoryType INTEGER, name TEXT, introduction TEXT, information TEXT, services TEXT, location TEXT, previsualization TEXT, map TEXT"
 	);
   	
-  	// fill tourDistribution
+  	// fill TourDistribution
 	for (i=0; i<xmlTourDistributionFiles.length; i++) {
 		fillTourDistribution(xmlTourDistributionFiles[i], dbService);
 	}
 	
-	//testTable('GeographicDistribution', dbService);
+	// create TourSiteRoute
+	dbService.doCreateTable(
+		"TourSiteRoute", 
+		"id INTEGER PRIMARY KEY ASC, tourId INTEGER, siteId INTEGER, inOrder INTEGER"
+	);
 	
+	var xmlTourSiteRouteFiles = [
+		'TR00dataTourSiteRouteXML.xml'
+	];
+	
+	// fill TourSiteRoute
+	for (i=0; i<xmlTourSiteRouteFiles.length; i++) {
+		fillTourSiteRoute(xmlTourSiteRouteFiles[i], dbService);
+	}
+	
+	//testTable('GeographicDistribution', dbService);
 	//testTable('TourDistribution', dbService);
 }
 
@@ -154,7 +166,8 @@ function fillTourDistribution(file, dbService) {
 		      		json.tourDistribution.register.information,
 		      		json.tourDistribution.register.services,
 		      		json.tourDistribution.register.location,
-		      		json.tourDistribution.register.previsualization
+		      		json.tourDistribution.register.previsualization,
+		      		json.tourDistribution.register.map
 		      	];
 	      	} else {
 	      		for (i = 0; i < json.tourDistribution.register.length; i++) {
@@ -166,18 +179,50 @@ function fillTourDistribution(file, dbService) {
 			      	  	json.tourDistribution.register[i].information,
 			      	  	json.tourDistribution.register[i].services,
 		      			json.tourDistribution.register[i].location,
-			      	  	json.tourDistribution.register[i].previsualization
+			      	  	json.tourDistribution.register[i].previsualization,
+			      	  	json.tourDistribution.register[i].map
 		      	  	];
 		        }
 	      	}
 	      	dbService.doInsertTable(
 	      		"TourDistribution", 
-	      		"fatherId, categoryType, name, introduction, information, services, location, previsualization", 
+	      		"fatherId, categoryType, name, introduction, information, services, location, previsualization, map", 
 	      		registerTourValue
 	      	);
       	}
 	);
 }
+
+function fillTourSiteRoute(file, dbService) {
+	jQuery.get('./data/'+file, 
+		function(xml){
+			console.log("file:"+file);
+			var json = jQuery.xml2json(xml); 
+	      	var registerValue = [];	      	
+	      	if (json.tourSiteRoute.register.length==null) {
+				registerValue[0] = [
+					json.tourSiteRoute.register.tourId,
+					json.tourSiteRoute.register.siteId,
+		      		json.tourSiteRoute.register.order
+		      	];
+	      	} else {
+	      		for (i = 0; i < json.tourSiteRoute.register.length; i++) {
+	      			registerValue[i] = [
+			      	  	json.tourSiteRoute.register[i].tourId,
+			      	  	json.tourSiteRoute.register[i].siteId,
+			      	  	json.tourSiteRoute.register[i].order
+		      	  	];
+		        }
+	      	}
+	      	dbService.doInsertTable(
+	      		"TourSiteRoute", 
+	      		"tourId, siteId, inOrder", 
+	      		registerValue
+	      	);
+      	}
+	);
+}
+
 
 function testTable(tableName, dbService) {
 	setTimeout(function() {
@@ -189,8 +234,9 @@ function testTable(tableName, dbService) {
 				var rs = dbService.getRsModel();
 				console.log("rs:"+rs.length);
 				for (var i=0; i<rs.length; i++) {
-					console.log("tableName:"+tableName+", id:"+rs.item(i).id+", fatherId:"+rs.item(i).fatherId+", name:"+rs.item(i).name);
+					//console.log("tableName:"+tableName+", id:"+rs.item(i).id+", fatherId:"+rs.item(i).fatherId+", name:"+rs.item(i).name);
 					//console.log("tableName:"+tableName+", id:"+rs.item(i).id+", fatherId:"+rs.item(i).fatherId+", source:"+rs.item(i).source);
+					console.log("tableName:"+tableName+", id:"+rs.item(i).id+", tourId:"+rs.item(i).tourId+", siteId:"+rs.item(i).siteId+", inOrder:"+rs.item(i).inOrder);
 				}
 			}
 		},500);

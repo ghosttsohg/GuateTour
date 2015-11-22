@@ -113,7 +113,34 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 		  }
 		}
 	  })
+  
+  .state('app.tourDetails', {
+		url: '/tour/tourDetails?txtTourId',
+		views: {
+		  'menuContent': {
+			templateUrl: 'templates/tour/exploreTourDetails.html'
+		  }
+		}
+	  })
 	  
+  .state('app.tourSite', {
+		url: '/tour/tourSite?txtSiteId',
+		views: {
+		  'menuContent': {
+			templateUrl: 'templates/tour/exploreSite.html'
+		  }
+		}
+	  })
+	  
+  .state('app.tourSiteProfile', {
+		url: '/tour/tourSiteProfile?txtSiteId',
+		views: {
+		  'menuContent': {
+			templateUrl: 'templates/tour/exploreTourSiteProfile.html'
+		  }
+		}
+	  })
+  
   .state('app.moreActions', {
 		url: '/moreActions/moreActions',
 		views: {

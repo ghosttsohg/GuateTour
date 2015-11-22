@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<tourSiteRoute>
+		<register>
+			<tourId>2</tourId><siteId>3</siteId><order>1</order>
+		</register>
+		<register>
+			<tourId>2</tourId><siteId>6</siteId><order>2</order>
+		</register>
+		<register>
+			<tourId>2</tourId><siteId>7</siteId><order>3</order>
+		</register>
+		<register>
+			<tourId>2</tourId><siteId>8</siteId><order>4</order>
+		</register>
+		<register>
+			<tourId>2</tourId><siteId>9</siteId><order>5</order>
+		</register>
+	</tourSiteRoute>
+</application>

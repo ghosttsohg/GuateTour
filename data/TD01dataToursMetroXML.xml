@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<tourDistribution>
+		<!-- TOURS - Metro -->
+		<register>
+			<fatherId>1</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Historia y Cultura</name>
+			<introduction>Ciudad de Guatemala</introduction>
+			<information></information>
+			<services></services>
+			<location></location>
+			<previsualization>thumbnail_tourMetro2.jpg</previsualization>
+			<map>Tour_MetroRoute2.jpg</map>
+		</register>
+		<!--register>
+			<fatherId>1</fatherId>
+			<categoryType>2</categoryType>
+			<name>Tour Templos de la fe</name>
+			<introduction>Ciudad de Guatemala</introduction>
+			<information></information>
+			<services></services>
+			<location></location>
+			<previsualization>thumbnail_tourMetro1.jpg</previsualization>
+		</register-->
+	</tourDistribution>
+</application>

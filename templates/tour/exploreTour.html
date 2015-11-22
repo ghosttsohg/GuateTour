@@ -4,14 +4,12 @@
   
         <div class="ionic">
         	<div class="slide-up" ng-repeat="tour in tourModel">
-	            <div class="hero has-mask waves-effect waves-light" style="background-image: url(&#39;./templates/images/{{tour.previsualization}}&#39;);">
+	            <div class="hero has-mask waves-effect waves-light" style="background-image: url(&#39;./templates/images/thumbnails/{{tour.previsualization}}&#39;);">
 		            <div class="content">
 		                <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-map pull-right text-white"
-		                ng-click="goTo('app.sites', {{tour.id}});">
+		                ng-click="goTo('app.tourDetails', {{tour.id}});">
 		                </button>
-		                <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-images pull-right text-white"></button>
 		                <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-information pull-right text-white"></button>
-		                
 		            </div>
 		        </div>
 		        <div class="mid-bar dark-bg z1 padding">
