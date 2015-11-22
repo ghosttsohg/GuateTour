@@ -294,168 +294,13 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 	};
 })
 
-
-.controller('RegionCtrl', function($scope, $state, DataBaseService) {
-	console.log("RegionCtrl");
-	console.log("RegionCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
-	$scope.regionModel = [];
-	DataBaseService.getSelectRsTable("GeographicDistribution","*","categoryType = 1 and fatherId = 0","order by name asc");
-	//"fatherId, categoryType, name, introduction, information, previsualization", itemValues);
-	var interv = setInterval(function(){
-  		if (DataBaseService.getReadyRsModel()) {
-	  		clearInterval(interv);
-	  		DataBaseService.setReadyRsModel(false);
-	  		var rs = DataBaseService.getRsModel();
-	  		var rows = [];
-	  		for (var i=0; i<rs.length; i++) {
-	  			console.log("Region:"+rs.item(i).name);
-				$scope.regionModel.push(rs.item(i));
-			}
-			//console.log("exploreRegionCtrl :"+JSON.stringify($scope.regionModel));
-			//$scope.$on("$ionicView.afterEnter", function() {
-			    setTimeout(function() {
-			        Mi.motion.blindsDown({
-			            selector: '.card'
-			        });
-			        Waves.displayEffect();
-			    }, 1300);
-			//});
-	  	}
-	},100);
-	$scope.goTo = function(txtState, regionId){
-		console.log("$scope.goTo");
-		console.log("txtState:"+txtState);
-		console.log("txtRegionId:"+regionId);
-		$state.go(txtState, {txtRegionId: regionId});		  
-    };
-})
-
-.controller('DepartmentCtrl', function($scope, $state, DataBaseService, $stateParams) {
-	console.log("DepartmentCtrl");
-	console.log("DepartmentCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
-	console.log("$stateParams.regionId:"+$stateParams.txtRegionId);
-	$scope.departamentModel = [];
-	DataBaseService.getSelectRsTable("GeographicDistribution","*","categoryType = 2 and fatherId = "+$stateParams.txtRegionId,"order by name asc");
-	var interv = setInterval(function(){
-  		if (DataBaseService.getReadyRsModel()) {
-	  		clearInterval(interv);
-	  		DataBaseService.setReadyRsModel(false);
-	  		var rs = DataBaseService.getRsModel();
-	  		console.log("rs:"+rs.length);
-	  		for (var i=0; i<rs.length; i++) {
-	  			console.log("Department:"+rs.item(i).name);
-				$scope.departamentModel.push(rs.item(i));
-			}
-			setTimeout(function() {
-	            // Mi.motion.slideUp('.slide-up');
-	            Waves.displayEffect();
-	        }, 1300);
-	  	}
-    },500);
-    $scope.goTo = function(txtState, departmentId){
-		console.log("$scope.goTo");
-		console.log("txtState:"+txtState);
-		console.log("txtDepartmentId:"+departmentId);
-		$state.go(txtState, {txtDepartmentId: departmentId});		  
-    };
-})
-
-.controller('SiteCtrl', function($scope, $state, DataBaseService, $stateParams) {
-	console.log("siteCtrl");
-	console.log("siteCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
-	console.log("$stateParams.departmentId:"+$stateParams.txtDepartmentId);
-	$scope.siteModel = [];
-	DataBaseService.getSelectRsTable("GeographicDistribution","*","categoryType = 3 and fatherId = "+$stateParams.txtDepartmentId,"order by name asc");
-	var interv = setInterval(function(){
-  		if (DataBaseService.getReadyRsModel()) {
-	  		clearInterval(interv);
-	  		DataBaseService.setReadyRsModel(false);
-	  		var rs = DataBaseService.getRsModel();
-	  		console.log("rs:"+rs.length);
-	  		for (var i=0; i<rs.length; i++) {
-	  			console.log("Site:"+rs.item(i).name);
-				$scope.siteModel.push(rs.item(i));
-			}
-			setTimeout(function() {
-	            // Mi.motion.slideUp('.slide-up');
-	            Waves.displayEffect();
-	        }, 1300);
-	  	}
-    },500);
-    $scope.goTo = function(txtState, txtSiteId, txtTabId){
-		console.log("$scope.goTo");
-		console.log("txtState:"+txtState);
-		console.log("txtSiteId:"+txtSiteId);
-		console.log("txtTabId:"+txtTabId);
-		$state.go(txtState, {txtSiteId: txtSiteId, txtTabId: txtTabId});		  
-    };
-    $scope.goToGallerySite = function(siteId){
-		console.log("$scope.goTo");
-		console.log("txtState:app.siteProfile");
-		console.log("txtSiteId:"+siteId);
-		$state.go('app.siteGallery', {txtSiteId: siteId, txtTabId: 'gallery'});		  
-    };
-})
-
-
-.controller('SiteProfileCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
-	console.log("SiteProfileCtrl");
-	console.log("SiteProfileCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
-	console.log("$stateParams.txtSiteId:"+$stateParams.txtSiteId);
-	console.log("$stateParams.txtTabId:"+$stateParams.txtTabId);
-	$scope.siteProfileModel = [];
-	$scope.siteProfileContent = '';
-	DataBaseService.getSelectRsTable("GeographicDistribution","*","categoryType = 3 and id = "+$stateParams.txtSiteId,"");
-	var interv = setInterval(function(){
-  		if (DataBaseService.getReadyRsModel()) {
-	  		clearInterval(interv);
-	  		DataBaseService.setReadyRsModel(false);
-	  		var rs = DataBaseService.getRsModel();
-	  		for (var i=0; i<rs.length; i++) {
-	  			console.log("Site:"+rs.item(i).name);
-				$scope.siteProfileModel.push(rs.item(i));
-				if ($stateParams.txtTabId == 'services') {
-					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).services);
-				} else if ($stateParams.txtTabId == 'location') {
-					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).location);
-				} else {
-					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).information);
-				}
-			}
-			setTimeout(function() {
-		        Mi.motion.fadeSlideInRight({
-		            selector: '.animate-fade-slide-in-right > *'
-		        });
-		        Waves.displayEffect();
-		    }, 1300);
-	  	}
-    },500);
-    $scope.images = [];
-    $scope.loadImages = function() {
-        DataBaseService.getSelectRsTable("Gallery","*","fatherId = "+$stateParams.txtSiteId,"");
-		var interv = setInterval(function(){
-	  		if (DataBaseService.getReadyRsModel()) {
-		  		clearInterval(interv);
-		  		DataBaseService.setReadyRsModel(false);
-		  		var rs = DataBaseService.getRsModel();
-		  		for (var i=0; i<rs.length; i++) {
-		  			console.log("source:"+rs.item(i).source);
-		  			$scope.images.push({id: rs.item(i).id, src: rs.item(i).source});
-					
-				}
-		  	}
-	    },500);
-    }
-})
-
-
 .controller('SearchResultCtrl', function($scope, $state, DataBaseService, $stateParams) {
-	console.log("SearchResultCtrl");
-	console.log("SearchResultCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
-	console.log("$stateParams.txtPattern:"+$stateParams.txtPattern);
 	$scope.searchResultModel = [];
 	DataBaseService.setReadyRsModel(false);
-	DataBaseService.getSelectRsTable("region","id, name","lower(name) like lower('%"+$stateParams.txtPattern+"%')","");
+	
+	DataBaseService.getSelectRsTable("GeographicDistribution",
+	"id, name, introduction, previsualization, Case categoryType When '1' then 'app.exploreRegions' when '2' then 'app.deptos' Else 'app.sites' end as navigationPath",
+	"lower(name) like lower('%"+$stateParams.txtPattern+"%')","");	
 	var interv = 
 	setInterval(function(){
   		if (DataBaseService.getReadyRsModel()) {
@@ -465,7 +310,9 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 	  		for (var i=0; i<rs.length; i++) {
 				$scope.searchResultModel.push(rs.item(i));
 			}
-			DataBaseService.getSelectRsTable("departament","id, name","lower(name) like lower('%"+$stateParams.txtPattern+"%')","");
+			DataBaseService.getSelectRsTable("TourDistribution",
+			"id, name, introduction, previsualization, Case categoryType When '1' then 'app.tourTypeList' when '2' then 'app.tourList' end as navigationPath",
+			"lower(name) like lower('%"+$stateParams.txtPattern+"%')","");
 			var interv2 = 
 			setInterval(function(){
 		  		if (DataBaseService.getReadyRsModel()) {
@@ -479,21 +326,23 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 						$scope.searchResultModel.push({name:'No se encontraron coincidencias'});
 					}
 			  	}
-			},100);
+			},200);
 	    }
-	},100);
-	$scope.goTo = function(regionId){
+	},200);
+	$scope.goTo = function(txtPathRule, txtId){
 		console.log("$scope.goTo");
-		console.log("txtRegionId:"+regionId);
-		$state.go('app.deptos', {txtRegionId: regionId});		  
+		console.log("txtPathRule:"+txtPathRule);
+		console.log("txtId:"+txtId);
+		$state.go(txtPathRule, {txtId: txtId, isSearch: 'true'});		  
    };
 })
 
-.controller('TourTypeCtrl', function($scope, $state, DataBaseService) {
-	console.log("TourTypeCtrl");
-	console.log("TourTypeCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
-	$scope.tourTypeModel = [];
-	DataBaseService.getSelectRsTable("TourDistribution","*","categoryType = 1 and fatherId = 0","order by name asc");
+.controller('RegionCtrl', function($scope, $state, DataBaseService, $stateParams) {
+	$scope.regionModel = [];
+	if ($stateParams.isSearch==null)
+		DataBaseService.getSelectRsTable("GeographicDistribution","*","categoryType = 1 and fatherId = 0","order by name asc");
+	else
+		DataBaseService.getSelectRsTable("GeographicDistribution","*","categoryType = 1 and fatherId = 0 and id ="+$stateParams.txtId,"order by name asc");
 	var interv = setInterval(function(){
   		if (DataBaseService.getReadyRsModel()) {
 	  		clearInterval(interv);
@@ -501,7 +350,142 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 	  		var rs = DataBaseService.getRsModel();
 	  		var rows = [];
 	  		for (var i=0; i<rs.length; i++) {
-	  			console.log("Type:"+rs.item(i).name);
+				$scope.regionModel.push(rs.item(i));
+			}
+		    setTimeout(function() {
+		        Mi.motion.blindsDown({
+		            selector: '.card'
+		        });
+		        Waves.displayEffect();
+		    }, 1300);
+	  	}
+	},100);
+	$scope.goTo = function(txtState, txtId){
+		console.log("$scope.goTo");
+		console.log("txtState:"+txtState);
+		console.log("txtId:"+txtId);
+		$state.go(txtState, {txtId: txtId});		  
+    };
+})
+
+.controller('DepartmentCtrl', function($scope, $state, DataBaseService, $stateParams) {
+	$scope.departamentModel = [];
+	if ($stateParams.isSearch==null)
+		DataBaseService.getSelectRsTable("GeographicDistribution","*","categoryType = 2 and fatherId = "+$stateParams.txtId,"order by name asc");
+	else
+		DataBaseService.getSelectRsTable("GeographicDistribution","*","categoryType = 2 and id = "+$stateParams.txtId,"order by name asc");
+	var interv = setInterval(function(){
+  		if (DataBaseService.getReadyRsModel()) {
+	  		clearInterval(interv);
+	  		DataBaseService.setReadyRsModel(false);
+	  		var rs = DataBaseService.getRsModel();
+	  		for (var i=0; i<rs.length; i++) {
+				$scope.departamentModel.push(rs.item(i));
+			}
+			setTimeout(function() {
+	            Waves.displayEffect();
+	        }, 1300);
+	  	}
+    },500);
+    $scope.goTo = function(txtState, txtId){
+		console.log("$scope.goTo");
+		console.log("txtState:"+txtState);
+		console.log("txtId:"+txtId);
+		$state.go(txtState, {txtId: txtId});		  
+    };
+})
+
+.controller('SiteCtrl', function($scope, $state, DataBaseService, $stateParams) {
+	$scope.siteModel = [];
+	if ($stateParams.isSearch==null)
+		DataBaseService.getSelectRsTable("GeographicDistribution","*","categoryType = 3 and fatherId = "+$stateParams.txtId,"order by name asc");
+	else
+		DataBaseService.getSelectRsTable("GeographicDistribution","*","categoryType = 3 and id = "+$stateParams.txtId,"order by name asc");
+	var interv = setInterval(function(){
+  		if (DataBaseService.getReadyRsModel()) {
+	  		clearInterval(interv);
+	  		DataBaseService.setReadyRsModel(false);
+	  		var rs = DataBaseService.getRsModel();
+	  		for (var i=0; i<rs.length; i++) {
+				$scope.siteModel.push(rs.item(i));
+			}
+			setTimeout(function() {
+	            Waves.displayEffect();
+	        }, 1300);
+	  	}
+    },500);
+    $scope.goTo = function(txtState, txtId, txtTabId){
+		console.log("$scope.goTo");
+		console.log("txtState:"+txtState);
+		console.log("txtId:"+txtId);
+		console.log("txtTabId:"+txtTabId);
+		$state.go(txtState, {txtId: txtId, txtTabId: txtTabId});		  
+    };
+    $scope.goToGallerySite = function(txtId){
+		console.log("$scope.goTo");
+		console.log("txtState:app.siteProfile");
+		console.log("txtId:"+txtId);
+		$state.go('app.siteGallery', {txtId: txtId, txtTabId: 'gallery'});		  
+    };
+})
+
+
+.controller('SiteProfileCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
+	$scope.siteProfileModel = [];
+	$scope.siteProfileContent = '';
+	DataBaseService.getSelectRsTable("GeographicDistribution","*","categoryType = 3 and id = "+$stateParams.txtId,"");
+	var interv = setInterval(function(){
+  		if (DataBaseService.getReadyRsModel()) {
+	  		clearInterval(interv);
+	  		DataBaseService.setReadyRsModel(false);
+	  		var rs = DataBaseService.getRsModel();
+	  		for (var i=0; i<rs.length; i++) {
+				$scope.siteProfileModel.push(rs.item(i));
+				if ($stateParams.txtTabId == 'services') {
+					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).services);
+				} else if ($stateParams.txtTabId == 'location') {
+					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).location);
+				} else {
+					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).information);
+				}
+			}
+			setTimeout(function() {
+		        Mi.motion.fadeSlideInRight({
+		            selector: '.animate-fade-slide-in-right > *'
+		        });
+		        Waves.displayEffect();
+		    }, 1300);
+	  	}
+    },500);
+    $scope.images = [];
+    $scope.loadImages = function() {
+        DataBaseService.getSelectRsTable("Gallery","*","fatherId = "+$stateParams.txtId,"");
+		var interv = setInterval(function(){
+	  		if (DataBaseService.getReadyRsModel()) {
+		  		clearInterval(interv);
+		  		DataBaseService.setReadyRsModel(false);
+		  		var rs = DataBaseService.getRsModel();
+		  		for (var i=0; i<rs.length; i++) {
+		  			$scope.images.push({id: rs.item(i).id, src: rs.item(i).source});
+				}
+		  	}
+	    },500);
+   };
+})
+
+.controller('TourTypeCtrl', function($scope, $state, DataBaseService, $stateParams) {
+	$scope.tourTypeModel = [];
+	if ($stateParams.isSearch==null)
+		DataBaseService.getSelectRsTable("TourDistribution","*","categoryType = 1 and fatherId = 0","order by name asc");
+	else
+		DataBaseService.getSelectRsTable("TourDistribution","*","categoryType = 1 and fatherId = 0 and id = "+$stateParams.txtId,"order by name asc");
+	var interv = setInterval(function(){
+  		if (DataBaseService.getReadyRsModel()) {
+	  		clearInterval(interv);
+	  		DataBaseService.setReadyRsModel(false);
+	  		var rs = DataBaseService.getRsModel();
+	  		var rows = [];
+	  		for (var i=0; i<rs.length; i++) {
 				$scope.tourTypeModel.push(rs.item(i));
 			}
 		    setTimeout(function() {
@@ -512,70 +496,63 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 		    }, 1300);
 	  	}
 	},100);
-	$scope.goTo = function(txtState, typeId){
+	$scope.goTo = function(txtState, txtId){
 		console.log("$scope.goTo");
 		console.log("txtState:"+txtState);
-		console.log("txtTypeId:"+typeId);
-		$state.go(txtState, {txtTypeId: typeId});		  
+		console.log("txtId:"+txtId);
+		$state.go(txtState, {txtId: txtId});		  
     };
 })
 
 .controller('TourCtrl', function($scope, $state, DataBaseService, $stateParams) {
-	console.log("TourCtrl");
-	console.log("TourCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
-	console.log("$stateParams.typeId:"+$stateParams.txtTypeId);
 	$scope.tourModel = [];
-	DataBaseService.getSelectRsTable("TourDistribution","*","categoryType = 2 and fatherId = "+$stateParams.txtTypeId,"order by name asc");
+	if ($stateParams.isSearch==null)
+		DataBaseService.getSelectRsTable("TourDistribution","*","categoryType = 2 and fatherId = "+$stateParams.txtId,"order by name asc");
+	else
+		DataBaseService.getSelectRsTable("TourDistribution","*","categoryType = 2 and id = "+$stateParams.txtId,"order by name asc");
 	var interv = setInterval(function(){
   		if (DataBaseService.getReadyRsModel()) {
 	  		clearInterval(interv);
 	  		DataBaseService.setReadyRsModel(false);
 	  		var rs = DataBaseService.getRsModel();
 	  		for (var i=0; i<rs.length; i++) {
-	  			console.log("Tour:"+rs.item(i).name);
 				$scope.tourModel.push(rs.item(i));
 			}
 			setTimeout(function() {
-	            // Mi.motion.slideUp('.slide-up');
 	            Waves.displayEffect();
 	        }, 1300);
 	  	}
     },500);
-    $scope.goTo = function(txtState, tourId){
+    $scope.goTo = function(txtState, txtId){
 		console.log("$scope.goTo");
 		console.log("txtState:"+txtState);
-		console.log("txtTourId:"+tourId);
-		$state.go(txtState, {txtTourId: tourId});		  
+		console.log("txtId:"+txtId);
+		$state.go(txtState, {txtId: txtId});		  
     };
 })
 
 .controller('TourDetailsCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
-	console.log("TourDetailsCtrl");
-	console.log("TourDetailsCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
-	console.log("$stateParams.txtTourId:"+$stateParams.txtTourId);
 	$scope.siteTourDetailModel = [];
 	$scope.siteTourDetailContent = '';
-	DataBaseService.getSelectRsTable("TourDistribution","*","categoryType = 2 and id = "+$stateParams.txtTourId,"");
+	DataBaseService.getSelectRsTable("TourDistribution","*","categoryType = 2 and id = "+$stateParams.txtId,"");
 	var interv = setInterval(function(){
   		if (DataBaseService.getReadyRsModel()) {
 	  		clearInterval(interv);
 	  		DataBaseService.setReadyRsModel(false);
 	  		var rs = DataBaseService.getRsModel();
 	  		for (var i=0; i<rs.length; i++) {
-	  			console.log("TourDetail:"+rs.item(i).name);
 				$scope.siteTourDetailModel.push(rs.item(i));
 				//$scope.siteTourDetailContent = $sce.trustAsHtml(rs.item(i).map);
 			}
 			
 			$scope.siteTourRouteModel = [];
-		    DataBaseService.getSelectRsTable("GeographicDistribution","*","id in (SELECT siteId FROM TourSiteRoute WHERE tourId = "+$stateParams.txtTourId+")","");
+		    DataBaseService.getSelectRsTable("GeographicDistribution","*","id in (SELECT siteId FROM TourSiteRoute WHERE tourId = "+$stateParams.txtId+")","");
 		    var interv2 = setInterval(function(){
 		  		if (DataBaseService.getReadyRsModel()) {
 			  		clearInterval(interv2);
 			  		DataBaseService.setReadyRsModel(false);
 			  		var rs = DataBaseService.getRsModel();
 			  		for (var i=0; i<rs.length; i++) {
-			  			console.log("Site:"+rs.item(i).name);
 						$scope.siteTourRouteModel.push(rs.item(i));
 					}
 					setTimeout(function() {
@@ -589,28 +566,24 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 		    
 	  	}
     },500);
-    $scope.goTo = function(txtState, txtSiteId){
+    $scope.goTo = function(txtState, txtId){
 		console.log("$scope.goTo");
 		console.log("txtState:"+txtState);
-		console.log("txtSiteId:"+txtSiteId);
-		$state.go(txtState, {txtSiteId: txtSiteId});		  
+		console.log("txtId:"+txtId);
+		$state.go(txtState, {txtId: txtId});		  
     };
 })
 
 .controller('TourSiteProfileCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
-	console.log("TourSiteProfileCtrl");
-	console.log("TourSiteProfileCtrl:DataBaseService.getDataBaseReadyModel:"+DataBaseService.getDataBaseReadyModel());
-	console.log("$stateParams.txtSiteId:"+$stateParams.txtSiteId);
 	$scope.siteProfileModel = [];
 	$scope.siteProfileContent = '';
-	DataBaseService.getSelectRsTable("GeographicDistribution","*","categoryType = 3 and id = "+$stateParams.txtSiteId,"");
+	DataBaseService.getSelectRsTable("GeographicDistribution","*","categoryType = 3 and id = "+$stateParams.txtId,"");
 	var interv = setInterval(function(){
   		if (DataBaseService.getReadyRsModel()) {
 	  		clearInterval(interv);
 	  		DataBaseService.setReadyRsModel(false);
 	  		var rs = DataBaseService.getRsModel();
 	  		for (var i=0; i<rs.length; i++) {
-	  			console.log("Site:"+rs.item(i).name);
 				$scope.siteProfileModel.push(rs.item(i));
 				if ($stateParams.txtTabId == 'services') {
 					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).services);
@@ -637,25 +610,24 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 		  		DataBaseService.setReadyRsModel(false);
 		  		var rs = DataBaseService.getRsModel();
 		  		for (var i=0; i<rs.length; i++) {
-		  			console.log("source:"+rs.item(i).source);
 		  			$scope.images.push({id: rs.item(i).id, src: rs.item(i).source});
 					
 				}
 		  	}
 	    },500);
-    }
-    $scope.goTo = function(txtState, txtSiteId, txtTabId){
+    };
+    $scope.goTo = function(txtState, txtId, txtTabId){
 		console.log("$scope.goTo");
 		console.log("txtState:"+txtState);
-		console.log("txtSiteId:"+txtSiteId);
+		console.log("txtId:"+txtId);
 		console.log("txtTabId:"+txtTabId);
-		$state.go(txtState, {txtSiteId: txtSiteId, txtTabId: txtTabId});		  
+		$state.go(txtState, {txtId: txtId, txtTabId: txtTabId});		  
     };
-    $scope.goToGallerySite = function(siteId){
+    $scope.goToGallerySite = function(txtId){
 		console.log("$scope.goTo");
 		console.log("txtState:app.siteProfile");
-		console.log("txtSiteId:"+siteId);
-		$state.go('app.ToursiteGallery', {txtSiteId: siteId, txtTabId: 'gallery'});		  
+		console.log("txtId:"+txtId);
+		$state.go('app.ToursiteGallery', {txtId: txtId, txtTabId: 'gallery'});		  
     };
 })
 

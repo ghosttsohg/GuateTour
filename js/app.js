@@ -42,17 +42,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
   
   .state('app.exploreRegions', {
-    url: '/explore/exploreRegions',
+    url: '/explore/exploreRegions?txtId&isSearch',
     views: {
       'menuContent': {
         templateUrl: 'templates/explore/exploreRegion.html'
-        //controller: 'exploreRegionCtrl'
       }
     }
   })
   
   .state('app.deptos', {
-    url: '/explore/exploreDepto?txtRegionId',
+    url: '/explore/exploreDepto?txtId&isSearch',
     views: {
       'menuContent': {
         templateUrl: 'templates/explore/exploreDepto.html'
@@ -61,7 +60,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
   
   .state('app.sites', {
-    url: '/explore/exploreSites?txtDepartmentId',
+    url: '/explore/exploreSites?txtId&isSearch',
     views: {
       'menuContent': {
         templateUrl: 'templates/explore/exploreSites.html'
@@ -70,7 +69,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
   
   .state('app.siteProfile', {
-    url: '/explore/exploreSiteProfile?txtSiteId&txtTabId',
+    url: '/explore/exploreSiteProfile?txtId&txtTabId&isSearch',
     views: {
       'menuContent': {
         templateUrl: 'templates/explore/exploreSiteProfile.html'
@@ -79,7 +78,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
   
   .state('app.siteGallery', {
-    url: '/explore/exploreSiteGalery?txtSiteId&txtTabId',
+    url: '/explore/exploreSiteGalery?txtId&txtTabId',
     views: {
       'menuContent': {
         templateUrl: 'templates/explore/exploreSiteGallery.html'
@@ -97,7 +96,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
   .state('app.tourTypeList', {
-		url: '/tour/tourTypeList',
+		url: '/tour/tourTypeList?txtId&isSearch',
 		views: {
 		  'menuContent': {
 			templateUrl: 'templates/tour/exploreTourType.html'
@@ -106,7 +105,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 	  })
   
   .state('app.tourList', {
-		url: '/tour/tourList?txtTypeId',
+		url: '/tour/tourList?txtId&isSearch',
 		views: {
 		  'menuContent': {
 			templateUrl: 'templates/tour/exploreTour.html'
@@ -115,7 +114,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 	  })
   
   .state('app.tourDetails', {
-		url: '/tour/tourDetails?txtTourId',
+		url: '/tour/tourDetails?txtId&isSearch',
 		views: {
 		  'menuContent': {
 			templateUrl: 'templates/tour/exploreTourDetails.html'
@@ -124,7 +123,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 	  })
 	  
   .state('app.tourSite', {
-		url: '/tour/tourSite?txtSiteId',
+		url: '/tour/tourSite?txtId&isSearch',
 		views: {
 		  'menuContent': {
 			templateUrl: 'templates/tour/exploreTourSite.html'
@@ -133,7 +132,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 	  })
 	  
   .state('app.tourSiteProfile', {
-		url: '/tour/tourSiteProfile?txtSiteId&txtTabId',
+		url: '/tour/tourSiteProfile?txtId&txtTabId',
 		views: {
 		  'menuContent': {
 			templateUrl: 'templates/tour/exploreTourSiteProfile.html'
@@ -142,7 +141,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 	  })
   
   .state('app.ToursiteGallery', {
-    url: '/explore/exploreTourSiteGalery?txtSiteId&txtTabId',
+    url: '/explore/exploreTourSiteGalery?txtId&txtTabId',
     views: {
       'menuContent': {
         templateUrl: 'templates/tour/exploreTourSiteGallery.html'

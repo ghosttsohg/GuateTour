@@ -1,31 +1,23 @@
 <ion-view view-title="Buscar" class="searchBackgnd" ng-controller="SearchResultCtrl">
-  <ion-content>
-   <style>
-	h1{
-		color:black;
-		font-family:MV Boli; 
-		font-size:150%;
-		text-align:center; 
-    }
-  </style>
-  <!--div class="list" align="center" style="background: url('../templates/images/ionic.jpg') no-repeat center;">
-    <label class="item item-input">
-      <span class="input-label">
-		<h1>Y hoy, ¿Cúal es tu destino?</h1>
-	  </span>
-    </label>
-  </div-->
-    
-    <ion-list>
-      <ion-item  
-        align="center"
-        ng-repeat="item in searchResultModel"
-        ng-click="goTo(item.id);"
-        class="list-item">
-        {{item.name}}
-      </ion-item>
-    </ion-list>
-    
-  </ion-content>
+	
+	<ion-content>
+
+		<div class="ionic">
+
+			<div class="list animate-fade-slide-in-right">
+                <a ng-repeat="item in searchResultModel"
+                   ng-click="goTo('{{item.navigationPath}}', {{item.id}});"
+                   class="item item-avatar waves-effect waves-button waves-light in done"
+                   style="background:none;">
+                    <span class="avatar" style="background-image: url(&#39;./templates/images/thumbnails/{{item.previsualization}}&#39;);"></span>
+                    <h3 class="text-h3">{{item.name}}</h3>
+                    <h4 class="text-h4">{{item.introduction}}</h4>
+                </a>
+            </div>
+			
+		</div>
+		
+	</ion-content>
+	
 </ion-view>
 
