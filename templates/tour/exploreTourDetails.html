@@ -7,15 +7,22 @@
 			<div ng-repeat="tour in siteTourDetailModel"
 				 style="width:100%; height:auto; display:block;">
 				
-				<div style="border-bottom:5px solid #3E3E3E;">
-						<img src="./templates/images/thumbnails/{{tour.map}}" width="100%">
+				<div class="waves-effect waves-light" style="border-bottom:5px solid #3E3E3E;">
+					<img src="./templates/images/thumbnails/{{tour.map}}" width="100%" usemap="#mapTour">
+					<map name="mapTour">
+					  <area shape="rect" coords="263,10,286,46" ng-click="goTo('app.tourSite', 3);">
+					  <area shape="rect" coords="300,39,322,70" ng-click="goTo('app.tourSite', 6);">
+					  <area shape="rect" coords="283,146,308,186" ng-click="goTo('app.tourSite', 7);">
+					  <area shape="rect" coords="224,166,251,206" ng-click="goTo('app.tourSite', 8);">
+					  <area shape="rect" coords="80,496,107,536" ng-click="goTo('app.tourSite', 9);">
+					</map>
 				</div>
 				
 				<div class="list animate-fade-slide-in-right">
 	                <a ng-repeat="site in siteTourRouteModel"
-	                ng-click="goTo('app.tourSite',{{site.id}});" 
-	                class="item item-avatar waves-effect waves-button waves-dark in done" 
-	                style="background:none;">
+	                   ng-click="goTo('app.tourSite', {{site.id}});"
+	                   class="item item-avatar waves-effect waves-button waves-light in done"
+	                   style="background:none;">
 	                    <span class="avatar" style="background-image: url(&#39;../templates/images/thumbnails/{{site.previsualization}}&#39;);"></span>
 	                    <h3 class="text-h3">{{site.name}}</h3>
 	                    <h4 class="text-h4">{{site.introduction}}</h4>
@@ -24,23 +31,7 @@
 		 		
 			</div>
 			
-			<!--div class="list condensed-space no-padding animate-blinds">
-                <div class="card" ng-repeat="site in siteTourRouteModel">
-                    <div class="item dark-bg item-bg-image waves-effect waves-button waves-light">
-                        <h2>{{site.name}}</h2>
-                        <p style="font-weight:normal; text-align:left;">{{site.introduction}}</p>
-                        <br/>
-		                <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-map pull-right text-white"
-		                        >
-		                </button>
-                        <img src="./templates/images/thumbnails/{{site.previsualization}}"/>
-                    </div>
-                </div>				
-    		</div-->
-
-
 		</div>
-		
 		
 	</ion-content>
 	

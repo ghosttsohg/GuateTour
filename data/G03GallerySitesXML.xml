@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<gallery>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt1.jpg</source>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt2.jpg</source>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt6.jpg</source>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt7.jpg</source>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt8.jpg</source>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt10.jpg</source>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt12.jpg</source>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt13.jpg</source>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt14.jpg</source>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt15.jpg</source>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt16.jpg</source>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt17.jpg</source>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt18.jpg</source>
+		</register>
+		<register>
+			<fatherId>3</fatherId>
+			<information>Palacio Nacional de la Cultura</information>
+			<source>./templates/images/gallery/thumb_palaciogt19.jpg</source>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<information>Amatitlan</information>
+			<source>./templates/images/gallery/thumb_amatitlan1.jpg</source>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<information>Amatitlan</information>
+			<source>./templates/images/gallery/thumb_amatitlan2.jpg</source>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<information>Amatitlan</information>
+			<source>./templates/images/gallery/thumb_amatitlan3.jpg</source>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<information>Amatitlan</information>
+			<source>./templates/images/gallery/thumb_amatitlan4.jpg</source>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<information>Amatitlan</information>
+			<source>./templates/images/gallery/thumb_amatitlan5.jpg</source>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<information>Amatitlan</information>
+			<source>./templates/images/gallery/thumb_amatitlan6.jpg</source>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<information>Amatitlan</information>
+			<source>./templates/images/gallery/thumb_amatitlan7.jpg</source>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<information>Amatitlan</information>
+			<source>./templates/images/gallery/thumb_amatitlan8.jpg</source>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<information>Amatitlan</information>
+			<source>./templates/images/gallery/thumb_amatitlan10.jpg</source>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<information>Amatitlan</information>
+			<source>./templates/images/gallery/thumb_amatitlan12.jpg</source>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<information>Amatitlan</information>
+			<source>./templates/images/gallery/thumb_amatitlan13.jpg</source>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<information>Amatitlan</information>
+			<source>./templates/images/gallery/thumb_amatitlan14.jpg</source>
+		</register>
+		<register>
+			<fatherId>4</fatherId>
+			<information>Amatitlan</information>
+			<source>./templates/images/gallery/thumb_amatitlan15.jpg</source>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Parque Zoologico Nacional La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt2.jpg</source>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Parque Zoologico Nacional La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt5.jpg</source>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Parque Zoologico Nacional La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt7.jpg</source>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Parque Zoologico Nacional La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt6.jpg</source>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Parque Zoologico Nacional La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt1.jpg</source>
+		</register>
+		<register>
+			<fatherId>5</fatherId>
+			<information>Parque Zoologico Nacional La Aurora</information>
+			<source>./templates/images/gallery/thumb_parqueLaAuroraGt3.jpg</source>
+		</register>
+		<register>
+			<fatherId>6</fatherId>
+			<information>Museo Nacional de Historia</information>
+			<source>./templates/images/gallery/thumb_MuseoHistoriaNacional2.jpg</source>
+		</register>
+		<register>
+			<fatherId>6</fatherId>
+			<information>Museo Nacional de Historia</information>
+			<source>./templates/images/gallery/thumb_MuseoHistoriaNacional1.jpg</source>
+		</register>
+		<register>
+			<fatherId>7</fatherId>
+			<information>Museo del Ferrocarril</information>
+			<source>./templates/images/gallery/thumb_MuseoFerrocarril2.jpg</source>
+		</register>
+		<register>
+			<fatherId>7</fatherId>
+			<information>Museo del Ferrocarril</information>
+			<source>./templates/images/gallery/thumb_MuseoFerrocarril1.jpg</source>
+		</register>
+		<register>
+			<fatherId>7</fatherId>
+			<information>Museo del Ferrocarril</information>
+			<source>./templates/images/gallery/thumb_MuseoFerrocarril3.jpg</source>
+		</register>
+		<register>
+			<fatherId>7</fatherId>
+			<information>Museo del Ferrocarril</information>
+			<source>./templates/images/gallery/thumb_MuseoFerrocarril4.jpg</source>
+		</register>
+		<register>
+			<fatherId>8</fatherId>
+			<information>Museo del Ejército</information>
+			<source>./templates/images/gallery/thumb_MuseoMilitarGuatemala1.jpg</source>
+		</register>
+		<register>
+			<fatherId>8</fatherId>
+			<information>Museo del Ejército</information>
+			<source>./templates/images/gallery/thumb_MuseoMilitarGuatemala2.jpg</source>
+		</register>
+		<register>
+			<fatherId>8</fatherId>
+			<information>Museo del Ejército</information>
+			<source>./templates/images/gallery/thumb_MuseoMilitarGuatemala4.jpg</source>
+		</register>
+		<register>
+			<fatherId>8</fatherId>
+			<information>Museo del Ejército</information>
+			<source>./templates/images/gallery/thumb_MuseoMilitarGuatemala5.jpg</source>
+		</register>
+		<register>
+			<fatherId>8</fatherId>
+			<information>Museo del Ejército</information>
+			<source>./templates/images/gallery/thumb_MuseoMilitarGuatemala3.jpg</source>
+		</register>
+		<register>
+			<fatherId>9</fatherId>
+			<information>Museo Nacional de Arquelogía y Etnología</information>
+			<source>./templates/images/gallery/thumb_MuseoArqEtnGuatemala7.jpg</source>
+		</register>
+		<register>
+			<fatherId>9</fatherId>
+			<information>Museo Nacional de Arquelogía y Etnología</information>
+			<source>./templates/images/gallery/thumb_MuseoArqEtnGuatemala1.jpg</source>
+		</register>
+		<register>
+			<fatherId>9</fatherId>
+			<information>Museo Nacional de Arquelogía y Etnología</information>
+			<source>./templates/images/gallery/thumb_MuseoArqEtnGuatemala3.jpg</source>
+		</register>
+		<register>
+			<fatherId>9</fatherId>
+			<information>Museo Nacional de Arquelogía y Etnología</information>
+			<source>./templates/images/gallery/thumb_MuseoArqEtnGuatemala4.jpg</source>
+		</register>
+		<register>
+			<fatherId>9</fatherId>
+			<information>Museo Nacional de Arquelogía y Etnología</information>
+			<source>./templates/images/gallery/thumb_MuseoArqEtnGuatemala5.jpg</source>
+		</register>
+		<register>
+			<fatherId>9</fatherId>
+			<information>Museo Nacional de Arquelogía y Etnología</information>
+			<source>./templates/images/gallery/thumb_MuseoArqEtnGuatemala2.jpg</source>
+		</register>
+	</gallery>
+</application>

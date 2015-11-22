@@ -291,7 +291,7 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 			            selector: '.card'
 			        });
 			        Waves.displayEffect();
-			    }, 1000);
+			    }, 1300);
 			//});
 	  	}
 	},100);
@@ -322,7 +322,7 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 			setTimeout(function() {
 	            // Mi.motion.slideUp('.slide-up');
 	            Waves.displayEffect();
-	        }, 1000);
+	        }, 1300);
 	  	}
     },500);
     $scope.goTo = function(txtState, departmentId){
@@ -352,7 +352,7 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 			setTimeout(function() {
 	            // Mi.motion.slideUp('.slide-up');
 	            Waves.displayEffect();
-	        }, 1000);
+	        }, 1300);
 	  	}
     },500);
     $scope.goTo = function(txtState, txtSiteId, txtTabId){
@@ -400,7 +400,7 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 		            selector: '.animate-fade-slide-in-right > *'
 		        });
 		        Waves.displayEffect();
-		    }, 1000);
+		    }, 1300);
 	  	}
     },500);
     $scope.images = [];
@@ -482,7 +482,7 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 		            selector: '.card'
 		        });
 		        Waves.displayEffect();
-		    }, 1000);
+		    }, 1300);
 	  	}
 	},100);
 	$scope.goTo = function(txtState, typeId){
@@ -511,7 +511,7 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 			setTimeout(function() {
 	            // Mi.motion.slideUp('.slide-up');
 	            Waves.displayEffect();
-	        }, 1000);
+	        }, 1300);
 	  	}
     },500);
     $scope.goTo = function(txtState, tourId){
@@ -537,17 +537,10 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 	  		for (var i=0; i<rs.length; i++) {
 	  			console.log("TourDetail:"+rs.item(i).name);
 				$scope.siteTourDetailModel.push(rs.item(i));
-				// if ($stateParams.txtTabId == 'services') {
-					// $scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).services);
-				// } else if ($stateParams.txtTabId == 'location') {
-					// $scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).location);
-				// } else {
-					// $scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).information);
-				// }
+				//$scope.siteTourDetailContent = $sce.trustAsHtml(rs.item(i).map);
 			}
 			
 			$scope.siteTourRouteModel = [];
-    
 		    DataBaseService.getSelectRsTable("GeographicDistribution","*","id in (SELECT siteId FROM TourSiteRoute WHERE tourId = "+$stateParams.txtTourId+")","");
 		    var interv2 = setInterval(function(){
 		  		if (DataBaseService.getReadyRsModel()) {
@@ -558,33 +551,22 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 			  			console.log("Site:"+rs.item(i).name);
 						$scope.siteTourRouteModel.push(rs.item(i));
 					}
-					
 					setTimeout(function() {
 				        Mi.motion.blindsDown({
 				            selector: '.card'
 				        });
 				        Waves.displayEffect();
-				    }, 1000);
-			    
+				    }, 1300);
 			  	}
-		    },500);
-			
-			// setTimeout(function() {
-		        // Mi.motion.fadeSlideInRight({
-		            // selector: '.animate-fade-slide-in-right > *'
-		        // });
-		        // Waves.displayEffect();
-		    // }, 1000);
-		    
+		    },500);		    
 		    
 	  	}
     },500);
-    
-    $scope.goTo = function(txtState, txtTourId){
+    $scope.goTo = function(txtState, txtSiteId){
 		console.log("$scope.goTo");
 		console.log("txtState:"+txtState);
-		console.log("txtTourId:"+txtTourId);
-		$state.go(txtState, {txtTourId: txtTourId});		  
+		console.log("txtSiteId:"+txtSiteId);
+		$state.go(txtState, {txtSiteId: txtSiteId});		  
     };
 })
 
@@ -616,7 +598,7 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 		            selector: '.animate-fade-slide-in-right > *'
 		        });
 		        Waves.displayEffect();
-		    }, 1000);
+		    }, 1300);
 	  	}
     },500);
     $scope.images = [];
@@ -635,6 +617,19 @@ angular.module('starter.controllers', ['ionic','ngResource'])
 		  	}
 	    },500);
     }
+    $scope.goTo = function(txtState, txtSiteId, txtTabId){
+		console.log("$scope.goTo");
+		console.log("txtState:"+txtState);
+		console.log("txtSiteId:"+txtSiteId);
+		console.log("txtTabId:"+txtTabId);
+		$state.go(txtState, {txtSiteId: txtSiteId, txtTabId: txtTabId});		  
+    };
+    $scope.goToGallerySite = function(siteId){
+		console.log("$scope.goTo");
+		console.log("txtState:app.siteProfile");
+		console.log("txtSiteId:"+siteId);
+		$state.go('app.ToursiteGallery', {txtSiteId: siteId, txtTabId: 'gallery'});		  
+    };
 })
 
 .controller('LoginCtrl', ['$scope', '$http', function($scope, $http) {

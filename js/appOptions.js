@@ -31,9 +31,7 @@ function fillDB(dbService) {
 	}
 	
 	var xmlGalleryFiles = [
-		'G03GalleryPalacioNacionalXML.xml',
-		'G04GalleryAmatitlanXML.xml',
-		'G05GalleryZooAuroraXML.xml'
+		'G03GallerySitesXML.xml'
 	];
 	
 	// create Gallery

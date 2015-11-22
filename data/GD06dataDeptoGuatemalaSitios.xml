@@ -195,7 +195,7 @@
 			<fatherId>2</fatherId>
 			<categoryType>3</categoryType>
 			<name>Amatitlan</name>
-			<introduction>El lago de Amatitlan es el punto de encuentro para muchos guatemaltecos.</introduction>
+			<introduction>Lago de Amatitlan, punto de encuentro para los guatemaltecos.</introduction>
 			<information>
 				<![CDATA[
 					<br/>
@@ -354,7 +354,7 @@
 			<fatherId>2</fatherId>
 			<categoryType>3</categoryType>
 			<name>Parque Zoologico Nacional La Aurora</name>
-			<introduction>El Zoológico La Aurora es el mejor zoológico de America Central</introduction>
+			<introduction>Zoológico La Aurora, el mejor zoológico de America Central.</introduction>
 			<information>
 				<![CDATA[
 					<center>
@@ -513,7 +513,7 @@
 			<fatherId>2</fatherId>
 			<categoryType>3</categoryType>
 			<name>Museo Nacional de Historia</name>
-			<introduction>Edificio Museo Nacional de Historia</introduction>
+			<introduction>Museo Nacional de Historia, donde Guatemala cuenta su pasado.</introduction>
 			<information>
 				<![CDATA[
 					<center>
@@ -628,7 +628,7 @@
 			<fatherId>2</fatherId>
 			<categoryType>3</categoryType>
 			<name>Museo del Ferrocarril</name>
-			<introduction></introduction>
+			<introduction>Patrimonio Histórico ferroviario de Guatemala.</introduction>
 			<information>
 				<![CDATA[
 					<center>
@@ -723,7 +723,7 @@
 			<fatherId>2</fatherId>
 			<categoryType>3</categoryType>
 			<name>Museo del Ejército</name>
-			<introduction>Historia del Ejército de Guatemala</introduction>
+			<introduction>Historia del Ejército de Guatemala.</introduction>
 			<information>
 				<![CDATA[
 					<center>
@@ -823,7 +823,7 @@
 			<fatherId>2</fatherId>
 			<categoryType>3</categoryType>
 			<name>Museo Nacional de Arquelogía y Etnología</name>
-			<introduction>Museo Nacional de Arqueología y Etnología (MUNAE)</introduction>
+			<introduction>Museo Nacional de Arqueología y Etnología (MUNAE).</introduction>
 			<information>
 				<![CDATA[
 					<center>
