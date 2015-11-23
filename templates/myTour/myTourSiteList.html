@@ -1,0 +1,21 @@
+<ion-view view-title="Tours" style="background-color:#444;">
+
+  <ion-content ng-controller="MyTourSiteListCtrl">
+  
+        <div class="ionic">
+        	<div class="slide-up" ng-repeat="site in MyTourSiteListModel">
+	            <div class="hero has-mask waves-effect waves-light" style="background-image: url(&#39;./templates/images/thumbnails/{{site.previsualization}}&#39;);">
+		            <div class="content">
+		                
+		            </div>
+		        </div>
+		        <div class="mid-bar dark-bg z1 padding">
+		            <h3>{{site.name}}</h3>
+		            <p>{{site.introduction}}</p>
+		        </div>
+	        </div>
+        </div>
+        
+	</ion-content>
+  
+</ion-view>

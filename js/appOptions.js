@@ -9,6 +9,19 @@ function fillDB(dbService) {
 	dbService.doDropTable("Gallery");
 	dbService.doDropTable("TourDistribution");
 	dbService.doDropTable("TourSiteRoute");
+	dbService.doDropTable("MyTourDistribution");
+	dbService.doDropTable("MyTourSiteRoute");
+	
+	// create MyTourDistribution
+	dbService.doCreateTable(
+		"MyTourDistribution", 
+		"id INTEGER PRIMARY KEY ASC, name TEXT, introduction TEXT"
+	);
+	
+	dbService.doCreateTable(
+		"MyTourSiteRoute", 
+		"id INTEGER PRIMARY KEY ASC, tourId INTEGER, siteId INTEGER, inOrder INTEGER"
+	);
 	
 	var xmlGeoDistributionFiles = [
 		'GD00dataRegionesXML.xml', 
@@ -234,7 +247,8 @@ function testTable(tableName, dbService) {
 				for (var i=0; i<rs.length; i++) {
 					//console.log("tableName:"+tableName+", id:"+rs.item(i).id+", fatherId:"+rs.item(i).fatherId+", name:"+rs.item(i).name);
 					//console.log("tableName:"+tableName+", id:"+rs.item(i).id+", fatherId:"+rs.item(i).fatherId+", source:"+rs.item(i).source);
-					console.log("tableName:"+tableName+", id:"+rs.item(i).id+", tourId:"+rs.item(i).tourId+", siteId:"+rs.item(i).siteId+", inOrder:"+rs.item(i).inOrder);
+					//console.log("tableName:"+tableName+", id:"+rs.item(i).id+", tourId:"+rs.item(i).tourId+", siteId:"+rs.item(i).siteId+", inOrder:"+rs.item(i).inOrder);
+					console.log("tableName:"+tableName+", id:"+rs.item(i).id+", name:"+rs.item(i).name);
 				}
 			}
 		},500);

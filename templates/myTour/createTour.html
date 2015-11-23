@@ -1,0 +1,80 @@
+<ion-view view-title="REGISTRO">
+	<!--background:url(&#39;./templates/images/thumbnails/thumb_myTourPrev3.jpg&#39;) center;--> 
+	<ion-content style="background-size: cover; background-color:rgb(255,0,0,0.5);" ng-controller="CreateTourCtrl">
+		<div class="ionic login" >
+	        </br>
+			<div class="hero no-header flat">
+				
+				<div class="content">
+	                <i class="ion-star icon hero-icon" style="background:#4F6E9D;" ></i>
+	                <h1 style="color: rgb(255, 255, 255); letter-spacing: 0.15rem; font-family:MV Boli; margin:0; 
+						padding:20px 0px 0px 0px; font-size:40px;">Mi Tour</h1>
+					<p style="color:white; font-family:MV Boli; text-align:center; text-decoration: overline;
+						font-size:100%;">Guatemala, pa&iacute;s de la eterna primavera</p>
+	            </div>
+	        </div>
+	        
+	        <div class="list">
+				
+				<label class="item item-input item-md-label" highlight-color="balanced" type="text">
+					<input type="text" class="used" required ng-model="createTourModel.name">
+						<span class="input-label" >*Nombre del Tour</span>
+						<div class="highlight highlight-balanced"></div>
+						<h6 style="color: rgb(255, 255, 255);">
+							<span ng-if="id === '2'">
+							  * {{errorMsg}} 
+							</span>
+						</h6>
+						
+				</label>
+	
+	            <label class="item item-input item-md-label" highlight-color="energized" type="password">
+					<input type="text" class="used"  ng-model="createTourModel.introduction">
+						<span class="input-label">*Descripción del Tour</span>
+						<div class="highlight highlight-energized"></div>
+						<h6 style="color: rgb(255, 255, 255);">
+							<span ng-if="id === '3'">
+							  * {{errorMsg}} 
+							</span>
+						</h6>
+				</label>
+				
+				<label class="item item-input item-md-label" highlight-color="energized" type="text">
+					<input type="text" class="used" placeholder="Agregar..." ng-click="goToSiteList();">
+					<span class="input-label" style="color:">*AGREGAR DESTINO</span>
+				</label>
+				
+	        </div>
+	        <h6 style="color: rgb(255, 255, 255);">*Campos requeridos</h6>
+	        
+	        <label class="item item-input item-md-label" highlight-color="balanced" type="text" style="border:none;">
+				<span class="input-label" style="color: rgb(255, 255, 255);">*DESTINOS</span>
+			</label>
+	    </div>
+	    
+	    <div class="ionic" style="background-color:rgba(0, 0, 0, 0.6);">
+			<div class="list animate-fade-slide-in-right" style="padding-left:13%;padding-right:13%;">
+	            <a ng-repeat="itemSite in siteListTourModel"
+	               class="item item-avatar waves-effect waves-button waves-light in done"
+	               style="background:none;">
+	                <span class="avatar" 
+	                	  style="background-image: url(&#39;./templates/images/thumbnails/{{itemSite.previsualization}}&#39;);"></span>
+	                <h3 class="text-h3">{{itemSite.name}}</h3>
+	                <h4 class="text-h4">{{itemSite.introduction}}</h4>
+	            </a>
+	        </div>
+		</div>
+		<br/>
+		<div class="ionic login">
+	        <div class="padding">
+	            <button type="submit" 
+	            		class="button button-block button-assertive waves-effect waves-button waves-light"
+	            		ng-click="createTour();"
+	            		>
+	            		Crear Tour
+	            </button>
+	        </div>
+        </div>
+        
+	</ion-content>
+</ion-view>

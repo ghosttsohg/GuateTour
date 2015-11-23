@@ -1,0 +1,38 @@
+<ion-view view-title="Mis Tours" ng-controller="MyToursCtrl">
+	
+	<ion-content>
+
+		<div class="ionic">
+
+			<div style="width:100%; height:auto; display:block;">
+				
+				<div class="hero waves-effect waves-light" 
+					 style="background-image:url(&#39;./templates/images/thumbnails/thumb_LagunaBrava.jpg&#39;); border-bottom:5px solid #3E3E3E;">
+					<div class="content">
+						<h3><a class="light">Mis Tours</a></h3>
+						<h4>Lista de Tours Personalizados</h4>
+					</div>
+				</div>
+					
+			</div>
+			<button class="button button-full button-dark button-icon-left"
+					ng-click="goToCreateTour();">
+				<i class="icon ion-plus"></i>
+				Crear Tour
+			</button>
+			<div class="list animate-fade-slide-in-right">
+	            <a ng-repeat="tour in myTourListModel"
+	               ng-click="goTo('app.MyTourSiteList', {{tour.id}});"
+	               class="item item-avatar waves-effect waves-button waves-light in done"
+	               style="background:none;">
+	                <span class="avatar" style="background-image: url(&#39;./templates/images/thumbnails/thumb_myTourPrev1.jpg&#39;);"></span>
+	                <h3 class="text-h3">{{tour.name}}</h3>
+	                <h4 class="text-h4">{{tour.introduction}}</h4>
+	            </a>
+	        </div>
+	        
+        </div>
+        
+	</ion-content>
+	
+</ion-view>

@@ -149,6 +149,42 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
   
+  .state('app.myTours', {
+    url: '/myTour/myTours',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/myTour/myTours.html'
+      }
+    }
+  })
+  
+  .state('app.CreateTour', {
+    url: '/myTour/createTour?txtIds',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/myTour/createTour.html'
+      }
+    }
+  })
+  
+  .state('app.SiteList', {
+    url: '/myTour/siteList?txtIds&loadSitesList',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/myTour/siteList.html'
+      }
+    }
+  })
+  
+  .state('app.MyTourSiteList', {
+    url: '/myTour/MyToutSiteList?txtId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/myTour/myTourSiteList.html'
+      }
+    }
+  })
+  
   .state('app.moreActions', {
 		url: '/moreActions/moreActions',
 		views: {

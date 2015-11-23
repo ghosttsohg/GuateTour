@@ -32,18 +32,15 @@
 			  </div>
 
 			  <div class="list" ng-controller="MenuCtrl">
-			  	<div class="item item-divider has-mask"></div>
+			  	<div class="item item-divider has-mask"><br/><br/></div>
+			  	<a class="item item-icon-left">
+					<i class="icon ion-search" menu-close ng-click="goSearch(searchDataModel.pattern);"></i>
+					<input type="search" placeholder="Buscar" ng-model="searchDataModel.pattern">
+				</a>
 			  	<a class="item item-icon-left" href="#/app/welcome" menu-close ng-click="goTo('app.welcome');" >
 					<i class="icon ion-home"></i>
 					INICIO
 				</a>
-				<a class="item item-icon-left item-button-right">
-					<i class="icon ion-search"></i>
-					<input type="search" placeholder="Buscar" ng-model="searchDataModel.pattern">
-					<button class="button button-positive" menu-close ng-click="goSearch(searchDataModel.pattern);">Ir</button>
-					
-				</a>
-				
 				<a class="item item-icon-left" menu-close ng-click="goTo('app.login');" ng-if="logged == ''">
 					<i class="icon ion-log-in"></i>
 					LOGIN
@@ -55,6 +52,10 @@
 				<a class="item item-icon-left" menu-close ng-click="goTo('app.tourTypeList');">
 					<i class="icon ion-paper-airplane"></i>
 					TOURS
+				</a>
+				<a class="item item-icon-left" menu-close ng-click="goTo('app.myTours');">
+					<i class="icon ion-star"></i>
+					MIS TOURS
 				</a>
 				<a class="item item-icon-left" menu-close ng-click="goTo('app.moreActions');">
 					<i class="icon ion-gear-a"></i>
