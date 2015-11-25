@@ -623,6 +623,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 })
 
 .controller('MyToursCtrl', function($scope, $state, DataBaseService, $stateParams) {
+	
+	console.log("MyToursCtrl");
+	
 	$scope.myTourListModel = [];
 	if ($stateParams.isSearch == null)
 		DataBaseService.getSelectRsTable("MyTourDistribution", "*", "1 = 1", "order by name asc");
@@ -657,7 +660,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 	};
 })
 
-.controller('CreateTourCtrl', function($scope, $state, DataBaseService, $stateParams, $ionicPopup, $window) {
+.controller('CreateTourCtrl', function($scope, $state, DataBaseService, $stateParams, $ionicPopup, $ionicHistory) {
 	$scope.createTourModel;
 	$scope.siteListModel = [];
 	$scope.siteListTourModel = [];
@@ -728,8 +731,8 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 	$scope.goTo = function(txtState) {
 		console.log("$scope.goTo");
 		console.log("txtState:" + txtState);
+		//$ionicHistory.clearCache();
 		$state.go(txtState);
-		$window.location.reload();
 	};
 	$scope.createTour = function() {
 		
