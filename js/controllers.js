@@ -1,4 +1,5 @@
-angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCtrl', function($scope, $ionicModal, $timeout, DataBaseService) {
+angular.module('starter.controllers', ['ionic', 'ngResource'])
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, DataBaseService) {
 
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
@@ -240,7 +241,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 
 		var confirmPopup = $ionicPopup.confirm({
 			title : '<div class="titlePopup">LOGOUT</div>',
-			template : '<div class="templatePopup">¿Estás seguro que cerrar tu sesión?</div>'
+			template : '<div class="templatePopup">¿Estás seguro que deseas cerrar tu sesión?</div>'
 		});
 
 		confirmPopup.then(function(res) {
@@ -856,9 +857,15 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 	//Funcion que ejecuta el login
 	$scope.login = function(user) {
 		console.log("--- user.username:" + $scope.user.username + " - user.pass:" + $scope.user.pass + " ---");
-		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user=" + $scope.user.username + "&pass=" + $scope.user.pass + "";
+		//$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user=" 
+		$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/login?user=" 
+		+ $scope.user.username + "&pass=" + $scope.user.pass + "";
+		
+		
+		
 		$http.get($scope.urlWS).then(function(resp) {
 			$scope.errorMsg = resp.data.message;
+			
 			if (resp.data.id == '0') {
 				console.log("-- ERROR --" + resp.data.id);
 				$scope.logTitleMsg = "Error";
@@ -872,22 +879,44 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 				$scope.btn = "positive";
 				$rootScope.logged = resp.data.username;
 			}
+			
 			var alertPopup = $ionicPopup.alert({
 				title : '<div class="titlePopup">' + $scope.logTitleMsg + '</div>',
 				template : '<div class="templatePopup">' + $scope.msg + '</div>',
 				okType : 'button-' + $scope.btn,
 			});
+			
 			alertPopup.then(function(res) {
 				console.log('Thank you:' + res);
 				if (res && resp.data.id == '1') {
 					$state.go('app.welcome');
 					$ionicSideMenuDelegate.toggleLeft();
+				}else{
+					$state.go('app.login');
 				}
 			});
 		}, function(err) {
-			console.error('ERR', err);
-			console.log("-- ERROR:" + err.status);
+			console.log("-- ERROR:--" + err.status);
+							
+			if (err.status == '503') {
+							
+				var alertPopupError = $ionicPopup.alert({
+				title : '<div class="titlePopup"> Error </div>',
+				template : '<div class="templatePopup">Ups! Lo sentimos, en este momento no es posible realizar esta acción, por favor intenta más tarde.</div>',
+				okType : 'button-energized',
+				});
+				alertPopupError.then(function(res) {
+					console.log("--Resp data id fin---");
+				});
+			}
+			
 		});
+		
+	$scope.welcomeName = null;
+	$scope.logTitleMsg = null;
+	$scope.msg = null;
+	$scope.errorMsg = null;
+	$scope.btn = null;
 	};
 }])
 
@@ -907,9 +936,9 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 	$scope.urlWS = "";
 	//Función para creación del nuevo usuario
 	$scope.signin = function(reg) {
-		//		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
-		//			+"&email="+$scope.reg.email +"&user="+$scope.reg.username +"&pass="+$scope.reg.pass;
-		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login/registro?nombre=" + $scope.reg.name + "&apellido=" + $scope.reg.surname + "&email=" + $scope.reg.email + "&user=" + $scope.reg.username + "&pass=" + $scope.reg.pass;
+		$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
+		//$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login/registro?nombre=" + $scope.reg.name + "&apellido=" + $scope.reg.surname
+					+"&email=" + $scope.reg.email + "&user=" + $scope.reg.username + "&pass=" + $scope.reg.pass;
 		$http.get($scope.urlWS).then(function(resp) {
 			$scope.errorMsg = resp.data.message;
 			$scope.id = resp.data.id;

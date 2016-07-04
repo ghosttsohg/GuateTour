@@ -1,6 +1,5 @@
 /* Empty. Add your own CSS if you like */
 .login {
-	background: url(../img/logo.jpg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
@@ -17,6 +16,21 @@
 	margin: auto;
 	z-index: 2;
 	position: relative;
+}
+
+.h1{
+	color:#0066FF; 
+	font-family:Open Sans; 
+	font-size:500%; 
+	text-align:center;
+	padding-top: 35%;
+}
+.p{
+	color:white;
+	font-family:MV Boli; 
+	font-size:100%;
+	text-align:center; 
+	text-decoration: overline;
 }
 
 .searchBackgnd {

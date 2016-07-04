@@ -1,5 +1,5 @@
 appOptions = {
-	dbCreate: false
+	dbCreate: true
 };
 
 function fillDB(dbService) {
