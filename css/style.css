@@ -1,100 +1,132 @@
 /* Empty. Add your own CSS if you like */
 .login {
-    background: url(../img/logo.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 80%;
-    height: 246px;
-    margin: auto;
-    z-index: 2;
-    position: relative;
+	background: url(../img/logo.jpg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 80%;
+	height: 246px;
+	margin: auto;
+	z-index: 2;
+	position: relative;
 }
 
 .help {
-    width: 80%;
-    height: 246px;
-    margin: auto;
-    z-index: 2;
-    position: relative;
+	width: 80%;
+	height: 246px;
+	margin: auto;
+	z-index: 2;
+	position: relative;
 }
 
-.welcomeBackgnd {
-	background: url('../templates/images/welcome/welcome.jpg') no-repeat center !important;
-	background-size: cover !important;
-	margin: auto !important;
-}
-
-.searchBackgnd{
+.searchBackgnd {
 	background: url('../templates/images/ionic.jpg') no-repeat center;
 	background-size: cover;
 	margin: auto;
 }
 
-.menu.menu-left{
-  width:100%;
-  background-color:#444;
+.item-complex .item-content, .item-radio .item-content {
+	background-color: #444;
 }
 
-.menu-left .item{
-  background-color:#444;
-  color: white;
-}
-
-.item-complex .item-content, .item-radio .item-content{
-background-color:#444;
-}
-
-.list-item{
-  background-color:#444;
-  color: white;
-}
-
-.text-h1,.text-h2,.text-h3,.text-h4{
- color:#CFCFCF;
-}
-.text-h5,.text-h6{
- color:#8A8A8A;
-}
-
-.titlePopup{
-  font-weight: bold;
-  text-align:center;
-  background-color:none;
-}
-
-.templatePopup{
-  text-align:center;
-  background-color:none;
-}
-
-.bar .titleH2{
-	position:absolute;
-	top:0;
-	right:0;
-	left:0;
-	z-index:0;
-	overflow:hidden;
-	margin:0 10px;
-	min-width:30px;
-	height:43px;
-	text-align:center;
-	text-overflow:ellipsis;
-	white-space:nowrap;
-	font-size:19px;
-	font-weight:500;
-	line-height:44px;
+.list-item {
+	background-color: #444;
 	color: white;
 }
 
+.text-h1, .text-h2, .text-h3, .text-h4 {
+	color: #CFCFCF;
+}
+.text-h5, .text-h6 {
+	color: #8A8A8A;
+}
+
+.titlePopup {
+	font-weight: bold;
+	text-align: center;
+	background-color: none;
+}
+
+.templatePopup {
+	text-align: center;
+	background-color: none;
+}
+
 div.transbox {
-    margin: 30px;
-    background-color: #ffffff;
-    opacity: 0.6;
-    filter: alpha(opacity=60); /* For IE8 and earlier */
+	margin: 30px;
+	background-color: #ffffff;
+	opacity: 0.6;
+	filter: alpha(opacity=60); /* For IE8 and earlier */
 }
 
 div.transbox p {
-    margin: 5%;
-    color: #000000;
+	margin: 5%;
+	color: #000000;
+}
+
+/* ************************************************************************************************* */
+/* CLASE CONTROLA EL DISEÑO DE TODAS LAS VISTAS */
+.pane, .view {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  background: #ffffff;
+  color: #FFFFFF;
+}
+
+/* CLASE CONTROLA EL DISEÑO DE LA BARRA HEADER */
+.bar.bar-header.bar {
+	background: #314246;
+	height: 60px;
+	padding: 0px;
+	border-bottom: 2px solid #407F8E;
+	color: #FFFFFF;
+}
+
+/* CLASE CONTROLA EL DISEÑO DE LA BARRA HEADER DEL MENU */
+.my-bar {
+	min-height: 60px;
+	height: auto;
+	overflow: hidden;
+	padding: 0px;
+	margin: 0px;
+	background: #407F8E;
+	border-bottom: 2px solid #FFFFFF;
+}
+
+.menu.menu-left {
+	width: 100%;
+	/*background: url('../img/menu/side-menu-background.png') no-repeat left top;*/
+	background-color: #353f49;
+	padding-bottom: 20px;
+}
+
+.menu-left .item {
+	background: none;
+	color: white;
+	width:100%;
+	border: none;
+	border-bottom: 1px solid #4B5D61;
+}
+
+.menu-left .item:hover {
+	background: #407F8E;
+}
+
+.welcomeBackgnd {
+	/*background: url('../img/home/BackgroundHome.jpg') no-repeat center top !important;*/
+	background-size: cover !important;
+	margin: auto !important;
+}
+
+.mid-bar {
+	background:url('../img/menu/MenuHeaderBottom2.png') repeat-x left top; 
+	background-color: #353f49; 
+	border-bottom: 2px solid #71C13F;
 }

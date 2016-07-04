@@ -1,21 +1,22 @@
-<ion-view view-title="EXPLORAR REGIONES">
+<ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />' cache-view="false" >
 	<ion-content ng-controller="RegionCtrl">
-		
-        <div class="ionic">
-            <div class="list condensed-space no-padding animate-blinds">
-                <div class="card" ng-repeat="region in regionModel">
-                    <div class="item dark-bg item-bg-image waves-effect waves-button waves-light">
-                        <h2>{{region.name}}</h2>
-                        <p style="font-weight:normal; text-align:left;">{{region.introduction}}</p>
-                        <br/>
-		                <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-map pull-right text-white"
-		                        ng-click="goTo('app.deptos', {{region.id}});">
-		                </button>
-                        <img src="./templates/images/thumbnails/{{region.previsualization}}"/>
-                    </div>
-                </div>				
-            </div>
-        </div>
-        
+
+		<div class="ionic">
+			<div class="list condensed-space no-padding animate-blinds">
+				<div class="card" ng-repeat="region in regionModel">
+					<div class="item dark-bg item-bg-image waves-effect waves-button waves-light">
+						<h2>{{region.name}}</h2>
+						<p style="font-weight:normal; text-align:left;">
+							{{region.introduction}}
+						</p>
+						<br/>
+						<button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-map pull-right text-white"
+						ng-click="goTo('app.deptos', {{region.id}});"></button>
+						<img src="./templates/images/thumbnails/{{region.previsualization}}"/>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</ion-content>
 </ion-view>

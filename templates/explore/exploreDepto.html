@@ -1,17 +1,21 @@
-<ion-view view-title="Visita Departamentos">
+<ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />' cache-view="false" >
   <ion-content ng-controller="DepartmentCtrl">
         <div class="ionic">
         	<div class="slide-up" ng-repeat="depto in departamentModel">
-	            <div class="hero has-mask waves-effect waves-light" style="background-image: url(&#39;./templates/images/thumbnails/{{depto.previsualization}}&#39;);">
+	            <div class="hero waves-effect waves-light" 
+	                style="background-image: url(&#39;./templates/images/thumbnails/{{depto.previsualization}}&#39;);">
 		            <div class="content">
 		                <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-map pull-right text-white"
 		                ng-click="goTo('app.sites', {{depto.id}});">
 		                </button>
 		            </div>
 		        </div>
-		        <div class="mid-bar dark-bg z1 padding">
-		            <h3>{{depto.name}}</h3>
-		            <p>{{depto.introduction}}</p>
+		        <div class="mid-bar">
+		            <h3 style="color:#FFF; margin-top: 5px;">
+		            	<i class="icon ion-location" style="color:#71C13F; margin-right:5px;"></i>
+		            	{{depto.name}}
+		            </h3>
+		            <p style="color:#818181;">{{depto.introduction}}</p>
 		        </div>
 	        </div>
         </div>

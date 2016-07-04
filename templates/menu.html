@@ -1,78 +1,104 @@
-	<ion-nav-view class="view-container">
-	
-		<ion-side-menus enable-menu-with-back-views="true">
-		  <ion-side-menu-content>
-			<ion-nav-bar class="bar-dark">
-			  <ion-nav-back-button class="button-clear">
-					<i class="ion-chevron-left"></i> Regresar
-				</ion-nav-back-button>
-			  <ion-nav-buttons side="right">
-				<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-				</button>
-			  </ion-nav-buttons>
-			</ion-nav-bar>
-			<ion-nav-view name="menuContent"></ion-nav-view>
-		  </ion-side-menu-content>
+<ion-nav-view class="view-container">
 
-		  <ion-side-menu side="left" >
-			<div class="bar bar-header bar-dark has-mask">
-				<h2 class="titleH2 fab-left">DESTINOS</h2>
-			  </div>
-			
+	<ion-side-menus enable-menu-with-back-views="true">
+
+		<ion-side-menu-content>
+			<ion-nav-bar class="bar">
+
+				<!--ion-nav-back-button class="button-clear" style="border: 1px solid red; margin-top: 10px;">
+					<i class="ion-chevron-left"></i> Regresar
+				</ion-nav-back-button-->
+
+				<ion-nav-buttons side="left">
+					<button class="button button-icon button-clear ion-navicon" menu-toggle="left" style="margin-top: 10px; margin-left: 10px;"></button>
+				</ion-nav-buttons>
+
+			</ion-nav-bar>
+
+			<ion-nav-view name="menuContent"></ion-nav-view>
+		</ion-side-menu-content>
+
+		<ion-side-menu side="left">
 			<ion-content>
-			  <div class="ionic">
-				<div class="hero has-mask" style="background-image: url('./templates/images/welcome/pana.png'); background-size: cover;" ng-if="logged != ''" >
-					<div class="content">
-						<div class="avatar" style="background-image: url('./templates/images/welcome/logo2.jpg'); background-size: cover;"></div>
-						<h4><a class="light"> {{logged}} </a>
-						</h4>
-						
+
+				<div class="my-bar" align="center">
+					<!--img class="title-image" src="img/menu/ExploraGuatemala.png" width="100%" /-->
+					<h2 style="margin: 0px 0px 0px 0px; padding: 0px; color: #FFFFFF;">Menu</h2>
+				</div>
+
+				<div class="ionic">
+					<div class="hero has-mask" style="background-image: url('./templates/images/welcome/pana.png'); background-size: cover;" ng-if="logged != ''" >
+						<div class="content">
+							<div class="avatar" style="background-image: url('./templates/images/welcome/logo2.jpg'); background-size: cover;"></div>
+							<h4><a class="light"> {{logged}} </a></h4>
+
+						</div>
 					</div>
 				</div>
-			  </div>
 
-			  <div class="list" ng-controller="MenuCtrl">
-			  	<div class="item item-divider has-mask"><br/><br/></div>
-			  	<a class="item item-icon-left">
-					<i class="icon ion-search" menu-close ng-click="goSearch(searchDataModel.pattern);"></i>
-					<input type="search" placeholder="Buscar" ng-model="searchDataModel.pattern">
-				</a>
-			  	<a class="item item-icon-left" href="#/app/welcome" menu-close ng-click="goTo('app.welcome');" >
-					<i class="icon ion-home"></i>
-					INICIO
-				</a>
-				<a class="item item-icon-left" menu-close ng-click="goTo('app.login');" ng-if="logged == ''">
-					<i class="icon ion-log-in"></i>
-					LOGIN
-				</a>
-				<a class="item item-icon-left" menu-close ng-click="goTo('app.exploreRegions');">
-					<i class="icon ion-map"></i>
-					EXPLORA
-				</a>
-				<a class="item item-icon-left" menu-close ng-click="goTo('app.tourTypeList');">
-					<i class="icon ion-paper-airplane"></i>
-					TOURS
-				</a>
-				<a class="item item-icon-left" menu-close ng-click="goTo('app.myTours');">
-					<i class="icon ion-star"></i>
-					MIS TOURS
-				</a>
-				<a class="item item-icon-left" menu-close ng-click="goTo('app.moreActions');">
-					<i class="icon ion-gear-a"></i>
-					M&Aacute;S ACCIONES
-				</a>
-				<a class="item item-icon-left" menu-close ng-click="logout();"	ng-if="logged != ''">
-					<i class="icon ion-log-out"></i>
-					LOGOUT
-				</a>
-				<a class="item item-icon-left" ng-click="exit();">
-					<i class="icon ion-power"></i>
-					SALIR
-				</a>
+				<div ng-controller="MenuCtrl">
+					<!--a class="item item-icon-left">
+							<i class="icon ion-search" menu-close ng-click="goSearch(searchDataModel.pattern);" style="color:#71C13F; margin-left: 30px;"></i>
+							<input type="search" placeholder="Buscar" ng-model="searchDataModel.pattern" style="margin-left: 30px;">
+					</a-->
+					<a class="item item-icon-left" href="#/app/welcome" menu-close ng-click="goTo('app.welcome');" >
+						<span style="margin-left: 30px;">
+							<i class="icon ion-home" style="color:#71C13F; margin-left: 30px;"></i>
+							Inicio
+						</span>
+					</a>
+					<a class="item item-icon-left" menu-close ng-click="goTo('app.login');" ng-if="logged == ''">
+						<span style="margin-left: 30px;">
+							<i class="icon ion-log-in" style="color:#71C13F; margin-left: 30px;"></i> 
+							Login
+						</span>
+					</a>
+					<a class="item item-icon-left" menu-close ng-click="goTo('app.exploreRegions');">
+						<span style="margin-left: 30px;">
+							<i class="icon ion-map" style="color:#71C13F; margin-left: 30px;"></i>
+							Explora
+						</span>
+					</a>
+					<a class="item item-icon-left" menu-close ng-click="goTo('app.tourTypeList');">
+						<span style="margin-left: 30px;">
+							<i class="icon ion-paper-airplane" style="color:#71C13F; margin-left: 30px;"></i>
+							Tours
+						</span>
+					</a>
+					<a class="item item-icon-left" menu-close ng-click="goTo('app.myTours');">
+						<span style="margin-left: 30px;">
+							<i class="icon ion-star" style="color:#71C13F; margin-left: 30px;"></i>
+							Mis Tours
+						</span>
+					</a>
+					<a class="item item-icon-left" menu-close ng-click="goTo('app.moreActions');">
+						<span style="margin-left: 30px;">
+							<i class="icon ion-gear-a" style="color:#71C13F; margin-left: 30px;"></i>
+							M&aacute;s Acciones
+						</span>
+					</a>
+					<a class="item item-icon-left" menu-close ng-click="logout();"	ng-if="logged != ''">
+						<span style="margin-left: 30px;">
+							<i class="icon ion-log-out" style="color:#71C13F; margin-left: 30px;"></i>
+							Logout
+						</span>
+					</a>
+					<a class="item item-icon-left" ng-click="exit();">
+						<span style="margin-left: 30px;">
+							<i class="icon ion-power" style="color:#71C13F; margin-left: 30px;"></i>
+							Salir
+						</span>
+					</a>
 
-			  </div>
-			  
+				</div>
+				<br /><br /><br /><br /><br /><br /><br /><br /><br />
+				<div>
+					<center>
+					<img src="img/menu/redes.png"/>
+					</center>
+				</div>
+
 			</ion-content>
-		  </ion-side-menu>
-		</ion-side-menus>
-	</ion-nav-view>
+		</ion-side-menu>
+	</ion-side-menus>
+</ion-nav-view>
