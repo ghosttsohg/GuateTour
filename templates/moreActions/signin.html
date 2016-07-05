@@ -5,69 +5,69 @@
 			<div class="hero no-header flat">
 				<div class="content">
 	                <i class="ion-compose icon hero-icon calm-bg" ></i>
-	                <h1 style="color: rgb(255, 255, 255); letter-spacing: 0.15rem; font-family:MV Boli; margin:0; 
+	                <h1 style="color: rgb(255, 255, 255); letter-spacing: 0.15rem; font-family:MV Boli; margin:0;
 						padding:20px 0px 0px 0px; font-size:40px;">REGISTRO</h1>
 					<p style="color:white; font-family:MV Boli; text-align:center; text-decoration: overline;
 						font-size:100%;">Guatemala, pa&iacute;s de la eterna primavera</p>
 	            </div>
-	        </div>
+	    </div>
 	        <div class="list">
-				
+
 				<label class="item item-input item-md-label" highlight-color="balanced" type="text">
 					<input type="text" class="used" ng-model="reg.name" ng-change="showChanged(reg.name)" required>
 						<span class="input-label" >*Nombre</span>
 						<div class="highlight highlight-balanced"></div>
 						<h6 style="color: rgb(255, 255, 255);">
 							<span ng-if="id === '2'">
-							  * {{errorMsg}} 
+							  * {{errorMsg}}
 							</span>
 						</h6>
-						
+
 				</label>
-	
+
 	            <label class="item item-input item-md-label" highlight-color="energized" type="password">
 					<input type="text" class="used" ng-model="reg.surname" ng-change="showChanged1(reg.surname)">
 						<span class="input-label">*Apellido</span>
 						<div class="highlight highlight-energized"></div>
 						<h6 style="color: rgb(255, 255, 255);">
 							<span ng-if="id === '3'">
-							  * {{errorMsg}} 
+							  * {{errorMsg}}
 							</span>
 						</h6>
 				</label>
-				
+
 				<label class="item item-input item-md-label" highlight-color="balanced" type="text">
 					<input type="email" class="used" ng-model="reg.email" ng-change="showChanged(reg.email)">
 						<span class="input-label">*E-mail</span>
 						<div class="highlight highlight-balanced"></div>
 						<h6 style="color: rgb(255, 255, 255);">
 							<span ng-if="id === '4'">
-							  * {{errorMsg}} 
+							  * {{errorMsg}}
 							</span>
 							<span ng-if="id === '7'">
-							  * {{errorMsg}} 
+							  * {{errorMsg}}
 							</span>
 						</h6>
 				</label>
-	
+
 	            <label class="item item-input item-md-label" placeholder="Username" highlight-color="energized" type="password">
 					<input type="text" class="used" ng-model="reg.username" ng-change="showChanged1(reg.username)">
 						<span class="input-label">*Usuario</span>
 						<div class="highlight highlight-energized"></div>
 						<h6 style="color: rgb(255, 255, 255);">
 							<span ng-if="id === '5'">
-							  * {{errorMsg}} 
+							  * {{errorMsg}}
 							</span>
 						</h6>
 				</label>
-					
+
 	            <label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="password">
 					<input type="password" class="used" ng-model="reg.pass" ng-change="showChanged1(reg.pass)">
 						<span class="input-label">*Password</span>
 						<div class="highlight highlight-energized"></div>
 						<h6 style="color: rgb(255, 255, 255);">
 							<span ng-if="id === '6'">
-							  * {{errorMsg}} 
+							  * {{errorMsg}}
 							</span>
 						</h6>
 				</label>
