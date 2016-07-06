@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<tour_type_tour>
+		<!-- METROPOLITANA -->
+		<register>
+			<tour_type_id>1</tour_type_id>
+			<tour_id>1</tour_id>
+		</register>
+		
+	</tour_type_tour>
+</application>

@@ -50,10 +50,10 @@ Mi = (function() {
 
         // Declare our defaults
         var defaults = {
-            finishDelayThrottle: 2,
-            finishSpeedPercent: 0.5,
+            finishDelayThrottle: 0,
+            finishSpeedPercent: 1.0,
             leftOffsetPercentage: 0.8,
-            startVelocity: 1100
+            startVelocity: 1000
         };
 
         // Apply defaults if properties are not passed
@@ -94,7 +94,8 @@ Mi = (function() {
 
         // Sequentially animate with a delay based on proximity
         var speed = options.startVelocity;
-        for (var i = 0; i < elementAnimationCount; i++) {
+        console.log("elementAnimationCount:"+elementAnimationCount);
+        for (var i = 0; i < elementAnimationCount+1; i++) {
             var child = animateBlindsDom[i];
             var childOffset = child.getBoundingClientRect();
             var offset = childOffset.left * options.leftOffsetPercentage + childOffset.top;

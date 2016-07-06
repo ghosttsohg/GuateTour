@@ -476,13 +476,14 @@ a.waves-effect .waves-ripple {
     padding: initial;
 }
 .ionic .list .item.item-bg-image {
-    max-height: 150px;
+    /*max-height: 150px;*/
+   max-height: 320px;
 }
 .ionic .list .item.item-bg-image > img {
     height: 100%;
     left: 0;
     max-width: initial;
-    opacity: 0.65;
+    opacity: 1.00;
     position: absolute;
     top: 0;
     width: 100%;
@@ -1121,7 +1122,8 @@ a.waves-effect .waves-ripple {
     transform: scale3d(0, 0, 1);
 }
 .ionic .list .item.item-bg-image {
-    min-height: 150px;
+    /*min-height: 150px;*/
+   max-height: 320px;
 }
 .ionic .animate-blinds > * {
     visibility: hidden;
@@ -1239,7 +1241,8 @@ a.waves-effect .waves-ripple {
     visibility: visible;
 }
 .ionic .list .item.item-bg-image {
-    max-height: 150px;
+    /*max-height: 150px;*/
+   max-height: 320px;
 }
 .ionic .animate-fade-slide-in > * {
     visibility: hidden;

@@ -1,23 +1,38 @@
 <ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />' cache-view="false" >
+	
+	<ion-content>
+		
+		<div class="ionic" ng-controller="TourCtrl">
+			
+			<div class="list condensed-space no-padding animate-blinds">
+			
+				<div class="card" ng-repeat="tour in tourModel" style="border-bottom: 1px solid #999999; margin:0px;">
+					
+					<div class="hero waves-effect waves-light"
+					style="background-image: url(&#39;./images/content/tour/{{tour.thumbnail}}&#39;);">
 
-  <ion-content ng-controller="TourCtrl">
-  
-        <div class="ionic">
-        	<div class="slide-up" ng-repeat="tour in tourModel">
-	            <div class="hero has-mask waves-effect waves-light" style="background-image: url(&#39;./templates/images/thumbnails/{{tour.previsualization}}&#39;);">
-		            <div class="content">
-		                <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-map pull-right text-white"
-		                ng-click="goTo('app.tourDetails', {{tour.id}});">
-		                </button>
-		            </div>
-		        </div>
-		        <div class="mid-bar dark-bg z1 padding">
-		            <h3>{{tour.name}}</h3>
-		            <p>{{tour.introduction}}</p>
-		        </div>
-	        </div>
-        </div>
-        
+						<div class="content"></div>
+
+					</div>
+					
+					<div class="mid-bar">
+					
+						<button class="button button-medium flat button-clear icon ion-map pull-right text-white"
+							ng-click="goTo('app.tourSite', {{tour.tour_id}});" 
+							style="border-radius: 3px;"></button>
+							
+						<p style="color:#FFF; margin-top:15px; margin-bottom: 10px;">
+							{{tour.name}}
+						</p>
+						
+					</div>
+			
+				</div>
+			
+			</div>
+		
+		</div>
+		
 	</ion-content>
-  
+
 </ion-view>

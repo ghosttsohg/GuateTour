@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<registers>
+		<!-- METROPOLITANA -->
+		<register>
+			<region_id>1</region_id>
+			<department_id>1</department_id>
+		</register>
+		<!-- NOR-ORIENTAL -->
+		<!-- Chiquimula, El Progreso, Izabal y Zacapa -->
+		<register>
+			<region_id>2</region_id>
+			<department_id>2</department_id>
+		</register>
+		<register>
+			<region_id>2</region_id>
+			<department_id>3</department_id>
+		</register>
+		<register>
+			<region_id>2</region_id>
+			<department_id>4</department_id>
+		</register>
+		<register>
+			<region_id>2</region_id>
+			<department_id>5</department_id>
+		</register>
+		<!-- CENTRAL -->
+		<!-- Chimaltenango, Escuintla y Sacatepequez -->
+		
+		<!-- SUR-OCCIDENTE -->
+		<!-- Quetzaltenango, Retalhuleu, San Marcos, Solola, Suchitepequez y Totonicapan -->
+		
+		<!-- PETEN -->
+		
+	</registers>
+</application>

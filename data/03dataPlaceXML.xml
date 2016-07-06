@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application>
-	<geographicDistribution>
+	<places>
 		<!-- LUGARES, SITIOS -->
 		<register>
-			<fatherId>2</fatherId>
-			<categoryType>3</categoryType>
+			<place_id>1</place_id>
 			<name>Palacio Nacional de la Cultura</name>
-			<introduction>El Palacio Nacional de la República de Guatemala, símbolo de la ciudad de Guatemala y del País.</introduction>
-			<information>
+			<introduction>Guatemala, un increible destino para visitar</introduction>
+			<content>
 				<![CDATA[
-					<br/>
-					<center>
-						<h3 class="text-h3">Palacio Nacional de la Cultura</h3>
-					</center>
-					<br/>
-					<h5 class="text-h5" style="text-align:justify;">
+					<table width="100%" border="1" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="12%" style="background-color: #407F8E;"></td>
+							<td width="88%" style="padding-left: 5px;">
+								<h4 style="color: #407F8E; margin: 0px; padding: 0px;">
+									Palacio Nacional de la Cultura
+								</h4>
+							</td>
+						</tr>
+					</table>
+					
+					<h5 class="text-h5" style="text-align:justify; padding: 10px;">
 						El Palacio Nacional de la Cultura está localizado en el Centro Histórico de la ciudad de Guatemala 
-						en la 6ta avenida y 6ta calle de la zona 1. 
-						<br/><br/>
+						en la 6ta avenida y 6ta calle de la zona 1.
+					</h5>
+					
+					<div style="background-color: #8DC33E; width:100%; padding:8px 3px 0px 3px;">
 						<center>
-							<div style="border:3px solid #3E3E3E; width:90%; padding:8px 3px 0px 3px;">
-								<img src="./templates/images/gallery/thumb_palaciogt10.jpg" style="padding:0; margin:0; border:2px solid #3E3E3E;" width="98%"/>
-								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">Centro Histórico de la Ciudad de Guatemala</h6>
-							</div>
+							<img src="./templates/images/gallery/thumb_palaciogt10.jpg" style="padding:0; margin:0;" width="98%"/>
+							<h6 class="text-h6" style="text-align:center; text-decoration:underline; color: #FFF; padding-bottom: 5px;">
+								Centro Histórico de la Ciudad de Guatemala
+							</h6>
 						</center>
-						<br/>
+					</div>
+						
+					<h5 class="text-h5" style="text-align:justify; padding: 10px;">
 						Es un espacio dedicado para diversas actividades artísticas y exposiciones temporales, 
 						además de alojar colecciones de pintura y escultura. Como antigua sede del gobierno guatemalteco, 
 						fue declarado Monumento Histórico y Artístico el 7 de noviembre de 1980 y el 11 de junio de 2001 pasó 
@@ -37,24 +46,35 @@
 						En el salón de recepciones —ubicado en el segundo nivel y uno de los espacios más atractivos del inmueble—, 
 						se encuentran un dibujo en forma de estrella que marca el kilómetro cero del país y una lámpara de cristal 
 						de dos toneladas de la que cuelgan cuatro figuras de quetzales bañados en oro. 
-						<br/><br/>
+					</h5>
+						
+					<div style="background-color: #662266; width:100%; padding:8px 3px 0px 3px;">
 						<center>
-							<div style="border:3px solid #3E3E3E; width:90%; padding:8px 3px 0px 3px;">
-								<img src="./templates/images/gallery/thumb_palaciogt14.jpg" style="padding:0; margin:0; border:2px solid #3E3E3E;" width="98%"/>
-								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
+							<img src="./templates/images/gallery/thumb_palaciogt14.jpg" style="padding:0; margin:0;" width="98%"/>
+							<h6 class="text-h6" style="text-align:center; text-decoration:underline; padding-bottom: 5px; color: #FFF;">
 								Salón de Recepciones donde se aprecia la imponente lámpara coronada por cuatro quetzales bañados en oro.
-								</h6>
-							</div>
+							</h6>
 						</center>
-						<br/>
+					</div>
+						
+					<h5 class="text-h5" style="text-align:justify; padding: 10px;">
 						En uno de los patios del palacio fue celebrada la firma de la paz que dio fin a la Guerra civil de Guatemala. 
 						<br/>
 						El 4 de febrero de 1976 soportó el terremoto de 7.5 grados en la escala Richter, que destruyó gran parte del país.
-						<br/><br/>
-						<center>
-							<h3 class="text-h3">Historia del Palacio</h3>
-						</center>
-						<br/>
+					</h5>
+					
+					<table width="100%" border="1" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="12%" style="background-color: #F6951E;"></td>
+							<td width="88%" style="padding-left: 5px;">
+								<h4 style="color: #407F8E; margin: 0px; padding: 0px;">
+									Historia del Palacio
+								</h4>
+							</td>
+						</tr>
+					</table>
+					
+					<h5 class="text-h5" style="text-align:justify; padding: 10px;">
 						Desde los inicios del régimen español, fue inminente la necesidad de contar con una sede de gobierno, 
 						de esa suerte en 1528 se construyó la primera Casa de Gobierno en Santiago de Guatemala, ordenada su construcción 
 						por Jorge de Alvarado en el Valle de Almolonga.
@@ -64,14 +84,18 @@
 						<br/><br/>
 						En 1761 el Presidente Alonso Fernández de Heredia, inició la construcción de una nueva sede, 
 						bajo la dirección del Capitán e Ingeniero Español, Luis Diez de Navarro.
-						<br/><br/>
+					</h5>
+					
+					<div style="background-color: #BD2030; width:100%; padding:8px 3px 0px 3px;">
 						<center>
-							<div style="border:3px solid #3E3E3E; width:90%; padding:8px 3px 0px 3px;">
-								<img src="./templates/images/gallery/thumb_palaciogt3.jpg" style="padding:0; margin:0; border:2px solid #3E3E3E;" width="98%"/>
-								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">Trabajos de la construcción</h6>
-							</div>
+							<img src="./templates/images/gallery/thumb_palaciogt3.jpg" style="padding:0; margin:0;" width="98%"/>
+							<h6 class="text-h6" style="text-align:center; text-decoration:underline; padding-bottom: 5px; color: #FFF;">
+								Trabajos de la construcción
+							</h6>
 						</center>
-						<br/>
+					</div>
+					
+					<h5 class="text-h5" style="text-align:justify; padding: 10px;">
 						En 1919 el Presidente Manuel Estrada Cabrera, con motivo del primer centenario de la declaración de la independencia, 
 						colocó la primera piedra del Palacio a un lado de la Plaza de la Constitución, el encargado del diseño fue el 
 						Arquitecto italiano Guido Albani, pero este proyecto no prosperó por la caída del gobierno.
@@ -79,124 +103,200 @@
 						En 1921, el Presidente Carlos Herrera, contando con muy pocos recursos y con el Centenario de la Independencia tan cerca, 
 						construyo en el término de tres meses el Palacio del Centenario, que popularmente se conoció como el Palacio de Cartón, 
 						el cual fue consumido por las llamas en 1925.
-						<br/><br/>
+					</h5>
+					
+					<div style="background-color: #F6951E; width:100%; padding:8px 3px 0px 3px;">
 						<center>
-							<div style="border:3px solid #3E3E3E; width:90%; padding:8px 3px 0px 3px;">
-								<img src="./templates/images/gallery/thumb_palaciogt11.jpg" style="padding:0; margin:0; border:2px solid #3E3E3E;" width="98%"/>
-								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">Palacio del Centenario</h6>
-							</div>
+							<img src="./templates/images/gallery/thumb_palaciogt11.jpg" style="padding:0; margin:0;" width="98%"/>
+							<h6 class="text-h6" style="text-align:center; text-decoration:underline; padding-bottom: 5px; color: #FFF;">
+								Palacio del Centenario
+							</h6>
 						</center>
-						<br/>
+					</div>
+						
+					<h5 class="text-h5" style="text-align:justify; padding: 10px;">
 						Durante el Gobierno de Lázaro Chacón, en 1927, se abrió un certamen de dibujo para la propuesta del palacio Nacional, 
 						concurso que fuera ganado por el Maestro Agustín Iriarte, pero no se realizó.
 						<br/><br/>
 						En 1932, el General Jorge Ubico manda publicar las bases para el diseño y construcción del palacio, 
 						y el 4 de Julio de 1937 estaba colocando la primera piedra; la construcción se realizó entre enero de 1939 
 						y el 10 de noviembre de 1943, fecha en la que fuera inaugurado.
-						<br/><br/>
-						<center>
-							<div style="border:3px solid #3E3E3E; width:90%; padding:8px 3px 0px 3px;">
-								<img src="./templates/images/gallery/thumb_palaciogt7.jpg" style="padding:0; margin:0; border:2px solid #3E3E3E;" width="98%"/>
-								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
-								Vista del Palacio Nacional a los pocos meses de su inaguración.
-								</h6>
-							</div>
-							<br/>
-							<div style="border:3px solid #3E3E3E; width:90%; padding:8px 3px 0px 3px;">
-								<img src="./templates/images/gallery/thumb_palaciogt16.jpg" style="padding:0; margin:0; border:2px solid #3E3E3E;" width="98%"/>
-								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
-								El magnifico techo en estilo mudéjar y laminado en oro del salón de Banquetes, realizado por el artista Carlos Rigalt.
-								</h6>
-							</div>
-							<br/>
-							<div style="border:3px solid #3E3E3E; width:90%; padding:8px 3px 0px 3px;">
-								<img src="./templates/images/gallery/thumb_palaciogt15.jpg" style="padding:0; margin:0; border:2px solid #3E3E3E;" width="98%"/>
-								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
-								Detalle de uno de los murales pintados por Alfredo Gálvez Suárez.
-								</h6>
-							</div>
-							<div style="border:3px solid #3E3E3E; width:90%; padding:8px 3px 0px 3px;">
-								<img src="./templates/images/gallery/thumb_palaciogt13.jpg" style="padding:0; margin:0; border:2px solid #3E3E3E;" width="98%"/>
-								<h6 class="text-h6" style="text-align:center; text-decoration:underline;">
-								El Palacio Nacional de la Cultura como luce en la actualidad.
-								</h6>
-							</div>
-						</center>
-						<br/>
 					</h5>
-					<br/><br/><br/>
+					
+					<div style="background-color: #314246; width:100%; padding:10px 0px 10px 0px;">
+						<div style="background-color: #1C76B8; width:100%; padding:8px 3px 0px 3px;">
+							<center>
+								<img src="./templates/images/gallery/thumb_palaciogt7.jpg" style="padding:0; margin:0;" width="98%"/>
+								<h6 class="text-h6" style="text-align:center; text-decoration:underline; padding-bottom: 5px; color: #FFF;">
+									Vista del Palacio Nacional a los pocos meses de su inaguración.
+								</h6>
+							</center>
+						</div>
+						<br />
+						<div style="background-color: #BD2030; width:100%; padding:8px 3px 0px 3px;">
+							<center>
+								<img src="./templates/images/gallery/thumb_palaciogt16.jpg" style="padding:0; margin:0;" width="98%"/>
+								<h6 class="text-h6" style="text-align:center; text-decoration:underline; padding-bottom: 5px; color: #FFF;">
+									El magnifico techo en estilo mudéjar y laminado en oro del salón de Banquetes, realizado por el artista Carlos Rigalt.
+								</h6>
+							</center>
+						</div>
+						<br />
+						<div style="background-color: #8DC33E; width:100%; padding:8px 3px 0px 3px;">
+							<center>
+								<img src="./templates/images/gallery/thumb_palaciogt15.jpg" style="padding:0; margin:0;" width="98%"/>
+								<h6 class="text-h6" style="text-align:center; text-decoration:underline; padding-bottom: 5px; color: #FFF;">
+									Detalle de uno de los murales pintados por Alfredo Gálvez Suárez.
+								</h6>
+							</center>
+						</div>
+						<br />
+						<div style="background-color: #253B82; width:100%; padding:8px 3px 0px 3px;">
+							<center>
+								<img src="./templates/images/gallery/thumb_palaciogt13.jpg" style="padding:0; margin:0;" width="98%"/>
+								<h6 class="text-h6" style="text-align:center; text-decoration:underline; padding-bottom: 5px; color: #FFF;">
+									El Palacio Nacional de la Cultura como luce en la actualidad.
+								</h6>
+							</center>
+						</div>
+						
+					</div>
 				]]>
-			</information>
-			<services>
+			</content>
+			<service>
 				<![CDATA[
+					<table width="100%" border="1" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="12%" style="background-color: #407F8E;"></td>
+							<td width="88%" style="padding-left: 5px;">
+								<h4 style="color: #407F8E; margin: 0px; padding: 0px;">
+									Palacio Nacional de la Cultura
+								</h4>
+							</td>
+						</tr>
+					</table>
+					<br />
+					
 					<center>
-						<h2 class="text-h3">Servicios</h2>
+						<h3 style="background-color: #F69F23; color: #FFFFFF; padding-right:10px;" align="center">
+							Servicios
+						</h3>
 					</center>
-					<h3 class="text-h3">Recorridos Guiados</h3>
-					<h5 class="text-h5" style="text-align:justify;">
+					<br />
+					
+					<table width="100%" border="1" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="12%" style="background-color: #D05D6A;"></td>
+							<td width="88%" style="padding-left: 5px;">
+								<h4 style="color: #D05D6A; margin: 0px; padding: 0px;">
+									Recorridos Guiados
+								</h4>
+							</td>
+						</tr>
+					</table>
+					
+					<h5 class="text-h5" style="text-align:justify; padding: 10px;">
 						Recorridos Guiados dentro del Palacio Nacional de la Cultura, 
 						dirigido a Turistas Nacionales, Extranjeros y estudiantes.
-						<br/>
-						<strong>Sin costo</strong>
 						<br/><br/>
-						<center>
-							<div style="border:3px solid #3E3E3E; width:90%; padding:8px 3px 0px 3px;">
-								<img src="./templates/images/gallery/thumb_palaciogt17.jpg" style="padding:0; margin:0; border:2px solid #3E3E3E;" width="98%"/>
-							</div>
-						</center>
+						<span style="color: #D05D6A;"><strong>Tarifa: sin costo</strong></span>
 					</h5>
-					<h3 class="text-h3">Actividades Protocolarias</h3>
-					<h5 class="text-h5" style="text-align:justify;">
+					
+					<div style="background-color: #D05D6A; width:100%; padding:10px 0px 15px 0px;">
+						<center>
+							<img src="./templates/images/gallery/thumb_palaciogt17.jpg" style="padding:0; margin:0;" width="98%"/>
+						</center>
+					</div>
+					<br />
+					
+					<table width="100%" border="1" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="12%" style="background-color: #F49320;"></td>
+							<td width="88%" style="padding-left: 5px;">
+								<h4 style="color: #F49320; margin: 0px; padding: 0px;">
+									Actividades Protocolarias
+								</h4>
+							</td>
+						</tr>
+					</table>
+					
+					<h5 class="text-h5" style="text-align:justify; padding: 10px;">
 						Actividades Protocolarias, Culturales, de Gobierno, Ministerios, Dependencias del Estado.
-						<br/>
-						<strong>Costo reservado</strong>
 						<br/><br/>
-						<center>
-							<div style="border:3px solid #3E3E3E; width:90%; padding:8px 3px 0px 3px;">
-								<img src="./templates/images/gallery/thumb_palaciogt18.jpg" style="padding:0; margin:0; border:2px solid #3E3E3E;" width="98%"/>
-							</div>
-						</center>
+						<span style="color: #F49320;"><strong>Tarifa: costo reservado</strong></span>
 					</h5>
-					<h3 class="text-h3">Exposiciones</h3>
-					<h5 class="text-h5" style="text-align:justify;">
+					
+					<div style="background-color: #F49320; width:100%; padding:10px 0px 15px 0px;">
+						<center>
+							<img src="./templates/images/gallery/thumb_palaciogt18.jpg" style="padding:0; margin:0;" width="98%"/>
+						</center>
+					</div>
+					<br />
+
+					<table width="100%" border="1" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="12%" style="background-color: #114D9C;"></td>
+							<td width="88%" style="padding-left: 5px;">
+								<h4 style="color: #114D9C; margin: 0px; padding: 0px;">
+									Exposiciones
+								</h4>
+							</td>
+						</tr>
+					</table>
+					
+					<h5 class="text-h5" style="text-align:justify; padding: 10px;">
 						Exposiciones de artistas guatemaltecos.
-						<br/>
-						<strong>Costo variable</strong>
 						<br/><br/>
-						<center>
-							<div style="border:3px solid #3E3E3E; width:90%; padding:8px 3px 0px 3px;">
-								<img src="./templates/images/gallery/thumb_palaciogt19.jpg" style="padding:0; margin:0; border:2px solid #3E3E3E;" width="98%"/>
-							</div>
-						</center>
+						<span style="color: #114D9C;"><strong>Tarifa: costo variable</strong></span>
 					</h5>
-					<br/><br/><br/>
+					
+					<div style="background-color: #114D9C; width:100%; padding:10px 0px 15px 0px;">
+						<center>
+							<img src="./templates/images/gallery/thumb_palaciogt19.jpg" style="padding:0; margin:0;" width="98%"/>
+						</center>
+					</div>
 				]]>
-			</services>
+			</service>
 			<location>
 				<![CDATA[
+					<table width="100%" border="1" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="12%" style="background-color: #407F8E;"></td>
+							<td width="88%" style="padding-left: 5px;">
+								<h4 style="color: #407F8E; margin: 0px; padding: 0px;">
+									Palacio Nacional de la Cultura
+								</h4>
+							</td>
+						</tr>
+					</table>
+					<br />
+					
 					<center>
-						<h2 class="text-h3">Localización</h2>
+						<h3 style="background-color: #253B82; color: #FFFFFF; padding-right:10px;" align="center">
+							Localización
+						</h3>
 					</center>
-					<center>
-						<div style="border:3px solid #3E3E3E; width:90%; padding:8px 3px 0px 3px;">
-							<img src="./templates/images/gallery/thumb_palacionacionalmap1.jpg" style="padding:0; margin:0; border:2px solid #3E3E3E;" width="98%"/>
-						</div>
-					</center>
-					<h5 class="text-h5">
+					<br />
+					
+					<div style="background-color: #253B82; width:100%; padding:10px 0px 15px 0px;">
+						<center>
+							<img src="./templates/images/gallery/thumb_palacionacionalmap1.jpg" style="padding:0; margin:0;" width="98%"/>
+						</center>
+					</div>
+					
+					<h5 class="text-h5" style="text-align:justify; padding: 10px;">
 						El Palacio Nacional de la Cultura se encuentra ubicado en la 6ta. avenida y 6ta. calle de la zona 1, 
 						en la Ciudad de Guatemala, y dentro de su estructura se marca el kilómetro cero del país.
 					</h5>
-					<br/><br/><br/>
 				]]>
 			</location>
-			<previsualization>thumb_palaciogt1.jpg</previsualization>
+			<thumbnail>thumb_palaciogt1.jpg</thumbnail>
 		</register>
 		<register>
-			<fatherId>2</fatherId>
-			<categoryType>3</categoryType>
+			<place_id>2</place_id>
 			<name>Amatitlan</name>
 			<introduction>Lago de Amatitlan, punto de encuentro para los guatemaltecos.</introduction>
-			<information>
+			<content>
 				<![CDATA[
 					<br/>
 					<center>
@@ -248,8 +348,8 @@
 					</h5>
 					<br/><br/><br/>
 				]]>
-			</information>
-			<services>
+			</content>
+			<service>
 				<![CDATA[
 					<center>
 						<h2 class="text-h3">Servicios</h2>
@@ -329,7 +429,7 @@
 					</center>
 					<br/><br/><br/>
 				]]>
-			</services>
+			</service>
 			<location>
 				<![CDATA[
 					<center>
@@ -348,14 +448,13 @@
 					<br/><br/><br/>
 				]]>
 			</location>
-			<previsualization>thumb_amatitlan2.jpg</previsualization>
+			<thumbnail>thumb_amatitlan2.jpg</thumbnail>
 		</register>
 		<register>
-			<fatherId>2</fatherId>
-			<categoryType>3</categoryType>
+			<place_id>3</place_id>
 			<name>Parque Zoologico Nacional La Aurora</name>
 			<introduction>Zoológico La Aurora, el mejor zoológico de America Central.</introduction>
-			<information>
+			<content>
 				<![CDATA[
 					<center>
 						<h3 class="text-h3">Parque Zoologico Nacional La Aurora</h3>
@@ -390,8 +489,8 @@
 					</h5>
 					<br/><br/><br/>
 				]]>
-			</information>
-			<services>
+			</content>
+			<service>
 				<![CDATA[
 					<center>
 						<h2 class="text-h3">Servicios</h2>
@@ -480,7 +579,7 @@
 					</center>
 					<br/>
 				]]>
-			</services>
+			</service>
 			<location>
 				<![CDATA[
 					<center>
@@ -506,15 +605,14 @@
 					<br/><br/><br/>
 				]]>
 			</location>
-			<previsualization>thumb_parqueLaAuroraGt2.jpg</previsualization>
+			<thumbnail>thumb_parqueLaAuroraGt2.jpg</thumbnail>
 		</register>
 		
 		<register>
-			<fatherId>2</fatherId>
-			<categoryType>3</categoryType>
+			<place_id>4</place_id>
 			<name>Museo Nacional de Historia</name>
 			<introduction>Museo Nacional de Historia, donde Guatemala cuenta su pasado.</introduction>
-			<information>
+			<content>
 				<![CDATA[
 					<center>
 						<h3 class="text-h3">Museo Nacional de Historia</h3>
@@ -560,8 +658,8 @@
 					</center>
 					<br/>
 				]]>
-			</information>
-			<services>
+			</content>
+			<service>
 				<![CDATA[
 					<center>
 						<h3 class="text-h3">Servicios</h3>
@@ -596,7 +694,7 @@
 						ESTUDIANTES ENTRADA GRATUITA<br/>
 					</h5>
 				]]>
-			</services>
+			</service>
 			<location>
 				<![CDATA[
 					<center>
@@ -622,14 +720,13 @@
 					<br/><br/><br/>
 				]]>
 			</location>
-			<previsualization>thumb_MuseoHistoriaNacional2.jpg</previsualization>
+			<thumbnail>thumb_MuseoHistoriaNacional2.jpg</thumbnail>
 		</register>
 		<register>
-			<fatherId>2</fatherId>
-			<categoryType>3</categoryType>
+			<place_id>5</place_id>
 			<name>Museo del Ferrocarril</name>
 			<introduction>Patrimonio Histórico ferroviario de Guatemala.</introduction>
-			<information>
+			<content>
 				<![CDATA[
 					<center>
 						<h3 class="text-h3">Museo del Ferrocarril</h3>
@@ -671,8 +768,8 @@
 					</center>
 					<br/>
 				]]>
-			</information>
-			<services>
+			</content>
+			<service>
 				<![CDATA[
 					<center>
 						<h3 class="text-h3">Servicios</h3>
@@ -692,7 +789,7 @@
 						E- MAIL: info@museofegua.com 
 					</h5>
 				]]>
-			</services>
+			</service>
 			<location>
 				<![CDATA[
 					<center>
@@ -717,14 +814,13 @@
 					<br/><br/><br/>
 				]]>
 			</location>
-			<previsualization>thumb_MuseoFerrocarril5.jpg</previsualization>
+			<thumbnail>thumb_MuseoFerrocarril5.jpg</thumbnail>
 		</register>
 		<register>
-			<fatherId>2</fatherId>
-			<categoryType>3</categoryType>
+			<place_id>6</place_id>
 			<name>Museo del Ejército</name>
 			<introduction>Historia del Ejército de Guatemala.</introduction>
-			<information>
+			<content>
 				<![CDATA[
 					<center>
 						<h3 class="text-h3">Museo del Ejército de Guatemala</h3>
@@ -765,8 +861,8 @@
 					</center>
 					<br/>
 				]]>
-			</information>
-			<services>
+			</content>
+			<service>
 				<![CDATA[
 					<center>
 						<h3 class="text-h3">Servicios</h3>
@@ -792,7 +888,7 @@
 						Los adultos mayores pueden ingresar gratis.
 					</h5>
 				]]>
-			</services>
+			</service>
 			<location>
 				<![CDATA[
 					<center>
@@ -817,14 +913,13 @@
 					<br/><br/><br/>
 				]]>
 			</location>
-			<previsualization>thumb_MuseoMilitarGuatemala1.jpg</previsualization>
+			<thumbnail>thumb_MuseoMilitarGuatemala1.jpg</thumbnail>
 		</register>
 		<register>
-			<fatherId>2</fatherId>
-			<categoryType>3</categoryType>
+			<place_id>7</place_id>
 			<name>Museo Nacional de Arquelogía y Etnología</name>
 			<introduction>Museo Nacional de Arqueología y Etnología (MUNAE).</introduction>
-			<information>
+			<content>
 				<![CDATA[
 					<center>
 						<h3 class="text-h3">Museo Nacional de Arqueología y Etnología</h3>
@@ -897,8 +992,8 @@
 						Además se complementa la colección con objetos artesanales, pictóricos y fotografías.
 					</h5>
 				]]>
-			</information>
-			<services>
+			</content>
+			<service>
 				<![CDATA[
 					<center>
 						<h3 class="text-h3">Servicios</h3>
@@ -924,7 +1019,7 @@
 						Adentro, hay facilidad de desplazamiento. 
 					</h5>
 				]]>
-			</services>
+			</service>
 			<location>
 				<![CDATA[
 					<center>
@@ -948,7 +1043,7 @@
 					<br/><br/><br/>
 				]]>
 			</location>
-			<previsualization>thumb_MuseoArqEtnGuatemala1.jpg</previsualization>
+			<thumbnail>thumb_MuseoArqEtnGuatemala1.jpg</thumbnail>
 		</register>
-	</geographicDistribution>
+	</places>
 </application>

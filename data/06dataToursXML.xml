@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application>
-	<tourDistribution>
+	<tours>
 		<!-- TOURS - Metro -->
 		<register>
-			<fatherId>1</fatherId>
-			<categoryType>2</categoryType>
+			<tour_id>1</tour_id>
 			<name>Tour Historia y Cultura</name>
 			<introduction>Ciudad de Guatemala</introduction>
-			<information></information>
-			<services></services>
-			<location></location>
-			<previsualization>thumbnail_tourMetro2.jpg</previsualization>
+			<content></content>
+			<thumbnail>thumbTourMetro2.jpg</thumbnail>
 			<map>Tour_MetroRoute2.jpg</map>
 		</register>
 		<!--register>
@@ -23,5 +20,5 @@
 			<location></location>
 			<previsualization>thumbnail_tourMetro1.jpg</previsualization>
 		</register-->
-	</tourDistribution>
+	</tours>
 </application>

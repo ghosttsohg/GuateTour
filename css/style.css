@@ -76,7 +76,7 @@ div.transbox p {
   height: 100%;
   background-color: #fff;
   overflow: hidden;
-  background: #ffffff;
+  background: #3C6E7A;
   color: #FFFFFF;
 }
 
@@ -126,7 +126,7 @@ div.transbox p {
 }
 
 .mid-bar {
-	background:url('../img/menu/MenuHeaderBottom2.png') repeat-x left top; 
-	background-color: #353f49; 
+	background:url('../img/menu/MenuHeaderBottom2.png') repeat-x left top;
+	background-color: #314246;
 	border-bottom: 2px solid #71C13F;
 }

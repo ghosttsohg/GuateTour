@@ -1,21 +1,29 @@
 <ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />' cache-view="false" >
-	<ion-content ng-controller="TourTypeCtrl">
+	
+	<ion-content>
+
+		<div class="ionic" ng-controller="TourTypeCtrl">
+			
+			<div class="list condensed-space no-padding animate-blinds">
+			
+				<div class="card" ng-repeat="type in tourTypeModel" style="border-bottom: 1px solid #999999; margin:0px;">
+
+					<div class="item dark-bg item-bg-image waves-light waves-effect waves-light">
+						<br/><br/><br/><br/>
+						
+						<button class="button-large button-clear waves-effect icon ion-android-more-horizontal pull-right text-white" 
+						ng-click="goTo('app.tourList', {{type.tour_type_id}});"></button>
+			
+						<img ng-src="../../images/content/tourType/{{type.thumbnail}}" />
+			
+					</div>
+			
+				</div>
+			
+			</div>
 		
-		<div class="ionic">
-            <div class="list condensed-space no-padding animate-blinds">
-                <div class="card" ng-repeat="type in tourTypeModel">
-                    <div class="item dark-bg item-bg-image waves-effect waves-button waves-light">
-                        <h2>{{type.name}}</h2>
-                        <p style="font-weight:normal; text-align:left;">{{type.introduction}}</p>
-                        <br/>
-		                <button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-map pull-right text-white"
-		                        ng-click="goTo('app.tourList', {{type.id}});">
-		                </button>
-                        <img src="./templates/images/thumbnails/{{type.previsualization}}"/>
-                    </div>
-                </div>				
-            </div>
-        </div>
-        
+		</div>
+
 	</ion-content>
+	
 </ion-view>

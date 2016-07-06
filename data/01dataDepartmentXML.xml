@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<depts>
+		<!-- METROPOLITANA -->
+		<register>
+			<department_id>1</department_id>
+			<name>Guatemala</name>
+			<introduction>Guatemala, Moderna y Colonial</introduction>
+			<content>
+				<![CDATA[
+					<h5 class="text-h5" style="text-align:justify;">
+						La ciudad de Guatemala es la más pujante de Centroamérica, <br/>
+						con modernos edificios y centros de negocios; en contraste, <br/>
+						la Antigua Guatemala, ciudad colonial y romántica, es una mezcla de antiguas <br/>
+						construcciones y arraigadas costumbres y tradiciones. Por su historia <br/>
+						y belleza fue declarada “Patrimonio Cultural de la Humanidad” por la <br/>
+						UNESCO, en 1979.
+					</h5>
+				]]>
+			</content>
+			<thumbnail>ThumbDeptGuate01.jpg</thumbnail>
+		</register>
+		<!-- NOR-ORIENTAL -->
+		<!-- Chiquimula, El Progreso, Izabal y Zacapa -->
+		<register>
+			<department_id>2</department_id>
+			<name>Chiquimula</name>
+			<introduction>Chiquimula, La Perla de Oriente.</introduction>
+			<content>
+				<![CDATA[
+					<h5 class="text-h5" style="text-align:justify;">
+						Cargado de espiritualidad y misticismo ofrece riqueza natural y uno de <br/> 
+						los centros religiosos de mayor importancia en la región. Esquipulas es <br/> 
+						una sede importante de reuniones regionales y su ícono es la reconocida <br/> 
+						Basílica Menor del Cristo Negro.
+					</h5>
+				]]>
+			</content>
+			<thumbnail>ThumbDeptChiquimula01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>3</department_id>
+			<name>El Progreso</name>
+			<introduction>El Progreso, opcion para disfrutar Guatemala</introduction>
+			<content>
+				<![CDATA[
+					<h5 class="text-h5" style="text-align:justify;">
+					</h5>
+				]]>
+			</content>
+			<thumbnail>ThumbDeptProgreso01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>4</department_id>
+			<name>Izabal</name>
+			<introduction>Izabal, un Caribe Verde y Refrescante</introduction>
+			<content>
+				<![CDATA[
+					<h5 class="text-h5" style="text-align:justify;">
+						Con su original encanto, ricos ecosistemas y la alegría de la cultura
+						garífuna, ofrece un encuentro con un Caribe de exuberante belleza natural.
+					</h5>
+					<h5 class="text-h5" style="text-align:justify;">
+						La representación de la diversidad en todo su esplendor se refleja en
+						el Caribe Verde, con ricos ecosistemas que son el hábitat de diversas
+						especies.
+					</h5>
+				]]>
+			</content>
+			<thumbnail>ThumbDeptIzabal01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>5</department_id>
+			<name>Zacapa</name>
+			<introduction>Oriente, Místico y Natural</introduction>
+			<content>
+				<![CDATA[
+					<h5 class="text-h5" style="text-align:justify;">
+					</h5>
+				]]>
+			</content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
+		<!-- CENTRAL -->
+		<!-- Chimaltenango, Escuintla y Sacatepequez -->
+		
+		<!-- SUR-OCCIDENTE -->
+		<!-- Quetzaltenango, Retalhuleu, San Marcos, Solola, Suchitepequez y Totonicapan -->
+		
+		<!-- PETEN -->
+		
+	</depts>
+</application>

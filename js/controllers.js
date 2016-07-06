@@ -52,9 +52,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 	//testTable('Gallery', DataBaseService);
 	//testTable('TourDistribution', DataBaseService);
 	//testTable('TourSiteRoute', DataBaseService);
-})
-
-.service('DataBaseService', function() {
+}).service('DataBaseService', function() {
 	var dbModel,
 	    databaseReadyModel = false,
 	    readyRsModel = false,
@@ -190,6 +188,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 		},
 		getSelectRsTable : function(tableName, tableColumn, whereValue, orderValue) {
 			dbModel.transaction(function(tx) {
+				//console.log("SELECT " + tableColumn + " FROM " + tableName + " WHERE " + whereValue + " " + orderValue);
 				tx.executeSql("SELECT " + tableColumn + " FROM " + tableName + " WHERE " + whereValue + " " + orderValue, [], function(tx, result) {
 					console.log("Select On Table " + tableName + " OK");
 					//console.log("executeSql rows:"+result.rows.length);
@@ -202,9 +201,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			});
 		}
 	};
-})
-
-.controller('MenuCtrl', function($scope, $state, DataBaseService, $rootScope, $ionicPopup, $ionicSideMenuDelegate) {
+}).controller('MenuCtrl', function($scope, $state, DataBaseService, $rootScope, $ionicPopup, $ionicSideMenuDelegate) {
 	$rootScope.logged = '';
 	//Valor inicial debe ser ''
 	$scope.searchDataModel = {};
@@ -252,9 +249,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			$ionicSideMenuDelegate.toggleLeft();
 		});
 	};
-})
-
-.controller('SearchResultCtrl', function($scope, $state, DataBaseService, $stateParams) {
+}).controller('SearchResultCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.searchResultModel = [];
 	DataBaseService.setReadyRsModel(false);
 	DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization, Case categoryType When '1' then 'app.exploreRegions' when '2' then 'app.deptos' Else 'app.sites' end as navigationPath", "lower(name) like lower('%" + $stateParams.txtPattern + "%')", "");
@@ -277,11 +272,11 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 					}
 					if ($scope.searchResultModel == null || $scope.searchResultModel.length <= 0) {
 						$scope.searchResultModel.push({
-							id: '0',
-							name: 'No se encontraron coincidencias',
-							introduction: '',
-							previsualization: '',
-							navigationPath: ''
+							id : '0',
+							name : 'No se encontraron coincidencias',
+							introduction : '',
+							previsualization : '',
+							navigationPath : ''
 						});
 					}
 				}
@@ -292,24 +287,24 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 		console.log("$scope.goTo");
 		console.log("txtPathRule:" + txtPathRule);
 		console.log("txtId:" + txtId);
-		if (txtPathRule!=null && txtPathRule!='') {
+		if (txtPathRule != null && txtPathRule != '') {
 			$state.go(txtPathRule, {
 				txtId : txtId,
 				isSearch : 'true'
 			});
 		}
 	};
-})
-
-.controller('RegionCtrl', function($scope, $state, DataBaseService, $stateParams) {
+}).controller('RegionCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.regionModel = [];
+	
 	if ($stateParams.isSearch == null)
-		DataBaseService.getSelectRsTable("GeographicDistribution", "*", "categoryType = 1 and fatherId = 0", "order by name asc");
+		DataBaseService.getSelectRsTable("region", "*", "1 = 1", "order by region_id asc");
 	else
-		DataBaseService.getSelectRsTable("GeographicDistribution", "*", "categoryType = 1 and fatherId = 0 and id =" + $stateParams.txtId, "order by name asc");
-	var interv = setInterval(function() {
+		DataBaseService.getSelectRsTable("region", "*", "name = like '%" + $stateParams.txtId + "%'", "order by region_id asc");
+
+	var intervRegionCtrl = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
-			clearInterval(interv);
+			clearInterval(intervRegionCtrl);
 			DataBaseService.setReadyRsModel(false);
 			var rs = DataBaseService.getRsModel();
 			var rows = [];
@@ -321,9 +316,10 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 					selector : '.card'
 				});
 				Waves.displayEffect();
-			}, 1300);
+			}, 950);
 		}
-	}, 250);
+	}, 100);
+
 	$scope.goTo = function(txtState, txtId) {
 		console.log("$scope.goTo");
 		console.log("txtState:" + txtState);
@@ -332,27 +328,31 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			txtId : txtId
 		});
 	};
-})
-
-.controller('DepartmentCtrl', function($scope, $state, DataBaseService, $stateParams) {
+}).controller('DepartmentCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.departamentModel = [];
+	
 	if ($stateParams.isSearch == null)
-		DataBaseService.getSelectRsTable("GeographicDistribution", "*", "categoryType = 2 and fatherId = " + $stateParams.txtId, "order by name asc");
+		DataBaseService.getSelectRsTable("department join region_department on department.department_id = region_department.department_id", "department.*", "region_department.region_id = " + $stateParams.txtId, "order by department.department_id asc");
 	else
-		DataBaseService.getSelectRsTable("GeographicDistribution", "*", "categoryType = 2 and id = " + $stateParams.txtId, "order by name asc");
-	var interv = setInterval(function() {
+		DataBaseService.getSelectRsTable("department", "*", "name like '%" + $stateParams.txtId + "%'", "order by department_id asc");
+		
+	var intervDepts = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
-			clearInterval(interv);
+			clearInterval(intervDepts);
 			DataBaseService.setReadyRsModel(false);
 			var rs = DataBaseService.getRsModel();
 			for (var i = 0; i < rs.length; i++) {
 				$scope.departamentModel.push(rs.item(i));
 			}
 			setTimeout(function() {
+				Mi.motion.blindsDown({
+					selector : '.card'
+				});
 				Waves.displayEffect();
-			}, 1300);
+			}, 950);
 		}
-	}, 250);
+	}, 100);
+	
 	$scope.goTo = function(txtState, txtId) {
 		console.log("$scope.goTo");
 		console.log("txtState:" + txtState);
@@ -361,27 +361,31 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			txtId : txtId
 		});
 	};
-})
-
-.controller('SiteCtrl', function($scope, $state, DataBaseService, $stateParams) {
+}).controller('SiteCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.siteModel = [];
+	
 	if ($stateParams.isSearch == null)
-		DataBaseService.getSelectRsTable("GeographicDistribution", "*", "categoryType = 3 and fatherId = " + $stateParams.txtId, "order by name asc");
+		DataBaseService.getSelectRsTable("place join department_place on place.place_id = department_place.place_id", "place.*", "department_place.department_id = " + $stateParams.txtId, "order by place.place_id asc");
 	else
 		DataBaseService.getSelectRsTable("GeographicDistribution", "*", "categoryType = 3 and id = " + $stateParams.txtId, "order by name asc");
-	var interv = setInterval(function() {
+	
+	var intervSites = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
-			clearInterval(interv);
+			clearInterval(intervSites);
 			DataBaseService.setReadyRsModel(false);
 			var rs = DataBaseService.getRsModel();
 			for (var i = 0; i < rs.length; i++) {
 				$scope.siteModel.push(rs.item(i));
 			}
 			setTimeout(function() {
+				Mi.motion.blindsDown({
+					selector : '.card'
+				});
 				Waves.displayEffect();
-			}, 1300);
+			}, 950);
 		}
-	}, 250);
+	}, 100);
+	
 	$scope.goTo = function(txtState, txtId, txtTabId) {
 		console.log("$scope.goTo");
 		console.log("txtState:" + txtState);
@@ -392,6 +396,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			txtTabId : txtTabId
 		});
 	};
+	
 	$scope.goToGallerySite = function(txtId) {
 		console.log("$scope.goTo");
 		console.log("txtState:app.siteProfile");
@@ -401,37 +406,41 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			txtTabId : 'gallery'
 		});
 	};
-})
-
-.controller('SiteProfileCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
+}).controller('SiteProfileCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
 	$scope.siteProfileModel = [];
 	$scope.siteProfileContent = '';
-	DataBaseService.getSelectRsTable("GeographicDistribution", "*", "categoryType = 3 and id = " + $stateParams.txtId, "");
-	var interv = setInterval(function() {
+	
+	DataBaseService.getSelectRsTable("place", "*", "place_id = " + $stateParams.txtId, "");
+	
+	var intervPlaceProfile = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
-			clearInterval(interv);
+			clearInterval(intervPlaceProfile);
 			DataBaseService.setReadyRsModel(false);
 			var rs = DataBaseService.getRsModel();
+			console.log("length:"+rs.legth);
 			for (var i = 0; i < rs.length; i++) {
 				$scope.siteProfileModel.push(rs.item(i));
 				if ($stateParams.txtTabId == 'services') {
-					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).services);
+					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).service);
 				} else if ($stateParams.txtTabId == 'location') {
 					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).location);
 				} else {
-					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).information);
+					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).content);
 				}
 			}
+			
 			setTimeout(function() {
 				Mi.motion.fadeSlideInRight({
 					selector : '.animate-fade-slide-in-right > *'
 				});
 				Waves.displayEffect();
-			}, 1300);
+			}, 1100);
 		}
-	}, 250);
+	}, 100);
+	
 	$scope.images = [];
-	$scope.loadImages = function() {
+	
+	/*$scope.loadImages = function() {
 		DataBaseService.getSelectRsTable("Gallery", "*", "fatherId = " + $stateParams.txtId, "");
 		var interv = setInterval(function() {
 			if (DataBaseService.getReadyRsModel()) {
@@ -446,18 +455,18 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 				}
 			}
 		}, 250);
-	};
-})
-
-.controller('TourTypeCtrl', function($scope, $state, DataBaseService, $stateParams) {
+	};*/
+}).controller('TourTypeCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.tourTypeModel = [];
+	
 	if ($stateParams.isSearch == null)
-		DataBaseService.getSelectRsTable("TourDistribution", "*", "categoryType = 1 and fatherId = 0", "order by name asc");
+		DataBaseService.getSelectRsTable("tour_type", "*", "1 = 1", "order by tour_type_id asc");
 	else
-		DataBaseService.getSelectRsTable("TourDistribution", "*", "categoryType = 1 and fatherId = 0 and id = " + $stateParams.txtId, "order by name asc");
-	var interv = setInterval(function() {
+		DataBaseService.getSelectRsTable("tour_type", "*", "categoryType = 1 and fatherId = 0 and id = " + $stateParams.txtId, "order by name asc");
+	
+	var intervTourType = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
-			clearInterval(interv);
+			clearInterval(intervTourType);
 			DataBaseService.setReadyRsModel(false);
 			var rs = DataBaseService.getRsModel();
 			var rows = [];
@@ -471,7 +480,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 				Waves.displayEffect();
 			}, 1300);
 		}
-	}, 250);
+	}, 100);
 	$scope.goTo = function(txtState, txtId) {
 		console.log("$scope.goTo");
 		console.log("txtState:" + txtState);
@@ -480,27 +489,30 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			txtId : txtId
 		});
 	};
-})
-
-.controller('TourCtrl', function($scope, $state, DataBaseService, $stateParams) {
+}).controller('TourCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.tourModel = [];
+	
 	if ($stateParams.isSearch == null)
-		DataBaseService.getSelectRsTable("TourDistribution", "*", "categoryType = 2 and fatherId = " + $stateParams.txtId, "order by name asc");
+		DataBaseService.getSelectRsTable("tour join tour_type_tour on tour.tour_id = tour_type_tour.tour_id", "tour.*", "tour_type_tour.tour_type_id = " + $stateParams.txtId, "order by tour.tour_id asc");
 	else
 		DataBaseService.getSelectRsTable("TourDistribution", "*", "categoryType = 2 and id = " + $stateParams.txtId, "order by name asc");
-	var interv = setInterval(function() {
+	
+	var intervTour = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
-			clearInterval(interv);
+			clearInterval(intervTour);
 			DataBaseService.setReadyRsModel(false);
 			var rs = DataBaseService.getRsModel();
 			for (var i = 0; i < rs.length; i++) {
 				$scope.tourModel.push(rs.item(i));
 			}
 			setTimeout(function() {
+				Mi.motion.blindsDown({
+					selector : '.card'
+				});
 				Waves.displayEffect();
-			}, 1300);
+			}, 1200);
 		}
-	}, 250);
+	}, 100);
 	$scope.goTo = function(txtState, txtId) {
 		console.log("$scope.goTo");
 		console.log("txtState:" + txtState);
@@ -509,15 +521,15 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			txtId : txtId
 		});
 	};
-})
-
-.controller('TourDetailsCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
+}).controller('TourDetailsCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
 	$scope.siteTourDetailModel = [];
 	$scope.siteTourDetailContent = '';
-	DataBaseService.getSelectRsTable("TourDistribution", "*", "categoryType = 2 and id = " + $stateParams.txtId, "");
-	var interv = setInterval(function() {
+	
+	DataBaseService.getSelectRsTable("tour", "*", "tour_id = " + $stateParams.txtId, "");
+	
+	var intervTourDet = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
-			clearInterval(interv);
+			clearInterval(intervTourDet);
 			DataBaseService.setReadyRsModel(false);
 			var rs = DataBaseService.getRsModel();
 			for (var i = 0; i < rs.length; i++) {
@@ -526,7 +538,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			}
 
 			$scope.siteTourRouteModel = [];
-			DataBaseService.getSelectRsTable("GeographicDistribution", "*", "id in (SELECT siteId FROM TourSiteRoute WHERE tourId = " + $stateParams.txtId + ")", "");
+			DataBaseService.getSelectRsTable("place join tour_place on place.place_id = tour_place.place_id", "place.*", "tour_place.tour_id = " + $stateParams.txtId, "order by tour_place.id asc");
 			var interv2 = setInterval(function() {
 				if (DataBaseService.getReadyRsModel()) {
 					clearInterval(interv2);
@@ -542,10 +554,10 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 						Waves.displayEffect();
 					}, 1300);
 				}
-			}, 250);
+			}, 100);
 
 		}
-	}, 250);
+	}, 100);
 	$scope.goTo = function(txtState, txtId) {
 		console.log("$scope.goTo");
 		console.log("txtState:" + txtState);
@@ -554,17 +566,18 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			txtId : txtId
 		});
 	};
-})
-
-.controller('TourSiteProfileCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
+}).controller('TourSiteProfileCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
 	$scope.siteProfileModel = [];
 	$scope.siteProfileContent = '';
-	DataBaseService.getSelectRsTable("GeographicDistribution", "*", "categoryType = 3 and id = " + $stateParams.txtId, "");
-	var interv = setInterval(function() {
+	
+	DataBaseService.getSelectRsTable("place join tour_place on place.place_id = tour_place.place_id", "place.*", "tour_place.tour_id = " + $stateParams.txtId, "order by tour_place.id asc");
+	
+	var intervTourSite = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
-			clearInterval(interv);
+			clearInterval(intervTourSite);
 			DataBaseService.setReadyRsModel(false);
 			var rs = DataBaseService.getRsModel();
+			console.log("rs:"+rs.length);
 			for (var i = 0; i < rs.length; i++) {
 				$scope.siteProfileModel.push(rs.item(i));
 				if ($stateParams.txtTabId == 'services') {
@@ -576,14 +589,16 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 				}
 			}
 			setTimeout(function() {
-				Mi.motion.fadeSlideInRight({
-					selector : '.animate-fade-slide-in-right > *'
+				Mi.motion.blindsDown({
+					selector : '.card'
 				});
 				Waves.displayEffect();
-			}, 1300);
+			}, 1100);
 		}
-	}, 250);
+	}, 100);
+	
 	$scope.images = [];
+	
 	$scope.loadImages = function() {
 		DataBaseService.getSelectRsTable("Gallery", "*", "fatherId = " + $stateParams.txtSiteId, "");
 		var interv = setInterval(function() {
@@ -601,6 +616,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			}
 		}, 250);
 	};
+	
 	$scope.goTo = function(txtState, txtId, txtTabId) {
 		console.log("$scope.goTo");
 		console.log("txtState:" + txtState);
@@ -611,6 +627,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			txtTabId : txtTabId
 		});
 	};
+	
 	$scope.goToGallerySite = function(txtId) {
 		console.log("$scope.goTo");
 		console.log("txtState:app.siteProfile");
@@ -620,12 +637,10 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			txtTabId : 'gallery'
 		});
 	};
-})
+}).controller('MyToursCtrl', function($scope, $state, DataBaseService, $stateParams) {
 
-.controller('MyToursCtrl', function($scope, $state, DataBaseService, $stateParams) {
-	
 	console.log("MyToursCtrl");
-	
+
 	$scope.myTourListModel = [];
 	if ($stateParams.isSearch == null)
 		DataBaseService.getSelectRsTable("MyTourDistribution", "*", "1 = 1", "order by name asc");
@@ -652,25 +667,25 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 		console.log("$scope.goTo");
 		console.log("txtState:" + txtState);
 		console.log("txtId:" + txtId);
-		$state.go(txtState, {txtId: txtId});
+		$state.go(txtState, {
+			txtId : txtId
+		});
 	};
 	$scope.goToCreateTour = function() {
 		console.log("$scope.goToCreateTour");
 		$state.go("app.CreateTour");
 	};
-})
-
-.controller('CreateTourCtrl', function($scope, $state, DataBaseService, $stateParams, $ionicPopup, $ionicHistory) {
-	$scope.createTourModel;
+}).controller('CreateTourCtrl', function($scope, $state, DataBaseService, $stateParams, $ionicPopup, $ionicHistory) {
+	$scope.createTourModel
 	$scope.siteListModel = [];
 	$scope.siteListTourModel = [];
-	
+
 	console.log("CreateTourCtrl");
-	
-	if($stateParams.loadSitesList==null || $stateParams.loadSitesList=="") {
-		if ($stateParams.txtIds!=null && $stateParams.txtIds!="") {
+
+	if ($stateParams.loadSitesList == null || $stateParams.loadSitesList == "") {
+		if ($stateParams.txtIds != null && $stateParams.txtIds != "") {
 			console.log("cargar sitios agregados");
-			DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization", "categoryType = 3 and id in ("+$stateParams.txtIds+")", "");
+			DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization", "categoryType = 3 and id in (" + $stateParams.txtIds + ")", "");
 			var interv = setInterval(function() {
 				if (DataBaseService.getReadyRsModel()) {
 					clearInterval(interv);
@@ -690,8 +705,8 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			}, 250);
 		}
 	}
-	
-	if($stateParams.loadSitesList=="true") {
+
+	if ($stateParams.loadSitesList == "true") {
 		console.log("cargando sitios...");
 		DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization", "categoryType = 3", "order by name asc");
 		var interv = setInterval(function() {
@@ -712,21 +727,26 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			}
 		}, 250);
 	}
-	
+
 	$scope.goToSiteList = function() {
 		console.log("$scope.goToSiteList");
-		$state.go("app.SiteList", {txtIds: $stateParams.txtIds, loadSitesList:"true"});
+		$state.go("app.SiteList", {
+			txtIds : $stateParams.txtIds,
+			loadSitesList : "true"
+		});
 	};
 	$scope.goAddSiteToList = function(txtId) {
 		console.log("$scope.goAddSiteToList");
-		console.log("txtIds:"+$stateParams.txtIds);
-		console.log("txtId:"+txtId);
-		if ($stateParams.txtIds==null || $stateParams.txtIds=="") {
+		console.log("txtIds:" + $stateParams.txtIds);
+		console.log("txtId:" + txtId);
+		if ($stateParams.txtIds == null || $stateParams.txtIds == "") {
 			$stateParams.txtIds = txtId;
 		} else {
-			$stateParams.txtIds = $stateParams.txtIds+","+txtId;
+			$stateParams.txtIds = $stateParams.txtIds + "," + txtId;
 		}
-		$state.go("app.CreateTour", {txtIds: $stateParams.txtIds});
+		$state.go("app.CreateTour", {
+			txtIds : $stateParams.txtIds
+		});
 	};
 	$scope.goTo = function(txtState) {
 		console.log("$scope.goTo");
@@ -735,7 +755,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 		$state.go(txtState);
 	};
 	$scope.createTour = function() {
-		
+
 		var alerta = false;
 		if ($scope.createTourModel == null || $scope.createTourModel == "") {
 			$scope.logTitleMsg = "Error";
@@ -766,17 +786,10 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			});
 		} else {
 			var registerValue = [];
-			registerValue[0] = [
-				$scope.createTourModel.name,
-				$scope.createTourModel.introduction
-			];
-			
-			DataBaseService.doInsertTable(
-	      		"MyTourDistribution", 
-	      		"name, introduction", 
-	      		registerValue
-	      	);
-	      	DataBaseService.getSelectRsTable("MyTourDistribution", "*", "name = '"+$scope.createTourModel.name+"' and introduction = '"+$scope.createTourModel.introduction+"'", "");
+			registerValue[0] = [$scope.createTourModel.name, $scope.createTourModel.introduction];
+
+			DataBaseService.doInsertTable("MyTourDistribution", "name, introduction", registerValue);
+			DataBaseService.getSelectRsTable("MyTourDistribution", "*", "name = '" + $scope.createTourModel.name + "' and introduction = '" + $scope.createTourModel.introduction + "'", "");
 			var interv = setInterval(function() {
 				if (DataBaseService.getReadyRsModel()) {
 					clearInterval(interv);
@@ -785,19 +798,11 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 					var rows = [];
 					for (var i = 0; i < rs.length; i++) {
 						var idsList = $stateParams.txtIds.split(",");
-				      	var registerValue2 = [];
-				      	for (j = 0; j < idsList.length; j++) {
-				  			registerValue2[j] = [
-					      	  	rs.item(i).id,
-					      	  	idsList[j],
-					      	  	j
-				      	  	];
-				        }
-				      	DataBaseService.doInsertTable(
-				      		"MyTourSiteRoute", 
-				      		"tourId, siteId, inOrder", 
-				      		registerValue2
-				      	);
+						var registerValue2 = [];
+						for ( j = 0; j < idsList.length; j++) {
+							registerValue2[j] = [rs.item(i).id, idsList[j], j];
+						}
+						DataBaseService.doInsertTable("MyTourSiteRoute", "tourId, siteId, inOrder", registerValue2);
 					}
 					$scope.logTitleMsg = "OK";
 					$scope.msg = "Felicidades, tour creado!";
@@ -812,13 +817,11 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 					});
 				}
 			}, 250);
-      	}
+		}
 	};
-})
-
-.controller('MyTourSiteListCtrl', function($scope, $state, DataBaseService, $stateParams) {
+}).controller('MyTourSiteListCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.MyTourSiteListModel = [];
-	DataBaseService.getSelectRsTable("GeographicDistribution", "*", "id in (SELECT siteId FROM MyTourSiteRoute WHERE tourId = " + $stateParams.txtId+")", "");
+	DataBaseService.getSelectRsTable("GeographicDistribution", "*", "id in (SELECT siteId FROM MyTourSiteRoute WHERE tourId = " + $stateParams.txtId + ")", "");
 	var interv = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
 			clearInterval(interv);
@@ -839,7 +842,6 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 		});
 	};
 })
-
 //Controlador Login
 .controller('LoginCtrl', ['$scope', '$http', '$ionicPopup', '$ionicSideMenuDelegate', '$state', '$rootScope',
 function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope) {
@@ -945,4 +947,4 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 			console.log("-- ERROR:" + err.status);
 		});
 	};
-}]); 
+}]);

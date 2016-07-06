@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<regions>
+		<!-- METROPOLITANA -->
+		<register>
+			<region_id>1</region_id>
+			<name>Ciudad de Guatemala</name>
+			<introduction>Moderna y Colonial</introduction>
+			<content>Informacion de la ciudad de Guatemala...</content>
+			<thumbnail>ThumbMetro02.jpg</thumbnail>
+		</register>
+		<!-- NOR-ORIENTAL -->
+		<!-- Chiquimula, El Progreso, Izabal y Zacapa -->
+		<register>
+			<region_id>2</region_id>
+			<name>Nor-Oriental</name>
+			<introduction>un Caribe Verde</introduction>
+			<content>Informacion de Izabal...</content>
+			<thumbnail>ThumbNorOriental01.jpg</thumbnail>
+		</register>
+		<!-- CENTRAL -->
+		<!-- Chimaltenango, Escuintla y Sacatepequez -->
+		<register>
+			<region_id>3</region_id>
+			<name>Central</name>
+			<introduction>un Caribe Verde</introduction>
+			<content>Informacion de Izabal...</content>
+			<thumbnail>ThumbCentral01.jpg</thumbnail>
+		</register>
+		<!-- SUR-OCCIDENTE -->
+		<!-- Quetzaltenango, Retalhuleu, San Marcos, Solola, Suchitepequez y Totonicapan -->
+		<register>
+			<region_id>4</region_id>
+			<name>Sur-Occidente</name>
+			<introduction>un Caribe Verde</introduction>
+			<content>Informacion de Izabal...</content>
+			<thumbnail>ThumbSurOccidente01.jpg</thumbnail>
+		</register>
+		<!-- PETEN -->
+		<register>
+			<region_id>5</region_id>
+			<name>Peten</name>
+			<introduction>Aventura en el Mundo Maya</introduction>
+			<content>Informacion de Peten...</content>
+			<thumbnail>ThumbPeten01.jpg</thumbnail>
+		</register>
+		
+	</regions>
+</application>
