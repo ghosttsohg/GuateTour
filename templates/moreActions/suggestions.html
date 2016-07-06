@@ -1,0 +1,74 @@
+<ion-view title='<img class="title-image" src="img/logo/Logo-trans5.png" height="60" />'>
+	<ion-content style="background: url(./templates/images/welcome/suggestion.jpg) center; background-size: cover; background-color:rgb(255,0,0,0.5);">
+		<div class="ionic login" ng-controller="SuggestCtrl" ng-submit="suggestion()"></br>
+			<div class="hero flat">
+				<div class="content" align="center">
+	      	<i class="ion-android-camera hero-icon royal-bg" style="font-size: 110px;" ></i>
+	      </div>
+	    </div>
+    <div class="list">
+			<label class="item item-input item-md-label" highlight-color="balanced">
+				<input type="text" class="used" ng-model="reg.place" ng-change="showChanged(reg.place)" required = "required">
+					<span class="input-label" >*Nombre del Lugar</span>
+					<div class="highlight highlight-balanced">
+					</div>
+						<h6 style="color: rgb(255, 255, 255);">
+						<span ng-if="id === '2'">
+							  * {{errorMsg}}
+						</span>
+						</h6>
+			</label>
+      <label class="item item-input item-md-label" highlight-color="energized">
+				<input type="text" class="used" ng-model="reg.location" ng-change="showChanged1(reg.location)" required = "required">
+					<span class="input-label">*Departamento</span>
+					<div class="highlight highlight-energized"></div>
+					<h6 style="color: rgb(255, 255, 255);">
+					<span ng-if="id === '3'">
+					* {{errorMsg}}
+					</span>
+					</h6>
+			</label>
+			<label class="item item-input item-md-label" highlight-color="positive">
+					<input type="text" class="used" ng-model="reg.description" ng-change="showChanged1(reg.description)" required = "required">
+						<span class="input-label">*Descripción Breve</span>
+						<div class="highlight highlight-positive"></div>
+						<h6 style="color: rgb(255, 255, 255);">
+							<span ng-if="id === '5'">
+							  * {{errorMsg}}
+							</span>
+						</h6>
+				</label>
+				<label class="item item-input item-md-label" highlight-color="assertive">
+					<input type="email" class="used" ng-model="reg.email" ng-change="showChanged(reg.email)" required = "required">
+						<span class="input-label">*E-mail</span>
+						<div class="highlight highlight-assertive"></div>
+						<h6 style="color: rgb(255, 255, 255);">
+						<span ng-if="id === '4'">
+						  * {{errorMsg}}
+						</span>
+						<span ng-if="id === '7'">
+								  * {{errorMsg}}
+						</span>
+						</h6>
+					</label>
+					<label class="item item-input item-md-label" highlight-color="energized">
+						<input type="file" name="uploadFile" style="font-size:12px;" class="used" required = "required"
+							ng-model="reg.image" ng-change="showChanged1(reg.image)"/>
+						<div class="highlight highlight-energized"></div>
+						<h6 style="color: rgb(255, 255, 255);">
+							<span ng-if="id === '6'">
+								* {{errorMsg}}
+							</span>
+						</h6>
+					</label>
+	        </div>
+
+					<h6 style="color: rgb(255, 255, 255);">*Campos requeridos</h6>
+	        <div class="padding" ng-con>
+	            <button type="submit" class="button button-block button-calm waves-effect waves-light" ng-click='suggestion()'>
+								Enviar
+							</button>
+	        </div>
+	  </div>
+	</ion-content>
+</ion-view>
