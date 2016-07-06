@@ -1,14 +1,14 @@
-<ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />'>
+<ion-view title='<img class="title-image" src="img/logo/Logo-trans5.png" height="60" />'>
 	<ion-content style="background: url(./templates/images/welcome/suggestion.jpg) center; background-size: cover; background-color:rgb(255,0,0,0.5);">
-		<div class="ionic login" ng-controller="SigninCtrl" ng-submit="signin()"></br>
+		<div class="ionic login" ng-controller="SuggestCtrl" ng-submit="suggestion()"></br>
 			<div class="hero flat">
 				<div class="content" align="center">
 	      	<i class="ion-android-camera hero-icon royal-bg" style="font-size: 110px;" ></i>
 	      </div>
 	    </div>
     <div class="list">
-			<label class="item item-input item-md-label" highlight-color="balanced" type="text">
-				<input type="text" class="used" ng-model="reg.name" ng-change="showChanged(reg.name)" required>
+			<label class="item item-input item-md-label" highlight-color="balanced">
+				<input type="text" class="used" ng-model="reg.place" ng-change="showChanged(reg.place)" required = "required">
 					<span class="input-label" >*Nombre del Lugar</span>
 					<div class="highlight highlight-balanced">
 					</div>
@@ -18,9 +18,9 @@
 						</span>
 						</h6>
 			</label>
-      <label class="item item-input item-md-label" highlight-color="energized" type="text">
-				<input type="text" class="used" ng-model="reg.surname" ng-change="showChanged1(reg.surname)">
-					<span class="input-label">*Ubicación</span>
+      <label class="item item-input item-md-label" highlight-color="energized">
+				<input type="text" class="used" ng-model="reg.location" ng-change="showChanged1(reg.location)" required = "required">
+					<span class="input-label">*Departamento</span>
 					<div class="highlight highlight-energized"></div>
 					<h6 style="color: rgb(255, 255, 255);">
 					<span ng-if="id === '3'">
@@ -28,20 +28,20 @@
 					</span>
 					</h6>
 			</label>
-			<label class="item item-input item-md-label" placeholder="Username" highlight-color="energized" type="password">
-					<input type="text" class="used" ng-model="reg.username" ng-change="showChanged1(reg.username)">
+			<label class="item item-input item-md-label" highlight-color="positive">
+					<input type="text" class="used" ng-model="reg.description" ng-change="showChanged1(reg.description)" required = "required">
 						<span class="input-label">*Descripción Breve</span>
-						<div class="highlight highlight-energized"></div>
+						<div class="highlight highlight-positive"></div>
 						<h6 style="color: rgb(255, 255, 255);">
 							<span ng-if="id === '5'">
 							  * {{errorMsg}}
 							</span>
 						</h6>
 				</label>
-				<label class="item item-input item-md-label" highlight-color="balanced" type="text">
-					<input type="email" class="used" ng-model="reg.email" ng-change="showChanged(reg.email)">
+				<label class="item item-input item-md-label" highlight-color="assertive">
+					<input type="email" class="used" ng-model="reg.email" ng-change="showChanged(reg.email)" required = "required">
 						<span class="input-label">*E-mail</span>
-						<div class="highlight highlight-balanced"></div>
+						<div class="highlight highlight-assertive"></div>
 						<h6 style="color: rgb(255, 255, 255);">
 						<span ng-if="id === '4'">
 						  * {{errorMsg}}
@@ -51,10 +51,10 @@
 						</span>
 						</h6>
 					</label>
-					<label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="textbox">
-						<input type="text" class="used" ng-model="reg.pass" ng-change="showChanged1(reg.pass)">
-						<span class="input-label">*Adjuntar imagen</span>
-						<input type="file" name="uploadFile" style="font-size:12px;" class="used" ng-model="reg.pass" ng-change="showChanged1(reg.pass)"/>
+					<label class="item item-input item-md-label" highlight-color="energized">
+						<input type="file" name="uploadFile" style="font-size:12px;" class="used" required = "required"
+							ng-model="reg.image" ng-change="showChanged1(reg.image)"/>
+						<div class="highlight highlight-energized"></div>
 						<h6 style="color: rgb(255, 255, 255);">
 							<span ng-if="id === '6'">
 								* {{errorMsg}}
@@ -62,12 +62,13 @@
 						</h6>
 					</label>
 	        </div>
-			<h6 style="color: rgb(255, 255, 255);">*Campos requeridos</h6>
-	        <div class="padding">
+
+					<h6 style="color: rgb(255, 255, 255);">*Campos requeridos</h6>
+	        <div class="padding" ng-con>
 	            <button type="submit" class="button button-block button-calm waves-effect waves-light" ng-click='suggestion()'>
 								Enviar
 							</button>
 	        </div>
-	    </div>
+	  </div>
 	</ion-content>
 </ion-view>

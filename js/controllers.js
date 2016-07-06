@@ -995,13 +995,15 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 		console.log("--- $scope.reg.location:" + $scope.reg.location + " ---");
 		console.log("--- $scope.reg.description:" + $scope.reg.description + " ---");
 		console.log("--- $scope.reg.email:" + $scope.reg.email + " ---");
+		console.log("--- $scope.reg.image:" + $scope.reg.image + " ---");
 
-		$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/suggestion?place="
-			+$scope.place+ "&location=" +$scope.location+ "&description=" +$scope.description+ "&email=" +$scope.email+ "&image" +$scope.image + "";
-			//+ $scope.user.username + "&pass=" + $scope.user.pass + "";
+	/*	$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/suggestion?place="
+			+$scope.reg.place+ "&location=" +$scope.reg.location+ "&description=" +$scope.reg.description+ "&email=" +$scope.reg.email
+			+"&image" +$scope.reg.image + "";*/
+
 			//$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user="
 
-		$http.get($scope.urlWS).then(function(resp) {
+	/*	$http.get($scope.urlWS).then(function(resp) {
 			$scope.errorMsg = resp.data.message;
 			$scope.id = resp.data.id;
 			console.log("-- OK --" + $scope.id);
@@ -1034,7 +1036,7 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 			console.error('ERR', err);
 			// err.status will contain the status code
 			console.log("-- ERROR:" + err.status);
-		});
+		});*/
 	};
 }])
 ;
