@@ -1,15 +1,12 @@
 <ion-view title='<img class="title-image" src="images/app/Logo-trans-header.png" height="60" />'>
 	<ion-content style="background: url(./templates/images/welcome/loginScreen.jpg) center; background-size: cover;">
 		<div class="ionic login" ng-controller="LoginCtrl" ng-submit="login()"><br />
-	        <div class="hero no-header flat">
-				<div class="content">
-	                <i class="ion-map icon hero-icon royal-bg" ></i>
-	                <h1 style="color: rgb(255, 255, 255); letter-spacing: 0.15rem; font-family:MV Boli; margin:0; 
-						padding:20px 0px 0px 0px; font-size:40px;">DESTINOS</h1>
-					<p style="color:white; font-family:MV Boli; text-align:center; text-decoration: overline;
-						font-size:100%;">Guatemala, pa&iacute;s de la eterna primavera</p>
-	            </div>
-	        </div>
+			      <div class="hero flat">
+      				<div class="content" align="center">
+      	      	<i class="ion-map hero-icon energized-bg" style="font-size: 100px;" ></i>
+      	      </div>
+      	    </div>
+
 	        <div class="list">
 				<label class="item item-input item-md-label" placeholder="Username" highlight-color="balanced" type="text">
 					<input type="text" class="used" ng-model="user.username">
@@ -17,7 +14,7 @@
 						<div class="highlight highlight-balanced"></div>
 						 <span ng-show="$error.required">Username is required.</span>
 				</label>
-	
+
 	            <label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="password">
 					<input type="password" class="used" ng-model="user.pass"  >
 						<span class="input-label">Password</span>
@@ -25,14 +22,21 @@
 				</label>
 	        </div>
 	        <div class="padding">
-	            <button type="submit" class="button button-block button-positive waves-effect waves-button waves-light" ng-click='login(user)'>Login</button>
-						 
+				<button type="submit" class="button button-block button-balanced waves-effect waves-button waves-light" ng-click='login(user)'>
+				Sign in</button>
+
 	        </div>
-			<div class="padding" align="center" ng-controller="MenuCtrl">
-	            <button type="submit" class="button button-small button-assertive waves-effect waves-button waves-light" ng-click="goTo('app.signin');">Registrarme</button>
-				<button type="submit" class="button button-small button-balanced waves-effect waves-button waves-light" ng-click="goToMenu();">No, gracias</button>
-		 
-	        </div>
+			<br /><br />
+			<div class="padding" ng-controller="FacebookLoginCtrl">
+			    <button type="submit" class="button button-block button-positive waves-effect waves-light button-border icon-left ion-social-facebook"
+				ng-click='facebookSignIn()'>
+			   Sing in with Facebook</button>
+		    </div>
+			<div class="padding"  ng-controller="MenuCtrl">
+				<button type="submit" style="float: right;" class="button button-clear button-energized waves-effect waves-button waves-light" ng-click="goTo('app.signin');">
+				Sign Up</button>
+			</div>
+			<br /><br /><br />
 		</div>
 	</ion-content>
 </ion-view>

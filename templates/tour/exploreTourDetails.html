@@ -19,12 +19,21 @@
 				</div>
 
 				<div class="list animate-fade-slide-in-right">
-					<a ng-repeat="site in siteTourRouteModel"
-					ng-click="goTo('app.tourSite', {{site.id}});"
-					class="item item-avatar waves-effect waves-button waves-light in done"
-					style="background:none;"> <span class="avatar" style="background-image: url(&#39;./templates/images/thumbnails/{{site.previsualization}}&#39;);"></span> <h3 class="text-h3">{{site.name}}</h3> <h4 class="text-h4">{{site.introduction}}</h4> </a>
+	                <a ng-repeat="site in siteTourRouteModel"
+	                   ng-click="goTo('app.tourSite', {{site.id}});"
+	                   class="item item-avatar waves-effect waves-button waves-light in done"
+	                   style="background:none;">
+	                    <span class="avatar" style="background-image: url(&#39;./templates/images/thumbnails/{{site.previsualization}}&#39;);"></span>
+	                    <h3 class="text-h3">{{site.name}}</h3>
+	                    <h4 class="text-h4">{{site.introduction}}</h4>
+	                </a>
+	            </div>
+				<div class="padding" align="center">
+					<button  type="submit" class="button button-medium button-positive waves-effect waves-button waves-light"
+						onclick="window.plugins.socialsharing.share('Explora Guatemala! Descarga DestinosGT', null,
+						'http://farm4.static.flickr.com/3581/3465095838_89a5c51440.jpg', 'https://play.google.com/store/search?q=DestinosGT')">
+						Compartir</button>
 				</div>
-
 			</div>
 
 		</div>
