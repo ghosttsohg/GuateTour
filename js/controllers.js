@@ -1,4 +1,5 @@
-angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCtrl', function($scope, $ionicModal, $timeout, DataBaseService) {
+angular.module('starter.controllers', ['ionic', 'ngResource'])
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, DataBaseService) {
 
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
@@ -237,7 +238,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 
 		var confirmPopup = $ionicPopup.confirm({
 			title : '<div class="titlePopup">LOGOUT</div>',
-			template : '<div class="templatePopup">¿Estás seguro que cerrar tu sesión?</div>'
+			template : '<div class="templatePopup">¿Estás seguro que deseas cerrar tu sesión?</div>'
 		});
 
 		confirmPopup.then(function(res) {
@@ -639,6 +640,11 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 	};
 }).controller('MyToursCtrl', function($scope, $state, DataBaseService, $stateParams) {
 
+<<<<<<< HEAD
+=======
+.controller('MyToursCtrl', function($scope, $state, DataBaseService, $stateParams) {
+
+>>>>>>> origin/master
 	console.log("MyToursCtrl");
 
 	$scope.myTourListModel = [];
@@ -682,8 +688,13 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 
 	console.log("CreateTourCtrl");
 
+<<<<<<< HEAD
 	if ($stateParams.loadSitesList == null || $stateParams.loadSitesList == "") {
 		if ($stateParams.txtIds != null && $stateParams.txtIds != "") {
+=======
+	if($stateParams.loadSitesList==null || $stateParams.loadSitesList=="") {
+		if ($stateParams.txtIds!=null && $stateParams.txtIds!="") {
+>>>>>>> origin/master
 			console.log("cargar sitios agregados");
 			DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization", "categoryType = 3 and id in (" + $stateParams.txtIds + ")", "");
 			var interv = setInterval(function() {
@@ -706,7 +717,11 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 		}
 	}
 
+<<<<<<< HEAD
 	if ($stateParams.loadSitesList == "true") {
+=======
+	if($stateParams.loadSitesList=="true") {
+>>>>>>> origin/master
 		console.log("cargando sitios...");
 		DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization", "categoryType = 3", "order by name asc");
 		var interv = setInterval(function() {
@@ -786,10 +801,24 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 			});
 		} else {
 			var registerValue = [];
+<<<<<<< HEAD
 			registerValue[0] = [$scope.createTourModel.name, $scope.createTourModel.introduction];
 
 			DataBaseService.doInsertTable("MyTourDistribution", "name, introduction", registerValue);
 			DataBaseService.getSelectRsTable("MyTourDistribution", "*", "name = '" + $scope.createTourModel.name + "' and introduction = '" + $scope.createTourModel.introduction + "'", "");
+=======
+			registerValue[0] = [
+				$scope.createTourModel.name,
+				$scope.createTourModel.introduction
+			];
+
+			DataBaseService.doInsertTable(
+	      		"MyTourDistribution",
+	      		"name, introduction",
+	      		registerValue
+	      	);
+	      	DataBaseService.getSelectRsTable("MyTourDistribution", "*", "name = '"+$scope.createTourModel.name+"' and introduction = '"+$scope.createTourModel.introduction+"'", "");
+>>>>>>> origin/master
 			var interv = setInterval(function() {
 				if (DataBaseService.getReadyRsModel()) {
 					clearInterval(interv);
@@ -798,11 +827,27 @@ angular.module('starter.controllers', ['ionic', 'ngResource']).controller('AppCt
 					var rows = [];
 					for (var i = 0; i < rs.length; i++) {
 						var idsList = $stateParams.txtIds.split(",");
+<<<<<<< HEAD
 						var registerValue2 = [];
 						for ( j = 0; j < idsList.length; j++) {
 							registerValue2[j] = [rs.item(i).id, idsList[j], j];
 						}
 						DataBaseService.doInsertTable("MyTourSiteRoute", "tourId, siteId, inOrder", registerValue2);
+=======
+				      	var registerValue2 = [];
+				      	for (j = 0; j < idsList.length; j++) {
+				  			registerValue2[j] = [
+					      	  	rs.item(i).id,
+					      	  	idsList[j],
+					      	  	j
+				      	  	];
+				        }
+				      	DataBaseService.doInsertTable(
+				      		"MyTourSiteRoute",
+				      		"tourId, siteId, inOrder",
+				      		registerValue2
+				      	);
+>>>>>>> origin/master
 					}
 					$scope.logTitleMsg = "OK";
 					$scope.msg = "Felicidades, tour creado!";
@@ -858,9 +903,15 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 	//Funcion que ejecuta el login
 	$scope.login = function(user) {
 		console.log("--- user.username:" + $scope.user.username + " - user.pass:" + $scope.user.pass + " ---");
-		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user=" + $scope.user.username + "&pass=" + $scope.user.pass + "";
+		//$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user="
+		$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/login?user="
+		+ $scope.user.username + "&pass=" + $scope.user.pass + "";
+
+
+
 		$http.get($scope.urlWS).then(function(resp) {
 			$scope.errorMsg = resp.data.message;
+
 			if (resp.data.id == '0') {
 				console.log("-- ERROR --" + resp.data.id);
 				$scope.logTitleMsg = "Error";
@@ -874,22 +925,44 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 				$scope.btn = "positive";
 				$rootScope.logged = resp.data.username;
 			}
+
 			var alertPopup = $ionicPopup.alert({
 				title : '<div class="titlePopup">' + $scope.logTitleMsg + '</div>',
 				template : '<div class="templatePopup">' + $scope.msg + '</div>',
 				okType : 'button-' + $scope.btn,
 			});
+
 			alertPopup.then(function(res) {
 				console.log('Thank you:' + res);
 				if (res && resp.data.id == '1') {
 					$state.go('app.welcome');
 					$ionicSideMenuDelegate.toggleLeft();
+				}else{
+					$state.go('app.login');
 				}
 			});
 		}, function(err) {
-			console.error('ERR', err);
-			console.log("-- ERROR:" + err.status);
+			console.log("-- ERROR:--" + err.status);
+
+			if (err.status == '503') {
+
+				var alertPopupError = $ionicPopup.alert({
+				title : '<div class="titlePopup"> Error </div>',
+				template : '<div class="templatePopup">Ups! Lo sentimos, en este momento no es posible realizar esta acción, por favor intenta más tarde.</div>',
+				okType : 'button-energized',
+				});
+				alertPopupError.then(function(res) {
+					console.log("--Resp data id fin---");
+				});
+			}
+
 		});
+
+	$scope.welcomeName = null;
+	$scope.logTitleMsg = null;
+	$scope.msg = null;
+	$scope.errorMsg = null;
+	$scope.btn = null;
 	};
 }])
 
@@ -909,9 +982,9 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 	$scope.urlWS = "";
 	//Función para creación del nuevo usuario
 	$scope.signin = function(reg) {
-		//		$scope.urlWS = "http://192.168.1.6:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
-		//			+"&email="+$scope.reg.email +"&user="+$scope.reg.username +"&pass="+$scope.reg.pass;
-		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login/registro?nombre=" + $scope.reg.name + "&apellido=" + $scope.reg.surname + "&email=" + $scope.reg.email + "&user=" + $scope.reg.username + "&pass=" + $scope.reg.pass;
+		$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
+		//$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login/registro?nombre=" + $scope.reg.name + "&apellido=" + $scope.reg.surname
+					+"&email=" + $scope.reg.email + "&user=" + $scope.reg.username + "&pass=" + $scope.reg.pass;
 		$http.get($scope.urlWS).then(function(resp) {
 			$scope.errorMsg = resp.data.message;
 			$scope.id = resp.data.id;
@@ -947,4 +1020,73 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 			console.log("-- ERROR:" + err.status);
 		});
 	};
+<<<<<<< HEAD
 }]);
+=======
+}])
+
+//Suggestion Controller
+.controller('SuggestCtrl', ['$scope', '$http', '$ionicPopup', '$ionicSideMenuDelegate', '$state', '$rootScope',
+function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope) {
+
+	//Variables
+	$scope.welcomeName = "";
+
+	//Arreglo para datos del usuario
+	$scope.reg = {};
+
+	//Variable para armar el WS con el user y pass
+	$scope.urlWS = "";
+
+		//Funcion que ejecuta el login
+	$scope.suggestion = function(user) {
+		console.log("--- $scope.reg.place:" + $scope.reg.place + " ---");
+		console.log("--- $scope.reg.location:" + $scope.reg.location + " ---");
+		console.log("--- $scope.reg.description:" + $scope.reg.description + " ---");
+		console.log("--- $scope.reg.email:" + $scope.reg.email + " ---");
+		console.log("--- $scope.reg.image:" + $scope.reg.image + " ---");
+
+	/*	$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/suggestion?place="
+			+$scope.reg.place+ "&location=" +$scope.reg.location+ "&description=" +$scope.reg.description+ "&email=" +$scope.reg.email
+			+"&image" +$scope.reg.image + "";*/
+
+			//$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user="
+
+	/*	$http.get($scope.urlWS).then(function(resp) {
+			$scope.errorMsg = resp.data.message;
+			$scope.id = resp.data.id;
+			console.log("-- OK --" + $scope.id);
+			if (resp.data.id == '1') {
+				console.log("-- OK --" + resp.data.id);
+				$scope.welcomeName = resp.data.username;
+				$scope.logTitleMsg = "Agradecemos tu colaboración";
+				$scope.msg = $scope.welcomeName;
+				$scope.btn = "positive";
+				$rootScope.logged = resp.data.username;
+			} else {
+				console.log("-- ERROR --" + resp.data.id);
+				$scope.logTitleMsg = "Error";
+				$scope.msg = $scope.errorMsg;
+				$scope.btn = "assertive";
+			}
+			var alertPopup = $ionicPopup.alert({
+				title : '<div class="titlePopup">' + $scope.logTitleMsg + '</div>',
+				template : '<div class="templatePopup">' + $scope.msg + '</div>',
+				okType : 'button-' + $scope.btn,
+			});
+			alertPopup.then(function(res) {
+				console.log('Thank you:' + res);
+				if (res && resp.data.id == '1') {
+					$state.go('app.welcome');
+					$ionicSideMenuDelegate.toggleLeft();
+				}
+			});
+		}, function(err) {
+			console.error('ERR', err);
+			// err.status will contain the status code
+			console.log("-- ERROR:" + err.status);
+		});*/
+	};
+}])
+;
+>>>>>>> origin/master
