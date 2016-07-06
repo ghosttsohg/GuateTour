@@ -1,9 +1,12 @@
-<ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />'>
-	<ion-content style="background: url(./templates/images/welcome/loginScreen.jpg) center; background-size: 100%;">
+<ion-view title='<img class="title-image" src="img/logo/Logo-trans5.png" height="60" />'>
+	<ion-content style="background: url(./templates/images/welcome/login.jpg) center; background-size: 100%;">
 		<div class="ionic login" ng-controller="LoginCtrl" ng-submit="login()"><br />
-			<div class="content" align="center" >
-	            <i class="ion-map icon hero-icon" style="font-size: 75px; color:white;" ></i>
-            </div>
+			      <div class="hero flat">
+      				<div class="content" align="center">
+      	      	<i class="ion-map hero-icon energized-bg" style="font-size: 100px;" ></i>
+      	      </div>
+      	    </div>
+
 	        <div class="list">
 				<label class="item item-input item-md-label" placeholder="Username" highlight-color="balanced" type="text">
 					<input type="text" class="used" ng-model="user.username">
@@ -11,7 +14,7 @@
 						<div class="highlight highlight-balanced"></div>
 						 <span ng-show="$error.required">Username is required.</span>
 				</label>
-	
+
 	            <label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="password">
 					<input type="password" class="used" ng-model="user.pass"  >
 						<span class="input-label">Password</span>
@@ -21,11 +24,11 @@
 	        <div class="padding">
 				<button type="submit" class="button button-block button-balanced waves-effect waves-button waves-light" ng-click='login(user)'>
 				Sign in</button>
-						 
+
 	        </div>
 			<br /><br />
 			<div class="padding" ng-controller="FacebookLoginCtrl">
-			    <button type="submit" class="button button-block button-positive waves-effect waves-light button-border icon-left ion-social-facebook" 
+			    <button type="submit" class="button button-block button-positive waves-effect waves-light button-border icon-left ion-social-facebook"
 				ng-click='facebookSignIn()'>
 			   Sing in with Facebook</button>
 		    </div>
