@@ -639,12 +639,6 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 		});
 	};
 }).controller('MyToursCtrl', function($scope, $state, DataBaseService, $stateParams) {
-
-<<<<<<< HEAD
-=======
-.controller('MyToursCtrl', function($scope, $state, DataBaseService, $stateParams) {
-
->>>>>>> origin/master
 	console.log("MyToursCtrl");
 
 	$scope.myTourListModel = [];
@@ -688,13 +682,8 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 
 	console.log("CreateTourCtrl");
 
-<<<<<<< HEAD
 	if ($stateParams.loadSitesList == null || $stateParams.loadSitesList == "") {
 		if ($stateParams.txtIds != null && $stateParams.txtIds != "") {
-=======
-	if($stateParams.loadSitesList==null || $stateParams.loadSitesList=="") {
-		if ($stateParams.txtIds!=null && $stateParams.txtIds!="") {
->>>>>>> origin/master
 			console.log("cargar sitios agregados");
 			DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization", "categoryType = 3 and id in (" + $stateParams.txtIds + ")", "");
 			var interv = setInterval(function() {
@@ -717,11 +706,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 		}
 	}
 
-<<<<<<< HEAD
 	if ($stateParams.loadSitesList == "true") {
-=======
-	if($stateParams.loadSitesList=="true") {
->>>>>>> origin/master
 		console.log("cargando sitios...");
 		DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization", "categoryType = 3", "order by name asc");
 		var interv = setInterval(function() {
@@ -801,12 +786,6 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 			});
 		} else {
 			var registerValue = [];
-<<<<<<< HEAD
-			registerValue[0] = [$scope.createTourModel.name, $scope.createTourModel.introduction];
-
-			DataBaseService.doInsertTable("MyTourDistribution", "name, introduction", registerValue);
-			DataBaseService.getSelectRsTable("MyTourDistribution", "*", "name = '" + $scope.createTourModel.name + "' and introduction = '" + $scope.createTourModel.introduction + "'", "");
-=======
 			registerValue[0] = [
 				$scope.createTourModel.name,
 				$scope.createTourModel.introduction
@@ -818,7 +797,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 	      		registerValue
 	      	);
 	      	DataBaseService.getSelectRsTable("MyTourDistribution", "*", "name = '"+$scope.createTourModel.name+"' and introduction = '"+$scope.createTourModel.introduction+"'", "");
->>>>>>> origin/master
+
 			var interv = setInterval(function() {
 				if (DataBaseService.getReadyRsModel()) {
 					clearInterval(interv);
@@ -827,13 +806,6 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 					var rows = [];
 					for (var i = 0; i < rs.length; i++) {
 						var idsList = $stateParams.txtIds.split(",");
-<<<<<<< HEAD
-						var registerValue2 = [];
-						for ( j = 0; j < idsList.length; j++) {
-							registerValue2[j] = [rs.item(i).id, idsList[j], j];
-						}
-						DataBaseService.doInsertTable("MyTourSiteRoute", "tourId, siteId, inOrder", registerValue2);
-=======
 				      	var registerValue2 = [];
 				      	for (j = 0; j < idsList.length; j++) {
 				  			registerValue2[j] = [
@@ -847,7 +819,6 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 				      		"tourId, siteId, inOrder",
 				      		registerValue2
 				      	);
->>>>>>> origin/master
 					}
 					$scope.logTitleMsg = "OK";
 					$scope.msg = "Felicidades, tour creado!";
@@ -1020,12 +991,7 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 			console.log("-- ERROR:" + err.status);
 		});
 	};
-<<<<<<< HEAD
-}]);
-=======
 }])
-
-//Suggestion Controller
 .controller('SuggestCtrl', ['$scope', '$http', '$ionicPopup', '$ionicSideMenuDelegate', '$state', '$rootScope',
 function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope) {
 
@@ -1087,6 +1053,4 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 			console.log("-- ERROR:" + err.status);
 		});*/
 	};
-}])
-;
->>>>>>> origin/master
+}]);
