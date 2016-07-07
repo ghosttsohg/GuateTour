@@ -32,8 +32,8 @@ angular.module('starter', ['ionic', 'starter.controllers']).run(function($ionicP
 				templateUrl : 'templates/search/search.html'
 			}
 		}
-	}).state('app.exploreRegions', {
-		url : '/explore/exploreRegions?txtId&isSearch',
+	}).state('app.exploreRegion', {
+		url : '/explore/exploreRegion?txtId&isSearch',
 		views : {
 			'menuContent' : {
 				templateUrl : 'templates/explore/exploreRegion.html'

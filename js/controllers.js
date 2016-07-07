@@ -253,7 +253,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 }).controller('SearchResultCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.searchResultModel = [];
 	DataBaseService.setReadyRsModel(false);
-	DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization, Case categoryType When '1' then 'app.exploreRegions' when '2' then 'app.deptos' Else 'app.sites' end as navigationPath", "lower(name) like lower('%" + $stateParams.txtPattern + "%')", "");
+	DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization, Case categoryType When '1' then 'app.exploreRegion' when '2' then 'app.deptos' Else 'app.sites' end as navigationPath", "lower(name) like lower('%" + $stateParams.txtPattern + "%')", "");
 	var interv = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
 			clearInterval(interv);

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<images>
+		<!-- METROPOLITANA -->
+		<register>
+			<gallery_id>1</gallery_id>
+			<source>thumb_palaciogt1.jpg</source>
+		</register>
+		<register>
+			<gallery_id>1</gallery_id>
+			<source>thumb_palaciogt2.jpg</source>
+		</register>
+		<register>
+			<gallery_id>1</gallery_id>
+			<source>thumb_palaciogt6.jpg</source>
+		</register>
+		<register>
+			<gallery_id>1</gallery_id>
+			<source>thumb_palaciogt7.jpg</source>
+		</register>
+		<register>
+			<gallery_id>1</gallery_id>
+			<source>thumb_palaciogt8.jpg</source>
+		</register>
+		<register>
+			<gallery_id>1</gallery_id>
+			<source>thumb_palaciogt10.jpg</source>
+		</register>
+		<register>
+			<gallery_id>1</gallery_id>
+			<source>thumb_palaciogt12.jpg</source>
+		</register>
+		<register>
+			<gallery_id>1</gallery_id>
+			<source>thumb_palaciogt13.jpg</source>
+		</register>
+	</images>
+</application>

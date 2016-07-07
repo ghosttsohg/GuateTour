@@ -16,6 +16,9 @@ function fillDB(dbService) {
 	dbService.doDropTable("tour_type_tour");
 	dbService.doDropTable("tour_place");
 	
+	dbService.doDropTable("gallery");
+	dbService.doDropTable("image");
+	
 	// Create-fill Table Region
 	fillRegion(dbService);
 	
@@ -27,6 +30,9 @@ function fillDB(dbService) {
 	
 	// Create-fill Table TOUR-TYPE, TOUR, TOUR-TYPE-TOUR, TOUR-PLACE
 	fillTours(dbService);
+	
+	// Create-fill Table Gallery, Image
+	fillGallery(dbService);
 	
 	/*
 	// create MyTourDistribution
@@ -434,6 +440,75 @@ function fillTours(dbService) {
 	      		"tour_place", 
 	      		"tour_id, place_id", 
 	      		registerTourPlaceValue
+	      	);
+		}
+	);
+}
+
+function fillGallery(dbService) {
+	console.log("Create Gallery");
+	// create Table Gallery
+	dbService.doCreateTable(
+		"gallery", 
+		"id INTEGER PRIMARY KEY ASC, place_id INTEGER, gallery_id INTEGER, thumbnail TEXT"
+	);
+	console.log("fill Gallery");
+	jQuery.get("./data/09dataGalleryXML.xml", 
+		function(xml){
+			console.log("file:09dataGalleryXML.xml");
+			var json = jQuery.xml2json(xml); 
+	  		var registerPlaceGalleryValue = [];
+	      	if (json.gallery.register.length==null) {
+				registerPlaceGalleryValue[0] = [
+		      		json.gallery.register.place_id,
+		      		json.gallery.register.gallery_id,
+		      		json.gallery.register.thumbnail
+		      	];
+	      	} else {
+	      		for (i = 0; i < json.gallery.register.length; i++) {
+	      			registerPlaceGalleryValue[i] = [
+			      	  	json.gallery.register[i].place_id,
+			      		json.gallery.register[i].gallery_id,
+			      		json.gallery.register[i].thumbnail
+		      	  	];
+		        }
+	      	}
+	      	dbService.doInsertTable(
+	      		"gallery", 
+	      		"place_id, gallery_id, thumbnail", 
+	      		registerPlaceGalleryValue
+	      	);
+		}
+	);
+	console.log("Create Images");
+	// create Table Images
+	dbService.doCreateTable(
+		"images", 
+		"id INTEGER PRIMARY KEY ASC, gallery_id INTEGER, source TEXT"
+	);
+	console.log("fill Images");
+	jQuery.get("./data/10dataImagesXML.xml", 
+		function(xml){
+			console.log("file:10dataImagesXML.xml");
+			var json = jQuery.xml2json(xml); 
+	  		var registerImageValue = [];
+	      	if (json.images.register.length==null) {
+				registerImageValue[0] = [
+		      		json.images.register.gallery_id,
+		      		json.images.register.source
+		      	];
+	      	} else {
+	      		for (i = 0; i < json.images.register.length; i++) {
+	      			registerImageValue[i] = [
+			      	  	json.images.register[i].gallery_id,
+			      		json.images.register[i].source
+		      	  	];
+		        }
+	      	}
+	      	dbService.doInsertTable(
+	      		"images", 
+	      		"gallery_id, source", 
+	      		registerImageValue
 	      	);
 		}
 	);
