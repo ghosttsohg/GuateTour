@@ -89,7 +89,7 @@ angular.module('services', ['ionic', 'ngResource'])
 						console.log('--profile info fail', fail);
 					});
 				}else{
-					$state.go('app.welcome');
+					$state.go('app.browse');
 				}
       } else {
         // If (success.status === 'not_authorized') the user is logged in to Facebook,
