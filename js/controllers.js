@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic', 'ngResource'])
+angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, DataBaseService) {
 
 	// With the new view caching in Ionic, Controllers are only called
