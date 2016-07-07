@@ -1,10 +1,25 @@
 <ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />' cache-view="false" >
-  <ion-content>
+  <ion-content style="background: url(./templates/images/welcome/loginScreen.jpg) center; background-size: 100%;">
      <div class="list" >
-			<a class="item item-icon-left" href="#/app/moreActions/signin" >
-				<i class="icon ion-compose"></i>REGISTRO</a>
-			<a class="item item-icon-left" href="#/app/moreActions/help" >
-				<i class="icon">?</i>AYUDA</a>
-	</div>
+			    <div class="padding"  ng-controller="MenuCtrl">
+    		      <button type="submit" style="float: right;" class="button button-block button-energized waves-effect waves-light icon-right
+                ion-help" ng-click="goTo('app.help');">
+    					       Ayuda
+              </button>
+              <button type="submit" style="float: right;" class="button button-block button-balanced waves-effect waves-light icon-right
+                ion-compose" ng-click="goTo('app.signin');">
+    					       Registro
+              </button>
+              <button type="submit" style="float: right;" class="button button-block button-royal waves-effect waves-light icon-right
+                ion-android-mail" ng-click="goTo('app.suggestions');">
+      					     Sugerencias
+              </button>
+
+            <button  type="submit" class="button button-block button-calm waves-effect waves-light icon-right ion-person-stalker"
+              onclick="window.plugins.socialsharing.share('Explora Guatemala! Descarga DestinosGT', null,
+              'http://externo.icon.com.gt/DestinosGT/PS_1024X500.png', 'https://play.google.com/store/search?q=DestinosGT')">
+              Recomienda nuestra app!</button>
+          </div>
+      </div>
   </ion-content>
 </ion-view>

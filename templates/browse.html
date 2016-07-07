@@ -1,42 +1,31 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+<ion-view title='<img class="title-image" src="img/logo/Logo-trans5.png" height="60" />'>
+	<ion-content style="background: url(./templates/images/welcome/login.jpg) center; background-size: 100%;">
+		<div class="ionic login" ng-controller="MenuCtrl" ng-submit="goSearch(searchDataModel.pattern)"><br />
+			<div class="hero flat">
+      				<div class="content" align="center">
+      	      	<i class="ion-android-search hero-icon assertive-bg" style="font-size: 100px;" ></i>
+      	      </div>
+      	    </div>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+			<div class="list">
+				<label class="item item-input item-md-label" placeholder="Buscar" highlight-color="balanced" type="text">
+					<input type="text" class="used" ng-model="searchDataModel.pattern">
+						<span class="input-label ">Buscar</span>
+						<div class="highlight highlight-balanced"></div>
+						
+				</label>
+				<div class="padding">
+					<button type="submit" class="button button-block button-balanced waves-effect waves-button waves-light" 
+						ng-click='goSearch(searchDataModel.pattern);'>
+						Buscar
+					</button>
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
+				</div>
+			</div>
+			
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-  </head>
-
-  <body>
-  	<ion-view view-title="Encuentra!">
-		<ion-content>
-			<h1>Buscar</h1>
-		</ion-content>
-	</ion-view> 
-	
-	<ion-pane>
-      <ion-content class="padding">
-        <button class="button button-positive">Buscar o</button>
-		<br />
-       </ion-content>
-    </ion-pane>
-	
-  </body>
-</html>
-
+	        
+			<br /><br /><br />
+		</div>
+	</ion-content>
+</ion-view>

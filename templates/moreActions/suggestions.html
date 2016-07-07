@@ -1,9 +1,9 @@
 <ion-view title='<img class="title-image" src="img/logo/Logo-trans5.png" height="60" />'>
 	<ion-content style="background: url(./templates/images/welcome/suggestion.jpg) center; background-size: cover; background-color:rgb(255,0,0,0.5);">
-		<div class="ionic login" ng-controller="SuggestCtrl" ng-submit="suggestion()"></br>
+		<div class="ionic login" ng-controller="SuggestCtrl" ng-submit="upload()"></br>
 			<div class="hero flat">
 				<div class="content" align="center">
-	      	<i class="ion-android-camera hero-icon royal-bg" style="font-size: 110px;" ></i>
+	      	<i class="ion-android-camera hero-icon royal-bg" style="font-size: 100px;" ></i>
 	      </div>
 	    </div>
     <div class="list">
@@ -53,7 +53,7 @@
 					</label>
 					<label class="item item-input item-md-label" highlight-color="energized">
 						<input type="file" name="uploadFile" style="font-size:12px;" class="used" required = "required"
-							ng-model="reg.image" ng-change="showChanged1(reg.image)"/>
+							ng-model="reg.image"/>
 						<div class="highlight highlight-energized"></div>
 						<h6 style="color: rgb(255, 255, 255);">
 							<span ng-if="id === '6'">
@@ -64,8 +64,8 @@
 	        </div>
 
 					<h6 style="color: rgb(255, 255, 255);">*Campos requeridos</h6>
-	        <div class="padding" ng-con>
-	            <button type="submit" class="button button-block button-calm waves-effect waves-light" ng-click='suggestion()'>
+	        <div class="padding">
+	            <button type="submit" class="button button-block button-calm waves-effect waves-light" ng-click='upload()'>
 								Enviar
 							</button>
 	        </div>
