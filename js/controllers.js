@@ -297,7 +297,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 	};
 }).controller('RegionCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.regionModel = [];
-	
+
 	if ($stateParams.isSearch == null)
 		DataBaseService.getSelectRsTable("region", "*", "1 = 1", "order by region_id asc");
 	else
@@ -331,12 +331,12 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 	};
 }).controller('DepartmentCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.departamentModel = [];
-	
+
 	if ($stateParams.isSearch == null)
 		DataBaseService.getSelectRsTable("department join region_department on department.department_id = region_department.department_id", "department.*", "region_department.region_id = " + $stateParams.txtId, "order by department.department_id asc");
 	else
 		DataBaseService.getSelectRsTable("department", "*", "name like '%" + $stateParams.txtId + "%'", "order by department_id asc");
-		
+
 	var intervDepts = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
 			clearInterval(intervDepts);
@@ -353,7 +353,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 			}, 950);
 		}
 	}, 100);
-	
+
 	$scope.goTo = function(txtState, txtId) {
 		console.log("$scope.goTo");
 		console.log("txtState:" + txtState);
@@ -364,12 +364,12 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 	};
 }).controller('SiteCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.siteModel = [];
-	
+
 	if ($stateParams.isSearch == null)
 		DataBaseService.getSelectRsTable("place join department_place on place.place_id = department_place.place_id", "place.*", "department_place.department_id = " + $stateParams.txtId, "order by place.place_id asc");
 	else
 		DataBaseService.getSelectRsTable("GeographicDistribution", "*", "categoryType = 3 and id = " + $stateParams.txtId, "order by name asc");
-	
+
 	var intervSites = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
 			clearInterval(intervSites);
@@ -386,7 +386,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 			}, 950);
 		}
 	}, 100);
-	
+
 	$scope.goTo = function(txtState, txtId, txtTabId) {
 		console.log("$scope.goTo");
 		console.log("txtState:" + txtState);
@@ -397,7 +397,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 			txtTabId : txtTabId
 		});
 	};
-	
+
 	$scope.goToGallerySite = function(txtId) {
 		console.log("$scope.goTo");
 		console.log("txtState:app.siteProfile");
@@ -410,9 +410,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 }).controller('SiteProfileCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
 	$scope.siteProfileModel = [];
 	$scope.siteProfileContent = '';
-	
+
 	DataBaseService.getSelectRsTable("place", "*", "place_id = " + $stateParams.txtId, "");
-	
+
 	var intervPlaceProfile = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
 			clearInterval(intervPlaceProfile);
@@ -429,7 +429,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 					$scope.siteProfileContent = $sce.trustAsHtml(rs.item(i).content);
 				}
 			}
-			
+
 			setTimeout(function() {
 				Mi.motion.fadeSlideInRight({
 					selector : '.animate-fade-slide-in-right > *'
@@ -438,9 +438,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 			}, 1100);
 		}
 	}, 100);
-	
+
 	$scope.images = [];
-	
+
 	/*$scope.loadImages = function() {
 		DataBaseService.getSelectRsTable("Gallery", "*", "fatherId = " + $stateParams.txtId, "");
 		var interv = setInterval(function() {
@@ -459,12 +459,12 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 	};*/
 }).controller('TourTypeCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.tourTypeModel = [];
-	
+
 	if ($stateParams.isSearch == null)
 		DataBaseService.getSelectRsTable("tour_type", "*", "1 = 1", "order by tour_type_id asc");
 	else
 		DataBaseService.getSelectRsTable("tour_type", "*", "categoryType = 1 and fatherId = 0 and id = " + $stateParams.txtId, "order by name asc");
-	
+
 	var intervTourType = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
 			clearInterval(intervTourType);
@@ -492,12 +492,12 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 	};
 }).controller('TourCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.tourModel = [];
-	
+
 	if ($stateParams.isSearch == null)
 		DataBaseService.getSelectRsTable("tour join tour_type_tour on tour.tour_id = tour_type_tour.tour_id", "tour.*", "tour_type_tour.tour_type_id = " + $stateParams.txtId, "order by tour.tour_id asc");
 	else
 		DataBaseService.getSelectRsTable("TourDistribution", "*", "categoryType = 2 and id = " + $stateParams.txtId, "order by name asc");
-	
+
 	var intervTour = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
 			clearInterval(intervTour);
@@ -525,9 +525,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 }).controller('TourDetailsCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
 	$scope.siteTourDetailModel = [];
 	$scope.siteTourDetailContent = '';
-	
+
 	DataBaseService.getSelectRsTable("tour", "*", "tour_id = " + $stateParams.txtId, "");
-	
+
 	var intervTourDet = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
 			clearInterval(intervTourDet);
@@ -570,9 +570,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 }).controller('TourSiteProfileCtrl', function($scope, $sce, $state, DataBaseService, $stateParams, $ionicTabsDelegate) {
 	$scope.siteProfileModel = [];
 	$scope.siteProfileContent = '';
-	
+
 	DataBaseService.getSelectRsTable("place join tour_place on place.place_id = tour_place.place_id", "place.*", "tour_place.tour_id = " + $stateParams.txtId, "order by tour_place.id asc");
-	
+
 	var intervTourSite = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
 			clearInterval(intervTourSite);
@@ -597,9 +597,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 			}, 1100);
 		}
 	}, 100);
-	
+
 	$scope.images = [];
-	
+
 	$scope.loadImages = function() {
 		DataBaseService.getSelectRsTable("Gallery", "*", "fatherId = " + $stateParams.txtSiteId, "");
 		var interv = setInterval(function() {
@@ -617,7 +617,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 			}
 		}, 250);
 	};
-	
+
 	$scope.goTo = function(txtState, txtId, txtTabId) {
 		console.log("$scope.goTo");
 		console.log("txtState:" + txtState);
@@ -628,7 +628,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 			txtTabId : txtTabId
 		});
 	};
-	
+
 	$scope.goToGallerySite = function(txtId) {
 		console.log("$scope.goTo");
 		console.log("txtState:app.siteProfile");
@@ -874,8 +874,8 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 	//Funcion que ejecuta el login
 	$scope.login = function(user) {
 		console.log("--- user.username:" + $scope.user.username + " - user.pass:" + $scope.user.pass + " ---");
-		//$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user="
-		$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/login?user="
+		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user="
+		//$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/login?user="
 		+ $scope.user.username + "&pass=" + $scope.user.pass + "";
 
 
@@ -953,8 +953,8 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 	$scope.urlWS = "";
 	//Función para creación del nuevo usuario
 	$scope.signin = function(reg) {
-		$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
-		//$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login/registro?nombre=" + $scope.reg.name + "&apellido=" + $scope.reg.surname
+		//$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
+		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login/registro?nombre=" + $scope.reg.name + "&apellido=" + $scope.reg.surname
 					+"&email=" + $scope.reg.email + "&user=" + $scope.reg.username + "&pass=" + $scope.reg.pass;
 		$http.get($scope.urlWS).then(function(resp) {
 			$scope.errorMsg = resp.data.message;
@@ -992,8 +992,9 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 		});
 	};
 }])
-.controller('SuggestCtrl', ['$scope', '$http', '$ionicPopup', '$ionicSideMenuDelegate', '$state', '$rootScope',
-function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope) {
+//Suggestion Controller
+.controller('SuggestCtrl', ['$scope', '$http', '$ionicPopup', '$ionicSideMenuDelegate', '$state', '$rootScope', '$cordovaFileTransfer',
+function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope, $cordovaFileTransfer) {
 
 	//Variables
 	$scope.welcomeName = "";
@@ -1010,47 +1011,64 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 		console.log("--- $scope.reg.location:" + $scope.reg.location + " ---");
 		console.log("--- $scope.reg.description:" + $scope.reg.description + " ---");
 		console.log("--- $scope.reg.email:" + $scope.reg.email + " ---");
-		console.log("--- $scope.reg.image:" + $scope.reg.image + " ---");
+		console.log("--- $scope.reg.image:" + $scope.reg.image + " ---4");
 
 	/*	$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/suggestion?place="
 			+$scope.reg.place+ "&location=" +$scope.reg.location+ "&description=" +$scope.reg.description+ "&email=" +$scope.reg.email
 			+"&image" +$scope.reg.image + "";*/
 
 			//$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user="
+	}
 
-	/*	$http.get($scope.urlWS).then(function(resp) {
-			$scope.errorMsg = resp.data.message;
-			$scope.id = resp.data.id;
-			console.log("-- OK --" + $scope.id);
-			if (resp.data.id == '1') {
-				console.log("-- OK --" + resp.data.id);
-				$scope.welcomeName = resp.data.username;
-				$scope.logTitleMsg = "Agradecemos tu colaboración";
-				$scope.msg = $scope.welcomeName;
-				$scope.btn = "positive";
-				$rootScope.logged = resp.data.username;
-			} else {
-				console.log("-- ERROR --" + resp.data.id);
-				$scope.logTitleMsg = "Error";
-				$scope.msg = $scope.errorMsg;
-				$scope.btn = "assertive";
-			}
-			var alertPopup = $ionicPopup.alert({
-				title : '<div class="titlePopup">' + $scope.logTitleMsg + '</div>',
-				template : '<div class="templatePopup">' + $scope.msg + '</div>',
-				okType : 'button-' + $scope.btn,
+//upload method for suggestion
+		$scope.upload = function() {
+			console.log("--- $scope.reg.place:" + $scope.reg.place + " ---");
+			console.log("--- $scope.reg.location:" + $scope.reg.location + " ---");
+			console.log("--- $scope.reg.description:" + $scope.reg.description + " ---");
+			console.log("--- $scope.reg.email:" + $scope.reg.email + " ---");
+			console.log("--- $scope.reg.image:" + $scope.reg.image + " ---4");
+
+			// Destination URL
+			var url = "http://192.168.1.7:8080/DestinosGT/uploadFile";
+
+			var options = {
+					 fileKey: "reg.image",//"file",
+					 //fileName: filename,
+					 chunkedMode: false,
+					 mimeType: "image/jpg",
+			 //params : {'directory':'upload', 'fileName':filename}
+			 // directory represents remote directory,  fileName represents final remote file name
+					params : {'place':'reg.place', 'location':'reg.location', 'description':'reg.description', 'email':'reg.email'}
+			 };
+
+			$cordovaFileTransfer.upload(url, "/android_asset/www/img/ionic.png", options).then(function(result) {
+					console.log("SUCCESS: " + JSON.stringify(result.response));
+			}, function(err) {
+					console.log("ERROR: " + JSON.stringify(err));
+			}, function (progress) {
+					// constant progress updates
 			});
-			alertPopup.then(function(res) {
-				console.log('Thank you:' + res);
-				if (res && resp.data.id == '1') {
-					$state.go('app.welcome');
-					$ionicSideMenuDelegate.toggleLeft();
-				}
-			});
-		}, function(err) {
-			console.error('ERR', err);
-			// err.status will contain the status code
-			console.log("-- ERROR:" + err.status);
-		});*/
-	};
-}]);
+}
+}])
+
+//Controlador para leer archivo **PENDIENTE
+
+/*.directive("fileread", [function () {
+    return {
+        scope: {
+            fileread: "="
+        },
+        link: function (scope, element, attributes) {
+            element.bind("change", function (changeEvent) {
+                var reader = new FileReader();
+                reader.onload = function (loadEvent) {
+                    scope.$apply(function () {
+                        scope.fileread = loadEvent.target.result;
+                    });
+                }
+                reader.readAsDataURL(changeEvent.target.files[0]);
+            });
+        }
+    }
+}]);*/
+;

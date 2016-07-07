@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 // 'starter.services' is found in services.js
-angular.module('starter', ['ionic', 'starter.controllers']).run(function($ionicPlatform) {
+angular.module('starter', ['ionic', 'starter.controllers', 'services']).run(function($ionicPlatform) {
 	$ionicPlatform.ready(function() {
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)
@@ -179,7 +179,16 @@ angular.module('starter', ['ionic', 'starter.controllers']).run(function($ionicP
 				templateUrl : 'templates/moreActions/signin.html'
 			}
 		}
+	}).state('app.suggestions', {
+		url: '/moreActions/suggestions',
+		views: {
+		  'menuContent': {
+			templateUrl: 'templates/moreActions/suggestions.html'
+
+		  }
+		}
+
 	});
 	// if none of the above states are matched, use this as the fallback
-	$urlRouterProvider.otherwise('/app/welcome');
-}); 
+	$urlRouterProvider.otherwise('/app/login');
+});
