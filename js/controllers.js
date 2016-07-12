@@ -858,6 +858,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 		});
 	};
 })
+
 //Controlador Login
 .controller('LoginCtrl', ['$scope', '$http', '$ionicPopup', '$ionicSideMenuDelegate', '$state', '$rootScope',
 function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope) {
@@ -993,7 +994,7 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 	};
 }])
 //Suggestion Controller
-.controller('SuggestCtrl', ['$scope', '$http', '$ionicPopup', '$ionicSideMenuDelegate', '$state', '$rootScope', '$cordovaFileTransfer',
+/*.controller('SuggestCtrl', ['$scope', '$http', '$ionicPopup', '$ionicSideMenuDelegate', '$state', '$rootScope', '$cordovaFileTransfer',
 function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope, $cordovaFileTransfer) {
 
 	//Variables
@@ -1013,12 +1014,12 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope,
 		console.log("--- $scope.reg.email:" + $scope.reg.email + " ---");
 		console.log("--- $scope.reg.image:" + $scope.reg.image + " ---4");
 
-	/*	$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/suggestion?place="
-			+$scope.reg.place+ "&location=" +$scope.reg.location+ "&description=" +$scope.reg.description+ "&email=" +$scope.reg.email
-			+"&image" +$scope.reg.image + "";*/
+	//	$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/suggestion?place="
+	//		+$scope.reg.place+ "&location=" +$scope.reg.location+ "&description=" +$scope.reg.description+ "&email=" +$scope.reg.email
+	//		+"&image" +$scope.reg.image + "";*/
 
 			//$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user="
-	}
+/*	}
 
 //upload method for suggestion
 		$scope.upload = function() {
@@ -1050,6 +1051,7 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope,
 			});
 }
 }])
+*/
 
 //Controlador para leer archivo **PENDIENTE
 

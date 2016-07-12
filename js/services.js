@@ -2,8 +2,7 @@ angular.module('services', ['ionic', 'ngResource'])
 
 .controller('FacebookLoginCtrl', function($scope, $state, $q, UserService, $ionicLoading, $rootScope) {
 
-//.controller('LoginCtrl', ['$scope', '$http', '$ionicPopup', '$ionicSideMenuDelegate', '$state', '$rootScope',
-//function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope) {	
+	var user = {};
 	
 	console.log('--FacebookLoginCtrl Starts --');
 	 
@@ -28,7 +27,7 @@ angular.module('services', ['ionic', 'ngResource'])
         picture : "http://graph.facebook.com/" + authResponse.userID + "/picture?type=large"
       });
       $ionicLoading.hide();
-      $state.go('app.home');
+      //$state.go('app.home');
     }, function(fail){
       // Fail get profile info
       console.log('--profile info fail', fail);
@@ -44,11 +43,19 @@ angular.module('services', ['ionic', 'ngResource'])
   // This method is to get the user profile info from the facebook api
   var getFacebookProfileInfo = function (authResponse) {
     var info = $q.defer();
+	
 
     facebookConnectPlugin.api('/me?fields=email,name&access_token=' + authResponse.accessToken, null,
       function (response) {
 				console.log(response);
+				console.log('--Name:'+response.name);
+				user.name = response.name;
+				console.log('--Name:'+user.name);
+				user.email = response.email;
+				console.log('--Email:'+user.email);
+				
         info.resolve(response);
+		$state.go('app.browse');
       },
       function (response) {
 				console.log(response);
@@ -70,7 +77,8 @@ angular.module('services', ['ionic', 'ngResource'])
 
     		// Check if we have our user saved
     		var user = UserService.getUser('facebook');
-
+			console.log('--getLoginStatus - user:'+user);
+				
     		if(!user.userID){
 					getFacebookProfileInfo(success.authResponse)
 					.then(function(profileInfo) {
@@ -120,9 +128,14 @@ angular.module('services', ['ionic', 'ngResource'])
   };
 
   var getUser = function(){
+	  console.log('---Log 1 getUser.name:'+getUser.name);
     return JSON.parse(window.localStorage.starter_facebook_user || '{}');
   };
 
+  //$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
+			//$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login/registro?nombre=" + $scope.reg.name + "&apellido=" + $scope.reg.surname
+				//	+"&email=" + $scope.reg.email + "&user=" + $scope.reg.username + "&pass=" + $scope.reg.pass;
+  	  console.log('---Log 2 getUser.name:'+getUser.name);
   return {
     getUser: getUser,
     setUser: setUser

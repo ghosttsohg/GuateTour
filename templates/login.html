@@ -1,4 +1,4 @@
-<ion-view title='<img class="title-image" src="images/app/Logo-trans-header.png" height="60" />'>
+<ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />'>
 	<ion-content style="background: url(./templates/images/welcome/login.jpg) center; background-size: cover;">
 		<div class="ionic login" ng-controller="LoginCtrl" ng-submit="login()"><br />
 			      <div class="hero flat">
@@ -17,24 +17,24 @@
 
 	            <label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="password">
 					<input type="password" class="used" ng-model="user.pass"  >
-						<span class="input-label">Password</span>
+						<span class="input-label">Contraseña</span>
 						<div class="highlight highlight-energized"></div>
 				</label>
 	        </div>
 	        <div class="padding">
 				<button type="submit" class="button button-block button-balanced waves-effect waves-button waves-light" ng-click='login(user)'>
-				Sign in</button>
+				Ingresar</button>
 
 	        </div>
 			<br />
 			<div class="padding" ng-controller="FacebookLoginCtrl">
 			    <button type="submit" class="button button-block button-positive waves-effect waves-light button-border icon-left ion-social-facebook"
 				ng-click='facebookSignIn()'>
-			   Sing in with Facebook</button>
+			   Registrate con Facebook</button>
 		    </div>
 			<div class="padding"  ng-controller="MenuCtrl">
 				<button type="submit" style="float: right;" class="button button-clear button-energized waves-effect waves-button waves-light" ng-click="goTo('app.signin');">
-				Sign Up</button>
+				Registro</button>
 			</div>
 			<br /><br /><br />
 		</div>

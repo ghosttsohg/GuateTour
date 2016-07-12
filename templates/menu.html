@@ -47,7 +47,7 @@
 							Inicio
 						</span>
 					</a>
-					<a class="item item-icon-left" menu-close ng-click="goTo('app.login');" ng-if="logged == ''">
+					<a class="item item-icon-left" menu-close ng-click="goTo('app.login');" ng-if="logged == '' && fbLogged =='' ">
 						<span style="margin-left: 30px;">
 							<i class="icon ion-log-in" style="color:#71C13F; margin-left: 30px;"></i>
 							Login
@@ -83,7 +83,7 @@
 							Logout
 						</span>
 					</a>
-					<a class="item item-icon-left" menu-close ng-click="showLogOutMenu();"	>
+					<a class="item item-icon-left" menu-close ng-click="showLogOutMenu();"	ng-if="fbLogged !=''">
 						<span style="margin-left: 30px;">
 							<i class="icon ion-social-facebook" style="color:#71C13F; margin-left: 30px;"></i>
 							Facebook Logout
