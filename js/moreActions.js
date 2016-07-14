@@ -39,61 +39,41 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope,
 		console.log("--- $scope.reg.email:" + $scope.reg.email + " ---");
 		console.log("--- $scope.reg.image:" + $scope.reg.image + " ---");
 
-			var win = function(r) {
-				alert("Good job! " + error.code);
-				console.log("Code = " + r.responseCode);
-				console.log("Response = " + r.response);
-				console.log("Sent = " + r.bytesSent);
-			}
-
-			var fail = function(error) {
-				alert("An error has occurred: Code = " + error.code);
-				console.log("upload error source " + error.source);
-				console.log("upload error target " + error.target);
-			}
-			
+		
 			// Destination URL
 			var url = "http://192.168.1.7:8080/DestinosGT/uploadFile";
 //			var url = "http://externo.icon.com.gt/DestinosGT/uploadFile";
-			var fileURI = "Memoria interna/bluetooth/pana.png";
+			var filePath= "/storage/emulated/0/bluetooth/pana.png";
+			console.log('---filePath:'+filePath);
+			//$scope.picData = fileEntry.nativeURL;
+			//console.log('---picData:'+picData);
 			
-			
-			console.log("--- path:" + fileURI + " ---");
-			
-			/*var options = {
-				 fileKey: "file",
-				 fileName: fileURI.substr(fileURI.lastIndexOf('/')+1),
-				 chunkedMode: false,
+			var mankey = {
+				 fileName: filePath.substr(filePath.lastIndexOf('/')+1),
 				 mimeType: "image/png",
+
 				 // directory represents remote directory,  fileName represents final remote file name
-			//	params : {'place':'reg.place', 'location':'reg.location', 'description':'reg.description', 'email':'reg.email'}
-			 };*/
+				params : {
+							'place':$scope.reg.place, 
+							'location':$scope.reg.location, 
+							'description':$scope.reg.description, 
+							'email':$scope.reg.email}
+			 };
 			 
-			 var options = new FileUploadOptions();
-				options.fileKey = "file";
-				options.fileName = fileURI.substr(fileURI.lastIndexOf('/') + 1);
-				options.mimeType = "text/plain";
-				options.chunkedMode = true;
-
-				var params = {};
-				params.place = "reg.place";
-				params.location = "reg.location";
-
-				options.params = params;
-
-
-			$cordovaFileTransfer.upload(fileURI, encodeURI(url), win, fail,  options).then(function(result) {
+					$cordovaFileTransfer.upload(encodeURI(url), filePath, mankey).then(function(result) {
 					console.log("SUCCESS: " + JSON.stringify(result.response));
 					var alertPopupSuccess1 = $ionicPopup.alert({
-						title : '<div class="titlePopup"> SUCCESS </div>',
-						template : '<div class="templatePopup">SUCCESS {{result.response}}</div>',
+						title : '<div class="titlePopup"> Gracias! </div>',
+						template : '<div class="templatePopup">Tu sugerencia fue enviada con éxito, pronto será atendida por nuestros administradores. {{result.response}}</div>',
 						okType : 'button-energized',
 						});
+						$scope.reg = $scope.$new(true);
+						$state.go('app.browse');
 			}, function(err) {
 					console.log("ERROR: " + JSON.stringify(err));
 					var alertPopupError1 = $ionicPopup.alert({
-						title : '<div class="titlePopup"> ERROR </div>',
-						template : '<div class="templatePopup">ERROR {{err}}</div>',
+						title : '<div class="titlePopup"> Ups, lo sentimos! </div>',
+						template : '<div class="templatePopup">Hubo un problema al enviar tu sugerencia, por favor intenta más tarde. {{err}}</div>',
 						okType : 'button-energized',
 						});
 			}, function (progress) {
