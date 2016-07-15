@@ -310,12 +310,13 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 			var rs = DataBaseService.getRsModel();
 			var rows = [];
 			for (var i = 0; i < rs.length; i++) {
+				console.log("region:"+rs.item(i).name);
 				$scope.regionModel.push(rs.item(i));
 			}
 			setTimeout(function() {
-				Mi.motion.blindsDown({
+				/*Mi.motion.blindsDown({
 					selector : '.card'
-				});
+				});*/
 				Waves.displayEffect();
 			}, 950);
 		}

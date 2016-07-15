@@ -2,47 +2,75 @@
 <application>
 	<regions>
 		<!-- METROPOLITANA -->
+		<!-- Ciudad de Guatemala -->
 		<register>
 			<region_id>1</region_id>
-			<name>Ciudad de Guatemala</name>
-			<introduction>Moderna y Colonial</introduction>
+			<name>Metropolitana</name>
+			<introduction>Ciudad de Guatemamala, Moderna y Colonial!</introduction>
 			<content>Informacion de la ciudad de Guatemala...</content>
-			<thumbnail>ThumbMetro02.jpg</thumbnail>
+			<thumbnail>ThumbRegionMetro2.jpg</thumbnail>
+		</register>
+		<!-- NORTE -->
+		<!-- Alta Verapaz, Baja Verapaz -->
+		<register>
+			<region_id>2</region_id>
+			<name>Norte</name>
+			<introduction>Las Verapaces, Paraíso Natural!</introduction>
+			<content>Informacion de las Verapaces...</content>
+			<thumbnail>ThumbRegionNorte2.jpg</thumbnail>
 		</register>
 		<!-- NOR-ORIENTAL -->
 		<!-- Chiquimula, El Progreso, Izabal y Zacapa -->
 		<register>
-			<region_id>2</region_id>
+			<region_id>3</region_id>
 			<name>Nor-Oriental</name>
-			<introduction>un Caribe Verde</introduction>
-			<content>Informacion de Izabal...</content>
-			<thumbnail>ThumbNorOriental01.jpg</thumbnail>
+			<introduction>Nor-Oriente, un Caribe Verde!</introduction>
+			<content>Informacion de Nor-Oriente...</content>
+			<thumbnail>ThumbRegionNorOriental1.jpg</thumbnail>
+		</register>
+		<!-- SUR-ORIENTAL -->
+		<!-- Jalapa, Jutiapa, Santa Rosa -->
+		<register>
+			<region_id>4</region_id>
+			<name>Sur-Oriental</name>
+			<introduction>Sur-Oriente, un Destino Variado!</introduction>
+			<content>Informacion de Sur-Oriente...</content>
+			<thumbnail>ThumbRegionSurOriental1.jpg</thumbnail>
 		</register>
 		<!-- CENTRAL -->
 		<!-- Chimaltenango, Escuintla y Sacatepequez -->
 		<register>
-			<region_id>3</region_id>
+			<region_id>5</region_id>
 			<name>Central</name>
-			<introduction>un Caribe Verde</introduction>
-			<content>Informacion de Izabal...</content>
-			<thumbnail>ThumbCentral01.jpg</thumbnail>
+			<introduction>Cetranl...</introduction>
+			<content>Informacion de Central...</content>
+			<thumbnail>ThumbRegionCentral1.jpg</thumbnail>
 		</register>
-		<!-- SUR-OCCIDENTE -->
+		<!-- SUR-OCCIDENTAL -->
 		<!-- Quetzaltenango, Retalhuleu, San Marcos, Solola, Suchitepequez y Totonicapan -->
 		<register>
-			<region_id>4</region_id>
-			<name>Sur-Occidente</name>
-			<introduction>un Caribe Verde</introduction>
+			<region_id>6</region_id>
+			<name>Sur-Occidental</name>
+			<introduction>Sur Occidente...</introduction>
 			<content>Informacion de Izabal...</content>
-			<thumbnail>ThumbSurOccidente01.jpg</thumbnail>
+			<thumbnail>ThumbRegionSurOccidental1.jpg</thumbnail>
+		</register>
+		<!-- NOR-OCCIDENTE -->
+		<!-- Huehuetenango, Quiche -->
+		<register>
+			<region_id>7</region_id>
+			<name>Nor-Occidental</name>
+			<introduction>Nor Occidente...</introduction>
+			<content>Informacion de Izabal...</content>
+			<thumbnail>ThumbRegionNorOccidental1.jpg</thumbnail>
 		</register>
 		<!-- PETEN -->
 		<register>
-			<region_id>5</region_id>
+			<region_id>8</region_id>
 			<name>Peten</name>
-			<introduction>Aventura en el Mundo Maya</introduction>
+			<introduction>Aventura en el Mundo Maya!</introduction>
 			<content>Informacion de Peten...</content>
-			<thumbnail>ThumbPeten01.jpg</thumbnail>
+			<thumbnail>ThumbRegionPeten1.jpg</thumbnail>
 		</register>
 		
 	</regions>

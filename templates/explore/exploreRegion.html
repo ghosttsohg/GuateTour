@@ -6,14 +6,16 @@
 
 			<div class="list condensed-space no-padding animate-blinds">
 
-				<div class="card" ng-repeat="region in regionModel" style="border-bottom: 1px solid #999999; margin:0px;">
+				<div class="card in" ng-repeat="region in regionModel" style="border-bottom: 1px solid #999999; margin:0px;">
 
 					<div class="item dark-bg item-bg-image waves-light waves-effect waves-light">
-						<br/><br/><br/><br/>
-
-						<button class="button-large button-clear waves-effect icon ion-map pull-right text-white" ng-click="goTo('app.deptos', {{region.region_id}});"></button>
-
-						<img ng-src="./images/content/region/{{region.thumbnail}}" />
+						<br/><br/><br/><br/><br/>
+						<!--button 
+							class="button-large button-clear waves-effect icon ion-map pull-right text-white"
+							style="margin:0px; padding:0px;" 
+							ng-click="goTo('app.deptos', {{region.region_id}});">
+						</button-->
+						<img ng-src="./images/content/region/{{region.thumbnail}}" ng-click="goTo('app.deptos', {{region.region_id}});" />
 
 					</div>
 

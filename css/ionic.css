@@ -6853,7 +6853,7 @@ progress {
 .button-large {
   padding: 0 16px;
   min-width: 68px;
-  min-height: 59px;
+  /*min-height: 59px;*/
   font-size: 20px;
   line-height: 53px; }
   .button-large .icon:before, .button-large.icon:before, .button-large.icon-left:before, .button-large.icon-right:before {
