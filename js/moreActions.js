@@ -38,8 +38,8 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope,
 		console.log("--- $scope.reg.email:" + $scope.reg.email + " ---");
 		
 			// Destination URL
-			url = "http://192.168.1.7:8080/DestinosGT/uploadFile";
-			// url = "http://externo.icon.com.gt/DestinosGT/uploadFile";
+			//url = "http://192.168.1.7:8080/DestinosGT/uploadFile";
+			 url = "http://externo.icon.com.gt/DestinosGT/uploadFile";
 			console.log('---upload() - filePath:'+filePath);
 			
 			var mankey = {
