@@ -7,35 +7,35 @@
 			<name>Tour Metro</name>
 			<introduction>Ciudad de Guatemala</introduction>
 			<content></content>
-			<thumbnail>thumbTourMetro1.jpg</thumbnail>
+			<thumbnail>ThumbTourMetro1.jpg</thumbnail>
 		</register>
 		<register>
 			<tour_type_id>2</tour_type_id>
 			<name>Tour Huehue</name>
 			<introduction></introduction>
 			<content></content>
-			<thumbnail>thumbTourHueHue1.jpg</thumbnail>
+			<thumbnail>ThumbTourHueHue1.jpg</thumbnail>
 		</register>
 		<register>
 			<tour_type_id>3</tour_type_id>
 			<name>Tour Izabal</name>
 			<introduction></introduction>
 			<content></content>
-			<thumbnail>thumbTourIzabal1.jpg</thumbnail>
+			<thumbnail>ThumbTourIzabal1.jpg</thumbnail>
 		</register>
 		<register>
 			<tour_type_id>4</tour_type_id>
 			<name>Tour Alta Verapaz</name>
 			<introduction></introduction>
 			<content></content>
-			<thumbnail>thumbTourAltaVer1.jpg</thumbnail>
+			<thumbnail>ThumbTourAltaVer1.jpg</thumbnail>
 		</register>
 		<register>
 			<tour_type_id>5</tour_type_id>
 			<name>Tour Izabal</name>
 			<introduction></introduction>
 			<content></content>
-			<thumbnail>thumbTourVolcanes1.jpg</thumbnail>
+			<thumbnail>ThumbTourVolcanes1.jpg</thumbnail>
 		</register>
 	</tours_type>
 </application>

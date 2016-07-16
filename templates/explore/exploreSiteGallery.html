@@ -2,7 +2,7 @@
 	
 	<ion-content>
 
-		<div class="ionic">
+		<div class="ionic"  ng-controller="SiteProfileCtrl">
 
 			<div
 				 ng-repeat="profile in siteProfileModel" 
@@ -10,10 +10,10 @@
 				
 				
 				<div class="hero waves-effect waves-light" 
-					 style="background-image: url(&#39;./templates/images/thumbnails/{{profile.previsualization}}&#39;); border-bottom:5px solid #3E3E3E;">
+					 style="background-image: url(&#39;./templates/images/thumbnails/{{profile.thumbnail}}&#39;); border-bottom:5px solid #3E3E3E;">
 					<div class="content">
 						<h3><a class="light">{{profile.name}}</a></h3>
-						<h4>{{profile.introduction}}</h4>
+						<h4>{{profile.introduction}} adfasdfaf</h4>
 					</div>
 				</div>
 				

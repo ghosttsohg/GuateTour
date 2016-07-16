@@ -3,9 +3,8 @@
 	<gallery>
 		<!-- METROPOLITANA -->
 		<register>
-			<tour_id>1</tour_id>
-			<place_id>3</place_id>
-			<thumbnail></thumbnail>
+			<place_id>1</place_id>
+			<gallery_id>1</gallery_id>
 		</register>
 	</gallery>
 </application>

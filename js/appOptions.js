@@ -1,5 +1,5 @@
 appOptions = {
-	dbCreate: true
+	dbCreate: false
 };
 
 function fillDB(dbService) {
@@ -461,15 +461,13 @@ function fillGallery(dbService) {
 	      	if (json.gallery.register.length==null) {
 				registerPlaceGalleryValue[0] = [
 		      		json.gallery.register.place_id,
-		      		json.gallery.register.gallery_id,
-		      		json.gallery.register.thumbnail
+		      		json.gallery.register.gallery_id
 		      	];
 	      	} else {
 	      		for (i = 0; i < json.gallery.register.length; i++) {
 	      			registerPlaceGalleryValue[i] = [
 			      	  	json.gallery.register[i].place_id,
-			      		json.gallery.register[i].gallery_id,
-			      		json.gallery.register[i].thumbnail
+			      		json.gallery.register[i].gallery_id
 		      	  	];
 		        }
 	      	}
@@ -483,7 +481,7 @@ function fillGallery(dbService) {
 	console.log("Create Images");
 	// create Table Images
 	dbService.doCreateTable(
-		"images", 
+		"image", 
 		"id INTEGER PRIMARY KEY ASC, gallery_id INTEGER, source TEXT"
 	);
 	console.log("fill Images");
@@ -506,7 +504,7 @@ function fillGallery(dbService) {
 		        }
 	      	}
 	      	dbService.doInsertTable(
-	      		"images", 
+	      		"image", 
 	      		"gallery_id, source", 
 	      		registerImageValue
 	      	);

@@ -189,7 +189,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 		},
 		getSelectRsTable : function(tableName, tableColumn, whereValue, orderValue) {
 			dbModel.transaction(function(tx) {
-				//console.log("SELECT " + tableColumn + " FROM " + tableName + " WHERE " + whereValue + " " + orderValue);
+				console.log("SELECT " + tableColumn + " FROM " + tableName + " WHERE " + whereValue + " " + orderValue);
 				tx.executeSql("SELECT " + tableColumn + " FROM " + tableName + " WHERE " + whereValue + " " + orderValue, [], function(tx, result) {
 					console.log("Select On Table " + tableName + " OK");
 					//console.log("executeSql rows:"+result.rows.length);
@@ -442,22 +442,32 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 
 	$scope.images = [];
 
-	/*$scope.loadImages = function() {
-		DataBaseService.getSelectRsTable("Gallery", "*", "fatherId = " + $stateParams.txtId, "");
+	$scope.loadImages = function() {
+		
+		console.log("place:"+$stateParams.txtId);
+		
+		DataBaseService.getSelectRsTable("image", "image.*", 
+		"1 = 1", 
+		"order by image.id asc");
+		
 		var interv = setInterval(function() {
 			if (DataBaseService.getReadyRsModel()) {
 				clearInterval(interv);
 				DataBaseService.setReadyRsModel(false);
 				var rs = DataBaseService.getRsModel();
+				console.log("images:"+rs.length);
 				for (var i = 0; i < rs.length; i++) {
 					$scope.images.push({
 						id : rs.item(i).id,
 						src : rs.item(i).source
 					});
+
 				}
 			}
 		}, 250);
-	};*/
+	};
+
+	
 }).controller('TourTypeCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.tourTypeModel = [];
 
@@ -591,9 +601,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 				}
 			}
 			setTimeout(function() {
-				/*Mi.motion.blindsDown({
+				Mi.motion.blindsDown({
 					selector : '.card'
-				});*/
+				});
 				Waves.displayEffect();
 			}, 1100);
 		}
@@ -602,12 +612,20 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 	$scope.images = [];
 
 	$scope.loadImages = function() {
-		DataBaseService.getSelectRsTable("Gallery", "*", "fatherId = " + $stateParams.txtSiteId, "");
+		
+		console.log("place:"+$stateParams.txtId);
+		
+		DataBaseService.getSelectRsTable("image "+
+		"join gallery on image.gallery_id = gallery.gallery_id ", 
+		"image.*", 
+		"gallery.place_id = " + $stateParams.txtId, "order by image.id asc");
+		
 		var interv = setInterval(function() {
 			if (DataBaseService.getReadyRsModel()) {
 				clearInterval(interv);
 				DataBaseService.setReadyRsModel(false);
 				var rs = DataBaseService.getRsModel();
+				console.log("images:"+rs.length);
 				for (var i = 0; i < rs.length; i++) {
 					$scope.images.push({
 						id : rs.item(i).id,
