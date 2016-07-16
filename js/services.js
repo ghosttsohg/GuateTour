@@ -4,7 +4,7 @@ angular.module('services', ['ionic', 'ngResource'])
 
 	var user = {};
 	
-	console.log('--FacebookLoginCtrl Starts --');
+	console.log('--FacebookLoginCtrl Starts --'+$rootScope.fbLogged);
 	 
   // This is the success callback from the login method
   var fbLoginSuccess = function(response) {
@@ -128,8 +128,7 @@ angular.module('services', ['ionic', 'ngResource'])
   };
 
   var getUser = function(){
-	  console.log('---Log 1 getUser.name:'+getUser.name);
-    return JSON.parse(window.localStorage.starter_facebook_user || '{}');
+	return JSON.parse(window.localStorage.starter_facebook_user || '{}');
   };
 
   //$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname

@@ -3,33 +3,29 @@
 		<div class="ionic login" ng-controller="SuggestCtrl" ng-submit="upload()"></br>
 			<div class="hero flat">
 				<div class="content" align="center">
-	      	<i class="ion-android-camera hero-icon royal-bg" style="font-size: 100px;" ></i>
-	      </div>
-	    </div>
-    <div class="list">
-			<label class="item item-input item-md-label" highlight-color="balanced">
-				<input type="text" class="used" ng-model="reg.place" ng-change="showChanged(reg.place)" required = "required">
-					<span class="input-label" >*Nombre del Lugar</span>
-					<div class="highlight highlight-balanced">
-					</div>
+				<i class="ion-android-camera hero-icon royal-bg" style="font-size: 100px;" ></i>
+			  </div>
+			</div>
+			<div class="list">
+				<label class="item item-input item-md-label" highlight-color="balanced">
+					<input type="text" class="used" ng-model="reg.place" ng-change="showChanged(reg.place)" required>
+						<span class="input-label" >*Nombre del Lugar</span>
+						<div class="highlight highlight-balanced">
+						</div>
+							<h6 style="color: rgb(255, 255, 255);">
+							<span ng-show="requiredField()">{{$scope.reqMessage}}</span>
+							</h6>
+				</label>
+				<label class="item item-input item-md-label" highlight-color="energized">
+					<input type="text" class="used" ng-model="reg.location" ng-change="showChanged1(reg.location)" required>
+						<span class="input-label">*Departamento</span>
+						<div class="highlight highlight-energized"></div>
 						<h6 style="color: rgb(255, 255, 255);">
-						<span ng-if="id === '2'">
-							  * {{errorMsg}}
-						</span>
+						<span ng-show="$error.required">El nombre del lugar es requerido</span>
 						</h6>
-			</label>
-      <label class="item item-input item-md-label" highlight-color="energized">
-				<input type="text" class="used" ng-model="reg.location" ng-change="showChanged1(reg.location)" required = "required">
-					<span class="input-label">*Departamento</span>
-					<div class="highlight highlight-energized"></div>
-					<h6 style="color: rgb(255, 255, 255);">
-					<span ng-if="id === '3'">
-					* {{errorMsg}}
-					</span>
-					</h6>
-			</label>
-			<label class="item item-input item-md-label" highlight-color="positive">
-					<input type="text" class="used" ng-model="reg.description" ng-change="showChanged1(reg.description)" required = "required">
+				</label>
+				<label class="item item-input item-md-label" highlight-color="positive">
+					<input type="text" class="used" ng-model="reg.description" ng-change="showChanged1(reg.description)" required >
 						<span class="input-label">*Descripción Breve</span>
 						<div class="highlight highlight-positive"></div>
 						<h6 style="color: rgb(255, 255, 255);">
@@ -39,7 +35,7 @@
 						</h6>
 				</label>
 				<label class="item item-input item-md-label" highlight-color="assertive">
-					<input type="email" class="used" ng-model="reg.email" ng-change="showChanged(reg.email)" required = "required">
+					<input type="email" class="used" ng-model="reg.email" ng-change="showChanged(reg.email)" required>
 						<span class="input-label">*E-mail</span>
 						<div class="highlight highlight-assertive"></div>
 						<h6 style="color: rgb(255, 255, 255);">
@@ -50,24 +46,24 @@
 								  * {{errorMsg}}
 						</span>
 						</h6>
-					</label>
-					<label class="item item-input item-md-label" highlight-color="energized">
-						<input type="file" name="uploadFile" style="font-size:12px;" class="used" required = "required"
-							ng-model="reg.image"/>
-						<div class="highlight highlight-energized"></div>
-						<h6 style="color: rgb(255, 255, 255);">
-							<span ng-if="id === '6'">
-								* {{errorMsg}}
-							</span>
-						</h6>
-					</label>
-	        </div>
-
-					<h6 style="color: rgb(255, 255, 255);">*Campos requeridos</h6>
+				</label>
+				<br />
+			  				
+				<!--reg.image
+				-->
+				<div class="padding" >
+					<button type="submit" style="text-align:center;" class="button button-large button-energized waves-effect waves-light" 
+						ng-click="filepathChooser()" ng-model="reg.image" >
+						*Adjuntar Imagen
+					</button>
+				</div>
+			</div>
+		
+			<h6 style="color: rgb(255, 255, 255);">*Campos requeridos</h6>
 	        <div class="padding">
-	            <button type="submit" class="button button-block button-calm waves-effect waves-light" ng-click='upload()'>
-								Enviar
-							</button>
+	            <button type="submit" class="button button-block button-calm waves-effect waves-light" ng-click='upload(reg.image)'>
+					Enviar
+				</button>
 	        </div>
 	  </div>
 	</ion-content>
