@@ -3,6 +3,7 @@ angular.module('services', ['ionic', 'ngResource'])
 .controller('FacebookLoginCtrl', function($scope, $state, $q, UserService, $ionicLoading, $rootScope) {
 
 	var user = {};
+	$rootScope.fbLogged = "";
 	
 	console.log('--FacebookLoginCtrl Starts --'+$rootScope.fbLogged);
 	 

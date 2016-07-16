@@ -26,8 +26,8 @@
 					<h2 style="margin: 10px 0px 0px 0px; padding: 0px; color: #FFFFFF;">Menu</h2>
 				</div>
 
-				<div class="ionic">
-					<div class="hero has-mask" style="background-image: url('./templates/images/welcome/suggestion.jpg'); background-size: cover;" ng-if="logged != ''" >
+				<div class="ionic" ng-if="logged != ''">
+					<div class="hero has-mask" style="background-image: url('./templates/images/welcome/suggestion.jpg'); background-size: cover;"  >
 						<div class="content">
 							<div class="avatar" style="background-image: url('./templates/images/welcome/logo2.jpg'); background-size: cover;"></div>
 							<h4><a class="light"> {{logged}} </a></h4>
@@ -47,7 +47,7 @@
 							Inicio
 						</span>
 					</a>
-					<a class="item item-icon-left" menu-close ng-click="goTo('app.login');" ng-if="logged == '' && fbLogged =='' ">
+					<a class="item item-icon-left" menu-close ng-click="goTo('app.login');" ng-if="logged == ''">
 						<span style="margin-left: 30px;">
 							<i class="icon ion-log-in" style="color:#71C13F; margin-left: 30px;"></i>
 							Login
