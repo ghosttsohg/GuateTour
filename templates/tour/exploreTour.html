@@ -6,10 +6,11 @@
 			
 			<div class="list condensed-space no-padding animate-blinds">
 			
-				<div class="card" ng-repeat="tour in tourModel" style="border-bottom: 1px solid #999999; margin:0px;">
+				<div class="card in" ng-repeat="tour in tourModel" style="border-bottom: 1px solid #999999; margin:0px;">
 					
 					<div class="hero waves-effect waves-light"
-					style="background-image: url(&#39;./images/content/tour/{{tour.thumbnail}}&#39;);">
+					style="background-image: url(&#39;./images/content/tour/{{tour.thumbnail}}&#39;);"
+					ng-click="goTo('app.tourSite', {{tour.tour_id}});" >
 
 						<div class="content"></div>
 

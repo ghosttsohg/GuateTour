@@ -2,92 +2,181 @@
 <application>
 	<depts>
 		<!-- METROPOLITANA -->
+		<!-- Ciudad de Guatemala -->
 		<register>
 			<department_id>1</department_id>
 			<name>Guatemala</name>
-			<introduction>Guatemala, Moderna y Colonial</introduction>
-			<content>
-				<![CDATA[
-					<h5 class="text-h5" style="text-align:justify;">
-						La ciudad de Guatemala es la más pujante de Centroamérica, <br/>
-						con modernos edificios y centros de negocios; en contraste, <br/>
-						la Antigua Guatemala, ciudad colonial y romántica, es una mezcla de antiguas <br/>
-						construcciones y arraigadas costumbres y tradiciones. Por su historia <br/>
-						y belleza fue declarada “Patrimonio Cultural de la Humanidad” por la <br/>
-						UNESCO, en 1979.
-					</h5>
-				]]>
-			</content>
+			<introduction>Guatemala, Moderna y Colonial!</introduction>
+			<content></content>
 			<thumbnail>ThumbDeptGuate01.jpg</thumbnail>
 		</register>
-		<!-- NOR-ORIENTAL -->
-		<!-- Chiquimula, El Progreso, Izabal y Zacapa -->
+		
+		<!-- NORTE -->
+		<!-- Alta Verapaz, Baja Verapaz -->
 		<register>
 			<department_id>2</department_id>
-			<name>Chiquimula</name>
-			<introduction>Chiquimula, La Perla de Oriente.</introduction>
-			<content>
-				<![CDATA[
-					<h5 class="text-h5" style="text-align:justify;">
-						Cargado de espiritualidad y misticismo ofrece riqueza natural y uno de <br/> 
-						los centros religiosos de mayor importancia en la región. Esquipulas es <br/> 
-						una sede importante de reuniones regionales y su ícono es la reconocida <br/> 
-						Basílica Menor del Cristo Negro.
-					</h5>
-				]]>
-			</content>
-			<thumbnail>ThumbDeptChiquimula01.jpg</thumbnail>
+			<name>Alta Verapaz</name>
+			<introduction>Las Verapaces, Paraiso Natural!</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptGuate01.jpg</thumbnail>
 		</register>
 		<register>
 			<department_id>3</department_id>
-			<name>El Progreso</name>
-			<introduction>El Progreso, opcion para disfrutar Guatemala</introduction>
-			<content>
-				<![CDATA[
-					<h5 class="text-h5" style="text-align:justify;">
-					</h5>
-				]]>
-			</content>
-			<thumbnail>ThumbDeptProgreso01.jpg</thumbnail>
+			<name>Baja Verapaz</name>
+			<introduction>Las Verapaces, Paraiso Natural!</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptGuate01.jpg</thumbnail>
 		</register>
+		
+		<!-- NOR-ORIENTAL -->
+		<!-- Chiquimula, El Progreso, Izabal y Zacapa -->
 		<register>
 			<department_id>4</department_id>
-			<name>Izabal</name>
-			<introduction>Izabal, un Caribe Verde y Refrescante</introduction>
-			<content>
-				<![CDATA[
-					<h5 class="text-h5" style="text-align:justify;">
-						Con su original encanto, ricos ecosistemas y la alegría de la cultura
-						garífuna, ofrece un encuentro con un Caribe de exuberante belleza natural.
-					</h5>
-					<h5 class="text-h5" style="text-align:justify;">
-						La representación de la diversidad en todo su esplendor se refleja en
-						el Caribe Verde, con ricos ecosistemas que son el hábitat de diversas
-						especies.
-					</h5>
-				]]>
-			</content>
-			<thumbnail>ThumbDeptIzabal01.jpg</thumbnail>
+			<name>Chiquimula</name>
+			<introduction>Chiquimula, La Perla de Oriente!</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptChiquimula01.jpg</thumbnail>
 		</register>
 		<register>
 			<department_id>5</department_id>
+			<name>El Progreso</name>
+			<introduction>El Progreso, opcion para disfrutar Guatemala!</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptProgreso01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>6</department_id>
+			<name>Izabal</name>
+			<introduction>Izabal, un Caribe Verde y Refrescante!</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptIzabal01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>7</department_id>
 			<name>Zacapa</name>
-			<introduction>Oriente, Místico y Natural</introduction>
-			<content>
-				<![CDATA[
-					<h5 class="text-h5" style="text-align:justify;">
-					</h5>
-				]]>
-			</content>
+			<introduction>Oriente, Místico y Natural!</introduction>
+			<content></content>
 			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
 		</register>
+		
+		<!-- SUR-ORIENTAL -->
+		<!-- Jalapa, Jutiapa, Santa Rosa -->
+		<register>
+			<department_id>8</department_id>
+			<name>Jalapa</name>
+			<introduction>Jalapa, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>9</department_id>
+			<name>Jutiapa</name>
+			<introduction>Jutiapa, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>10</department_id>
+			<name>Santa Rosa</name>
+			<introduction>Santa Rosa, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
+		
 		<!-- CENTRAL -->
 		<!-- Chimaltenango, Escuintla y Sacatepequez -->
+		<register>
+			<department_id>11</department_id>
+			<name>Chimaltenango</name>
+			<introduction>Chimaltenango, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>12</department_id>
+			<name>Escuintla</name>
+			<introduction>Escuintla, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>13</department_id>
+			<name>Sacatepequez</name>
+			<introduction>Sacatepequez, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
 		
-		<!-- SUR-OCCIDENTE -->
+		<!-- SUR-OCCIDENTAL -->
 		<!-- Quetzaltenango, Retalhuleu, San Marcos, Solola, Suchitepequez y Totonicapan -->
+		<register>
+			<department_id>14</department_id>
+			<name>Quetzaltenango</name>
+			<introduction>Quetzaltenango, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>15</department_id>
+			<name>Retalhuleu</name>
+			<introduction>Retalhuleu, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>16</department_id>
+			<name>San Marcos</name>
+			<introduction>San Marcos, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>17</department_id>
+			<name>Solola</name>
+			<introduction>Solola, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>18</department_id>
+			<name>Suchitepequez</name>
+			<introduction>Suchitepequez, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>19</department_id>
+			<name>Totonicapan</name>
+			<introduction>Totonicapan, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
+		
+		<!-- NOR-OCCIDENTE -->
+		<!-- Huehuetenango, Quiche -->
+		<register>
+			<department_id>20</department_id>
+			<name>Huehuetenango</name>
+			<introduction>Huehuetenango, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
+		<register>
+			<department_id>21</department_id>
+			<name>Quiche</name>
+			<introduction>Quiche, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
 		
 		<!-- PETEN -->
+		<register>
+			<department_id>22</department_id>
+			<name>Peten</name>
+			<introduction>Peten, !</introduction>
+			<content></content>
+			<thumbnail>ThumbDeptZacapa01.jpg</thumbnail>
+		</register>
 		
 	</depts>
 </application>

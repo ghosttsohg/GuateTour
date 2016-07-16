@@ -347,9 +347,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 				$scope.departamentModel.push(rs.item(i));
 			}
 			setTimeout(function() {
-				Mi.motion.blindsDown({
+				/*Mi.motion.blindsDown({
 					selector : '.card'
-				});
+				});*/
 				Waves.displayEffect();
 			}, 950);
 		}
@@ -476,9 +476,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 				$scope.tourTypeModel.push(rs.item(i));
 			}
 			setTimeout(function() {
-				Mi.motion.blindsDown({
+				/*Mi.motion.blindsDown({
 					selector : '.card'
-				});
+				});*/
 				Waves.displayEffect();
 			}, 1300);
 		}
@@ -508,9 +508,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 				$scope.tourModel.push(rs.item(i));
 			}
 			setTimeout(function() {
-				Mi.motion.blindsDown({
+				/*Mi.motion.blindsDown({
 					selector : '.card'
-				});
+				});*/
 				Waves.displayEffect();
 			}, 1200);
 		}
@@ -550,9 +550,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 						$scope.siteTourRouteModel.push(rs.item(i));
 					}
 					setTimeout(function() {
-						Mi.motion.blindsDown({
+						/*Mi.motion.blindsDown({
 							selector : '.card'
-						});
+						});*/
 						Waves.displayEffect();
 					}, 1300);
 				}
@@ -591,9 +591,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 				}
 			}
 			setTimeout(function() {
-				Mi.motion.blindsDown({
+				/*Mi.motion.blindsDown({
 					selector : '.card'
-				});
+				});*/
 				Waves.displayEffect();
 			}, 1100);
 		}
