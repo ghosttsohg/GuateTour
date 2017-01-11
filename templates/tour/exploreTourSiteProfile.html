@@ -1,27 +1,31 @@
-<ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />' cache-view="false" ng-controller="SiteProfileCtrl">
+<ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />' cache-view="false">
 	
 	<ion-content>
 
-		<div class="ionic">
+		<div class="ionic" ng-controller="SiteProfileCtrl">
 
 			<div ng-repeat="profile in siteProfileModel" 
 				 style="width:100%; height:auto; display:block;">
 				
 				<div class="hero waves-effect waves-light" 
-					 style="background-image:url(&#39;./templates/images/thumbnails/{{profile.previsualization}}&#39;); border-bottom:5px solid #3E3E3E;">
-					<div class="content">
-						<h3><a class="light">{{profile.name}}</a></h3>
-						<h4>{{profile.introduction}}</h4>
-					</div>
-				</div>
+					 style="background-image:url(&#39;./images/content/place/{{profile.thumbnail}}&#39;); border-bottom:5px solid #3E3E3E;">					 
 					
-				<div class="animate-fade-slide-in-right"
-		 			 style="width:100%; height:100%;">
-		 			<div style="padding:10px;"
-						 ng-bind-html="siteProfileContent">
-					</div>    		 			 
-		 		</div>
-		 		
+					<div class="content">
+						
+						<h5 style="background-color: #1C76B8; color: #FFFFFF; padding-right:10px;" align="right">
+							{{profile.introduction}}
+						</h5>
+						
+					</div>
+					
+				</div>
+				
+				<div class="card" style="width:100%; height:100%;">
+					<br />
+
+					<div ng-bind-html="siteProfileContent" style="color: #999;"><!-- style="padding:10px;"  --></div>
+			
+				</div>
 		 		
 			</div>
 

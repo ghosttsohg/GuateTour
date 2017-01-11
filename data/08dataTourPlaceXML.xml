@@ -4,6 +4,10 @@
 		<!-- METROPOLITANA -->
 		<register>
 			<tour_id>1</tour_id>
+			<place_id>1</place_id>
+		</register>
+		<register>
+			<tour_id>1</tour_id>
 			<place_id>3</place_id>
 		</register>
 		<register>

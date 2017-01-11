@@ -61,7 +61,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'services', 'moreActi
 			}
 		}
 	}).state('app.siteGallery', {
-		url : '/explore/exploreSiteGalery?txtId&txtTabId',
+		url : '/explore/exploreSiteGallery?txtId&txtTabId',
 		views : {
 			'menuContent' : {
 				templateUrl : 'templates/explore/exploreSiteGallery.html'
@@ -88,18 +88,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'services', 'moreActi
 				templateUrl : 'templates/tour/exploreTour.html'
 			}
 		}
-	}).state('app.tourDetails', {
-		url : '/tour/tourDetails?txtId&isSearch',
-		views : {
-			'menuContent' : {
-				templateUrl : 'templates/tour/exploreTourDetails.html'
-			}
-		}
 	}).state('app.tourSite', {
 		url : '/tour/tourSite?txtId&isSearch',
 		views : {
 			'menuContent' : {
 				templateUrl : 'templates/tour/exploreTourSite.html'
+			}
+		}
+	}).state('app.tourDetails', {
+		url : '/tour/tourDetails?txtId&isSearch',
+		views : {
+			'menuContent' : {
+				templateUrl : 'templates/tour/exploreTourDetails.html'
 			}
 		}
 	}).state('app.tourSiteProfile', {

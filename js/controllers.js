@@ -432,9 +432,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 			}
 
 			setTimeout(function() {
-				Mi.motion.fadeSlideInRight({
-					selector : '.animate-fade-slide-in-right > *'
-				});
+				/*Mi.motion.fadeSlideInRight({
+					selector : '.card'
+				});*/
 				Waves.displayEffect();
 			}, 1100);
 		}
@@ -446,9 +446,9 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 		
 		console.log("place:"+$stateParams.txtId);
 		
-		DataBaseService.getSelectRsTable("image", "image.*", 
-		"1 = 1", 
-		"order by image.id asc");
+		DataBaseService.getSelectRsTable("image i, gallery g", "i.*", 
+		"i.gallery_id = g.gallery_id and g.place_id = " + $stateParams.txtId, 
+		"order by i.id asc");
 		
 		var interv = setInterval(function() {
 			if (DataBaseService.getReadyRsModel()) {
@@ -457,11 +457,11 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 				var rs = DataBaseService.getRsModel();
 				console.log("images:"+rs.length);
 				for (var i = 0; i < rs.length; i++) {
+					console.log("image-source:"+rs.item(i).source);
 					$scope.images.push({
 						id : rs.item(i).id,
 						src : rs.item(i).source
 					});
-
 				}
 			}
 		}, 250);
@@ -582,7 +582,10 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 	$scope.siteProfileModel = [];
 	$scope.siteProfileContent = '';
 
-	DataBaseService.getSelectRsTable("place join tour_place on place.place_id = tour_place.place_id", "place.*", "tour_place.tour_id = " + $stateParams.txtId, "order by tour_place.id asc");
+	DataBaseService.getSelectRsTable(
+		"place join tour_place on place.place_id = tour_place.place_id", "place.*", 
+		"tour_place.tour_id = " + $stateParams.txtId, "order by tour_place.id asc"
+	);
 
 	var intervTourSite = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {

@@ -473,7 +473,7 @@ function fillGallery(dbService) {
 	      	}
 	      	dbService.doInsertTable(
 	      		"gallery", 
-	      		"place_id, gallery_id, thumbnail", 
+	      		"place_id, gallery_id", 
 	      		registerPlaceGalleryValue
 	      	);
 		}
