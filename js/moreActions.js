@@ -38,8 +38,8 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope,
 		console.log("--- $scope.reg.email:" + $scope.reg.email + " ---");
 		
 			// Destination URL
-			//url = "http://192.168.1.7:8080/DestinosGT/uploadFile";
-			 url = "http://externo.icon.com.gt/DestinosGT/uploadFile";
+			//url = "http://externo.icon.com.gt/DestinosGT/uploadFile";
+			 url = "http://externo.icon.com.gt/DestinosGT_ADM/uploadFile";
 			console.log('---upload() - filePath:'+filePath);
 			
 			var mankey = {
@@ -51,7 +51,7 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope,
 							'description':$scope.reg.description, 
 							'email':$scope.reg.email}
 			};
-			 
+					console.log("fileName: " + mankey);
 					$cordovaFileTransfer.upload(encodeURI(url), filePath, mankey).then(function(result) {
 					console.log("SUCCESS: " + JSON.stringify(result.response));
 					alertPopupSuccess1 = $ionicPopup.alert({
