@@ -1,10 +1,10 @@
-<ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />' cache-view="false" >
+<!--ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />' cache-view="false" >
 
   <ion-content ng-controller="MyTourSiteListCtrl">
   
         <div class="ionic">
         	<div class="slide-up" ng-repeat="site in MyTourSiteListModel">
-	            <div class="hero has-mask waves-effect waves-light" style="background-image: url(&#39;./templates/images/thumbnails/{{site.previsualization}}&#39;);">
+	            <div class="hero has-mask waves-effect waves-light" style="background-image: url(&#39;./templates/images/thumbnails/{{site.thumbnail}}&#39;);">
 		            <div class="content">
 		                
 		            </div>
@@ -18,4 +18,43 @@
         
 	</ion-content>
   
+</ion-view-->
+
+<ion-view title='<img class="title-image" src="images/app/Logo-trans-header.png" height="60" />' cache-view="false" >
+	
+	<ion-content ng-controller="MyTourSiteListCtrl">
+	
+		<div class="ionic">
+	
+			<div class="card" ng-repeat="site in MyTourSiteListModel" style="padding:0px; margin:0px;">
+	
+				<div class="hero waves-effect waves-light" style="background-image: url(&#39;./images/content/place/{{site.thumbnail}}&#39;);">
+	
+					<div class="content">
+	
+						<button class="button button-medium button-clear flat icon ion-images pull-right" ng-click="goToGallerySite({{site.id}});"></button>
+						<button class="button button-medium button-clear flat icon ion-location pull-right" ng-click="goTo('app.siteProfile', {{site.id}}, 'location');"></button>
+						<button class="button button-medium button-clear flat icon ion-plus-round pull-right" ng-click="goTo('app.siteProfile', {{site.id}}, 'services');"></button>
+						<button class="button button-medium button-clear flat icon ion-information pull-right" ng-click="goTo('app.siteProfile', {{site.id}}, 'information');"></button>
+	
+					</div>
+	
+				</div>
+	
+				<div class="mid-bar">
+	
+					<h3 style="color:#FFF; margin-top: 5px; font-size: 20px;"><i class="icon ion-location" style="color:#71C13F; margin-right:5px;"></i> {{site.name}} </h3>
+	
+					<p style="color:#DDD9D9; font-size: 12px;">
+						{{site.introduction}}
+					</p>
+	
+				</div>
+	
+			</div>
+	
+		</div>
+	
+	</ion-content>
+
 </ion-view>

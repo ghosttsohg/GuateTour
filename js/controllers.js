@@ -710,13 +710,14 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 	console.log("MyToursCtrl");
 
 	$scope.myTourListModel = [];
-	if ($stateParams.isSearch == null)
-		DataBaseService.getSelectRsTable("MyTourDistribution", "*", "1 = 1", "order by name asc");
-	else
-		DataBaseService.getSelectRsTable("MyTourDistribution", "*", "id =" + $stateParams.txtId, "order by name asc");
-	var interv = setInterval(function() {
+	//if ($stateParams.isSearch == null)
+		DataBaseService.getSelectRsTable("my_tour", "*", "1 = 1", "order by name asc");
+	//else
+	//	DataBaseService.getSelectRsTable("my_tour", "*", "id =" + $stateParams.txtId, "order by name asc");
+		
+	var intervMyTour = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
-			clearInterval(interv);
+			clearInterval(intervMyTour);
 			DataBaseService.setReadyRsModel(false);
 			var rs = DataBaseService.getRsModel();
 			var rows = [];
@@ -724,13 +725,14 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 				$scope.myTourListModel.push(rs.item(i));
 			}
 			setTimeout(function() {
-				Mi.motion.fadeSlideInRight({
+				/*Mi.motion.fadeSlideInRight({
 					selector : '.animate-fade-slide-in-right > *'
-				});
+				});*/
 				Waves.displayEffect();
-			}, 1300);
+			}, 1100);
 		}
 	}, 250);
+	
 	$scope.goTo = function(txtState, txtId) {
 		console.log("$scope.goTo");
 		console.log("txtState:" + txtState);
@@ -739,21 +741,23 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 			txtId : txtId
 		});
 	};
+	
 	$scope.goToCreateTour = function() {
 		console.log("$scope.goToCreateTour");
 		$state.go("app.CreateTour");
 	};
+	
 }).controller('CreateTourCtrl', function($scope, $state, DataBaseService, $stateParams, $ionicPopup, $ionicHistory) {
-	$scope.createTourModel
+	console.log("CreateTourCtrl");
+	
+	$scope.createTourModel;
 	$scope.siteListModel = [];
 	$scope.siteListTourModel = [];
-
-	console.log("CreateTourCtrl");
 
 	if ($stateParams.loadSitesList == null || $stateParams.loadSitesList == "") {
 		if ($stateParams.txtIds != null && $stateParams.txtIds != "") {
 			console.log("cargar sitios agregados");
-			DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization", "categoryType = 3 and id in (" + $stateParams.txtIds + ")", "");
+			DataBaseService.getSelectRsTable("place", "place.*", "place_id in (" + $stateParams.txtIds + ")", "");
 			var interv = setInterval(function() {
 				if (DataBaseService.getReadyRsModel()) {
 					clearInterval(interv);
@@ -764,11 +768,11 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 						$scope.siteListTourModel.push(rs.item(i));
 					}
 					setTimeout(function() {
-						Mi.motion.fadeSlideInRight({
+						/*Mi.motion.fadeSlideInRight({
 							selector : '.animate-fade-slide-in-right > *'
-						});
+						});*/
 						Waves.displayEffect();
-					}, 1300);
+					}, 1100);
 				}
 			}, 250);
 		}
@@ -776,22 +780,23 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 
 	if ($stateParams.loadSitesList == "true") {
 		console.log("cargando sitios...");
-		DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization", "categoryType = 3", "order by name asc");
-		var interv = setInterval(function() {
+		DataBaseService.getSelectRsTable("place", "place.*", "1 = 1", "order by name asc");
+		var intervLoadPlaces = setInterval(function() {
 			if (DataBaseService.getReadyRsModel()) {
-				clearInterval(interv);
+				clearInterval(intervLoadPlaces);
 				DataBaseService.setReadyRsModel(false);
 				var rs = DataBaseService.getRsModel();
 				var rows = [];
+				console.log("places:"+rs.length);
 				for (var i = 0; i < rs.length; i++) {
 					$scope.siteListModel.push(rs.item(i));
 				}
 				setTimeout(function() {
-					Mi.motion.fadeSlideInRight({
+					/*Mi.motion.fadeSlideInRight({
 						selector : '.animate-fade-slide-in-right > *'
-					});
+					});*/
 					Waves.displayEffect();
-				}, 1300);
+				}, 1100);
 			}
 		}, 250);
 	}
@@ -823,11 +828,10 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 		$state.go(txtState);
 	};
 	$scope.createTour = function() {
-
 		var alerta = false;
 		if ($scope.createTourModel == null || $scope.createTourModel == "") {
 			$scope.logTitleMsg = "Error";
-			$scope.msg = "Debe ingresar una descripción para el tour";
+			$scope.msg = "Debe ingresar la información solicitada para el tour";
 			$scope.btn = "assertive";
 			alerta = true;
 		} else if ($scope.createTourModel.name == undefined || $scope.createTourModel.name == "") {
@@ -860,15 +864,15 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 			];
 
 			DataBaseService.doInsertTable(
-	      		"MyTourDistribution",
+	      		"my_tour",
 	      		"name, introduction",
 	      		registerValue
 	      	);
-	      	DataBaseService.getSelectRsTable("MyTourDistribution", "*", "name = '"+$scope.createTourModel.name+"' and introduction = '"+$scope.createTourModel.introduction+"'", "");
+	      	DataBaseService.getSelectRsTable("my_tour", "*", "name = '"+$scope.createTourModel.name+"' and introduction = '"+$scope.createTourModel.introduction+"'", "");
 
-			var interv = setInterval(function() {
+			var intervAddTour = setInterval(function() {
 				if (DataBaseService.getReadyRsModel()) {
-					clearInterval(interv);
+					clearInterval(intervAddTour);
 					DataBaseService.setReadyRsModel(false);
 					var rs = DataBaseService.getRsModel();
 					var rows = [];
@@ -883,8 +887,8 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 				      	  	];
 				        }
 				      	DataBaseService.doInsertTable(
-				      		"MyTourSiteRoute",
-				      		"tourId, siteId, inOrder",
+				      		"my_tour_place",
+				      		"my_tour_id, place_id, order_number",
 				      		registerValue2
 				      	);
 					}
@@ -903,12 +907,13 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 			}, 250);
 		}
 	};
+	
 }).controller('MyTourSiteListCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.MyTourSiteListModel = [];
-	DataBaseService.getSelectRsTable("GeographicDistribution", "*", "id in (SELECT siteId FROM MyTourSiteRoute WHERE tourId = " + $stateParams.txtId + ")", "");
-	var interv = setInterval(function() {
+	DataBaseService.getSelectRsTable("my_tour_place mtp, place p", "p.*", "mtp.place_id = p.place_id and mtp.my_tour_id = " + $stateParams.txtId, "");
+	var intervMyTour = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
-			clearInterval(interv);
+			clearInterval(intervMyTour);
 			DataBaseService.setReadyRsModel(false);
 			var rs = DataBaseService.getRsModel();
 			for (var i = 0; i < rs.length; i++) {
@@ -923,6 +928,15 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 		console.log("$scope.goTo");
 		$state.go(txtState, {
 			txtId : txtId
+		});
+	};
+	$scope.goToGallerySite = function(txtId) {
+		console.log("$scope.goTo");
+		console.log("txtState:app.siteProfile");
+		console.log("txtId:" + txtId);
+		$state.go('app.siteGallery', {
+			txtId : txtId,
+			txtTabId : 'gallery'
 		});
 	};
 })

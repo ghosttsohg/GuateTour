@@ -19,6 +19,10 @@ function fillDB(dbService) {
 	dbService.doDropTable("gallery");
 	dbService.doDropTable("image");
 	
+	dbService.doDropTable("my_tour");
+	dbService.doDropTable("my_tour_place");
+	
+	
 	// Create-fill Table Region
 	fillRegion(dbService);
 	
@@ -34,75 +38,18 @@ function fillDB(dbService) {
 	// Create-fill Table Gallery, Image
 	fillGallery(dbService);
 	
-	/*
-	// create MyTourDistribution
+	
+	// create my_tour
 	dbService.doCreateTable(
-		"MyTourDistribution", 
-		"id INTEGER PRIMARY KEY ASC, name TEXT, introduction TEXT"
+		"my_tour", 
+		"id INTEGER PRIMARY KEY ASC, name TEXT, introduction TEXT, thumbnail TEXT"
 	);
 	
+	// create my_tour_place
 	dbService.doCreateTable(
-		"MyTourSiteRoute", 
-		"id INTEGER PRIMARY KEY ASC, tourId INTEGER, siteId INTEGER, inOrder INTEGER"
+		"my_tour_place", 
+		"id INTEGER PRIMARY KEY ASC, my_tour_id INTEGER, place_id INTEGER, order_number INTEGER"
 	);
-	
-	var xmlGeoDistributionFiles = [
-		'GD00dataRegionesXML.xml', 
-		'GD01dataDeptoRegMetroXML.xml',
-		'GD06dataDeptoGuatemalaSitios.xml'
-		//'GD02dataDeptoRegNorOrientalXML.xml',
-		//'GD03dataDeptoRegCentralXML.xml', 
-		//'GD04dataDeptoRegSurOccidenteXML.xml', 
-		//'GD05dataDeptoRegPetenXML.xml',
-	];
-	
-	
-	
-	var xmlGalleryFiles = [
-		'G03GallerySitesXML.xml'
-	];
-	
-	// create Gallery
-	dbService.doCreateTable(
-		"Gallery", 
-		"id INTEGER PRIMARY KEY ASC, fatherId INTEGER, information TEXT, source TEXT"
-	);
-	// fill Gallery
-	for (i=0; i<xmlGalleryFiles.length; i++) {
-		fillGallery(xmlGalleryFiles[i], dbService);
-	}
-	
-	var xmlTourDistributionFiles = [
-		'TD00dataToursTypesXML.xml', 
-		'TD01dataToursMetroXML.xml'
-	];
-	
-	// create TourDistribution
-	dbService.doCreateTable(
-		"TourDistribution", 
-		"id INTEGER PRIMARY KEY ASC, fatherId INTEGER, categoryType INTEGER, name TEXT, introduction TEXT, information TEXT, services TEXT, location TEXT, previsualization TEXT, map TEXT"
-	);
-  	
-  	// fill TourDistribution
-	for (i=0; i<xmlTourDistributionFiles.length; i++) {
-		fillTourDistribution(xmlTourDistributionFiles[i], dbService);
-	}
-	
-	// create TourSiteRoute
-	dbService.doCreateTable(
-		"TourSiteRoute", 
-		"id INTEGER PRIMARY KEY ASC, tourId INTEGER, siteId INTEGER, inOrder INTEGER"
-	);
-	
-	var xmlTourSiteRouteFiles = [
-		'TR00dataTourSiteRouteXML.xml'
-	];
-	
-	// fill TourSiteRoute
-	for (i=0; i<xmlTourSiteRouteFiles.length; i++) {
-		fillTourSiteRoute(xmlTourSiteRouteFiles[i], dbService);
-	}
-	*/
 	
 	//testTable('department_place', dbService);
 

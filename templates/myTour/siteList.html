@@ -1,18 +1,22 @@
-<ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />' cache-view="false" ng-controller="CreateTourCtrl">
+<ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />' cache-view="false">
 	
-	<ion-content>
+	<ion-content ng-controller="CreateTourCtrl">
 
 		<div class="ionic">
 			
-			<div class="list animate-fade-slide-in-right">
+			<div class="card in" style="background: none;">
+				
 	            <a ng-repeat="site in siteListModel"
 	               ng-click="goAddSiteToList({{site.id}});"
 	               class="item item-avatar waves-effect waves-button waves-light in done"
 	               style="background:none;">
-	                <span class="avatar" style="background-image: url(&#39;./templates/images/thumbnails/{{site.previsualization}}&#39;);"></span>
+	                
+	                <span class="avatar" style="background-image: url(&#39;./templates/images/thumbnails/{{site.thumbnail}}&#39;);"></span>
 	                <h3 class="text-h3">{{site.name}}</h3>
 	                <h4 class="text-h4">{{site.introduction}}</h4>
+	            
 	            </a>
+	            
 	        </div>
 	        
         </div>
