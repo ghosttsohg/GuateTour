@@ -892,6 +892,10 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 				      		registerValue2
 				      	);
 					}
+					$scope.createTourModel = null;
+					$scope.siteListModel = [];
+					$scope.siteListTourModel = [];
+					
 					$scope.logTitleMsg = "OK";
 					$scope.msg = "Felicidades, tour creado!";
 					$scope.btn = "positive";
