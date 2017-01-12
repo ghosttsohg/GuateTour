@@ -253,7 +253,30 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 }).controller('SearchResultCtrl', function($scope, $state, DataBaseService, $stateParams) {
 	$scope.searchResultModel = [];
 	DataBaseService.setReadyRsModel(false);
-	DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization, Case categoryType When '1' then 'app.exploreRegion' when '2' then 'app.deptos' Else 'app.sites' end as navigationPath", "lower(name) like lower('%" + $stateParams.txtPattern + "%')", "");
+	
+	DataBaseService.getSelectRsTable("place", "place.*, 'app.sites' as navigationPath", "lower(name) like lower('%" + $stateParams.txtPattern + "%')", "");
+	var intervSearch = setInterval(function() {
+		if (DataBaseService.getReadyRsModel()) {
+			clearInterval(intervSearch);
+			DataBaseService.setReadyRsModel(false);
+			var rsSearch = DataBaseService.getRsModel();
+			for (var i = 0; i < rsSearch.length; i++) {
+				$scope.searchResultModel.push(rsSearch.item(i));
+			}
+			if ($scope.searchResultModel == null || $scope.searchResultModel.length <= 0) {
+				$scope.searchResultModel.push({
+					id : '0',
+					name : 'No se encontraron coincidencias',
+					introduction : '',
+					previsualization : '',
+					navigationPath : ''
+				});
+			}
+		}
+	}, 250);
+	
+	
+	/*DataBaseService.getSelectRsTable("GeographicDistribution", "id, name, introduction, previsualization, Case categoryType When '1' then 'app.exploreRegion' when '2' then 'app.deptos' Else 'app.sites' end as navigationPath", "lower(name) like lower('%" + $stateParams.txtPattern + "%')", "");
 	var interv = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {
 			clearInterval(interv);
@@ -262,6 +285,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 			for (var i = 0; i < rs.length; i++) {
 				$scope.searchResultModel.push(rs.item(i));
 			}
+
 			DataBaseService.getSelectRsTable("TourDistribution", "id, name, introduction, previsualization, Case categoryType When '1' then 'app.tourTypeList' when '2' then 'app.tourList' end as navigationPath", "lower(name) like lower('%" + $stateParams.txtPattern + "%')", "");
 			var interv2 = setInterval(function() {
 				if (DataBaseService.getReadyRsModel()) {
@@ -283,7 +307,8 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 				}
 			}, 250);
 		}
-	}, 250);
+	}, 250);*/
+	
 	$scope.goTo = function(txtPathRule, txtId) {
 		console.log("$scope.goTo");
 		console.log("txtPathRule:" + txtPathRule);
@@ -369,7 +394,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource','ngCordova'])
 	if ($stateParams.isSearch == null)
 		DataBaseService.getSelectRsTable("place join department_place on place.place_id = department_place.place_id", "place.*", "department_place.department_id = " + $stateParams.txtId, "order by place.place_id asc");
 	else
-		DataBaseService.getSelectRsTable("GeographicDistribution", "*", "categoryType = 3 and id = " + $stateParams.txtId, "order by name asc");
+		DataBaseService.getSelectRsTable("place", "place.*", "place.place_id = " + $stateParams.txtId, "order by place.place_id asc");
 
 	var intervSites = setInterval(function() {
 		if (DataBaseService.getReadyRsModel()) {

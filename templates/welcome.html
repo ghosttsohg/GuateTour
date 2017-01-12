@@ -1,10 +1,13 @@
 <ion-view title='<img class="title-image" src="img/logo/Logo-trans5.png" height="60" />'>
+	
 	<ion-content style="background: url(./templates/images/welcome/login.jpg) center; background-size: 100%;">
+		
 		<div class="ionic login" ng-controller="MenuCtrl" ng-submit="goSearch(searchDataModel.pattern)"><br />
+			
 			<div class="hero flat">
-      				<div class="content" align="center">
-      	      	<i class="ion-android-search hero-icon assertive-bg" style="font-size: 100px;" ></i>
-      	      </div>
+      			<div class="content" align="center">
+      	      		<i class="ion-android-search hero-icon assertive-bg" style="font-size: 100px;" ></i>
+      	    	</div>
       	    </div>
 
 			<div class="list">
@@ -12,20 +15,18 @@
 					<input type="text" class="used" ng-model="searchDataModel.pattern">
 						<span class="input-label ">Buscar</span>
 						<div class="highlight highlight-balanced"></div>
-						
 				</label>
 				<div class="padding">
 					<button type="submit" class="button button-block button-balanced waves-effect waves-button waves-light" 
 						ng-click='goSearch(searchDataModel.pattern);'>
 						Buscar
 					</button>
-
 				</div>
 			</div>
-			
-
 	        
 			<br /><br /><br />
 		</div>
+		
 	</ion-content>
+	
 </ion-view>

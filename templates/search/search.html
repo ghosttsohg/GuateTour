@@ -1,6 +1,6 @@
-<ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />' cache-view="false" ng-controller="SearchResultCtrl">
+<ion-view title='<img class="title-image" src="img/logo/HeaderTitleDestinosWhite.png" height="60" />' cache-view="false">
 	
-	<ion-content>
+	<ion-content ng-controller="SearchResultCtrl">
 
 		<div class="ionic">
 
@@ -9,9 +9,13 @@
                    ng-click="goTo('{{item.navigationPath}}', {{item.id}});"
                    class="item item-avatar waves-effect waves-button waves-light in done"
                    style="background:none;">
+                   
                     <span class="avatar" style="background-image: url(&#39;./templates/images/thumbnails/{{item.previsualization}}&#39;);"></span>
+                    
                     <h3 class="text-h3">{{item.name}}</h3>
+                    
                     <h4 class="text-h4">{{item.introduction}}</h4>
+                    
                 </a>
             </div>
 			
