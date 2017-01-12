@@ -74,6 +74,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'services', 'moreActi
 				templateUrl : 'templates/browse.html'
 			}
 		}
+		
+	/* *********************
+	 * ****** TOURS ********
+	 * *********************/
 	}).state('app.tourTypeList', {
 		url : '/tour/tourTypeList?txtId&isSearch',
 		views : {
@@ -109,8 +113,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'services', 'moreActi
 				templateUrl : 'templates/tour/exploreTourSiteProfile.html'
 			}
 		}
-	}).state('app.ToursiteGallery', {
-		url : '/explore/exploreTourSiteGalery?txtId&txtTabId',
+	}).state('app.TourSiteGallery', {
+		url : '/tour/exploreTourSiteGalery?txtId&txtTabId',
 		views : {
 			'menuContent' : {
 				templateUrl : 'templates/tour/exploreTourSiteGallery.html'

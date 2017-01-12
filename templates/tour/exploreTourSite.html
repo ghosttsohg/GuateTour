@@ -4,13 +4,13 @@
 	
 		<div class="ionic">
 	
-			<div class="card" ng-repeat="site in siteProfileModel" style="padding:0px; margin:0px;">
+			<div class="card" ng-repeat="site in tourSiteProfileModel" style="padding:0px; margin:0px;">
 	
 				<div class="hero waves-effect waves-light" style="background-image: url(&#39;./images/content/place/{{site.thumbnail}}&#39;);">
 	
 					<div class="content">
 	
-						<button class="button button-medium button-clear flat icon ion-images pull-right" ng-click="goToGallerySite({{site.id}});"></button>
+						<button class="button button-medium button-clear flat icon ion-images pull-right" ng-click="goToTourGallerySite({{site.id}});"></button>
 						<button class="button button-medium button-clear flat icon ion-location pull-right" ng-click="goTo('app.tourSiteProfile', {{site.id}}, 'location');"></button>
 						<button class="button button-medium button-clear flat icon ion-plus-round pull-right" ng-click="goTo('app.tourSiteProfile', {{site.id}}, 'services');"></button>
 						<button class="button button-medium button-clear flat icon ion-information pull-right" ng-click="goTo('app.tourSiteProfile', {{site.id}}, 'information');"></button>
