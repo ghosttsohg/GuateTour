@@ -961,7 +961,7 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 	//Funcion que ejecuta el login
 	$scope.login = function(user) {
 		console.log("--- user.username:" + $scope.user.username + " - user.pass:" + $scope.user.pass + " ---");
-		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login?user="
+		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT_ADM/Services/login?user="
 		//$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/login?user="
 		+ $scope.user.username + "&pass=" + $scope.user.pass + "";
 
@@ -1041,7 +1041,7 @@ function($scope, $http, $ionicPopup, $ionicSideMenuDelegate, $state, $rootScope)
 	//Función para creación del nuevo usuario
 	$scope.signin = function(reg) {
 		//$scope.urlWS = "http://192.168.1.7:8080/DestinosGT/Services/login/registro?nombre="+ $scope.reg.name +"&apellido="+$scope.reg.surname
-		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT/Services/login/registro?nombre=" + $scope.reg.name + "&apellido=" + $scope.reg.surname
+		$scope.urlWS = "http://externo.icon.com.gt/DestinosGT_ADM/Services/login/registro?nombre=" + $scope.reg.name + "&apellido=" + $scope.reg.surname
 					+"&email=" + $scope.reg.email + "&user=" + $scope.reg.username + "&pass=" + $scope.reg.pass;
 		$http.get($scope.urlWS).then(function(resp) {
 			$scope.errorMsg = resp.data.message;
